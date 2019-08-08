@@ -378,6 +378,7 @@ header .go-back i {
     left: 0;
     top: 0;
     content: "";
+    opacity: .6;
 }
 
 .bg-cover .container {
