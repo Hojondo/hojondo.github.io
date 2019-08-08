@@ -22,8 +22,8 @@
 
             <div class="description center-align">
                 <% if (config.description && config.description.length > 0) { %>
-                    <!-- <%= config.description %> -->
-                    <%- '<span id="jinrishici-sentence">正在加载今日诗词...</span>' %>
+<!--                     <%= config.description %> -->
+                    <%- '<span class="hitokoto">～前端开发嗷～</span>' %>
                 <% } else { %>
                     This is your root _config.yml 'description' value.
                 <% } %>
@@ -38,3 +38,5 @@
 $('.bg-cover').css('background-image', 'url(/medias/banner/' + Math.floor(Math.random()*19) + '.jpg)');
 
 </script>
+<!--<script>document.write("<div>");yiju(true);document.write("</div>");</script>-->
+<script src="https://api.itswincer.com/hitokoto/v2/?encode=js" defer></script>
