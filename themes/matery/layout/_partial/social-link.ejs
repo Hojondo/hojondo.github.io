@@ -1,5 +1,5 @@
 <% if (theme.socialLink.github) { %>
-    <a href="<%= theme.socialLink.github %>" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <a href="https://github.com/<%= theme.socialLink.github %>" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fa fa-github"></i>
     </a>
 <% } %>
@@ -10,9 +10,21 @@
     </a>
 <% } %>
 
+<% if (theme.socialLink.zhihu) { %>
+    <a href="https://zhihu.com/people/<%= theme.socialLink.zhihu %>" class="tooltipped" target="_blank" data-tooltip="访问我的知乎" data-position="top" data-delay="50">
+        <i class="fa fa-inverse">知</i>
+    </a>
+<% } %>
+
 <% if (theme.socialLink.qq) { %>
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=<%= theme.socialLink.qq %>" class="tooltipped" data-tooltip="QQ联系我: <%= theme.socialLink.qq %>" data-position="top" data-delay="50">
+    <a href="https://user.qzone.qq.com/<%= theme.socialLink.qq %>" class="tooltipped" target="_blank" data-tooltip="访问我的QQ空间" data-position="top" data-delay="50">
         <i class="fa fa-qq"></i>
+    </a>
+<% } %>
+
+<% if (theme.socialLink.weibo) { %>
+    <a href="https://weibo.com/<%= theme.socialLink.weibo %>" class="tooltipped" target="_blank" data-tooltip="关注我的微博" data-position="top" data-delay="50">
+        <i class="fa fa-weibo"></i>
     </a>
 <% } %>
 

@@ -8,6 +8,10 @@
         title = __('categories');
     } else if (title == 'about') {
         title = __('about');
+    } else if (title == 'friends') {
+        title = __('friends');
+    } else if (title == 'contact') {
+        title = __('contact');
     }
 
     // archives, category, tag pages title
@@ -60,6 +64,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="<%= keyWords %>">
+    <meta name="baidu-site-verification" content="fmlEuI34ir" />
+    <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />
     <meta name="description" content="<%= description %>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -79,12 +85,28 @@
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     <style type="text/css">
-        <% if (!theme.code.break) { %>
-        code[class*="language-"], pre[class*="language-"] {
-            white-space: pre !important;
+        <% if ( !theme.code.break) {
+
+            %>code[class*="language-"],
+            pre[class*="language-"] {
+                white-space: pre !important;
+            }
+
+            <%
         }
-        <% } %>
+
+        %>
     </style>
 
     <script src="<%- theme.libs.js.jquery %>"></script>
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?46e79e71af0709a5b9106bf20cecc493";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
 </head>

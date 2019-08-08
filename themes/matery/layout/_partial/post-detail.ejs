@@ -31,11 +31,20 @@
                     <% } %>
                 </div>
             </div>
-
+            
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i><%- __('publishDate') %>:&nbsp;&nbsp;
                     <%- date(page.date, 'YYYY-MM-DD') %>
+                </div>
+
+                <div class="post-author info-break-policy">
+                    <i class="fa fa-user-o fa-fw"></i><%- __('author') %>:&nbsp;&nbsp;
+                    <% if (page.author && page.author.length > 0) { %>
+                        <%- page.author %>
+                    <% } else {%>
+                        <%- config.author %>
+                    <% } %>
                 </div>
 
                 <% if (theme.wordCount.enable) { %>

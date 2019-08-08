@@ -99,7 +99,6 @@ pre {
     overflow: auto;
     border-radius: 0.35rem;
     tab-size: 4;
-    white-space: pre-wrap; // 自定义
 }
 
 code {
@@ -164,7 +163,8 @@ mark {
 }
 
 .bg-color {
-    background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+    background-image: linear-gradient(to right, #bf30ac 0%, #0f9d58 100%);
+    opacity: 0.7;
 }
 
 .text-color {
@@ -180,8 +180,8 @@ mark {
     position: fixed;
     bottom: 0;
     z-index: 300;
-    background: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
-    opacity: 0.8;
+    background: linear-gradient(to right, #bf30ac 0%, #0f9d58 100%);
+    opacity: 0.7;
 }
 
 .sidenav-overlay {
@@ -1349,6 +1349,18 @@ table tr:nth-child(2n), thead {
     }
 }
 
+.contact-container {
+    width: 90%;
+    max-width: 900px;
+    margin-top: -60px;
+}
+
+@media only screen and (max-width: 600px) {
+    .contact-container {
+        width: 95%;
+    }
+}
+
 /* about page styles. */
 
 .about-container {
@@ -1793,6 +1805,3 @@ footer .copy-right {
     /* bg color = bg color under block */
     background: white;
 }
-
-
-/*自定义*/

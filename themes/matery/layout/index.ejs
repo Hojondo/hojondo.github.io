@@ -1,7 +1,7 @@
 <% if (is_home() && page.current === 1) { %>
 <%- partial('_partial/index-cover') %>
 <% } else { %>
-    <%- partial('_partial/bg-cover') %>
+<%- partial('_partial/bg-cover') %>
 <% } %>
 
 <main class="content">
@@ -12,15 +12,15 @@
             <div class="card">
                 <div class="card-content">
                     <% if (theme.dream.enable) { %>
-                        <%- partial('_widget/dream') %>
+                    <%- partial('_widget/dream') %>
                     <% } %>
 
                     <% if (theme.music.enable && site.data && site.data.musics) { %>
-                        <%- partial('_widget/music') %>
+                    <%- partial('_widget/music') %>
                     <% } %>
 
                     <% if (theme.video.enable) { %>
-                        <%- partial('_widget/video') %>
+                    <%- partial('_widget/video') %>
                     <% } %>
 
                     <div id="recommend-sections" class="recommend">
@@ -53,7 +53,7 @@
             <% page.posts.forEach(post => { %>
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="<%- url_for(post.path) %>">
+                    <a href="<%- url_for(post.path) %>" target="_blank">
                         <div class="card-image">
                             <% if (post.img) { %>
                             <img src="<%= post.img %>" class="responsive-img" alt="<%- post.title %>">
@@ -78,9 +78,9 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             <% if (post.summary && post.summary.length > 0) { %>
-                                <%- post.summary %>
+                            <%- post.summary %>
                             <% } else { %>
-                                <%- strip_html(post.content).substring(0, 120) %>
+                            <%- strip_html(post.content).substring(0, 120) %>
                             <% } %>
                         </div>
                         <div class="publish-info">
@@ -95,12 +95,6 @@
                                     <%- category.name %>
                                 </a>
                                 <% }); %>
-                                <% } else if (post.author && post.author.length > 0) { %>
-                                <i class="fa fa-user fa-fw"></i>
-                                <%- post.author %>
-                                <% } else { %>
-                                <i class="fa fa-user fa-fw"></i>
-                                <%- config.author %>
                                 <% } %>
                             </span>
                         </div>
