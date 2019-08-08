@@ -1,5 +1,5 @@
 ---
-title: 啊
+title: TypeScript
 tags: ["ts"]
 ---
 # TypeScript

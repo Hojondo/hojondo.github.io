@@ -164,9 +164,12 @@ mark {
 
 .bg-color {
     background-image: linear-gradient(to right, #bf30ac 0%, #0f9d58 100%);
-    opacity: 0.7;
 }
-
+@media screen and (min-width: 993px){
+    .bg-color{
+        opacity: 0.7;
+    }
+}
 .text-color {
     color: #0f9d58 !important;
 }

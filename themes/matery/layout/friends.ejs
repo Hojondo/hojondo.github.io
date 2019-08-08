@@ -187,14 +187,14 @@
                     <div class="card frind-card<%- ((i % 10) +1) %>">
                         <div class="frind-ship">
                             <div class="title">
-                                <img src="<%- friend.avatar %>" alt="img">
+                                <img data-name="<%- friend.name %>" src="./invalid.jpg" width="40" style="border-radius: 100%">
                                 <div>
                                     <h1 class="friend-name"><%- friend.name %></h1>
                                     <p><%- friend.introduction %></p>
                                 </div>
                             </div>
                             <div class="friend-button">
-                                <a href="<%- friend.url %>" target="_blank" 
+                                <a href="<%- friend.url %>" target="_blank"
                                     class="button button-glow button-rounded button-caution">
                                     <%- friend.title %>
                                 </a>
@@ -208,11 +208,19 @@
         </article>
     </div>
 </main>
-
+<script src="/js/namedavatar.js"></script>
 <script>
 $(function () {
     $('#friends-link').masonry({
         itemSelector: '.friend-div'
     });
 });
+</script>
+<script>
+    namedavatar.config({
+        nameType: 'lastName'
+    })
+    // fill multi <img>
+    var imgs = document.querySelectorAll('img[data-name]')
+    namedavatar.setImgs(imgs, 'data-name')
 </script>
