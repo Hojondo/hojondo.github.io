@@ -88,7 +88,10 @@ theme: matery
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: https://github.com/Hojondo/hojondo.github.io
+  repository:
+    github: https://github.com/Hojondo/hojondo.github.io, master
+#    coding: <repository url>, master
+
   branch: master
 # 自定义
 search:
