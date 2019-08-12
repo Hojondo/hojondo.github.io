@@ -34,3 +34,4 @@ categories:
 - 不能直接操作 DOM
 - 必须在 HTTPS 环境下才能工作
 - 异步实现，内部大都是通过 Promise 实现
+
