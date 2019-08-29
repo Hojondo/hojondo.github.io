@@ -33,26 +33,29 @@
 
 <div class="progress-bar"></div>
 
-<!-- 不蒜子计数初始值纠正 -->
-<script>
-    $(document).ready(function () {
+<!-- 不蒜子计数 虚拟初始值 -->
+<!--<script>-->
+<!--    $(document).ready(function () {-->
 
-        var int = setInterval(fixCount, 50);
-        var pvcountOffset = 80000;
-        var uvcountOffset = 20000;
+<!--        var int = setInterval(fixCount, 50);-->
+<!--        var pvcountOffset = 80000;-->
+<!--        var uvcountOffset = 20000;-->
 
-        function fixCount() {
-            if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {
-                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + pvcountOffset);
-                clearInterval(int);
-            }
-            if ($("#busuanzi_container_site_pv").css("display") != "none") {
-                $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + uvcountOffset); // 加上初始数据
-                clearInterval(int);
-            }
-        }
-    });
-</script>
+<!--        function fixCount() {-->
+<!--            console.log('fixCount');-->
+<!--            if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {-->
+<!--                console.log('document');-->
+<!--                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + pvcountOffset);-->
+<!--                clearInterval(int);-->
+<!--            }-->
+<!--            if ($("#busuanzi_container_site_pv").css("display") != "none") {-->
+<!--                console.log('jquery');-->
+<!--                $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + uvcountOffset); // 加上初始数据-->
+<!--                clearInterval(int);-->
+<!--            }-->
+<!--        }-->
+<!--    });-->
+<!--</script>-->
 
 <script language=javascript>
     function siteTime() {
