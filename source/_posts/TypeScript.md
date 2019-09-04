@@ -1,6 +1,14 @@
 ---
 title: TypeScript
-tags: ["ts"]
+tags: ['语言','js']
+top: false
+cover: false
+toc: true
+mathjax: false
+date: 2019-09-02 16:02:21
+password:
+summary:
+categories:
 ---
 # TypeScript
 
