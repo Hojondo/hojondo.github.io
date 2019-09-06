@@ -31,7 +31,7 @@
                     <% } %>
                 </div>
             </div>
-            
+
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i><%- __('publishDate') %>:&nbsp;&nbsp;
@@ -62,7 +62,7 @@
                     </div>
                     <% } %>
                 <% } %>
-				
+
 				<% if (theme.busuanziStatistics && theme.busuanziStatistics.enable) { %>
                     <div id="busuanzi_container_page_pv" class="info-break-policy">
                         <i class="fa fa-eye fa-fw"></i><%- __('readCount') %>:&nbsp;&nbsp;
@@ -139,7 +139,7 @@
 
         var url = document.location.href;
         newdiv.innerHTML += '<br />'
-            + '<%- __("from")  %>: <%- config.title %><br />'
+            + "<%- __("from")  %>: <%- config.title %><br />"
             + '<%- __("author")  %>: <%- config.author %><br />'
             + '<%- __("link")  %>: <a href="' + url + '">' + url + '</a><br />'
             + '<%- theme.copyright.description %>';
