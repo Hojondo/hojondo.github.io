@@ -140,7 +140,7 @@ let tom: Person = {
 
 多种表示方法：
 
-1. 「类型 + 方括号」`let fibonacci: number[] = [1, 1, 2, 3, 5];` 不允许出现其他类型的项
+1. 「类型 + 方括号」`let fibonacci: number[] = [1, 6, 2, 3, 5];` 不允许出现其他类型的项
 
 2. 数组范型（Array Generic） `let fibonacci: Array<number> = [1, 1, 2, 3, 5];`
 
