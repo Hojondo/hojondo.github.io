@@ -1,6 +1,6 @@
 ---
 title: Service Worker
-top: top
+top: false
 cover: false
 toc: true
 mathjax: true
