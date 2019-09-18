@@ -427,7 +427,7 @@ console.log(c.sayHi()); // Meow, My name is Tom
 
 TypeScript 可以使用三种访问修饰符和一个关键字
 
-- `public`修饰的属性或方法是公有的，可以在任何地方被访问到，默认所有的属性和方法都是 `public`的
+- `public` 默认，修饰的属性或方法是公有的，可以在任何地方被访问到，默认所有的属性和方法都是 `public`的
 - `private`修饰的属性或方法是私有的，不能在声明它的类的外部访问
 - `protected`修饰的属性或方法是受保护的，它和 `private`类似，区别是它在子类中也是允许被访问的
 - `readonly` 只读属性关键字，相比private可以访问不可赋值，只允许出现在属性声明或索引签名中
@@ -592,6 +592,7 @@ function createArray<T>(length: number, value: T): Array<T> { // 在函数名后
 }
 createArray<string>(3, 'x'); // ['x', 'x', 'x']
 /* 定义多个类型参数 */
+// function createArray<T = string>(length: number, value: T): Array<T> { // 可以给泛型参数指定默认类型
 function swap<T, U>(tuple: [T, U]): [U, T] {
     return [tuple[1], tuple[0]];
 }
@@ -623,11 +624,19 @@ copyFields(x, { b: 10, d: 20 });
 
 #### 泛型接口
 
+含有泛型的接口定义一个函数的形状
+
 ```typescript
 interface CreateArrayFunc {
     <T>(length: number, value: T): Array<T>;
 }
 let createArray: CreateArrayFunc;
+/* 把泛型参数提前到接口名上
+interface CreateArrayFunc<T> {
+    (length: number, value: T): Array<T>;
+}
+let createArray: CreateArrayFunc<any>;
+*/
 createArray = function<T>(length: number, value: T): Array<T> {
     let result: T[] = [];
     for (let i = 0; i < length; i++) {
@@ -638,9 +647,69 @@ createArray = function<T>(length: number, value: T): Array<T> {
 createArray(3, 'x'); // ['x', 'x', 'x']
 ```
 
-
-
 #### 泛型类
 
+泛型也可以用于类的类型定义中
 
+```typescript
+class GenericNumber<T> {
+    zeroValue: T;
+    add: (x: T, y: T) => T;
+}
+let myGenericNumber = new GenericNumber<number>();
+myGenericNumber.zeroValue = 0;
+myGenericNumber.add = function(x, y) { return x + y; };
+```
+
+### 声明合并
+
+如果定义了两个相同名字的函数、接口或类，那么它们会合并成一个类型
+
+#### 函数合并 - 重载
+
+```typescript
+function reverse(x: number): number;
+function reverse(x: string): string;
+function reverse(x: number | string): number | string {
+    if (typeof x === 'number') {
+        return Number(x.toString().split('').reverse().join(''));
+    } else if (typeof x === 'string') {
+        return x.split('').reverse().join('');
+    }
+}
+```
+
+#### 接口合并
+
+```typescript
+/* 接口中的属性在合并时会简单的合并到一个接口中 */
+interface Alarm {
+    price: number;
+    alert(s: string): string;
+}
+interface Alarm {
+    weight: number;
+    alert(s: string, n: number): string;
+}
+// -> 合并为
+interface Alarm {
+    price: number;
+    weight: number;
+    alert(s: string): string;
+    alert(s: string, n: number): string;
+}
+
+// 并且合并的重名属性的类型必须是相同的否则报错
+interface Alarm {
+    price: number;
+}
+interface Alarm {
+    price: number;  // 虽然重复了，但是类型都是 `number`，所以不会报错
+    weight: number;
+}
+```
+
+#### 类合并
+
+*有处矛盾，待更新*
 
