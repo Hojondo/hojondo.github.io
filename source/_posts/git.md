@@ -13,6 +13,10 @@ categories:
 
 
 
+# [Git](https://git-scm.com/docs/)
+
+官方链接是如上，中文机翻版本是https://cloud.tencent.com/developer/doc/1096
+
 ## 导图
 
 ![导图](http://www.ruanyifeng.com/blogimg/asset/2015/bg2015120901.png)
@@ -29,9 +33,10 @@ categories:
   ```shell
   # 在当前目录新建一个Git代码库
   $ git init
-  # 新建一个目录，将其初始化为Git代码库
-  $ git init [project-name]
-  mkdir robbin_site.git + cd robbin_site.git + git --bare init # 在服务器创建纯仓库
+  # 在当前目录新创建一个名为repo且只包含 .git 子文件夹的空目录，将其初始化为Git代码库
+  $ git init [repo]
+  # 在服务器机器上创建裸仓库（因为服务器不需要对工作区直接操作，纯/裸仓库即普通仓库的.git文件夹）
+  mkdir robbin_site.git + cd robbin_site.git + git --bare init 
   ```
 
   
@@ -39,21 +44,23 @@ categories:
 - `clone`
 
   ```shell
-  # 下载一个项目和它的整个代码历史
-  $ git clone [url]
-  git clone https://github.com/AndyLee-Github/cartboon.git   #从远程仓库中克隆
-  git clone --bare robbin_site robbin_site.git  # 用带版本的项目创建纯版本仓库
-  scp -r my_project.git git@git.csdn.net:~      # 将纯仓库上传到服务器上
-  ```
-
+  # 根据[url]从远程仓库中克隆下载一个项目和它的整个代码历史
+  $ git clone [https://github.com/Hojondo/barerepo.git]
+  # 用带版本的项目创建纯版裸仓库，不包括工作区直接就是版本库的内容
+  $ git clone --bare [remote-bare-repo] [local-bare-repo.git]
+  # 将纯仓库上传到服务器上 
+  scp -r my_project.git git@git.csdn.net:~
+```
   
-
+  [注：] [--bare & --mirror的区别](https://www.worldhello.net/gotgit/02-git-solo/100-git-clone.html)
+  
 - `fetch`
 
   ```shell
-  git fetch origin                 # 抓取远程仓库更新，加下一条指令等同于git pull
-  # 下载远程仓库的所有变动
-  $ git fetch [remote]
+  # 抓取下载远程仓库更新，加下一条指令等同于git pull
+  # 与git pull相比git fetch相当于是从远程获取最新版本到本地，但不会自动merge
+  $ git fetch [remote-repo]
+  $ git merge [remote-repo]/master	# 将远程主分支合并到本地当前分支
   ```
 
   
@@ -61,10 +68,12 @@ categories:
 - `pull`
 
   ```shell
-  git pull                         # 抓取远程仓库所有分支更新并合并到本地
-  git pull --no-ff                 # 抓取远程仓库所有分支更新并合并到本地，不要快进合并
-  # 取回远程仓库的变化，并与本地分支合并
-  $ git pull [remote] [branch]
+  # 抓取远程仓库所有分支更新并合并到本地
+  $ git pull
+  # 取回远程仓库的某分支变化，并与当前本地分支合并
+  $ git pull [remote-repo] [remote-branch]
+  # 抓取远程仓库所有分支更新并合并到本地，不要快进合并
+  $ git pull --no-ff
   ```
 
   
@@ -72,30 +81,28 @@ categories:
 - `push`
 
   ```shell
-  git push                         # push所有分支
-  git push origin branch   # 将本地分支推到远程分支
-  git push –u origin branch   #推送本地分支到远程仓库，首次提交需要加-u 
-  git push origin <local_branch>   # 创建远程分支， origin是远程仓库名
-  git push origin <local_branch>:<remote_branch>  # 创建远程分支
-  git push origin :<remote_branch>  #先删除本地分支(git br -d <branch>)，然后再push删除远程分支
-  
-  git push -u origin master                                      # 客户端首次提交
-  git push -u origin develop  # 首次将本地develop分支提交到远程develop分支，并且track
-  # 删除远程tag
-  $ git push origin :refs/tags/[tagName]
-  # 提交指定tag
-  $ git push [remote] [tag]
-  # 提交所有tag
-  $ git push [remote] --tags
-  
-  # 上传本地指定分支到远程仓库
-  $ git push [remote] [branch]
-  
+  # push所有分支
+  $ git push
+  # 客户端首次提交(没有master时)需要加-u
+  $ git push –u [remote-repo] master
+  # 将本地某分支推到远程分支 / 创建远程分支（远程没有对应分支时）
+  $ git push [remote-repo] [local-branch]
+  # 创建远程分支
+  $ git push [remote-repo] <local-branch>:<remote-branch>
   # 强行推送当前分支到远程仓库，即使有冲突
-  $ git push [remote] --force
-  
+  $ git push [remote-repo] --force
   # 推送所有分支到远程仓库
-  $ git push [remote] --all
+  $ git push [remote-repo] --all
+  # 先删除本地分支，然后再push删除远程分支
+  $ git branch -d <local-branch>
+  $ git push [remote-repo] :<remote_branch>
+  
+  # 删除远程tag
+  $ git push [remote-repo] :refs/tags/[tagName]
+  # 提交指定tag
+  $ git push [remote-repo] [tag]
+  # 提交所有tag
+  $ git push [remote-repo] --tags
   ```
 
   
@@ -103,24 +110,20 @@ categories:
 - `remote`
 
   ```shell
-  git remote  #查看远程库的信息
-  git remote –v  #查看远程库地址和名称
-  git remote show origin           # 查看远程服务器仓库状态
-  git remote add origin git@github:robbin/robbin_site.git         # 添加远程仓库地址
-  git remote set-url origin git@github.com:robbin/robbin_site.git # 设置远程仓库地址(用于修改远程仓库地址)
-  git remote rm <repository>       # 删除远程仓库
-  git remote add origin git@github.com:robbin/robbin_site.git    # 设置远程仓库地址
-  git remote set-head origin master   # 设置远程仓库的HEAD指向master分支
-  
-  # 显示所有远程仓库
-  $ git remote -v
-  
-  # 显示某个远程仓库的信息
-  $ git remote show [remote]
-  
+  #查看远程库的信息
+  $ git remote
+  #查看所有远程库地址和名称
+  $ git remote –v
+  # 查看某个远程服务器仓库状态
+  $ git remote show [remote-repo]
   # 增加一个新的远程仓库，并命名
-  $ git remote add [shortname] [url]
-  
+  $ git remote add [remote-repo] [git@github:robbin/robbin_site.git]
+  # 设置远程仓库地址(用于修改远程仓库地址)
+  $ git remote set-url [remote-repo] [git@github.com:robbin/robbin_site.git]
+  # 设置远程仓库的HEAD指向master分支
+  $ git remote set-head [remote-repo] [master]
+  # 删除远程仓库
+  $ git remote rm [remote-repo]
   ```
 
   
@@ -134,9 +137,8 @@ categories:
 用户的配置文件`~/.gitconfig`
 
 ```shell
-# 显示当前的Git配置
+# 显示当前的Git配置,列举所有配置
 $ git config --list
-
 # 编辑Git配置文件
 $ git config -e [--global]
 
@@ -144,13 +146,23 @@ $ git config -e [--global]
 git config --global user.name "xxx"   
 git config --global user.email "xxxxxx@gmail.com"
 
+# git status等命令自动着色
 git config --global color.ui true
-git config --global alias.co checkout # 配置别名，co 配为checkout 别名， 不过我没用
+git config --global color.status auto
+git config --global color.diff auto
+git config --global color.branch auto
+git config --global color.interactive auto
+# 配置别名，co 配为checkout 别名，等等etc...
+git config --global alias.co checkout 
 git config --global alias.ci commit
 git config --global alias.st status
 git config --global alias.br branch
-git config --global core.editor "mate -w"    # 设置Editor使用textmate
-git config -l  # 列举所有配置
+
+# 设置Editor使用textmate
+git config --global core.editor "mate -w"
+
+# remove  proxy configuration on git
+git config --global --unset http.proxy
 ```
 
 ## 常用命令
@@ -173,63 +185,61 @@ git config -l  # 列举所有配置
      # 查看尚未被合并到当前分支的分支
      $ git branch --no-merged
      
-     # 建立追踪关系，在现有分支与指定的远程分支之间
-     $ git branch --set-upstream [branch] [remote-branch]
+     # 建立追踪关系，在现已有本地分支与指定的远程分支之间
+     $ git branch --set-upstream-to [local-branch] [remote-branch]
      
      # 新建一个分支，但依然停留在当前分支
-     $ git branch [branch-name]
+     $ git branch [local-branch]
      # 新建一个分支，指向指定commit
-     $ git branch [branch] [commit]
+     $ git branch [local-branch] [commit-id]
      # 新建一个分支，与指定的远程分支建立追踪关系
      $ git branch --track [branch] [remote-branch]
-     $ git branch --set-upstream master origin/master
-     $ git branch --set-upstream develop origin/develop
      
-     # 删除分支
-     $ git branch -d [branch-name]
-     # 强制删除分支 (未被合并的分支被删除的时需要强制)
-     $ git branch-D <branch>
+     # 删除本地分支
+     $ git branch -d [local-branch]
+     # 强制删除分支 (未被合并的分支被删除时 需要强制)
+     $ git branch -D <local-branch>
      # 删除远程分支
-     $ git push origin --delete [branch-name]
-     $ git branch -dr [remote/branch]
+     $ git push [remote-repo] --delete [remote-branch]
+     $ git push [remote-repo] :[remote-branch]
+     $ git branch -dr [remote-branch]
      ```
-
+     
    - `checkout`
 
      ```shell
-     # 新建一个分支，并切换到该分支
-     $ git checkout -b [branch]
+     # 新建一个分支，并切换到该分支(-b等同于branch命令)
+     $ git checkout -b [local-branch]
      # 切换到指定分支，并更新工作区
-     $ git checkout [branch-name]
+     $ git checkout [local-branch]
      # 切换到上一个分支
      $ git checkout -
      # 基于branch创建新的new_branch
      $ git checkout -b <new_branch> <branch>
+     # 跟踪某个远程分支创建相应的本地分支
+     $ git checkout --track [remote-repo]/<remote-branch>
+     # 基于远程分支创建本地分支，功能同上
+     $ git checkout -b <local_branch> [remote-repo]/<remote-branch>
      # 把某次历史提交记录checkout出来，但无分支信息，切换到其他分支会自动删除
-     $ git checkout  $id
+     $ git checkout  <commit-id>
      # 把某次历史提交记录checkout出来，创建成一个分支
-     $ git checkout  $id -b <new_branch>
+     $ git checkout  <commit-id> -b <new_branch>
      # 依据需要合并的最后一条 commit 创建新分支
      $ git checkout -b newbranch <last_commit>
      # 新建一个分支，指向某个tag
      $ git checkout -b [branch] [tag]
      
-     git checkout -- xx  #撤销xx文件修改
-     git checkout .     #撤销工作区修改
-     git checkout ${commit} /path/to/file #撤销指定文件到指定版本
-     
-     git checkout   --track origin/branch     # 跟踪某个远程分支创建相应的本地分支
-     git checkout   -b <local_branch> origin/<remote_branch>  # 基于远程分支创建本地分支，功能同上
-     
+     # 撤销工作区修改，恢复暂存区的所有文件到工作区
+     $ git checkout .
+     # 撤销xx文件修改，在工作区的修改全部撤销到暂存区状态
+     $ git checkout -- xx
      # 恢复暂存区的指定文件到工作区
      $ git checkout [file]
-     
-     # 恢复某个commit的指定文件到暂存区和工作区
-     $ git checkout [commit] [file]
-     
-     # 恢复暂存区的所有文件到工作区
-     $ git checkout .
+     # 撤销指定文件到指定版本，恢复某个commit的指定文件到暂存区和工作区
+     $ git checkout <commit-id> [/path/to/file]
      ```
+
+     # todo
 
      
 
@@ -324,7 +334,7 @@ git config -l  # 列举所有配置
      ```shell
      # 删除工作区文件，并且将这次删除放入暂存区
      $ git rm [file1] [file2] ...
-     # 停止追踪指定文件，但该文件会保留在工作区，从版本库中删除文件，但不删除文件
+     # 停止追踪指定文件，但该文件会保留在工作区，从远程版本库中删除文件，但不删除本地文件
      $ git rm --cached [file]
      # 改名文件，并且将这个改名放入暂存区
      $ git mv [file-original] [file-renamed]
