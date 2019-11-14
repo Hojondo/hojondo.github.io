@@ -91,6 +91,7 @@ deploy:
   repository:
     github: https://github.com/Hojondo/hojondo.github.io,master
     coding: https://git.coding.net/hojondo/hojondo.git,master
+    gitee: https://gitee.com/hojondo/hojondo.git,master
 # 自定义
 search:
   path: search.xml
