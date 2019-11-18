@@ -15,7 +15,7 @@ categories:
 
 # [Git](https://git-scm.com/docs/)
 
-官方链接是如上，中文机翻版本是https://cloud.tencent.com/developer/doc/1096
+官方链接是如上，中文版本[点击](https://git-scm.com/book/zh)
 
 ## 导图
 
@@ -50,9 +50,11 @@ categories:
   $ git clone --bare [remote-bare-repo] [local-bare-repo.git]
   # 将纯仓库上传到服务器上 
   scp -r my_project.git git@git.csdn.net:~
-```
+  ```
   
   [注：] [--bare & --mirror的区别](https://www.worldhello.net/gotgit/02-git-solo/100-git-clone.html)
+  
+  
   
 - `fetch`
 
@@ -75,8 +77,6 @@ categories:
   # 抓取远程仓库所有分支更新并合并到本地，不要快进合并
   $ git pull --no-ff
   ```
-
-  
 
 - `push`
 
@@ -187,13 +187,15 @@ git config --global --unset http.proxy
      
      # 建立追踪关系，在现已有本地分支与指定的远程分支之间
      $ git branch --set-upstream-to [local-branch] [remote-branch]
+     # 建立追踪关系，在当前激活本地分支与指定的远程分支之间
+     $ git branch --set-upstream-to [remote-branch]
      
      # 新建一个分支，但依然停留在当前分支
      $ git branch [local-branch]
      # 新建一个分支，指向指定commit
      $ git branch [local-branch] [commit-id]
      # 新建一个分支，与指定的远程分支建立追踪关系
-     $ git branch --track [branch] [remote-branch]
+     $ git branch --track [local-branch] [remote-branch]
      
      # 删除本地分支
      $ git branch -d [local-branch]
@@ -204,9 +206,9 @@ git config --global --unset http.proxy
      $ git push [remote-repo] :[remote-branch]
      $ git branch -dr [remote-branch]
      ```
-     
+  
    - `checkout`
-
+   
      ```shell
      # 新建一个分支，并切换到该分支(-b等同于branch命令)
      $ git checkout -b [local-branch]
@@ -236,54 +238,54 @@ git config --global --unset http.proxy
      # 恢复暂存区的指定文件到工作区
      $ git checkout [file]
      # 撤销指定文件到指定版本，恢复某个commit的指定文件到暂存区和工作区
-     $ git checkout <commit-id> [/path/to/file]
+  $ git checkout <commit-id> [/path/to/file]
      ```
-
-     # todo
-
-     
 
    - `merge`
 
+     [git merge详解](https://www.jianshu.com/p/58a166f24c81)
+   
      ```shell
      # 合并指定分支到当前分支
      $ git merge [branch]
-     $ git merge origin/master          # 将远程主分支合并到本地当前分支
+     # 将远程主分支合并到本地当前分支
+     $ git merge [remote-branch]/[local-branch]
      
      # 不要Fast-Foward合并，这样可以生成merge提交
-     $ git merge origin/master --no-ff
+     $ git merge [branch] --no-ff
      # 选择一个其它分支的某一次提交commit，合并进当前分支(合并其它分支一系列提交，后缀为 first_commit ~ last_commit)
-     $ git cherry-pick [commit]
+     $ git cherry-pick [commit-id]
      
      # 将master rebase到branch，等同于：
-     #git checkout   <branch> + git rebase master + git checkout  master + git merge <branch>
-     $ git rebase master <branch>
+     # git checkout   <branch> + git rebase master + git checkout  master + git merge <branch>
+     $ git rebase [master] <branch>
      # 从新分支中需要合并的第一条 commit 开始合并
-     $ git rebase --onto master <first_commit>^
+  $ git rebase --onto master <first_commit>^
      ```
 
    - `stash`
-
+   
      ```shell
-     git stash  #暂存当前工作，恢复现场后可继续工作
-     git stash list  #查看暂存文件列表
-     git stash apply  #恢复暂存内容，暂存区不删除
-     git stash drop  #删除暂存文件
-     git stash pop  #恢复并删除文件
-     
-     # 暂时将未提交的变化移除，稍后再移入
+     #暂存当前分支的工作区，恢复现场后可继续工作
      $ git stash
-     $ git stash pop
+     #查看暂存文件队列列表
+     $ git stash list
+     #恢复暂存内容，暂存区不删除
+     $ git stash apply [stash@{2}]
+     #删除暂存文件
+     $ git stash drop [stash@{0}]
+     #恢复并删除文件
+     $ git stash pop [stash@{2}]
      ```
-
      
-
+     
+  
    - `tag`
 
      ```shell
-     # 列出所有tag
+  # 列出所有tag
      $ git tag
-     
+  
      # 新建一个tag在当前commit
      $ git tag [tag]
      
@@ -308,9 +310,9 @@ git config --global --unset http.proxy
      # 新建一个分支，指向某个tag
      $ git checkout -b [branch] [tag]
      ```
-
+   
    - 
-
+   
    
 
 2. 基本快照操作
