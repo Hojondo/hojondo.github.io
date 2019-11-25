@@ -25,6 +25,7 @@ categories:
 - Index / Stage：暂存区
 - Repository：仓库区（或本地仓库）
 - Remote：远程仓库
+- HEAD：理解为 当前分支的最近一次commit
 
 ## 初始化init
 
@@ -206,9 +207,9 @@ git config --global --unset http.proxy
      $ git push [remote-repo] :[remote-branch]
      $ git branch -dr [remote-branch]
      ```
-  
+
    - `checkout`
-   
+
      ```shell
      # 新建一个分支，并切换到该分支(-b等同于branch命令)
      $ git checkout -b [local-branch]
@@ -238,13 +239,13 @@ git config --global --unset http.proxy
      # 恢复暂存区的指定文件到工作区
      $ git checkout [file]
      # 撤销指定文件到指定版本，恢复某个commit的指定文件到暂存区和工作区
-  $ git checkout <commit-id> [/path/to/file]
+    $ git checkout <commit-id> [/path/to/file]
      ```
 
    - `merge`
 
      [git merge详解](https://www.jianshu.com/p/58a166f24c81)
-   
+
      ```shell
      # 合并指定分支到当前分支
      $ git merge [branch]
@@ -260,11 +261,11 @@ git config --global --unset http.proxy
      # git checkout   <branch> + git rebase master + git checkout  master + git merge <branch>
      $ git rebase [master] <branch>
      # 从新分支中需要合并的第一条 commit 开始合并
-  $ git rebase --onto master <first_commit>^
+    $ git rebase --onto master <first_commit>^
      ```
 
    - `stash`
-   
+
      ```shell
      #暂存当前分支的工作区，恢复现场后可继续工作
      $ git stash
@@ -278,41 +279,31 @@ git config --global --unset http.proxy
      $ git stash pop [stash@{2}]
      ```
      
-     
-  
    - `tag`
 
      ```shell
-  # 列出所有tag
+     # 列出所有tag
      $ git tag
-  
      # 新建一个tag在当前commit
      $ git tag [tag]
-     
      # 新建一个tag在指定commit
-     $ git tag [tag] [commit]
-     
+     $ git tag [tag] [commit-id]
      # 删除本地tag
      $ git tag -d [tag]
-     
      # 删除远程tag
      $ git push origin :refs/tags/[tagName]
-     
      # 查看tag信息
      $ git show [tag]
-     
      # 提交指定tag
-     $ git push [remote] [tag]
-     
+     $ git push [remote-repo] [tag]
      # 提交所有tag
-     $ git push [remote] --tags
-     
+     $ git push [remote-repo] --tags
      # 新建一个分支，指向某个tag
      $ git checkout -b [branch] [tag]
      ```
-   
+
    - 
-   
+
    
 
 2. 基本快照操作
@@ -336,7 +327,7 @@ git config --global --unset http.proxy
      ```shell
      # 删除工作区文件，并且将这次删除放入暂存区
      $ git rm [file1] [file2] ...
-     # 停止追踪指定文件，但该文件会保留在工作区，从远程版本库中删除文件，但不删除本地文件
+     # 停止追踪指定文件，但该文件会保留在工作区，即 从远程版本库中删除文件，但不删除本地文件
      $ git rm --cached [file]
      # 改名文件，并且将这个改名放入暂存区
      $ git mv [file-original] [file-renamed]
@@ -346,36 +337,42 @@ git config --global --unset http.proxy
 
      ```shell
      #提交单个文件
-     git commit  <file>
+     $ git commit  <file>
      #提交暂存区的文件到仓库区
-     git commit –m “description”
+     $ git commit –m “description”
      # 提交工作区自上次commit之后的变化，直接到仓库区，等同执行git add、 git rm及git commit
-     git commit -a
+     $ git commit -a
+     $ git commit -am "some comments"
      # 撤销最后一次提交记录，重新提交；如果代码没有任何新变化，则用来改写上一次commit的提交信息
-     git commit --amend
+     $ git commit --amend
      ```
 
    - `reset`
 
+     重置HEAD(当前分支的版本顶端）到另外一个commit。
+
+     
+
+     [reset和revert的区别详解](https://www.jianshu.com/p/0e1fe709dd97)
+
+     其实就是--soft 、--mixed以及--hard是三个恢复等级。
+
+     1. 使用--soft就仅仅将HEAD指针恢复，已经add的缓存以及工作空间的所有东西都不变。
+     2. 如果使用--mixed(默认)，就将HEAD恢复掉，已经add的缓存也会丢失掉，工作空间的代码什么的是不变的。
+     3. 如果使用--hard，那么一切就全都恢复了，HEAD变，aad的缓存消失，代码什么的也恢复到以前状态。
+
      ```shell
-     git reset <file>    # 从暂存区恢复某一文件
-     git reset -- .      # 从暂存区恢复所有文件
-     git reset  –hard HEAD^/HEAD~  #回退到上一版本
-     git reset  –hard <commit_id>    #回退到指定版本
-     git reset HEAD file  #取消add文件
-     # 重置暂存区的指定文件，与上一次commit保持一致，但工作区不变
-     $ git reset [file]
-     
-     # 重置暂存区与工作区，与上一次commit保持一致
-     $ git reset --hard
-     
+     # 从暂存区恢复某一文件，重置HEAD到另外一个commit,并且重置index以便和HEAD相匹配，working copy不会被更改
+     $ git reset <file>
      # 重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变
      $ git reset [commit]
-     
+     # 从暂存区恢复所有文件
+     $ git reset -- .
+     # 重置当前分支的HEAD为上一次commit，重置暂存区与工作区
+     $ git reset --hard 或 $ git reset  –hard HEAD^/HEAD~
      # 重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致
      $ git reset --hard [commit]
-     
-     # 重置当前HEAD为指定commit，但保持暂存区和工作区不变
+     # 重置当前HEAD为指定commit，但保持暂存区和工作区不变,即 取消最后一次commit
      $ git reset --keep [commit]
      ```
 
@@ -384,38 +381,20 @@ git config --global --unset http.proxy
    - `status`
 
      ```shell
-     git status        #查看仓库状态，显示有变更的文件
+     $ git status        #查看仓库状态，显示有变更的文件
      ```
 
-     
-
-   - `diff`
-
-     ```shell
-     
-     ```
-
-     
-
-   
-
-   
-
-   
+   - ..more
 
 3. 审核&比较
 
    - `show`
 
      ```shell
-     git show ($id)  # 显示某次提交的内容
-     
      # 显示某次提交的元数据和内容变化
-     $ git show [commit]
-     
-     # 显示某次提交发生变化的文件
-     $ git show --name-only [commit]
-     
+     $ git show [commit-id]
+     # 显示某次提交发生变化的文件名
+     $ git show --name-only [commit-id]
      # 显示某次提交时，某个文件的内容
      $ git show [commit]:[filename]
      ```
@@ -424,45 +403,42 @@ git config --global --unset http.proxy
 
    - `log`
 
+     [官方中文文档](https://git-scm.com/book/zh/v1/Git-基础-查看提交历史)
+
      ```shell
-     git log   (file)       #查看（文件）提交记录
-     git log -p <file>   # 查看每次详细修改内容的diff
-     git log -p -2       # 查看最近两次详细修改内容的diff
-     git log --stat      # 查看提交统计信息
-     git log -g #同上，用'log'格式输出
-     git log -- grep "name" # 搜索包含name的log 
-     git log record-ID  -l -p #查看指定ID记录，-l:显示一行，-p:显示详细修改
-     
-     # 显示当前分支的版本历史
-     $ git log
-     
-     # 显示commit历史，以及每次commit发生变更的文件
+     # 查看（文件）提交历史记录
+     $ git log   (file)
+     # 查看每次详细修改内容的diff
+     $ git log -p <file>
+     # 查看最近两次详细修改内容的diff
+     $ git log -p -2
+     # 查看提交统计信息,显示简要的增改行数统计
      $ git log --stat
-     
+     # 同上，用'log'格式输出
+     $ git log -g
+     # 搜索包含name的log
+     $ git log -- grep "name"
+     # 查看指定ID记录，-L <?startLine>,<?endLine>:fileName显示一行
+     $ git log record-ID  -L 2,3:file2.txt
      # 搜索提交历史，根据关键词
-     $ git log -S [keyword]
-     
-     # 显示某个commit之后的所有变动，每个commit占据一行
+     $ git log -S [keyword-string]
+     # 显示某个commit之后的所有变动，按 每个commit占据一行 的格式
      $ git log [tag] HEAD --pretty=format:%s
-     
-     # 显示某个commit之后的所有变动，其"提交说明"必须符合搜索条件
+     # 显示过去5次提交
+     $ git log -5 --pretty --oneline 或 $ git log -5 --pretty=oneline
+     # 显示某个commit之后的所有变动，筛选"提交说明"中符合关键字搜索条件的历史记录
      $ git log [tag] HEAD --grep feature
-     
-     # 显示某个文件的版本历史，包括文件改名
+     # 显示某个文件的版本历史，包括文件改名前的历史
      $ git log --follow [file]
      $ git whatchanged [file]
-     
-     # 显示指定文件相关的每一次diff
-     $ git log -p [file]
-     
-     # 显示过去5次提交
-     $ git log -5 --pretty --oneline
      ```
 
    - `shortlog`
 
+     汇总git log的输出
+
      ```shell
-     # 显示所有提交过的用户，按提交次数排序
+     # 显示所有提交过的用户，-n:按提交次数排序,-s:省略commit注释
      $ git shortlog -sn
      ```
 
@@ -471,28 +447,25 @@ git config --global --unset http.proxy
    - `diff`
 
      ```shell
-     git diff <file>     # 比较当前文件和暂存区文件差异
-     git diff   #比较所有文件
-     git diff master..Andylee-Github/master #比较本地和远端仓库
-     git diff <$id1> <$id2>   # 比较两次提交之间的差异
-     git diff <branch1>..<branch2> #比较分支
-     git diff --staged   # 比较暂存区和版本库差异
-     git diff --cached   # 比较暂存区和版本库差异
-     git diff --stat     # 仅仅比较统计信息
-     
-     # 显示暂存区和工作区的差异
+     # 比较当前文件和暂存区文件差异
+     $ git diff <file>
+     # 比较所有文件,显示暂存区和工作区的差异
      $ git diff
-     
-     # 显示暂存区和上一个commit的差异
-     $ git diff --cached [file]
-     
+     # 比较本地和远端仓库
+     $ git diff master..Andylee-Github/master
+     # 比较两次提交之间的差异
+     $ git diff <commit-id1> <commit-id2>
+     # 比较分支
+     $ git diff <branch1>..<branch2>
+     # 比较暂存区和版本库差异
+     $ git diff --staged
+     # 比较暂存区和版本库即上一个commit的差异
+     $ git diff --cached
+     # 仅仅比较统计信息
+     $ git diff --stat
      # 显示工作区与当前分支最新commit之间的差异
      $ git diff HEAD
-     
-     # 显示两次提交之间的差异
-     $ git diff [first-branch]...[second-branch]
-     
-     # 显示今天你写了多少行代码
+     # 显示今天你做了哪些改动
      $ git diff --shortstat "@{0 day ago}"
      ```
 
@@ -501,7 +474,8 @@ git config --global --unset http.proxy
       - `diff`
 
         ```shell
-        git diff > ../sync.patch         # 生成补丁
+        # 生成补丁
+        $ git diff > ../sync.patch
         ```
 
       - `cherry-pick`
@@ -515,13 +489,21 @@ git config --global --unset http.proxy
       - `apply`
 
         ```shell
-        git apply ../sync.patch          # 打补丁
-        git apply --check ../sync.patch  # 测试补丁能否成功
+        # 打补丁
+        $ git apply ../sync.patch
+        # 测试补丁能否成功
+        $ git apply --check ../sync.patch
         ```
 
         
 
       - `revert`
+
+        [reset和revert的区别详解](https://www.jianshu.com/p/0e1fe709dd97)
+
+        git revert是用一次新的commit来回滚之前的commit，git reset是直接删除指定的commit；
+
+        git reset 是把HEAD向后移动了一下，而git revert是HEAD继续前进，只是新的commit的内容和要revert的内容正好相反，能够抵消要被revert的内容。
 
         ```shell
         git revert <$id>    # 恢复某次提交的状态，恢复动作本身也创建了一次提交对象
@@ -552,8 +534,6 @@ git config --global --unset http.proxy
      # 显示指定文件是什么人在什么时间修改过
      $ git blame [file]
      ```
-
-     
 
    - `grep`
 
