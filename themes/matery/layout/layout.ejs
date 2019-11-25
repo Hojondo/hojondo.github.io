@@ -32,9 +32,9 @@
         })
         .then(function (data) {
             var hitokoto = document.getElementById('hitokoto');
-            hitokoto.innerText = '\xa0\xa0\xa0\xa0\xa0\xa0\xa0' + data.hitokoto;
+            if (!!hitokoto) hitokoto.innerText = '\xa0\xa0\xa0\xa0\xa0\xa0\xa0' + data.hitokoto;
             var hitofrom = document.getElementById('hitofrom');
-            hitofrom.innerText = '— 「' + data.from + '\xa0」';
+            if (!!hitofrom) hitofrom.innerText = '— 「' + data.from + '\xa0」';
         })
         .catch(function (err) {
             console.error(err);
