@@ -367,7 +367,7 @@ git config --global --unset http.proxy
    - `status`
 
      ```shell
-  $ git status        #查看仓库状态，显示有变更的文件
+    $ git status        #查看仓库状态，显示有变更的文件
      ```
    
    - ..more
@@ -390,7 +390,7 @@ git config --global --unset http.proxy
      [官方中文文档](https://git-scm.com/book/zh/v1/Git-基础-查看提交历史)
 
      ```shell
-  # 查看（文件）提交历史记录
+     # 查看（文件）提交历史记录
      $ git log   (file)
      # 查看每次详细修改内容的diff
      $ git log -p <file>
@@ -416,22 +416,22 @@ git config --global --unset http.proxy
      $ git log --follow [file]
      $ git whatchanged [file]
      ```
-   
+
    - `shortlog`
-
+   
      汇总git log的输出
-
+   
      ```shell
-  # 显示所有提交过的用户，-n:按提交次数排序,-s:省略commit注释
+     # 显示所有提交过的用户，-n:按提交次数排序,-s:省略commit注释
      $ git shortlog -sn
      ```
-   
+
    - `diff`
 
      ```shell
-  # 比较当前文件和暂存区文件差异
+     # 比较当前文件和暂存区文件差异
      $ git diff <file>
-  # 比较所有文件,显示暂存区和工作区的差异
+     # 比较所有文件,显示暂存区和工作区的差异
      $ git diff
      # 比较本地和远端仓库
      $ git diff master..Andylee-Github/master
@@ -450,7 +450,7 @@ git config --global --unset http.proxy
      # 显示今天你做了哪些改动
      $ git diff --shortstat "@{0 day ago}"
      ```
-   
+
 4. 补丁Patch
 
       - `diff`
@@ -469,39 +469,41 @@ git config --global --unset http.proxy
       - `apply`
 
         ```shell
-  # 打补丁
+        # 打补丁
         $ git apply ../sync.patch
         # 测试补丁能否成功
         $ git apply --check ../sync.patch
         ```
       
       - `revert`
-
+      
         [reset和revert的区别详解](https://www.jianshu.com/p/0e1fe709dd97)
-
+      
         git revert是用一次新的commit来回滚之前的commit，git reset是直接删除指定的commit；
-
+      
         git reset 是把HEAD向后移动了一下，而git revert是HEAD继续前进，只是新的commit的内容和要revert的内容正好相反，能够抵消要被revert的内容。
-
+      
         ```shell
-  git revert <$id>    # 恢复某次提交的状态，恢复动作本身也创建了一次提交对象
+    git revert <$id>    # 恢复某次提交的状态，恢复动作本身也创建了一次提交对象
         git revert HEAD     # 恢复最后一次提交的状态
-  git revert <commit>  # 撤销提交
+    git revert <commit>  # 撤销提交
         git revert --continue # 处理完后，重新提交
         
         # 新建一个commit，用来撤销指定commit
         # 后者的所有变化都将被前者抵消，并且应用到当前分支
         $ git revert [commit]
-        ```
+      ```
       
       - `rebase`
       
-        ```shell
-  
-        ```
-
+        [merge和rebase的区别](https://www.jianshu.com/p/129e721adc6e)，[rebase的详解](http://jartto.wang/2018/12/11/git-rebase/)
       
-
+        rebase用于合并多次提交记录
+        
+        ```shell
+        # 合并最近的4次提交记录
+        $ git rebase -i HEAD~4
+        ```
 5. 调试 Debug
 
    - `blame`
