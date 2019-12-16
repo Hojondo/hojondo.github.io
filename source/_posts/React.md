@@ -11,7 +11,7 @@ summary:
 categories:
 ---
 # React
-开坑
+[demo地址](https://github.com/Hojondo/reactDemo)
 React 的世界里一切皆是组件，我们使用class语法构建一个最基本的组件，组件的使用方式和HTML相同，组件的render函数返回页面渲染的一个JSX，然后使用ReactDom渲染到页面里
 
 ## React 和 Vue的对比
@@ -69,7 +69,15 @@ React 的世界里一切皆是组件，我们使用class语法构建一个最基
 
    `npm i webpack-dev-server -D`
 
-4. 安装react
+4. 新建`webpack.config.js`，配置如下
+
+   ```js
+   
+   ```
+
+   
+
+5. 安装react
 
    `npm i react react-dom -S`
 
@@ -77,7 +85,7 @@ React 的世界里一切皆是组件，我们使用class语法构建一个最基
 
    React-dom是 专门进行DOM渲染和操作的，最主要的应用场景是`ReactDOM.render()`
 
-5. 在`index.html`中 创建容器以供入口js调用render
+6. 在`index.html`中 创建容器以供入口js调用render
 
 
 
