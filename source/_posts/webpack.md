@@ -38,3 +38,16 @@ categories:
 #### copy-webpack-plugin
 
 [npmjs地址](https://www.npmjs.com/package/copy-webpack-plugin)
+
+
+
+#### `webpack.config.js`配置
+
+```js
+module.exports = {
+  mode: '',//
+  plugins: [], //
+  module: {}, //
+}
+```
+
