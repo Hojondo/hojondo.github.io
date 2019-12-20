@@ -5,7 +5,7 @@ cover: false
 toc: true
 mathjax: false
 date: 2019-12-18 11:29:05
-tags: ['babel'']
+tags: ['babel']
 password:
 summary:
 categories:

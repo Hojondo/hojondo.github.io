@@ -141,6 +141,33 @@ React 的世界里一切皆是组件，我们使用class语法构建一个最基
 
 - 特殊的属性，使用`className`来代替`class`，`htmlFor`代替label的`for`属性
 
+- 标签上写style的话，要用js对象
+
+- 引入css文件
+
+  `npm i style-loader css-loader -D`；
+
+  配置webpack.config.js的rules
+
+  组件中`import cssobj from './demoStyle.css'`
+
+  给css模块化`use['css-loader?modules']`，但是模块化只针对.class和#id选择器，不会将标签选择器模块化
+
+  给css自定义生成类名格式`use['css-loader?localIdentName=[path][name][local][hash:6]']`
+
+  ​	其可选参数是：
+
+  	- [path]表示样式表相对于项目根目录所在路径
+  	- [name]表示样式表文件名称
+  	- [local]表示样式的类名定义名称
+  	- [hash:length]表示最多32位的hash值
+
+  css可选`:local()`(开启modules之后默认 不用写)或者全局`:global(.xxclass)`(不会被模块化)
+
+  对于第三方的样式表，规定都以.css结尾，这样的话 我们不会为普通的.css启用模块化 直接import 'bootstrap'就好，自己的样式表都以.scss或.less结尾，于是 只为`.scss`或`.less`文件启用模块化
+
+  安装`npm i sass-loader node-sass -D`
+
 
 
 ## 创建组件的两种方式
@@ -158,3 +185,17 @@ React 的世界里一切皆是组件，我们使用class语法构建一个最基
    - 引入时省略`.jsx`后缀名
 
 2. 使用class关键自关键组件
+
+3. 俩者的区别
+
+   1. class关键子创建的组件有自己的私有数据和生命周期，但是function创建的组件 只有props，没有自己的私有数据和生命周期
+   2. 用构造函数创建的组件：叫做“无状态组件”，无state和生命周期，但是运行效率较高，很少用
+   3. 用class关键字创建出来的组件：叫做“有状态组件”
+   
+4. 
+
+## 绑定事件
+
+事件绑定机制，相对于原生，是小驼峰命名
+
+`button onClick={function(){}}>按钮</button>`
