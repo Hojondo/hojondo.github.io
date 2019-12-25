@@ -76,7 +76,6 @@ categories:
 - **babel-core**
 - **babel-polyfill**
 - **babel-helper-vue-jsx-merge-props**
-- **babel-jest**
 - **babel-loader**
 - **babel-plugin-import**
 - **babel-plugin-transform-remove-strict-mode**
@@ -128,6 +127,7 @@ categories:
 ## 测试框架 Jest 集合
 
 - **jest**
+- **babel-jest**
 - **jest-serializer-vue**
 - **vue-jest**
 
