@@ -127,11 +127,10 @@ categories:
 ## 测试框架 Jest、selenium 集合
 
 - **jest**
-- **babel-jest**
-- **jest-serializer-vue**
+- **babel-jest** 
+- **jest-serializer-vue** ：自定义的序列化工具改进jest被保存的快照 [介绍示例](https://vue-test-utils.vuejs.org/zh/guides/testing-single-file-components-with-jest.html)
 - **vue-jest**
 - **selenium-server** ：自动化测试框架[selenium](https://zhuanlan.zhihu.com/p/52646463)的Node容器
-- **semver** ：是[ 语义化版本（Semantic Versioning）规范](http://semver.org/lang/zh-CN/) 的一个实现，实现了版本和版本范围的解析、计算、比较。[介绍](https://cnodejs.org/topic/570f8331510629637266685a)
 - **chromedriver** ：是 google 为网站开发人员提供的自动化测试接口，它是 **selenium2** 和 **chrome浏览器** 进行通信的桥梁，[详细介绍](https://www.jianshu.com/p/31c8c9de8fcd)
 - **nightwatch** ：端到端的测试工具，内置断言库，基于Selenium，[非官方简介](https://zhuanlan.zhihu.com/p/48361267)
 
@@ -191,6 +190,7 @@ categories:
 - **shelljs** ：Node.js下的脚本语言解析器，模块重新包装了`child_process`，实现在javascript中编写shell命令实现功能，[介绍](https://www.kancloud.cn/outsider/clitool/313191)、[介绍2](https://juejin.im/post/5cdb76166fb9a032196ef1ff)
 - **commander** ：封装了命令行参数的接口，让commander能够根据用户输入参数选择执行不同代码。。一般用于脚手架开发[例子用commander做一个自己的eslint脚手架](https://cloud.tencent.com/developer/article/1541086)
 - **validate-npm-package-name** ：对于用户输入的工程名的可用性进行验证的模块，[例子](https://www.geekjc.com/post/5de4eb6269116702fb6f61e3)
+- **semver** ：是[ 语义化版本（Semantic Versioning）规范](http://semver.org/lang/zh-CN/) 的一个实现，实现了版本和版本范围的解析、计算、比较。[介绍](https://cnodejs.org/topic/570f8331510629637266685a)
 
 
 

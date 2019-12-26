@@ -5,7 +5,7 @@ cover: false
 toc: true
 mathjax: false
 date: 2019-12-19 15:23:11
-tags: ['图形学', 'pixiJs']
+tags: ['webGL图形学', 'pixiJs']
 password:
 summary:
 categories:
