@@ -124,18 +124,23 @@ categories:
 - **eslint-plugin-react-hooks**
 - **eslint-plugin-jsx-a11y**
 
-## 测试框架 Jest 集合
+## 测试框架 Jest、selenium 集合
 
 - **jest**
 - **babel-jest**
 - **jest-serializer-vue**
 - **vue-jest**
+- **selenium-server** ：自动化测试框架[selenium](https://zhuanlan.zhihu.com/p/52646463)的Node容器
+- **semver** ：是[ 语义化版本（Semantic Versioning）规范](http://semver.org/lang/zh-CN/) 的一个实现，实现了版本和版本范围的解析、计算、比较。[介绍](https://cnodejs.org/topic/570f8331510629637266685a)
+- **chromedriver** ：是 google 为网站开发人员提供的自动化测试接口，它是 **selenium2** 和 **chrome浏览器** 进行通信的桥梁，[详细介绍](https://www.jianshu.com/p/31c8c9de8fcd)
+- **nightwatch** ：端到端的测试工具，内置断言库，基于Selenium，[非官方简介](https://zhuanlan.zhihu.com/p/48361267)
 
 ## Postcss、less、scss、stylus集合
 
 - **postcss-import** ：postcss是后处理器框架，[整体介绍](https://juejin.im/post/5c022f4a6fb9a049ca371684)
 - **postcss-url**
 - **postcss-loader**
+- **autoprefixer** ：后处理器postcss框架其中一个插件，适用场景是：添加前缀、转换单位、低版本浏览器的hack等。[详细介绍](http://www.html-js.com/article/Postcss-postcss-pre-processor-and-post-processor) [详细教程](https://juejin.im/post/5c17bf93f265da611510b5ea)
 - **less**
 - **less-loader**
 - **node-sass**
@@ -146,7 +151,7 @@ categories:
 
 - **vue-loader**
 - **vue-style-loader**
-- **vue-template-compiler**
+- **vue-template-compiler** ：webpack生态下使用*`*vue-loader*`*进行vue解析，*`*vue-loader*`*自带*`*vue-template-compiler*`*，会预编译您的template模版，生成javascript可执行函数。[源码详解](https://blog.csdn.net/u014787301/article/details/85842963)
 - **vue**
 - **vue-router**
 - **vuex**
@@ -171,26 +176,21 @@ categories:
 - **fs**
 - **fs-extra** ：实现了一些fs模块不包含的文件操（比如递归复制、删除等等）的模块
 - **url-search-params-polyfill**
+- **md5** ：用MD5哈希加密string
+- **gulp** ：一个自动化构建工具，一般配合webpack实现webpack未提供的图片压缩、项目上线部署等功能
+- **vinyl-ftp** ：配合gulp实现自动ftp部署项目文件到服务器
 
 ## 杂项
 
-- **autoprefixer** ：后处理器postcss框架其中一个插件，适用场景是：添加前缀、转换单位、低版本浏览器的hack等。[详细介绍](http://www.html-js.com/article/Postcss-postcss-pre-processor-and-post-processor) [详细教程](https://juejin.im/post/5c17bf93f265da611510b5ea)
 - **chalk** ：实现terminal控制台彩色文字输出的模块
-- **chromedriver** ：是 google 为网站开发人员提供的自动化测试接口，它是 **selenium2** 和 **chrome浏览器** 进行通信的桥梁，[详细介绍](https://www.jianshu.com/p/31c8c9de8fcd)
 - **cross-spawn** ：使用npm命令的跨平台解决方案
-- **nightwatch** ：端到端的测试工具，内置断言库，基于Selenium，[非官方简介](https://zhuanlan.zhihu.com/p/48361267)
 - **node-notifier** ：基于NodeJs发送跨平台原生系统通知，Electron已内置，可以测试时用于提醒
 - **ora** ：优雅好玩的terminal控制台spinner加载图标 模块
 - **portfinder** ：自动获取端口，一般用于webpack.dev.config.js内
-- **rimraf**
-- **selenium-server**
-- **semver**
-- **shelljs**
-- **gulp**
-- **md5**
-- **vinyl-ftp**
-- **commander** ：实现命令行传入参数预处理的模块
-- **validate-npm-package-name** ：对于用户输入的工程名的可用性进行验证的模块
+- **rimraf** ：以包的形式包装`rm -rf`命令，就是用来删除文件和文件夹的，不管文件夹是否为空，都可以删除，[简介](https://segmentfault.com/a/1190000011831802)
+- **shelljs** ：Node.js下的脚本语言解析器，模块重新包装了`child_process`，实现在javascript中编写shell命令实现功能，[介绍](https://www.kancloud.cn/outsider/clitool/313191)、[介绍2](https://juejin.im/post/5cdb76166fb9a032196ef1ff)
+- **commander** ：封装了命令行参数的接口，让commander能够根据用户输入参数选择执行不同代码。。一般用于脚手架开发[例子用commander做一个自己的eslint脚手架](https://cloud.tencent.com/developer/article/1541086)
+- **validate-npm-package-name** ：对于用户输入的工程名的可用性进行验证的模块，[例子](https://www.geekjc.com/post/5de4eb6269116702fb6f61e3)
 
 
 
