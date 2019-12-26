@@ -5,7 +5,7 @@ cover: false
 toc: true
 mathjax: false
 date: 2019-12-12 20:56:50
-tags:
+tags: ['IDE', 'vs-code']
 password:
 summary:
 categories:
