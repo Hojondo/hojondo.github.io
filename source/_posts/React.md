@@ -192,10 +192,116 @@ React 的世界里一切皆是组件，我们使用class语法构建一个最基
    2. 用构造函数创建的组件：叫做“无状态组件”，无state和生命周期，但是运行效率较高，很少用
    3. 用class关键字创建出来的组件：叫做“有状态组件”
    
-4. 
+
+
+
+## 引入样式
+
+1. `import styles from './style.js' `
+
+2. `import cssObj from '@/css/demoStyle.scss'`
+
+   ```js
+   // webpack.config.js 
+   {
+        test: /\.scss$/,
+        use: ['style-loader', {
+            loader: 'css-loader',
+            options: {
+                modules: {
+                    localIdentName: '[path][name]-[local]-[hash:5]'
+                },
+                sourceMap: true
+            }
+        }, 'sass-loader']
+    },
+   ```
+```
+   
+   
 
 ## 绑定事件
 
-事件绑定机制，相对于原生，是小驼峰命名
+事件绑定机制，相对于原生，是小驼峰命名，事件值必须是函数
 
 `button onClick={function(){}}>按钮</button>`
+
+​```js
+// <button className="Btn" onClick={() => this.myClickFn()}>点击</button>
+// 或 class 内 需要使用箭头函数
+```
+
+## setState
+
+React 是单向绑定 单向数据流(js=>界面)
+
+如果要为state中的数据重新赋值，不要用 `this.state.xx = xxx`
+
+应用react提供的`this.setState({xx: xxx})`
+
+对于input，需要三步，1手动监听onChange事件，2在事件中拿到最新的e.target.value，3调用this.setState({})
+
+## react的生命周期
+
+**旧的生命周期：**
+
+![image-20191227111757608.png](https://i.loli.net/2019/12/27/LS2K13xhbVQZWT8.png)
+
+1. 组件创建阶段，只执行一次
+   - `componentWillMount`
+   - `render`
+   - `componentDidMount`
+2. 组件运行阶段，根据props属性或state状态数据的改变，有选择的执行0到多次
+   - `componentWillReceiveProps`
+   - `shouldComponentUpdate`
+   - `componentWillUpdate`
+   - `render`
+   - `componentDidupdate`
+3. 组件销毁阶段，只执行一次
+   - `componentWillUnmount`
+
+**新的v16.2之后生命周期**
+
+> 图示[来源](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
+>
+> ![image.png](https://i.loli.net/2019/12/27/ApcXH3ybk7KGd9h.png)
+
+[生命周期详解 参考教程](https://juejin.im/post/5b6f1800f265da282d45a79a)
+
+1. 挂载阶段
+
+   - `constructor`
+
+   - `static getDerivedStateFromProps` ：一个静态方法，不能在此函数里面使用this，这个函数有两个参数props和state，分别指接收到的新参数和当前的state对象，这个函数会**返回一个对象用来更新当前的state对象**，如果不需要更新可以返回null
+
+     该函数会在挂载时，接收到新的props，调用了`setState`和`forceUpdate`时被调用,这个方法就是为了取代之前的`componentWillMount`、`componentWillReceiveProps`和`componentWillUpdate`
+
+     *getDeriveStateFromProps被设计成一个static方法，就是纯粹的获取父组件props，增量更新本组件的state*
+
+   - [废弃]`componentWillMount/UNSAFE_componentWillMount`
+
+   - `render`
+
+   - `componentDidMount`
+
+2. 更新阶段
+
+   - [废弃]`componentWillReceiveProps/UNSAFE_componentWillReceiveProps`
+
+   - `static getDerivedStateFromProps`
+
+   - `shouldComponentUpdate`
+
+   - [废弃]`componentWillUpdate/UNSAFE_componentWillUpdate`
+
+   - `render`
+
+   - `getSnapshotBeforeUpdate` ：这个方法在`render`之后，`componentDivUpdate`之前调用，表示之前的属性和之前的state，这个函数有一个返回值，会作为第三个参数传给`componentDidUpdate`，如果你不想要返回值，可返回null，不写的话控制台会warning，所以**此方法必须配合`componentDivUpdate`方法一起使用**
+
+     此方法 为了取代之前的`componentWillUpdate`
+
+   - `componentDivUpdate`
+
+3. 卸载阶段
+
+   - `componentWillUnmount`
