@@ -21,4 +21,5 @@ categories:
  [掘金](https://juejin.im/post/5d6c806bf265da03ef7a2bdf)
  [链接](https://blog.csdn.net/zzl1243976730/article/details/92820985)
  [微软官方文档](https://code.visualstudio.com/docs/languages/jsconfig)
--  
+- 几个常用插件
+    vue: vetur、vue 2 snippets

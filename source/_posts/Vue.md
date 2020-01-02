@@ -82,7 +82,7 @@ categories:
 </body>
 </html>
 ```
-
+[Runtime Only和render详解](http://nferzhuang.com/vue%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E5%87%86%E5%A4%87-runtime-only%E5%92%8Cruntime-compiler/)
 
 
 ## 指令Directives

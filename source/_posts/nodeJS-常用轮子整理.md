@@ -93,13 +93,13 @@ categories:
 - **webpack**
 - **webpack-bundle-analyzer**
 - **webpack-dev-server**
-- **webpack-merge**
+- **webpack-merge** ：用于合并webpack配置，一般会把webpack的`base`配置和`dev`配置和`prod`配置分开写，这个工具方便的合并`base`和`dev`配置
 - **clean-webpack-plugin**
 - **copy-webpack-plugin**
 - **uglifyjs-webpack-plugin**
 - **optimize-css-assets-webpack**
 - **extract-text-webpack-plugin**
-- **friendly-errors-webpack-plug**
+- **friendly-errors-webpack-plugin** ：一个用于处理打包这个进程的插件，可以清除打包时候残留的控制台信息，并且可以在控制台打印出打包成功之后的文字提示，当然，对于打包错误之后的回调也是有的
 - **html-webpack-plugin**
 - **eslint-loader**
 - **style-loader**
