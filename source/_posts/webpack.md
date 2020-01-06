@@ -180,7 +180,9 @@ Gulp基于各个小task任务，webpack基于整个项目进行构建
 
 ### `devtool`
 
-配置项的值为 true，生成 **.map** 文件，方便调试定位源码
+该配置项用以控制是 **否生成source map** 以及 **怎样生成source map**，方便调试定位源码
+
+`eval`|`source-map`|`cheap`|`module`|`inline`|`hidden`|`nosources`
 
 ### `context`
 
@@ -201,39 +203,84 @@ Gulp基于各个小task任务，webpack基于整个项目进行构建
 
 ### `output`
 
-- `path` ：output 目录对应一个**绝对路径**
+- `path` ：output 目录对应一个**绝对路径**，指定 打包文件 的 输出目录，即打包后 文件在硬盘中的存储位置。
+
 - `filename` ：此选项决定了每个输出 bundle 的名称。这些 bundle 将写入到 [`output.path`](https://webpack.docschina.org/configuration/output/#output-path) 选项指定的目录下
-- `publicPath` ：对于按需加载(on-demand-load)或加载外部资源(external resources)（如图片、文件等）来说，会为所有的资源指定一个基础路径。**设置了publicPath后，会为资源添加一个前缀**
-- `chunkFilename` ：
-- `auxiliaryComment` ：
-- `chunkLoadTimeout` ：
-- `crossOriginLoading` ：
-- `jsonpScriptType` ：
+  > 我们可以使用以下常用方式为每一个 **打包文件** 提供 **唯一** 的 **文件名**：
+  >
+  > - **'bundle.js'** - 指定 **入口文件(main.js)** 所在的 **chunk** 的 **文件名**， **仅适用于单页面应用**；
+  > - **'[name].js'** - 使用 **chunk** 的 **name**；
+  > - **'[name].[hash].js'** - 使用 **compilation** 的 **hash**，**所有chunk文件名中hash值一样**；
+  > - **'[name].[chunkhash].js'** - 使用 **chunk** 内容的 **hash**，**每个chunk文件名中的hash值都不一样**；
+  > - **'[name].[id].js'** - 使用 **chunk** 的 **id**；
+  > - **[name].[contenthash].js** - 使用提取内容的 **hash**？？
+  >
+  > 我们也可以将 **filename** 指定一个 **function** 来返回输出的文件名， **返回值** 的格式和上面一样。
+  >
+  > 常见命名格式： `[name].[chunkhash].js`
+
+- `publicPath` ：对于按需加载(on-demand-load)或加载外部资源(external resources)（如图片、文件等）来说，会为所有的资源指定一个基础路径。**设置了publicPath后，会为所有资源引用添加此前缀**，publicPath 并不会对 生成文件的路径 造成影响，主要是 对页面里面引入的资源的路径做对应的补全
+
+- `chunkFilename` ：指定 输出的打包文件 的 文件名
+
+- `pathinfo` ：告诉 webpack 在 chunk 中引入 所包含模块信息的相关注释，不应该用于生产环境
+
+- `chunkLoadTimeout` ：chunk请求超时的时间，单位为 毫秒，默认为 120000。
+
+- `crossOriginLoading` ：告诉 webpack 是否启用 chunk 的 跨域加载， 默认值为 false。
+
+- `jsonpScriptType` ：在 动态添加script元素 的方式来进行 懒加载时，指定 script元素 的类型，即 设置type属性的值。
+
 - `devtoolFallbackModuleFilenameTemplate` ：
+
 - `devtoolModuleFilenameTemplate` ：
+
 - `devtoolNamespace` ：
+
 - `assetModuleFilename` ：
-- `globalObject` ：
+
+- `libraryExport` ：用于指定 具体的入口文件的返回值
+
+- `library` ：常用于 开发类库， 需和 libraryTarget属性 配合使用
+
+- `libraryTarget` ：配置如何暴露 library
+
+- `globalObject` ：和 library、libraryTarget 一起使用，指示将 入口文件的返回值 分配给哪个 全局对象，默认值为 window
+
+- `auxiliaryComment` ：在和 output.library 和 output.libraryTarget 一起使用时，此选项允许用户向 导出容器(export wrapper) 中插入 注释
+
 - `hashDigest` ：
+
 - `hashDigestLength` ：
+
 - `hashFunction` ：
+
 - `hashSalt` ：
+
 - `hotUpdateChunkFilename` ：
+
 - `hotUpdateFunction` ：
+
 - `hotUpdateMainFilename` ：
-- `jsonpFunction` ：
-- `library` ：
-- `libraryExport` ：
-- `libraryTarget` ：
-- `pathinfo` ：
-- `sourceMapFilename` ：
+
+- `jsonpFunction` ：当 输出多个chunk 时， webpack 会构建一个 全局方法， 用于 安装chunk。jsonpFunction 可用于指定 安装chunk 的 方法名。
+
+- `sourceMapFilename` ：配置 source map 的命名方式。默认使用 '[file].map'。
+
 - `sourcePrefix` ：
-- `strictModuleExceptionHandling` ：
-- `umdNamedDefine` ：
-- `futureEmitAssets` ：
+
+- `strictModuleExceptionHandling` ：如果一个模块在导入时抛出异常，告诉 webpack 从 模块实例缓存 中 删除 这个模块
+
+- `umdNamedDefine` ：会对 UMD 的构建过程中的 AMD 模块进行命名。否则就使用 匿名 的 define
+
+- `futureEmitAssets` ：告诉 webpack 在 输出文件到指定位置 时，使用 未来的版本， 它允许输出以后 释放内存
+
 - `ecmaVersion` ：
+
 - `compareBeforeEmit` ：
+
 - `iife` ：
+
 - `module` ：
 
 ### `module`
@@ -267,6 +314,8 @@ Gulp基于各个小task任务，webpack基于整个项目进行构建
 
 ### `plugins`
 
+[]
+
 ### `resolve`
 
 设置 **源文件**、**npm包** 如何被 **解析**。
@@ -283,8 +332,8 @@ Gulp基于各个小task任务，webpack基于整个项目进行构建
 
 *使用了 webpack-dev-server 之后就需要有的配置，在这里可以配置详细的开发环境*
 
-- `contentBase` ：告诉服务器从哪个目录中提供内容。只有在你想要提供静态文件时才需要。[`devServer.publicPath`](https://webpack.docschina.org/configuration/dev-server/#devserver-publicpath-) 将用于确定应该从哪里提供 bundle，并且此选项优先。推荐使用一个绝对路径,例:`path.join(__dirname, 'public')`
-- `publicPath` ：此路径下的打包文件可在浏览器中访问。
+- `contentBase` ：决定了 webpackDevServer 启动时服务器资源的根目录。只有在你想要提供**非通过webpack打包的静态文件**时才需要。[`devServer.publicPath`](https://webpack.docschina.org/configuration/dev-server/#devserver-publicpath-) 将用于确定应该从哪里提供 bundle，并且此选项优先。推荐使用一个绝对路径,例:`path.join(__dirname, 'public')`，默认webpack dev server是从项目的根目录提供服务，如果要从不同的目录提供服务，可以通过contentBase来配置。类似`output.path`一样的作用。假定服务器里生成的内存index.html所在位置，并且优先级是最高的
+- `publicPath` ：此路径下的打包文件可在浏览器中访问。即在浏览器中访问的路径的前缀（包括index.html的访问路径），若是devServer里面的publicPath没有设置，则会认为是output里面设置的publicPath的值，只影响于 webpackDevServer，其他该怎么build就怎么build
 - `clientLogLevel` ：当使用*内联模式(inline mode)*时，会在开发工具(DevTools)的控制台(console)显示消息
 - `historyApiFallback` ：启用后任意的 `404` 响应都可能需要被替代为 `index.html`
 - `hot` ：启用 webpack 的 [模块热替换](https://webpack.docschina.org/concepts/hot-module-replacement/) 功能
@@ -301,6 +350,15 @@ Gulp基于各个小task任务，webpack基于整个项目进行构建
 ### `target`
 
 webpack 能够为 **多种环境** 编译构建， 可通过 **target配置项** 指定一个 **具体的环境**
+字符串可选值 
+- `web` ：应用于 web环境(浏览器)。对于需要 懒加载的chunk，会通过 动态添加script元素的方式加载，然后通过一个 全局方法(webpackJsonp) 来安装
+- `webworker` ：应用于 web worker环境。使用 chunk 时，通过 importScripts 方法加载。
+- `node` ：应用于 node环境。 非入口chunk的代码符合CMD规范。使用 chunk 时，通过 require 方法加载
+- `async-node` ：应用于 node环境。 非入口chunk的代码符合CMD规范。使用 chunk 时，通过 fs模块异步加载
+- `node-webkit` ：node-webkit 是一个基于 Chromium 和 Node.js 的 Web 运行环境，可让你直接在 DOM 中调用 Node.js 模块，并可使用任何现有的 Web 技术来编写本地应用
+- `electron-main` ：应用于 electron 主进程
+- `elctron-renderer` ：应用于 electron render进程
+- `electron-preload` ：应用于 electron render进程
 
 ### `externals`
 
@@ -309,6 +367,10 @@ webpack 能够为 **多种环境** 编译构建， 可通过 **target配置项**
 ### `performance`
 
 用于配置如何展示性能提示。例如，如果一个资源超过 250kb，webpack 会对此输出一个警告来通知你。
+- `hits` ：false， 关闭提示；'warning',当输出文件的体积超过指定体积时，输出 警告信息， 依然完成编译打包工作, 适用于 开发模式；'error'，当输出文件的体积超过指定体积时，中断编译打包，并输出 错误信息， 适用于生产模式。
+- `maxEntrypointSize` ：指定 入口文件 的 最大体积， 默认值为 250000 bytes，超出警告
+- `maxAssetSize` ：指定 单个资源(包括入口文件) 的 最大体积，默认值为 250000 bytes，超出警告
+- `assetFilter` ：自定义 哪些文件的 体积超过最大体积 时，输出 警告/错误 信息
 
 ### `node`
 
@@ -377,9 +439,32 @@ webpack 能够为 **多种环境** 编译构建， 可通过 **target配置项**
    module.exports = {
      devServer: {
            open: true, // 自动打开浏览器
-           port: 3000, // 设置启动时候的运行端口
+           port: 3000, // 设置启动时候的监听端口，默认是 8080
            contentBase: 'src', // 指定托管根目录
-           hot: true // 启动热更新 的第一步
+           inline: false, // development模式 下，webpack-dev-server 会 监听源文件是否发生变化。 如果发生变化，会 自动刷新页面。
+           hot: true, // 启动热更新 的第一步，同时满足以下条件：启用inline模式；显示声明module.hot.accept('url',callback)否则只能刷新页面
+           hotOnly: false, // 默认情况为 false，当 HMR 失败以后，浏览器端通过 重新加载页面 来 响应服务端更新
+           useLocalIp: true, // 设置为true，dev server 会以 本地IP 打开默认浏览器
+           openPage: '默认打开的跳转页面', // 指定 dev-server 自动打开 默认浏览器 以后的 默认跳转页面
+           host: '', // 指定要使用的 host， 默认是 localhost
+           liveReload: , // 默认情况下，dev-server 将在 检测到参与编译打包的文件文件更改 时 重新加载/刷新页面。  即如果如果一个文件 未参与编译打包过程， 那么它发生变化时 不会触发重新加载/刷新页面。通过将 liveReload 设置为 false 来 禁用 它(修改什么文件也 不会触发重新加载/刷新页面)
+           watchContentBase: , // 告诉服务器从哪里提供内容，默认值为 当前工作目录
+           watchOptions: , // 告诉 dev-server 监视 devServer.contentBase选项 所服务的文件， 默认情况下 禁用 它
+           writeToDisk: , // 默认为 false， 即 不将编译打包以后的内容写入磁盘
+           lazy: false, // 如果设置为 true， dev-server会进入 懒惰模式， 仅在请求时编译该bundle。 这意味着 webpack不会监视任何文件更改。
+           filename: '', // 此选项可让您减少 lazy模式 下的 编译。 默认情况下，在 lazy模式 下，每个请求都会产生 新的编译。 使用 filename，只能在请求某个文件时进行编译
+           overlay: {}, // 当存在 编译错误或者警告 时，将 错误或者警告 以 全屏覆盖 的形式在浏览器中展示
+           proxy: {
+               'test': {
+                   target: 'http://localhost:3000',
+                   changeOrigin: true,
+                   pathRewrite: {},
+                   router: {...}
+               }
+           }, // 在 前后端分离 的开发过程中，使用 proxy 可以有效的帮我们解决 跨域请求问题。通常，会在 proxy配置项 中指定每个 API请求 对应的 代理。
+           progress: false, // 在 控制台 输出 进度信息，仅适用于 CLI模式
+           allowedHosts: [] // 将允许访问 dev server 的 服务列入白名单。
+           
      },
      plugins: [
        new webpack.HotModuleReplacementPlugin(), // 启动热更新的第二步
@@ -585,3 +670,6 @@ module.exports = {
 
 
 > [🌟用法详解-掘金](https://juejin.im/post/5d6350c5e51d4561b072dd24)
+>
+> [比较：output.path、output.publicPath、devServer.publicPath和devServer.contentBase](https://github.com/fi3ework/blog/issues/39) copy-webpack-plugin的原理会覆盖此改动
+
