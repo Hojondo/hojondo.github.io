@@ -19,7 +19,7 @@ categories:
 
 ## 导图
 
-![导图](http://www.ruanyifeng.com/blogimg/asset/2015/bg2015120901.png)
+![导图](https://www.ruanyifeng.com/blogimg/asset/2015/bg2015120901.png)
 
 - Workspace：工作区
 - Index / Stage：暂存区
@@ -153,7 +153,7 @@ git config --global alias.br branch
 git config --global core.editor "mate -w"
 
 # remove  proxy configuration on git
-git config --global --unset http.proxy
+git config --global --unset https.proxy
 ```
 
 ## 常用命令
@@ -496,7 +496,7 @@ git config --global --unset http.proxy
       
       - `rebase`
       
-        [merge和rebase的区别](https://www.jianshu.com/p/129e721adc6e)，[rebase的详解](http://jartto.wang/2018/12/11/git-rebase/)
+        [merge和rebase的区别](https://www.jianshu.com/p/129e721adc6e)，[rebase的详解](https://jartto.wang/2018/12/11/git-rebase/)
       
         rebase用于合并多次提交记录
         

@@ -262,7 +262,7 @@ React 是单向绑定 单向数据流(js=>界面)
 
 **新的v16.2之后生命周期**
 
-> 图示[来源](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
+> 图示[来源](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
 >
 > ![image.png](https://i.loli.net/2019/12/27/ApcXH3ybk7KGd9h.png)
 

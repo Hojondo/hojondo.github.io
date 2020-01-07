@@ -138,7 +138,7 @@ let tom: Person = {
 
 5. 任意类型`any`
 
-   `let list:any[]=['xcatliu',25,{website:'http://xcatliu.com'}];`
+   `let list:any[]=['xcatliu',25,{website:'https://xcatliu.com'}];`
 
 ### `Function`函数的类型
 

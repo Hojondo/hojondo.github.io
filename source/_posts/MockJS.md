@@ -157,4 +157,4 @@ console.log(Mock.valid(tempObj, realData));
 
 ### `Mock.toJSONSchema()`
 
-把 Mock.js 风格的数据模板 `template` 转换成 [JSON Schema](http://json-schema.org/)。
+把 Mock.js 风格的数据模板 `template` 转换成 [JSON Schema](https://json-schema.org/)。

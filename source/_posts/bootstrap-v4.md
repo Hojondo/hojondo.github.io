@@ -242,7 +242,7 @@ categories:
 
 ## 面包屑 .breadcrumb > .breadcrumb-item.active
 
-在导航结构中透过 CSS 自动添加分隔符号指示当前页面的位置[*面包屑jsfiddle示例*](http://jsfiddle.net/hojondo/aq9Laaew/275859/)
+在导航结构中透过 CSS 自动添加分隔符号指示当前页面的位置[*面包屑jsfiddle示例*](https://jsfiddle.net/hojondo/aq9Laaew/275859/)
 
 - 基本结构：
   - `ol.breadcrumb`
@@ -412,7 +412,7 @@ categories:
 
 - 特殊选单内容  `.dropdown-meau >`
 
-  [*特殊下拉选单内容 jsfiddle示例*](http://jsfiddle.net/hojondo/aq9Laaew/275895/)
+  [*特殊下拉选单内容 jsfiddle示例*](https://jsfiddle.net/hojondo/aq9Laaew/275895/)
 
 - 自定义选项(在.dropdown-toggle上)： // todo 
 
@@ -443,7 +443,7 @@ categories:
   - 大小：`.btn-sm` `.btn` `.btn-lg` `.btn-group-sm>.btn` `.btn-group>.btn` `.btn-group-lg>.btn`
   - 块级：`.btn-blcok`
   - 启用/停用效果： `.active` `[disabled]`/`a.disabled`
-  - 其他`input`效果： `div.btn-group.btn-group-toggle[data-toggle='buttons'] > label.btn > input` [*input radio 示例*](http://jsfiddle.net/hojondo/aq9Laaew/275872/)
+  - 其他`input`效果： `div.btn-group.btn-group-toggle[data-toggle='buttons'] > label.btn > input` [*input radio 示例*](https://jsfiddle.net/hojondo/aq9Laaew/275872/)
 - 自定义选项data-api：
   - js - toggle切换：`[data-toggle='button']`  
 - js方法：
@@ -455,7 +455,7 @@ categories:
 - 按钮工具列`.btn-toolbar >.btn-group`
 - 大小：`.btn-group-sm` `.btn-group` `.btn-group-lg`
 - 巢状嵌套：` .btn-group > .btn + .btn-group > .btn`
-- 竖直排列：`.btn-group-vertical`  [*按钮组 示例*](http://jsfiddle.net/hojondo/aq9Laaew/275874/)
+- 竖直排列：`.btn-group-vertical`  [*按钮组 示例*](https://jsfiddle.net/hojondo/aq9Laaew/275874/)
 
 ## 输入群组  .input-group
 
@@ -493,7 +493,7 @@ categories:
 
   > `$().tab('show')`：选择给定的列表项目显示其关联的分页，在 `shown.bs.tab` 事件发生之前隐藏所有其他的panel
   >
-  > [*tab示例*](http://jsfiddle.net/hojondo/aq9Laaew/275829/) 
+  > [*tab示例*](https://jsfiddle.net/hojondo/aq9Laaew/275829/) 
 
 - 事件：事件触发顺序 如 列表顺序
 
@@ -531,7 +531,7 @@ categories:
 
   - 验证`form[novalidate].was-validated *[required]:invalid/:valid + div.valid-feedback`：
 
-    > [*表单验证 jsfiddle示例*](http://jsfiddle.net/hojondo/aq9Laaew/275841/)
+    > [*表单验证 jsfiddle示例*](https://jsfiddle.net/hojondo/aq9Laaew/275841/)
     >
     > 需要将`[novalidate]`属性(禁用浏览器预设的回馈提示，但仍提供 JavaScript 中表单验证 API 有效)添加到form
     >
@@ -545,7 +545,7 @@ categories:
 
     *`.custom-control` 有个`padding-left:1.5rem`*
 
-    [自定义选择框jsfiddle示例](http://jsfiddle.net/hojondo/aq9Laaew/275855/)
+    [自定义选择框jsfiddle示例](https://jsfiddle.net/hojondo/aq9Laaew/275855/)
 
     - 自定义单选复选框`div.custom-checkbox/custom-radio > input[].custom-control-input + label.custom-control-label`
 
@@ -718,9 +718,9 @@ categories:
   - `.col.offset-{breakpoint}-{n}` ：向右移动列，通过{n}增加左边距
   - `.col.ml/mr-{breakpoint}-auto` || `.col.ml/mr-{breakpoint}-{0~5}` ：向左右添加margin*0, 0.25rem, 0.5rem, 1rem, 1.5rem, 3rem*
   - `.row>.col+.row` ：可以嵌套并且每个row内都是12单位
-  - `.row>*+div.w-100+*` ：可在row内中间加入，强制一row占多行，同时可以设置 `d-{breakpoint}-{value}`控制显示隐藏 [*jsfiddle示例*](http://jsfiddle.net/hojondo/aq9Laaew/275786/)
+  - `.row>*+div.w-100+*` ：可在row内中间加入，强制一row占多行，同时可以设置 `d-{breakpoint}-{value}`控制显示隐藏 [*jsfiddle示例*](https://jsfiddle.net/hojondo/aq9Laaew/275786/)
   - 垂直对齐： row：以最上对齐`align-items-start` 以 垂直居中`align-items-center` 以最下对齐`align-items-end`；col：`align-self-start` `align-self-center ` `align-self-end`
-  - 水平对齐： row：以最左对齐`justify-content-start` 以水平居中`justify-content-center` 以最右对齐`justify-content-end` 项目之间的间隔都相等`justify-content-center` 项目两侧的间隔都相等`justify-content-end`；[*jsfiddle示例*](http://jsfiddle.net/hojondo/aq9Laaew/275780/)
+  - 水平对齐： row：以最左对齐`justify-content-start` 以水平居中`justify-content-center` 以最右对齐`justify-content-end` 项目之间的间隔都相等`justify-content-center` 项目两侧的间隔都相等`justify-content-end`；[*jsfiddle示例*](https://jsfiddle.net/hojondo/aq9Laaew/275780/)
   - `.row.no-gutters`移除row的负margin，移除col之间的padding 
   - 排序 `.col.order-{breakpoint}-{n}` ：数字越大 越靠后，未设置的默认`0` ，`order-{breakpoint}-first`等价于`-1`最前 `order-{breakpoint}-last`等价于`13`最后。
 - 重定义sass变量：略
@@ -733,7 +733,7 @@ categories:
   - `table.table-borderless` table无边框
   - `table.table-hover` 给tbody下的row添加hover效果
   - `table.table-sm` 将padding缩小
-  - 语义化颜色区别 *在table，tr 或 td/th 都可* [*table颜色jsfiddle示例*](http://jsfiddle.net/hojondo/aq9Laaew/275809/)
+  - 语义化颜色区别 *在table，tr 或 td/th 都可* [*table颜色jsfiddle示例*](https://jsfiddle.net/hojondo/aq9Laaew/275809/)
     - `table-active`
     - `table-primary`
     - `table-secondary`
@@ -756,7 +756,7 @@ categories:
 
 `.fixed-top` `.fixed-bottom`
 
-`.sticky-top` [*粘性布局 jsfiddle示例*](http://jsfiddle.net/hojondo/aq9Laaew/275806/)
+`.sticky-top` [*粘性布局 jsfiddle示例*](https://jsfiddle.net/hojondo/aq9Laaew/275806/)
 
 ## 浮动 .float-{breakpoint}-left/right/none
 
@@ -776,7 +776,7 @@ categories:
 
 > 垂直对齐仅影响 inline、inline-block、inline-table、和 table 元素
 >
-> [*table对齐示例*](http://jsfiddle.net/hojondo/aq9Laaew/275815/)
+> [*table对齐示例*](https://jsfiddle.net/hojondo/aq9Laaew/275815/)
 >
 > `默认.align-baseline` `.align-top` `.align-middle` `.align-bottom` `.align-text-bottom` `.align-text-top`
 

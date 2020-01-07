@@ -1,5 +1,5 @@
 ---
-title: 杂谈 vue 钩子顺序和数据异步请求
+title: 杂谈-vue-钩子顺序和数据异步请求
 top: false
 cover: false
 toc: true

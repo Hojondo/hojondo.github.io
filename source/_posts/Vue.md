@@ -82,7 +82,7 @@ categories:
 </body>
 </html>
 ```
-[Runtime Only和render详解](http://nferzhuang.com/vue%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E5%87%86%E5%A4%87-runtime-only%E5%92%8Cruntime-compiler/)
+[Runtime Only和render详解](https://nferzhuang.com/vue%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E5%87%86%E5%A4%87-runtime-only%E5%92%8Cruntime-compiler/)
 
 
 ## 指令Directives
@@ -1158,7 +1158,7 @@ Vuex 是一个专为 Vue.js 应用程序开发的**状态管理模式**
     基本用法
 
 > ```js
-> axios.get('http://baidu.com')
+> axios.get('https://baidu.com')
 >  .then(res => console.log(res.data))
 >  .catch(err => console.log(err))
 > ```
@@ -1431,11 +1431,11 @@ methods: {
 ## 相关文章
 1. [vue.js 1.x 文档](https://v1-cn.vuejs.org/)
 2. [vue.js 2.x 文档](https://cn.vuejs.org/)
-3. [String.prototype.padStart(maxLength, fillString)](http://www.css88.com/archives/7715)
-4. [js 里面的键盘事件对应的键码](http://www.cnblogs.com/wuhua1/p/6686237.html)
+3. [String.prototype.padStart(maxLength, fillString)](https://www.css88.com/archives/7715)
+4. [js 里面的键盘事件对应的键码](https://www.cnblogs.com/wuhua1/p/6686237.html)
 5. [pagekit/vue-resource](https://github.com/pagekit/vue-resource)
 6. [navicat如何导入sql文件和导出sql文件](https://jingyan.baidu.com/article/a65957f4976aad24e67f9b9b.html)
-7. [贝塞尔在线生成器](http://cubic-bezier.com/#.4,-0.3,1,.33)
+7. [贝塞尔在线生成器](https://cubic-bezier.com/#.4,-0.3,1,.33)
 
 
 
@@ -1444,7 +1444,7 @@ methods: {
 
 
 ## 相关文件
-1. [URL中的hash（井号）](http://www.cnblogs.com/joyho/articles/4430148.html)
+1. [URL中的hash（井号）](https://www.cnblogs.com/joyho/articles/4430148.html)
 
 
 
@@ -1481,7 +1481,7 @@ webpack 是前端的一个项目构建工具，它是基于 Node.js 开发出来
 2. 使用Webpack， 是基于整个项目进行构建的；
 + 借助于webpack这个前端自动化构建工具，可以完美实现资源的合并、打包、压缩、混淆等诸多功能。
 + 根据官网的图片介绍webpack打包的过程
-+ [webpack官网](http://webpack.github.io/)
++ [webpack官网](https://webpack.github.io/)
 
 ## webpack安装的两种方式
 1. 运行`npm i webpack -g`全局安装webpack，这样就能在全局使用webpack的命令
@@ -1895,7 +1895,7 @@ var vm = new Vue({
 
 [Github 仓储地址](https://github.com/ElemeFE/mint-ui)
 
-[Mint-UI官方文档](http://mint-ui.github.io/#!/zh-cn)
+[Mint-UI官方文档](https://mint-ui.github.io/#!/zh-cn)
 
 1. 导入所有MintUI组件：
 
@@ -1933,9 +1933,9 @@ Vue.use(MintUI)
 
 ## 使用 MUI 组件
 
-[官网首页](http://dev.dcloud.net.cn/mui/)
+[官网首页](https://dev.dcloud.net.cn/mui/)
 
-[文档地址](http://dev.dcloud.net.cn/mui/ui/)
+[文档地址](https://dev.dcloud.net.cn/mui/ui/)
 
 1. 导入 MUI 的样式表：
 
@@ -1959,7 +1959,7 @@ import '../lib/mui/css/mui.min.css'
 
 ## 将项目源码托管到oschina中
 
-1. 点击头像 -> 修改资料 -> SSH公钥 [如何生成SSH公钥](http://git.mydoc.io/?t=154712)
+1. 点击头像 -> 修改资料 -> SSH公钥 [如何生成SSH公钥](https://git.mydoc.io/?t=154712)
 
 2. 创建自己的空仓储，使用 `git config --global user.name "用户名"` 和 `git config --global user.email ***@**.com` 来全局配置提交时用户的名称和邮箱
 
@@ -2186,9 +2186,9 @@ Vue.config.keyCodes.f2 = 113;
 ## 相关文章
 1. [vue.js 1.x 文档](https://v1-cn.vuejs.org/)
 2. [vue.js 2.x 文档](https://cn.vuejs.org/)
-3. [String.prototype.padStart(maxLength, fillString)](http://www.css88.com/archives/7715)
-4. [js 里面的键盘事件对应的键码](http://www.cnblogs.com/wuhua1/p/6686237.html)
-5. [Vue.js双向绑定的实现原理](http://www.cnblogs.com/kidney/p/6052935.html)
+3. [String.prototype.padStart(maxLength, fillString)](https://www.css88.com/archives/7715)
+4. [js 里面的键盘事件对应的键码](https://www.cnblogs.com/wuhua1/p/6686237.html)
+5. [Vue.js双向绑定的实现原理](https://www.cnblogs.com/kidney/p/6052935.html)
 
 
 

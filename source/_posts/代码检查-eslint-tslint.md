@@ -41,7 +41,7 @@ Lint 因此而诞生。
    }
    ```
 
-4. 创建`.eslintrc.js/json` 和 `.eslintignore` 文件；或通过`eslint --init`命令初始化，在 [eslint规则表](http://eslint.cn/docs/rules/) 
+4. 创建`.eslintrc.js/json` 和 `.eslintignore` 文件；或通过`eslint --init`命令初始化，在 [eslint规则表](https://eslint.cn/docs/rules/) 
 
 5. 编译器工具配置： [webstorm配置](https://segmentfault.com/q/1010000013857167/a-1020000013857503)， [vscode配置]()
 

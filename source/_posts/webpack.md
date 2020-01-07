@@ -456,7 +456,7 @@ webpack 能够为 **多种环境** 编译构建， 可通过 **target配置项**
            overlay: {}, // 当存在 编译错误或者警告 时，将 错误或者警告 以 全屏覆盖 的形式在浏览器中展示
            proxy: {
                'test': {
-                   target: 'http://localhost:3000',
+                   target: 'https://localhost:3000',
                    changeOrigin: true,
                    pathRewrite: {},
                    router: {...}

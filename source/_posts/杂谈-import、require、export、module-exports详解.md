@@ -1,5 +1,5 @@
 ---
-title: 杂谈-import、require、export、module.exports详解
+title: 杂谈-模块化-import、require、export、module.exports详解
 top: false
 cover: false
 toc: true

@@ -139,7 +139,7 @@ categories:
 - **postcss-import** ：postcss是后处理器框架，[整体介绍](https://juejin.im/post/5c022f4a6fb9a049ca371684)
 - **postcss-url**
 - **postcss-loader**
-- **autoprefixer** ：后处理器postcss框架其中一个插件，适用场景是：添加前缀、转换单位、低版本浏览器的hack等。[详细介绍](http://www.html-js.com/article/Postcss-postcss-pre-processor-and-post-processor) [详细教程](https://juejin.im/post/5c17bf93f265da611510b5ea)
+- **autoprefixer** ：后处理器postcss框架其中一个插件，适用场景是：添加前缀、转换单位、低版本浏览器的hack等。[详细介绍](https://www.html-js.com/article/Postcss-postcss-pre-processor-and-post-processor) [详细教程](https://juejin.im/post/5c17bf93f265da611510b5ea)
 - **less**
 - **less-loader**
 - **node-sass**
@@ -190,7 +190,7 @@ categories:
 - **shelljs** ：Node.js下的脚本语言解析器，模块重新包装了`child_process`，实现在javascript中编写shell命令实现功能，[介绍](https://www.kancloud.cn/outsider/clitool/313191)、[介绍2](https://juejin.im/post/5cdb76166fb9a032196ef1ff)
 - **commander** ：封装了命令行参数的接口，让commander能够根据用户输入参数选择执行不同代码。。一般用于脚手架开发[例子用commander做一个自己的eslint脚手架](https://cloud.tencent.com/developer/article/1541086)
 - **validate-npm-package-name** ：对于用户输入的工程名的可用性进行验证的模块，[例子](https://www.geekjc.com/post/5de4eb6269116702fb6f61e3)
-- **semver** ：是[ 语义化版本（Semantic Versioning）规范](http://semver.org/lang/zh-CN/) 的一个实现，实现了版本和版本范围的解析、计算、比较。[介绍](https://cnodejs.org/topic/570f8331510629637266685a)
+- **semver** ：是[ 语义化版本（Semantic Versioning）规范](https://semver.org/lang/zh-CN/) 的一个实现，实现了版本和版本范围的解析、计算、比较。[介绍](https://cnodejs.org/topic/570f8331510629637266685a)
 
 
 
