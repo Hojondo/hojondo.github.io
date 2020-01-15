@@ -1,6 +1,6 @@
 ---
 title: 代码检查 eslint & tslint
-top: true
+top: false
 cover: false
 toc: true
 mathjax: false

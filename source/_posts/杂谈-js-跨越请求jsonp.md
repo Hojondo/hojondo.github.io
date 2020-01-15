@@ -5,7 +5,7 @@ cover: false
 toc: true
 mathjax: false
 date: 2020-01-09 19:22:48
-tags:
+tags: ['杂谈', 'js']
 password:
 summary:
 categories:

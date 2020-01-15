@@ -1,6 +1,6 @@
 ---
-title: git
-top: false
+title: Git
+top: true
 cover: false
 toc: true
 mathjax: false

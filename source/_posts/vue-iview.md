@@ -1,5 +1,5 @@
 ---
-title: vue-iview
+title: Vue-iview
 top: false
 cover: false
 toc: true

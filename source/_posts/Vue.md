@@ -1,6 +1,6 @@
 ---
 title: Vue
-top: false
+top: true
 cover: false
 toc: true
 mathjax: false
