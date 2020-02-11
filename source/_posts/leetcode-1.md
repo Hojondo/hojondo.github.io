@@ -1,5 +1,5 @@
 ---
-title: leetcode 1
+title: LeetCode 1
 top: false
 cover: false
 toc: true
@@ -8,7 +8,7 @@ date: 2020-02-09 22:09:53
 tags:
 password:
 summary:
-categories:
+categories: ['LeetCode']
 ---
 
 ## 题目描述
