@@ -90,7 +90,7 @@ deploy:
   type: git
   repository:
     github: https://github.com/Hojondo/hojondo.github.io,master
-    coding: https://git.coding.net/hojondo/hojondo.git,master
+    coding: https://e.coding.net/hojondo/hojondo.git,master
 # 自定义
 search:
   path: search.xml
