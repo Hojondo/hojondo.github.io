@@ -3,7 +3,7 @@ title: LeetCode 1
 top: false
 cover: false
 toc: true
-mathjax: false
+mathjax: true
 date: 2020-02-09 22:09:53
 tags:
 password:
