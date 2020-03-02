@@ -296,11 +296,11 @@ React 是单向绑定 单向数据流(js=>界面)
 
    - `render`
 
-   - `getSnapshotBeforeUpdate` ：这个方法在`render`之后，`componentDivUpdate`之前调用，表示之前的属性和之前的state，这个函数有一个返回值，会作为第三个参数传给`componentDidUpdate`，如果你不想要返回值，可返回null，不写的话控制台会warning，所以**此方法必须配合`componentDivUpdate`方法一起使用**
+   - `getSnapshotBeforeUpdate` ：这个方法在`render`之后，`componentDidUpdate`之前调用，表示之前的属性和之前的state，这个函数有一个返回值，会作为第三个参数传给`componentDidUpdate`，如果你不想要返回值，可返回null，不写的话控制台会warning，所以**此方法必须配合`componentDidUpdate`方法一起使用**
 
      此方法 为了取代之前的`componentWillUpdate`
 
-   - `componentDivUpdate`
+   - `componentDidUpdate`
 
 3. 卸载阶段
 
