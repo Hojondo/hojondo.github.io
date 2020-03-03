@@ -998,6 +998,7 @@ article .article-tags .chip {
     display: list-item;
     line-height: 1.8rem;
     font-size: 1rem;
+    overflow: auto;
 }
 
 #articleContent ul li {
@@ -1011,6 +1012,8 @@ article .article-tags .chip {
 #articleContent table, th, td {
     padding: 12px 13px;
     border: 1px solid #dfe2e5;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 table tr:nth-child(2n), thead {
