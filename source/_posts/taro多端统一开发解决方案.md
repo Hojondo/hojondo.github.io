@@ -5,10 +5,10 @@ cover: false
 toc: true
 mathjax: false
 date: 2020-03-02 21:46:25
-tags:
+tags: ['小程序开发']
 password:
 summary:
-categories: ['小程序开发']
+categories: 
 ---
 # [Taro](https://taro.aotu.io/)
 
