@@ -108,6 +108,7 @@ code {
     color: #e96900;
     background-color: #f8f8f8;
     border-radius: 2px;
+    word-break: break-all;
 }
 
 pre code {

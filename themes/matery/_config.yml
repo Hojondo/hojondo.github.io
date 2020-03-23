@@ -158,30 +158,46 @@ clicklove:
 # 在”关于”页面中配置个人信息，包括头像、职业和个人介绍.
 profile:
   avatar: /medias/avatar.png
-  career: Software Engineer
+  career: 前端
   introduction: If you wish to succeed, you should use persistence as your good friend, experience as your reference, prudence as your brother and hope as your sentry.
 
 # config my projects informations in about page.
 # If you don't want to display this `My Projects` content, you can deactivate or delete this configuration.
 # 在“关于”页面配置"我的项目"信息，如果你不需要这些信息则可以将其设置为不激活或者将其删除.
 myProjects: #  todo 更改为自己的项目
-  enable: false
+  enable: true
   data:
-    hexo-theme-matery:
+    ebm:
       icon: fa-meetup
       iconBackground: 'linear-gradient(to bottom right, #66BB6A 0%, #81C784 100%)'
-      url: http://github.com/blinkfox/hexo-theme-matery
-      desc: This is a Hexo blog theme with 'Material Design' and responsive design.
-    zealt:
+      url: /2020/03/21/project-ebm/
+      desc: 【vue】后台管理系统
+    teamholder:
         icon: fa-database
         iconBackground: 'linear-gradient(to bottom right, #F06292 0%, #EF5350 100%)'
-        url: https://github.com/blinkfox/zealot
-        desc: 一个轻量级的SQL和参数动态生成工具库
-    typora-vue-theme:
+        url: /2020/03/22/project-teamholder/
+        desc: 【vue】协同管理系统。安排工作任务，管理项目进度
+    wash:
         icon: fa-file-text-o
         iconBackground: 'linear-gradient(to bottom right, #29B6F6 0%, #1E88E5 100%)'
-        url: https://github.com/blinkfox/typora-vue-theme
-        desc: This is a typora theme inspired by Vue document style.
+        url: /2020/03/22/project-wash/
+        desc: 【vue】线上线下一体化提供洗衣服务解决方案。
+    portal:
+        icon: fa-cube
+        iconBackground: 'linear-gradient(to bottom right, #2916F6 0%, #1E98E5 100%)'
+        url: /2020/03/22/project-portal/
+        desc: 【react】官网展示页面
+    teamholderMiniApp:
+        icon: fa-wechat
+        iconBackground: 'linear-gradient(to bottom right, #106292 0%, #1F5350 100%)'
+        url: https://github.com/Hojondo/Collaboration
+        desc: 【小程序】协同管理系统
+    h5Future:
+        icon: fa-random
+        iconBackground: 'linear-gradient(to bottom right, #30642F 0%, #10F69F 100%)'
+        url: /2020/03/22/project-h5/
+        desc: 【WebGL】开发过的canvas相关H5项目集合
+    
 
 # config my skills informations in about page.
 # If you don't want to display this `My Skills` content, you can deactivate or delete this configuration.
