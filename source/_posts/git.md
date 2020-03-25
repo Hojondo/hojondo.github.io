@@ -76,14 +76,13 @@ categories:
 - `push`
 
   ```shell
-  # push所有分支
+  # push所有分支（所有已经设置好upstream的本地分支）
   $ git push
   # 客户端首次提交(没有master时)需要加-u
   $ git push –u [remote-repo] master
   # 将本地某分支推到远程分支 / 创建远程分支（远程没有对应分支时）
-  $ git push [remote-repo] [local-branch]
-  # 创建远程分支
   $ git push [remote-repo] <local-branch>:<remote-branch>
+  $ git push [remote-repo] branchName # 当本地远程分支名字相同时
   # 强行推送当前分支到远程仓库，即使有冲突
   $ git push [remote-repo] --force
   # 推送所有分支到远程仓库

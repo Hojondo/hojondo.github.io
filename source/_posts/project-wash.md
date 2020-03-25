@@ -195,3 +195,5 @@ export default Popup
 import CustomAlert from '_components/customAlert.js'
 Vue.prototype.$customAlert = CustomAlert.install;
 ```
+
+### 调用H5 浏览器API 打开摄像头和canvas截图
