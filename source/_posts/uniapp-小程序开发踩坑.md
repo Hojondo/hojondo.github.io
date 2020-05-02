@@ -10,5 +10,8 @@ password:
 summary:
 categories:
 ---
+## 学习要点
+1. `uni`扩展API，同微信小程序API，前缀`uni.`代替`wx.`
 ## 关于SCSS
 1. 识别`&`父选择器占位符，但不识别`&`处于非行首的情况。如*.first-row &{}*
+2. font-size 设置fonticon时，align-items :center 无效

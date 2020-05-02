@@ -13,7 +13,7 @@ categories:
 # css实现flex布局下，带间隔between最后一行自动对齐表格
 
 目标效果：
-[![l2M7zn.md.png](https://s2.ax1x.com/2020/01/08/l2M7zn.md.png)](https://imgchr.com/i/l2M7zn)
+[![Jx524S.md.png](https://s1.ax1x.com/2020/05/03/Jx524S.md.png)](https://imgchr.com/i/Jx524S)
 ```html
 <div class="commentBrands">
     <img src="" alt=""/>
