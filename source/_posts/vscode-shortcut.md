@@ -23,3 +23,8 @@ categories:
  [微软官方文档](https://code.visualstudio.com/docs/languages/jsconfig)
 - 几个常用插件
     vue: vetur、vue 2 snippets
+
+
+### 快捷键
+- `Option + LeftClick` 快速多行选择（多处光标同时编辑）
+- `Command + L +Command + 0` 一键收缩代码
