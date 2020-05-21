@@ -24,7 +24,7 @@ categories:
     </li>
 </ul>
 ```
-
+### 第一种解决方案 - scss/flex-order
 ```scss
 // scss
 ul{
@@ -92,5 +92,16 @@ ul{
             }
         }
     }
+}
+```
+
+### 第二种解决方案 float/nth-child()
+```css
+ul>li:nth-child(10n + 6), 
+ul>li:nth-child(10n + 7), 
+ul>li:nth-child(10n + 8), 
+ul>li:nth-child(10n + 9), 
+ul>li:nth-child(10n) {
+    float: right;
 }
 ```
