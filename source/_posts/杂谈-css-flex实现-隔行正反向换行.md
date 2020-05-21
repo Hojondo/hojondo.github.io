@@ -32,12 +32,32 @@ ul{
 	flex-direction: row;
 	flex-wrap: wrap;
     li{
+        position: relative; // 为::before做absolute position 准备
         flex-grow: 1; // 掩护单行没到达5个item的情况，配合 偶数行第一个不要grow
         width: 20%; // 宽度是5个item平分
 		height: 160px;
+        padding-top: 12rpx; // 为::before腾出空间
         border: 0 solid #B3B3B3;
 		border-top-width: 2rpx; // 预留border-top
         text-align: center; // 偶数行最后（左）一个item的left:0会在边缘，要避免
+        &.active{
+					border-top-color: #3F4C8C;
+					&::before{
+						border: 4rpx solid #3F4C8C;
+					}
+		}
+        &::before{
+					content: '';
+					position: absolute;
+					top: 0;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					width: 24rpx;
+					height: 24rpx;
+					background: #FFFFFF;
+					border: 4rpx solid #999999;
+					border-radius: 50%;
+		}
         &:nth-child(10n+6):last-child{
 			border-top-width: 2rpx;
 			width: 80%; // 宽度是4个item的总长
