@@ -143,65 +143,12 @@ React 的世界里一切皆是组件，我们使用class语法构建一个最基
 
 - 标签上写style的话，要用js对象
 
-- 引入css文件
+- css模块化
 
   `npm i style-loader css-loader -D`；
 
   配置webpack.config.js的rules
-
-  组件中`import cssobj from './demoStyle.css'`
-
-  给css模块化`use['css-loader?modules']`，但是模块化只针对.class和#id选择器，不会将标签选择器模块化
-
-  给css自定义生成类名格式`use['css-loader?localIdentName=[path][name][local][hash:6]']`
-
-  ​	其可选参数是：
-
-  	- [path]表示样式表相对于项目根目录所在路径
-  	- [name]表示样式表文件名称
-  	- [local]表示样式的类名定义名称
-  	- [hash:length]表示最多32位的hash值
-
-  css可选`:local()`(开启modules之后默认 不用写)或者全局`:global(.xxclass)`(不会被模块化)
-
-  对于第三方的样式表，规定都以.css结尾，这样的话 我们不会为普通的.css启用模块化 直接import 'bootstrap'就好，自己的样式表都以.scss或.less结尾，于是 只为`.scss`或`.less`文件启用模块化
-
-  安装`npm i sass-loader node-sass -D`
-
-
-
-## 创建组件的两种方式
-
-1. 使用构造函数创建组件
-
-   如果要接受外间传递的数据，需要在够赞函数的参数列表中使用props来接收
-
-   必须向外return一个合法的jsx创建的虚拟dom
-
-   - 伏组件向子组件传递数据
-   - 使用{...obj}属性扩散传递数据
-   - 注意：组件的名称必须是大写
-   - 将组件封装到单独的文件中
-   - 引入时省略`.jsx`后缀名
-
-2. 使用class关键自关键组件
-
-3. 俩者的区别
-
-   1. class关键子创建的组件有自己的私有数据和生命周期，但是function创建的组件 只有props，没有自己的私有数据和生命周期
-   2. 用构造函数创建的组件：叫做“无状态组件”，无state和生命周期，但是运行效率较高，很少用
-   3. 用class关键字创建出来的组件：叫做“有状态组件”
-   
-
-
-
-## 引入样式
-
-1. `import styles from './style.js' `
-
-2. `import cssObj from '@/css/demoStyle.scss'`
-
-   ```js
+  ```js
    // webpack.config.js 
    {
         test: /\.scss$/,
@@ -216,30 +163,115 @@ React 的世界里一切皆是组件，我们使用class语法构建一个最基
         }, 'sass-loader']
     },
    ```
-```
-   
-   
 
-## 绑定事件
+  组件中`import cssobj from './demoStyle.css'`
 
-事件绑定机制，相对于原生，是小驼峰命名，事件值必须是函数
+  给css模块化`use['css-loader?modules']`，但是模块化只针对.class和#id选择器，不会将标签选择器模块化
 
-`button onClick={function(){}}>按钮</button>`
+  给css自定义生成类名格式`use['css-loader?localIdentName=[path][name][local][hash:6]']`
 
-​```js
-// <button className="Btn" onClick={() => this.myClickFn()}>点击</button>
-// 或 class 内 需要使用箭头函数
-```
+   其可选参数是：
+   - [path]表示样式表相对于项目根目录所在路径
+   - [name]表示样式表文件名称
+   - [local]表示样式的类名定义名称
+   - [hash:length]表示最多32位的hash值
 
+  css可选`:local()`(开启modules之后默认 不用写)或者全局`:global(.xxclass)`(不会被模块化)
+
+  对于第三方的样式表，规定都以.css结尾，这样的话 我们不会为普通的.css启用模块化 直接import 'bootstrap'就好，自己的样式表都以.scss或.less结尾，于是 只为`.scss`或`.less`文件启用模块化
+
+  安装`npm i sass-loader node-sass -D`
+- 绑定事件
+   事件绑定机制，相对于原生，是小驼峰命名，事件值必须是函数
+   `button onClick={function(){}}>按钮</button>`
+   `<button className="Btn" onClick={() => this.myClickFn()}>点击</button>`
+
+
+
+## 组件 - 创建组件的两种方式
+- 父组件向子组件传递数据
+- 使用{...obj}属性扩散传递数据
+- 注意：组件的名称必须是大写
+- 将组件封装到单独的文件中
+- 引入时省略`.jsx`后缀名
+
+1. **函数式组件** - 使用构造函数创建组件
+   没有state状态，可以使用Hooks
+   如果要接受外间传递的数据，需要在构造函数的参数列表中使用props来接收
+   必须向外return一个合法的jsx创建的虚拟dom（React元素）
+
+   ```jsx
+   import React, { useState, useEffect } from "react";
+   export default function FunctionComponent(props) {
+      const [date, setDate] = useState(new Date());
+      useEffect(() => {
+         //相当于componentDidMount、componentWillUnmount、componentDidUpdate的集合
+         const timer = setInterval(() => {
+            setDate(new Date());
+         }, 1000);
+         return () => clearInterval(timer);
+      }, []);
+      return (
+         <div>
+            <h3>FunctionComponent</h3>
+            <p>{date.toLocaleTimeString()}</p>
+         </div>
+      );
+   }
+   ```
+
+2. **CLASS组件** - 使用class关键自关键组件
+   有state状态
+   ```jsx
+   import React, { Component } from "react";
+   export default class ClassComponent extends Component {
+      constructor(props) {
+         super(props);
+         //存储状态
+         this.state = {
+            date: new Date()
+         };
+      }
+      //组件挂载完成之后执行
+      componentDidMount() {
+         this.timer = setInterval(() => {
+            //更新state，不能用this.state
+            this.setState({
+            date: new Date()
+            });
+         }, 1000);
+      }
+      //组件卸载之前执行
+      componentWillUnmount() {
+         clearInterval(this.timer);
+      }
+      render() {
+         const { date } = this.state;
+         return (
+            <div>
+            <h3>ClassConponent</h3>
+            <p>{date.toLocaleTimeString()}</p>
+            </div>
+         );
+      }
+   }
+   ```
+
+3. 两者的区别
+
+   1. class关键子创建的组件有自己的私有数据和生命周期，但是function创建的组件 只有props，没有自己的私有数据和生命周期
+   2. 用构造函数创建的组件：叫做“无状态组件”，无state和生命周期，但是运行效率较高，很少用
+   3. 用class关键字创建出来的组件：叫做“有状态组件”
+
+
+# Class 组件
 ## setState
 
-React 是单向绑定 单向数据流(js=>界面)
+因为React 是单向绑定 单向数据流(js=>界面*例：对于input，需要三步，1手动监听onChange事件，2在事件中拿到最新的e.target.value，3调用this.setState({})*)，如果要为state中的数据重新赋值，要用react提供的`setState(updater, [callback])`
+将 setState() 视为请求而不是立即更新组件的命令。React 会延迟调用它，然后通过一次传递更新多个组件。React 并不会保证 state 的变更会立即生效。因为他会是将对组件 state 的更改排入队列，并通知 React 需要使用更新后的 state 重新渲染此组件及其子组件。**在合成时间和生命周期中是异步的批量更新，在setTimeout和原生事件中和回调中是同步的**
+通常第一个参数updater接受对象类型，如需基于之前的 state 来设置当前的 state，请将`updater`作为函数`(state, props) => stateChange`,updater 函数中接收的 state 和 props 都保证为最新。updater 的返回值会与 state 进行浅合并。
 
-如果要为state中的数据重新赋值，不要用 `this.state.xx = xxx`
 
-应用react提供的`this.setState({xx: xxx})`
-
-对于input，需要三步，1手动监听onChange事件，2在事件中拿到最新的e.target.value，3调用this.setState({})
 
 ## react的生命周期
 
@@ -305,3 +337,6 @@ React 是单向绑定 单向数据流(js=>界面)
 3. 卸载阶段
 
    - `componentWillUnmount`
+
+
+# 函数组件
