@@ -264,8 +264,8 @@ React 的世界里一切皆是组件，我们使用class语法构建一个最基
    3. 用class关键字创建出来的组件：叫做“有状态组件”
 
 
-# Class 组件
-## setState
+### Class 组件
+#### setState
 
 因为React 是单向绑定 单向数据流(js=>界面*例：对于input，需要三步，1手动监听onChange事件，2在事件中拿到最新的e.target.value，3调用this.setState({})*)，如果要为state中的数据重新赋值，要用react提供的`setState(updater, [callback])`
 将 setState() 视为请求而不是立即更新组件的命令。React 会延迟调用它，然后通过一次传递更新多个组件。React 并不会保证 state 的变更会立即生效。因为他会是将对组件 state 的更改排入队列，并通知 React 需要使用更新后的 state 重新渲染此组件及其子组件。**在合成时间和生命周期中是异步的批量更新，在setTimeout和原生事件中和回调中是同步的**
@@ -273,26 +273,31 @@ React 的世界里一切皆是组件，我们使用class语法构建一个最基
 
 
 
-## react的生命周期
+#### react的生命周期
 
 **旧的生命周期：**
 
-![image-20191227111757608.png](https://i.loli.net/2019/12/27/LS2K13xhbVQZWT8.png)
+![image.png](https://i.loli.net/2020/06/29/YmHfXg3ie9hOQvG.png)
 
 1. 组件创建阶段，只执行一次
    - `componentWillMount`
    - `render`
    - `componentDidMount`
 2. 组件运行阶段，根据props属性或state状态数据的改变，有选择的执行0到多次
-   - `componentWillReceiveProps`
+   - `componentWillReceiveProps(nextProps)`：
+      1. 该方法只在props引起的组件更新过程中，才会被调用。state引起的组件更新并不会触发。
+      2. nextProps是父组件传递给当前组件的新的props
+      3. nextProps的值可能与子组件当前props的值相同，因此往往需要比较他俩的值来决定是否执行props发生变化后的逻辑。
+      4. 在该方法中调用setState，只有render以及之后的方法中。this.state指向的才是更新后的state。在之前的shouldComponentUpdate、componentWillUpdate中。this.state指向的还是更新前的state
    - `shouldComponentUpdate`
-   - `componentWillUpdate`
+   - `componentWillUpdate` 
    - `render`
    - `componentDidupdate`
+      *shouldComponentUpdate 与componentWillUpdate中不能调用this.setState,否则会引起循环调用问题，render永远无法被调用，组件也永远无法渲染*
 3. 组件销毁阶段，只执行一次
    - `componentWillUnmount`
 
-**新的v16.2之后生命周期**
+**新的v16.4之后生命周期**
 
 > 图示[来源](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
 >
@@ -304,39 +309,232 @@ React 的世界里一切皆是组件，我们使用class语法构建一个最基
 
    - `constructor`
 
-   - `static getDerivedStateFromProps` ：一个静态方法，不能在此函数里面使用this，这个函数有两个参数props和state，分别指接收到的新参数和当前的state对象，这个函数会**返回一个对象用来更新当前的state对象**，如果不需要更新可以返回null
+   - `static getDerivedStateFromProps(props, state)`*[新增]* ：
+      1. 一个静态方法 基于props的派生state，会在调用 render 方法之前调用，并且在初始挂载及后续更新时都会被调用。它应返回一个对象来更新 state，如果返回 null 则不更新任何内容。不能在此函数里面使用this，这个函数有两个参数props和state，分别指接收到的新参数和当前的state对象
+      2. 此方法适用于罕见的用例，即 state 的值在任何时候都取决于 props。
+      3. 该函数会在挂载时，接收到新的props，调用了`setState`和`forceUpdate`时被调用,这个方法就是为了取代之前的`componentWillMount`、`componentWillReceiveProps`和`componentWillUpdate`
+      4. *getDeriveStateFromProps被设计成一个static方法，就是纯粹的获取父组件props，增量更新本组件的state*
 
-     该函数会在挂载时，接收到新的props，调用了`setState`和`forceUpdate`时被调用,这个方法就是为了取代之前的`componentWillMount`、`componentWillReceiveProps`和`componentWillUpdate`
-
-     *getDeriveStateFromProps被设计成一个static方法，就是纯粹的获取父组件props，增量更新本组件的state*
-
-   - [废弃]`componentWillMount/UNSAFE_componentWillMount`
+   - ~~`componentWillMount/UNSAFE_componentWillMount`*[废弃]*~~
 
    - `render`
 
    - `componentDidMount`
+      1. 依赖DOM节点的操作可以放到这个方法中。这个方法通常还用于向服务端请求数据
 
 2. 更新阶段
+   组件被挂载到DOM后，组件的props或state改变会引起组件的更新。
+   props引起的更新，本质上是由渲染该组件的父组件引起的(也就是当父组件的render方法被调用时，组件会发生更新过程)，无论props是否改变，父组件render方法每一次调用，都会导致组件更新。
+   state引起的组件更新，是通过this.setState修改组件的state触发的。
 
-   - [废弃]`componentWillReceiveProps/UNSAFE_componentWillReceiveProps`
+   - ~~`componentWillReceiveProps/UNSAFE_componentWillReceiveProps`*[废弃]*~~
 
-   - `static getDerivedStateFromProps`
+   - `static getDerivedStateFromProps(props, state)`*[新增]* ：同上
 
-   - `shouldComponentUpdate`
+   - `shouldComponentUpdate(nextProps,nextState)`： 
+      1. 该方法决定组件是否继续执行更新过程。当该方法返回true(默认值)时继续执行，返回false时停止执行
+      2. 一般通过比较nextProps、nextState与组件当前的props、state来决定返回值。
+      3. 该方法可用来减少不必要的渲染，从而优化组件的性能
 
-   - [废弃]`componentWillUpdate/UNSAFE_componentWillUpdate`
+   - ~~`componentWillUpdate/UNSAFE_componentWillUpdate`*[废弃]*~~
 
    - `render`
 
-   - `getSnapshotBeforeUpdate` ：这个方法在`render`之后，`componentDidUpdate`之前调用，表示之前的属性和之前的state，这个函数有一个返回值，会作为第三个参数传给`componentDidUpdate`，如果你不想要返回值，可返回null，不写的话控制台会warning，所以**此方法必须配合`componentDidUpdate`方法一起使用**
+   - `getSnapshotBeforeUpdate(prevProps, prevState)`*[新增]* ：
+      1. 这个方法在`render`之后，`componentDidUpdate`之前调用，表示之前的属性和之前的state
+      2. 这个函数有一个返回值，会作为第三个参数传给`componentDidUpdate`，如果你不想要返回值，可返回null，不写的话控制台会warning **此方法必须配合`componentDidUpdate`方法一起使用**
+      3. *此方法 为了取代之前的`componentWillUpdate`*
 
-     此方法 为了取代之前的`componentWillUpdate`
-
-   - `componentDidUpdate`
+   - `componentDidUpdate(prevProps, prevState, snapshot)`
+      1. 当组件更新后，可以在此处对 DOM 进行操作。如果你对更新前后的 props 进行了比较，也可以选择在此处进行网络请求。（例如，当 props 未发生变化时，则不会执行网络请求）
 
 3. 卸载阶段
 
    - `componentWillUnmount`
 
+#### 组件复合
+- 组件通过`props`属性，传递给子组件数据。
+- 相当于VUE的`slot`，React中用`props.children`表示组件内子内容。
 
-# 函数组件
+#### PureComponent
+纯组件
+即 定制了shouldComponentUpdate(nextProps,nextState){~~`return nextState.xx!==this.state.xx || nextProps.xx!==this.props.xx`~~}后的Component。比如如果赋予 React 组件相同的 props 和 state，render() 函数会渲染相同的内容，那么在某些情况下使用 React.PureComponent 可提高性能
+- 必须要用**class组件**形式，⽽且要注意是**浅比较**，只比较一层，当xx是对象 重新赋值时会永远判断为相等导致子组件不会更新。*可使用`immutable对象`加速嵌套数据的比较* *或通过解构赋值/Object.assign给state第一层属性重新赋值新obj*
+- 其中定制的`shouldComponentUpdate(nextProps,nextState)`将跳过所有子组件树的prop更新。因此，请确保所有子组件也都是纯组件，否则即使有自定义shouldComponentUpdate也会被warning&忽视
+```js
+export default class PureComponentPage1 extends PureComponent {}
+```
+
+### 函数组件
+```js
+import React, { useState } from "react"
+export default function HookPage(props) { // 声明⼀一个叫 “count” 的 state 变量量，初始化为0 
+const [count, setCount] = useState(0); return (
+    <div>
+      <h3>HookPage</h3>
+      <p>{count}</p>
+      <button onClick={() => setCount(count + 1)}>add</button>
+</div>
+); }
+```
+#### Hook使用规则
+- 只能在 **函数最外层** 调用 Hook。不要在循环、条件判断或者子函数中调⽤。
+- 只能在 **函数组件/自定义Hook** 中调用 Hook。不要在其他普通 JavaScript 函数中调用。
+
+#### [几个Hook方法](https://zh-hans.reactjs.org/docs/hooks-reference.html)
+- `useState`
+   `const [state, setState] = useState(initialState)`
+   返回一个 state，以及更新 state 的函数。setState(newstate | prevCount => prevCount - 1) 函数用于更新 state。它接收一个新的 state 值并将组件的一次重新渲染加入队列，如果新的 state 需要通过使用先前的 state 计算得出，那么可以将函数传递给 setState。该函数将接收先前的 state，并返回一个更新后的值
+- `useEffect`
+   ```js
+   useEffect(() => {
+      // 在 componentDidMount，以及 []内变量 更改时 componentDidUpdate 执行的内容
+      const subscription = props.source.subscribe();
+      return () => {
+         // 相当于 componentWillUnmount 执行的内容
+         subscription.unsubscribe();
+      };
+   }, [props.source]);
+   ```
+   赋值给 useEffect 的函数会在组件渲染到屏幕之后执行**与 componentDidMount 和 componentDidUpdate相似**
+- `useContext`
+   useContext(MyContext) 相当于 class 组件中的 `static contextType = MyContext` 或者 `<MyContext.Consumer>`
+   ```js
+   const themes = {
+   light: {
+      foreground: "#000000",
+      background: "#eeeeee"
+   },
+   dark: {
+      foreground: "#ffffff",
+      background: "#222222"
+   }
+   };
+
+   const ThemeContext = React.createContext(themes.light);
+   function App() {
+      return (
+         <ThemeContext.Provider value={themes.dark}>
+            <Toolbar />
+         </ThemeContext.Provider>
+      );
+   }
+   function Toolbar(props) {
+      return (
+         <div>
+            <ThemedButton />
+         </div>
+      );
+   }
+
+   function ThemedButton() {
+      const theme = useContext(ThemeContext);
+      return (
+         <button style={{ background: theme.background, color: theme.foreground }}>
+            I am styled by theme context!
+         </button>
+      );
+   }
+   ```
+- `useMemo`
+   `const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b])`
+   缓存计算数据的值
+   如下：在a和b的变量值不变的情况下，memoizedValue的值不变。即：useMemo函数的**第一个入参函数不会被执行**，从而达到节省计算量的目的
+- `useCallback`
+   ```js
+   const memoizedCallback = useCallback(
+      () => {
+         doSomething(a, b);
+      },
+      [a, b],
+   );
+   ```
+   缓存函数的引用
+   如下：在a和b的变量值不变的情况下，memoizedCallback的引用不变。即：useCallback的**第一个入参函数会被缓存**，从而达到渲染性能优化的目的
+   *useCallback(fn, deps) 相当于 useMemo(() => fn, deps) 。 注意依赖项数组不不会作为参数传给“创建”函数。虽然从概念上来说它表现为:所有“创建”函数中引⽤用的 值都应该出现在依赖项数组中。未来编译器器会更更加智能，届时⾃自动创建数组将成为可能*
+
+#### 自定义Hook
+自定义 Hook 是⼀个函数，其名称必须以 “use” 开头，函数内部可以调⽤其他的 Hook。
+
+有时候我们会想要在组件之间重用一些状态逻辑。⽬前为止，有两种主流方案来解决这个问题:⾼阶组件和 render props。⾃定义 Hook 可以让你在不增加组件的情况下达到同样的目的。
+
+```js
+function useClock() {
+   const [date, setDate] = useState(new Date());
+   useEffect(() => {
+      console.log("date effect"); //只需要在didMount时候执行就可以了 
+      const timer = setInterval(() => {
+         setDate(new Date());
+      }, 1000); //清除定时器，类似willUnmount
+      return () => clearInterval(timer);
+   }, []);
+   return date;
+}
+```
+
+
+# React-router
+react-router包含3个库，react-router、react-router-dom和react-router-native。根据应⽤运⾏的环境选择安装 react-router-dom(在浏览器器中使用)或react-router-native(在rn中使用)。react-router-dom和 react-router-native都依赖react-router，所以在安装时，react-router也会自动安装，创建web应⽤
+`npm install --save react-router-dom`
+## 基本组件
+react-router中奉行⼀切皆组件的思想，路由器-Router、链接-Link、路由-Route、独占-Switch、重定向-Redirect都以组件形式存在
+```js
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Link,Switch } from "react-router-dom";
+export default class RouterPage extends Component {
+  render() {
+    return (
+      <div>
+         <h3>RouterPage</h3>
+         <Router>
+            <Link to="/">⾸首⻚页</Link>
+            <Link to="/user">⽤用户中⼼心</Link>
+            {/* 根路路由要添加exact，实现精确匹配 */} 
+            <Switch>
+               <Route
+                  exact
+                  path="/"
+                  component={HomePage}
+                  //children={() => <div>children</div>}
+                  //render={() => <div>render</div>}
+               />
+               <Route path="/user" component={UserPage} />
+               <Route component={Page404}></Route>
+            </Switch>
+         </Router>
+      </div>
+); }
+}
+class HomePage extends Component {
+  render() {
+    return (
+      <div>
+        <h3>HomePage</h3>
+      </div>
+); }
+}
+class UserPage extends Component {
+  render() {
+    return (
+      <div>
+        <h3>UserPage</h3>
+      </div>
+ );
+class Page404 extends Component {
+  render() {
+    return (
+      <div>
+        <h3>404</h3>
+      </div>
+ );
+```
+## Route渲染内容的三种方式
+Route渲染方式互斥，优先级:`children`>`component`>`render`
+  
+1. `component={componentName}`
+   只在当document.location匹配的时候渲染
+2. `render={()=>{}}`
+   只在当document.location匹配的时候渲染
+3. `children:{()=>{}}`
+   不管document.location是否匹配都会被渲染。工作方法与render完全一样
+# React-redux
