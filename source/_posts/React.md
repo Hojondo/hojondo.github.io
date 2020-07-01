@@ -382,6 +382,10 @@ const [count, setCount] = useState(0); return (
 - 只能在 **函数组件/自定义Hook** 中调用 Hook。不要在其他普通 JavaScript 函数中调用。
 
 #### [几个Hook方法](https://zh-hans.reactjs.org/docs/hooks-reference.html)
+> [Hook方法 & Class组件生命周期关联](https://github.com/sisterAn/blog/issues/34)
+> [几个Hook方法详解](https://juejin.im/post/5dbbdbd5f265da4d4b5fe57d)
+> [useImperativeHandle & forwardRef用法详解](https://juejin.im/post/5d8f478751882509563a03b3)
+
 - `useState`
    `const [state, setState] = useState(initialState)`
    返回一个 state，以及更新 state 的函数。setState(newstate | prevCount => prevCount - 1) 函数用于更新 state。它接收一个新的 state 值并将组件的一次重新渲染加入队列，如果新的 state 需要通过使用先前的 state 计算得出，那么可以将函数传递给 setState。该函数将接收先前的 state，并返回一个更新后的值
@@ -398,19 +402,18 @@ const [count, setCount] = useState(0); return (
    ```
    赋值给 useEffect 的函数会在组件渲染到屏幕之后执行**与 componentDidMount 和 componentDidUpdate相似**
 - `useContext`
-   useContext(MyContext) 相当于 class 组件中的 `static contextType = MyContext` 或者 `<MyContext.Consumer>`
+   useContext(MyContext) 相当于 class 组件中的 `static contextType = MyContext` 或者 `MyContext.Consumer`
    ```js
    const themes = {
-   light: {
-      foreground: "#000000",
-      background: "#eeeeee"
-   },
-   dark: {
-      foreground: "#ffffff",
-      background: "#222222"
-   }
+      light: {
+         foreground: "#000000",
+         background: "#eeeeee"
+      },
+      dark: {
+         foreground: "#ffffff",
+         background: "#222222"
+      }
    };
-
    const ThemeContext = React.createContext(themes.light);
    function App() {
       return (
@@ -426,7 +429,6 @@ const [count, setCount] = useState(0); return (
          </div>
       );
    }
-
    function ThemedButton() {
       const theme = useContext(ThemeContext);
       return (
@@ -436,10 +438,70 @@ const [count, setCount] = useState(0); return (
       );
    }
    ```
+- `useReducer`
+   `const [state, dispatch] = useReducer(reducer, initialArg, init)`
+   useState 的替代方案。它接收一个形如 `(state, action) => newState` 的 reducer，并返回当前的 state 以及与其配套的 dispatch 方法。例如 state 逻辑较复杂且包含多个子值，或者下一个 state 依赖于之前的 state 等
+   ```js
+   const initialState = {count: 0};
+   function reducer(state, action) {
+      switch (action.type) {
+         case 'increment':
+            return {count: state.count + 1};
+         case 'decrement':
+            return {count: state.count - 1};
+         default:
+            throw new Error();
+      }
+   }
+
+   function Counter() {
+   const [state, dispatch] = useReducer(reducer, initialState);
+   return (
+      <>
+         Count: {state.count}
+         <button onClick={() => dispatch({type: 'decrement'})}>-</button>
+         <button onClick={() => dispatch({type: 'increment'})}>+</button>
+      </>
+   );
+   }
+   ```
+   惰性创建初始state，将init函数作为useReducer的第三个参数，初始state将被设置为`init(initialArg)`，这么做可以将用于计算 state 的逻辑提取到 reducer 外部，这也为将来对重置 state 的 action 做处理提供了便利
+   ```js
+   function init(initialCount) {
+      return {count: initialCount};
+   }
+   function reducer(state, action) {
+      switch (action.type) {
+         case 'increment':
+            return {count: state.count + 1};
+         case 'decrement':
+            return {count: state.count - 1};
+         case 'reset':
+            return init(action.payload);
+         default:
+            throw new Error();
+      }
+   }
+   function Counter({initialCount}) {
+      const [state, dispatch] = useReducer(reducer, initialCount, init);
+      return (
+         <>
+            Count: {state.count}
+            <button
+            onClick={() => dispatch({type: 'reset', payload: initialCount})}>
+            Reset
+            </button>
+            <button onClick={() => dispatch({type: 'decrement'})}>-</button>
+            <button onClick={() => dispatch({type: 'increment'})}>+</button>
+         </>
+      );
+   }
+   ```
 - `useMemo`
    `const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b])`
    缓存计算数据的值
    如下：在a和b的变量值不变的情况下，memoizedValue的值不变。即：useMemo函数的**第一个入参函数不会被执行**，从而达到节省计算量的目的
+   > [useMemo & useCallback对比](https://juejin.im/post/5dd64ae6f265da478b00e639)
 - `useCallback`
    ```js
    const memoizedCallback = useCallback(
@@ -452,6 +514,107 @@ const [count, setCount] = useState(0); return (
    缓存函数的引用
    如下：在a和b的变量值不变的情况下，memoizedCallback的引用不变。即：useCallback的**第一个入参函数会被缓存**，从而达到渲染性能优化的目的
    *useCallback(fn, deps) 相当于 useMemo(() => fn, deps) 。 注意依赖项数组不不会作为参数传给“创建”函数。虽然从概念上来说它表现为:所有“创建”函数中引⽤用的 值都应该出现在依赖项数组中。未来编译器器会更更加智能，届时⾃自动创建数组将成为可能*
+- `useRef`
+   `const refContainer = useRef(initialValue)`
+   useRef 返回一个可变的 ref 对象，其 .current 属性被初始化为传入的参数（initialValue）。返回的 ref 对象在组件的整个生命周期内保持不变。
+   ```js
+   function TextInputWithFocusButton() {
+   const inputEl = useRef(null);
+   const onButtonClick = () => {
+      // `current` 指向已挂载到 DOM 上的文本输入元素
+      inputEl.current.focus();
+   };
+   return (
+      <>
+         <input ref={inputEl} type="text" />
+         <button onClick={onButtonClick}>Focus the input</button>
+      </>
+   );
+   }
+   ```
+   请记住，当 ref 对象内容发生变化时，useRef 并不会通知你。变更 .current 属性不会引发组件重新渲染。如果想要在 React 绑定或解绑 DOM 节点的 ref 时运行某些代码，则需要使用回调 ref 来实现。
+- `useImperativeHandle`
+   `useImperativeHandle(ref, createHandle, [deps])`
+   > [when to use this Hook](https://stackoverflow.com/questions/57005663/when-to-use-useimperativehandle-uselayouteffect-and-usedebugvalue)
+   useImperativeHandle 应当与 [forwardRef](https://zh-hans.reactjs.org/docs/react-api.html#reactforwardref) 一起使用：
+   forwardRef理解成把useRef实例的*指向`ref={xxRef}`*向下传递给某个元素实例，目的是让父组件可以操控子组件内元素
+   而用了useImperativeHandle之后，useImperativeHandle将拿到forwardRef传递过来的ref，对该ref.current的具体实例值进行操控，
+
+   ```jsx
+   import React, { useRef, useImperativeHandle, forwardRef } from 'react'
+   function Child(props,parentRef){
+      // 子组件内部自己创建 ref 
+      let focusRef = useRef();
+      let inputRef = useRef();
+      // 这个函数会返回一个对象
+      // 该对象会作为父组件 current 属性的值
+      // 通过这种方式，父组件可以操作子组件中的多个 ref
+      useImperativeHandle(parentRef,()=>({
+         focusRef,
+         inputRef,
+         name:'计数器',
+         focus(){
+               focusRef.current.focus();
+         },
+         changeText(text){
+               inputRef.current.value = text;
+         }
+      }));
+      return (
+         <>
+               <input ref={focusRef}/>
+               <input ref={inputRef}/>
+               {/* <input ref={parentRef} type="text"/> */}
+         </>
+      )
+   }
+   const FancyInputEle = forwardRef(Child);
+   export default function Home(props) {
+      const parentRef = useRef('s')
+      return (
+         <div>
+               <button onClick={()=>{
+                  parentRef.current.focus();
+                  console.log(parentRef.current.focusRef.current.value);
+                  // parentRef.current.addNumber(666);// 因为子组件中没有定义这个属性，实现了保护，所以这里的代码无效
+                  parentRef.current.changeText('sd');
+                  console.log(parentRef.current.name);
+               }}>focus</button>
+               <button onClick={()=>console.log(parentRef)}>value</button>
+               <FancyInputEle ref={parentRef}></FancyInputEle>
+         </div>
+      )
+   }
+   ```
+   1. 写在`forwardRef`内部，**限定子组件的哪些实例值可以被父组件暴漏获取/哪些属性方法可以被父组件调用,避免使用 ref 这样的命令式代码**&&**重定义事件方法使用** 
+   2. 父组件可以操作子组件中的多个 ref
+   3. 在大多数情况下，应当避免使用 ref 这样的命令式代码。
+
+- `useLayoutEffect`
+   其函数签名与 useEffect 相同，但它会**在所有的 DOM 变更之后同步调用 effect**。可以使用它来读取 DOM 布局并同步触发重渲染。在浏览器执行绘制之前，有点类似`componentWillMount`，useLayoutEffect 内部的更新计划将被同步刷新。
+   ![image.png](https://i.loli.net/2020/07/01/fyaixejqVQI3L7E.png)
+   [详情参考](https://juejin.im/post/5dbbdbd5f265da4d4b5fe57d#heading-23)
+   - useEffect 在全部渲染完毕后才会执行
+   - useLayoutEffect 会在 浏览器 layout 之后，painting 之前执行
+   - 其函数签名与 useEffect 相同，但它会在所有的 DOM 变更之后同步调用 effect
+   - 可以使用它来读取 DOM 布局并同步触发重渲染
+   - 在浏览器执行绘制之前 useLayoutEffect 内部的更新计划将被同步刷新
+   - 尽可能使用标准的 useEffect 以避免阻塞视图更新
+- `useDebugValue`
+   `useDebugValue(value, (value) => value.Fn())`
+   在`自定义 hook`内部设置，可用于在 React 开发者工具中显示自定义 hook 的标签
+   ```js
+   function useFriendStatus(friendID) {
+      const [isOnline, setIsOnline] = useState(null);
+      // ...
+      // 在开发者工具中的这个 Hook 旁边显示标签
+      // e.g. "FriendStatus: Online"
+      useDebugValue(isOnline ? 'Online' : 'Offline');
+      return isOnline;
+   }
+   ```
+   接受一个格式化函数作为可选的第二个参数，该函数只有在 Hook 被检查时才会被调用。它接受 debug 值作为参数，并且会返回一个格式化的显示值。
+   例`useDebugValue(date, date => date.toDateString())`
 
 #### 自定义Hook
 自定义 Hook 是⼀个函数，其名称必须以 “use” 开头，函数内部可以调⽤其他的 Hook。
