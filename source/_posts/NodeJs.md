@@ -342,3 +342,15 @@ const app = express()
 // 设置app与router相关联，此处router是作为中间件 既是object又是function
 app.use('/', router) // 关键点去看下use源码逻辑 并且tips一下：等价于app.use(function(req,res){}) 即此处 app.use(router)
 ```
+
+
+
+
+
+
+
+---
+
+
+
+全局安装 `npm i nodemon -g` 代替 node 自动重启 `nodemon file.js`
