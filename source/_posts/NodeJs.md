@@ -352,5 +352,10 @@ app.use('/', router) // 关键点去看下use源码逻辑 并且tips一下：等
 ---
 
 
-
+## 安装
 全局安装 `npm i nodemon -g` 代替 node 自动重启 `nodemon file.js`
+
+## 运行
+1. bash运行： `node xx.js`
+2. nodemon
+3. vs code 进行debug: 
