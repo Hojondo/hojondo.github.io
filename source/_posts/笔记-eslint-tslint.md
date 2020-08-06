@@ -1,15 +1,16 @@
 ---
-title: 代码检查 eslint & tslint
+title: Eslint & Tslint
 top: false
 cover: false
 toc: true
 mathjax: false
 date: 2019-09-18 10:50:16
-tags: ['js', '代码规范']
+tags: ["笔记", "js", "代码规范"]
 password:
 summary:
 categories:
 ---
+
 # 代码检查 eslint & tslint
 
 目前 TypeScript 的代码检查主要有两个方案：使用 [TSLint](https://palantir.github.io/tslint/)或使用 [ESLint](https://eslint.org/)+ [`typescript-eslint-parser`](https://github.com/eslint/typescript-eslint-parser)
@@ -25,11 +26,11 @@ categories:
 
 Lint 因此而诞生。
 
-## 使用Eslint
+## 使用 Eslint
 
-1. 确保node npm环境下
+1. 确保 node npm 环境下
 
-2. 安装npm包 `$ npm install eslint --save-dev`
+2. 安装 npm 包 `$ npm install eslint --save-dev`
 
 3. `package.json`添加`script`
 
@@ -41,9 +42,9 @@ Lint 因此而诞生。
    }
    ```
 
-4. 创建`.eslintrc.js/json` 和 `.eslintignore` 文件；或通过`eslint --init`命令初始化，在 [eslint规则表](https://eslint.cn/docs/rules/) 
+4. 创建`.eslintrc.js/json` 和 `.eslintignore` 文件；或通过`eslint --init`命令初始化，在 [eslint 规则表](https://eslint.cn/docs/rules/)
 
-5. 编译器工具配置： [webstorm配置](https://segmentfault.com/q/1010000013857167/a-1020000013857503)， [vscode配置]()
+5. 编译器工具配置： [webstorm 配置](https://segmentfault.com/q/1010000013857167/a-1020000013857503)， [vscode 配置]()
 
 示例：
 
@@ -61,43 +62,30 @@ Lint 因此而诞生。
     "es6": true,
     "node": true
   },
-  "extends": [
-     "eslint:recommended",
-    "google",
-    "plugin:vue/recommended"
-  ],
-  "plugins": [
-    "vue"
-  ],
+  "extends": ["eslint:recommended", "google", "plugin:vue/recommended"],
+  "plugins": ["vue"],
   "rules": {
-    "comma-dangle": [
+    "comma-dangle": ["error", "never"],
+    "quote-props": ["error", "as-needed"],
+    "max-len": [0],
+    "vue/max-attributes-per-line": [
       "error",
-      "never"
-    ],
-    "quote-props": [
-      "error",
-      "as-needed"
-    ],
-    "max-len": [
-      0
-    ],
-    "vue/max-attributes-per-line": ["error", {
-      "singleline": 3,
-      "multiline": {
-        "max": 1,
-        "allowFirstLine": true
+      {
+        "singleline": 3,
+        "multiline": {
+          "max": 1,
+          "allowFirstLine": true
+        }
       }
-    }],
+    ],
     "valid-jsdoc": [0],
-    "linebreak-style":[0]
+    "linebreak-style": [0]
   }
 }
 ```
 
+- eslint-loader ，用于 webpack 配置 preLoaders
 
-
-- eslint-loader ，用于webpack 配置 preLoaders
-
-- 结合pre-commit，用于git hooks，[教程](https://juejin.im/entry/58a65e6f61ff4b006c481016#%E7%BB%93%E5%90%88pre-commit%E4%BD%BF%E7%94%A8)
+- 结合 pre-commit，用于 git hooks，[教程](https://juejin.im/entry/58a65e6f61ff4b006c481016#%E7%BB%93%E5%90%88pre-commit%E4%BD%BF%E7%94%A8)
 
 ...to do loading
