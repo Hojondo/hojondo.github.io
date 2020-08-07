@@ -5,10 +5,10 @@ cover: false
 toc: true
 mathjax: false
 date: 2019-09-19 19:39:39
-tags: ["js", "mock", "接口"]
+tags: ["接口"]
 password:
 summary:
-categories:
+categories: ["笔记"]
 ---
 
 # MockJS

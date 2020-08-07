@@ -5,10 +5,10 @@ cover: false
 toc: true
 mathjax: false
 date: 2019-11-07 20:36:23
-tags: ["笔记", "语言", "版本库"]
+tags: ["版本库"]
 password:
 summary:
-categories:
+categories: ["笔记"]
 ---
 
 # [Git](https://git-scm.com/docs/)
@@ -469,13 +469,14 @@ git config --global --unset https.proxy
       ```
 
     - `revert`
-          [reset和revert的区别详解](https://www.jianshu.com/p/0e1fe709dd97)
+      [reset 和 revert 的区别详解](https://www.jianshu.com/p/0e1fe709dd97)
 
-          git revert是用一次新的commit来回滚之前的commit，git reset是直接删除指定的commit；
+            git revert是用一次新的commit来回滚之前的commit，git reset是直接删除指定的commit；
 
-          git reset 是把HEAD向后移动了一下，而git revert是HEAD继续前进，只是新的commit的内容和要revert的内容正好相反，能够抵消要被revert的内容。
+            git reset 是把HEAD向后移动了一下，而git revert是HEAD继续前进，只是新的commit的内容和要revert的内容正好相反，能够抵消要被revert的内容。
 
-          ```shell
+            ```shell
+
       git revert <$id>    # 恢复某次提交的状态，恢复动作本身也创建了一次提交对象
         git revert HEAD     # 恢复最后一次提交的状态
     git revert <commit>  # 撤销提交

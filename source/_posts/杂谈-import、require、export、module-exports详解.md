@@ -5,10 +5,10 @@ cover: false
 toc: true
 mathjax: false
 date: 2019-12-19 12:01:50
-tags: ['node', '杂谈']
+tags: ["node"]
 password:
 summary:
-categories:
+categories: ["杂谈"]
 ---
-参考[掘金](https://juejin.im/post/5a2e5f0851882575d42f5609)
 
+参考[掘金](https://juejin.im/post/5a2e5f0851882575d42f5609)

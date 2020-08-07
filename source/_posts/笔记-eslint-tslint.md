@@ -5,10 +5,10 @@ cover: false
 toc: true
 mathjax: false
 date: 2019-09-18 10:50:16
-tags: ["笔记", "js", "代码规范"]
+tags: ["代码规范"]
 password:
 summary:
-categories:
+categories: ["笔记"]
 ---
 
 # 代码检查 eslint & tslint

@@ -5,10 +5,10 @@ cover: false
 toc: true
 mathjax: true
 date: 2019-08-29 10:21:15
-tags: ["笔记", "打包"]
+tags: ["打包"]
 password:
 summary:
-categories:
+categories: ["笔记"]
 ---
 
 # 静态资源打包工具 Gulp

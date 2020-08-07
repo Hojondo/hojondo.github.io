@@ -5,12 +5,14 @@ cover: false
 toc: true
 mathjax: false
 date: 2019-12-25 19:16:31
-tags: ['node', '轮子']
+tags: ["node"]
 password:
 summary:
-categories:
+categories: ["随笔"]
 ---
+
 # 示例
+
 ```json
 "autoprefixer": "^7.1.2",
 "babel-core": "^6.22.1",
@@ -69,6 +71,7 @@ categories:
 "webpack-dev-server": "^2.9.1",
 "webpack-merge": "^4.1.0"
 ```
+
 # 轮子介绍
 
 ## babel 集合
@@ -93,7 +96,7 @@ categories:
 - **webpack**
 - **webpack-bundle-analyzer**
 - **webpack-dev-server**
-- **webpack-merge** ：用于合并webpack配置，一般会把webpack的`base`配置和`dev`配置和`prod`配置分开写，这个工具方便的合并`base`和`dev`配置
+- **webpack-merge** ：用于合并 webpack 配置，一般会把 webpack 的`base`配置和`dev`配置和`prod`配置分开写，这个工具方便的合并`base`和`dev`配置
 - **clean-webpack-plugin**
 - **copy-webpack-plugin**
 - **uglifyjs-webpack-plugin**
@@ -127,43 +130,43 @@ categories:
 ## 测试框架 Jest、selenium 集合
 
 - **jest**
-- **babel-jest** 
-- **jest-serializer-vue** ：自定义的序列化工具改进jest被保存的快照 [介绍示例](https://vue-test-utils.vuejs.org/zh/guides/testing-single-file-components-with-jest.html)
+- **babel-jest**
+- **jest-serializer-vue** ：自定义的序列化工具改进 jest 被保存的快照 [介绍示例](https://vue-test-utils.vuejs.org/zh/guides/testing-single-file-components-with-jest.html)
 - **vue-jest**
-- **selenium-server** ：自动化测试框架[selenium](https://zhuanlan.zhihu.com/p/52646463)的Node容器
-- **chromedriver** ：是 google 为网站开发人员提供的自动化测试接口，它是 **selenium2** 和 **chrome浏览器** 进行通信的桥梁，[详细介绍](https://www.jianshu.com/p/31c8c9de8fcd)
-- **nightwatch** ：端到端的测试工具，内置断言库，基于Selenium，[非官方简介](https://zhuanlan.zhihu.com/p/48361267)
+- **selenium-server** ：自动化测试框架[selenium](https://zhuanlan.zhihu.com/p/52646463)的 Node 容器
+- **chromedriver** ：是 google 为网站开发人员提供的自动化测试接口，它是 **selenium2** 和 **chrome 浏览器** 进行通信的桥梁，[详细介绍](https://www.jianshu.com/p/31c8c9de8fcd)
+- **nightwatch** ：端到端的测试工具，内置断言库，基于 Selenium，[非官方简介](https://zhuanlan.zhihu.com/p/48361267)
 
-## Postcss、less、scss、stylus集合
+## Postcss、less、scss、stylus 集合
 
-- **postcss-import** ：postcss是后处理器框架，[整体介绍](https://juejin.im/post/5c022f4a6fb9a049ca371684)
+- **postcss-import** ：postcss 是后处理器框架，[整体介绍](https://juejin.im/post/5c022f4a6fb9a049ca371684)
 - **postcss-url**
 - **postcss-loader**
-- **autoprefixer** ：后处理器postcss框架其中一个插件，适用场景是：添加前缀、转换单位、低版本浏览器的hack等。[详细介绍](https://www.html-js.com/article/Postcss-postcss-pre-processor-and-post-processor) [详细教程](https://juejin.im/post/5c17bf93f265da611510b5ea)
+- **autoprefixer** ：后处理器 postcss 框架其中一个插件，适用场景是：添加前缀、转换单位、低版本浏览器的 hack 等。[详细介绍](https://www.html-js.com/article/Postcss-postcss-pre-processor-and-post-processor) [详细教程](https://juejin.im/post/5c17bf93f265da611510b5ea)
 - **less**
 - **less-loader**
 - **node-sass**
 - **sass-loader**
 - **stylus-loader**
 
-## vue必备
+## vue 必备
 
 - **vue-loader**
 - **vue-style-loader**
-- **vue-template-compiler** ：webpack生态下使用*`*vue-loader*`*进行vue解析，*`*vue-loader*`*自带*`*vue-template-compiler*`*，会预编译您的template模版，生成javascript可执行函数。[源码详解](https://blog.csdn.net/u014787301/article/details/85842963)
+- **vue-template-compiler** ：webpack 生态下使用*`*vue-loader*`*进行 vue 解析，*`*vue-loader*`*自带*`*vue-template-compiler*`*，会预编译您的 template 模版，生成 javascript 可执行函数。[源码详解](https://blog.csdn.net/u014787301/article/details/85842963)
 - **vue**
 - **vue-router**
 - **vuex**
 - **axios**
 
-### vue环境下的简单组件库
+### vue 环境下的简单组件库
 
 - **iview** && **iview-loader**
 - **vue-nav-tabs**
 
-## React必备
+## React 必备
 
-- **formik** React表单救星
+- **formik** React 表单救星
 
 ## 工具组件库
 
@@ -175,35 +178,29 @@ categories:
 - **Lodash**
 - **qs**
 - **fs**
-- **fs-extra** ：实现了一些fs模块不包含的文件操（比如递归复制、删除等等）的模块
+- **fs-extra** ：实现了一些 fs 模块不包含的文件操（比如递归复制、删除等等）的模块
 - **url-search-params-polyfill**
-- **md5** ：用MD5哈希加密string
-- **gulp** ：一个自动化构建工具，一般配合webpack实现webpack未提供的图片压缩、项目上线部署等功能
-- **vinyl-ftp** ：配合gulp实现自动ftp部署项目文件到服务器
+- **md5** ：用 MD5 哈希加密 string
+- **gulp** ：一个自动化构建工具，一般配合 webpack 实现 webpack 未提供的图片压缩、项目上线部署等功能
+- **vinyl-ftp** ：配合 gulp 实现自动 ftp 部署项目文件到服务器
 
 ## 杂项
 
-- **chalk** ：实现terminal控制台彩色文字输出的模块
-- **cross-spawn** ：使用npm命令的跨平台解决方案
-- **node-notifier** ：基于NodeJs发送跨平台原生系统通知，Electron已内置，可以测试时用于提醒
-- **ora** ：优雅好玩的terminal控制台spinner加载图标 模块
-- **portfinder** ：自动获取端口，一般用于webpack.dev.config.js内
+- **chalk** ：实现 terminal 控制台彩色文字输出的模块
+- **cross-spawn** ：使用 npm 命令的跨平台解决方案
+- **node-notifier** ：基于 NodeJs 发送跨平台原生系统通知，Electron 已内置，可以测试时用于提醒
+- **ora** ：优雅好玩的 terminal 控制台 spinner 加载图标 模块
+- **portfinder** ：自动获取端口，一般用于 webpack.dev.config.js 内
 - **rimraf** ：以包的形式包装`rm -rf`命令，就是用来删除文件和文件夹的，不管文件夹是否为空，都可以删除，[简介](https://segmentfault.com/a/1190000011831802)
-- **shelljs** ：Node.js下的脚本语言解析器，模块重新包装了`child_process`，实现在javascript中编写shell命令实现功能，[介绍](https://www.kancloud.cn/outsider/clitool/313191)、[介绍2](https://juejin.im/post/5cdb76166fb9a032196ef1ff)
-- **commander** ：封装了命令行参数的接口，让commander能够根据用户输入参数选择执行不同代码。。一般用于脚手架开发[例子用commander做一个自己的eslint脚手架](https://cloud.tencent.com/developer/article/1541086)
+- **shelljs** ：Node.js 下的脚本语言解析器，模块重新包装了`child_process`，实现在 javascript 中编写 shell 命令实现功能，[介绍](https://www.kancloud.cn/outsider/clitool/313191)、[介绍 2](https://juejin.im/post/5cdb76166fb9a032196ef1ff)
+- **commander** ：封装了命令行参数的接口，让 commander 能够根据用户输入参数选择执行不同代码。。一般用于脚手架开发[例子用 commander 做一个自己的 eslint 脚手架](https://cloud.tencent.com/developer/article/1541086)
 - **validate-npm-package-name** ：对于用户输入的工程名的可用性进行验证的模块，[例子](https://www.geekjc.com/post/5de4eb6269116702fb6f61e3)
 - **semver** ：是[ 语义化版本（Semantic Versioning）规范](https://semver.org/lang/zh-CN/) 的一个实现，实现了版本和版本范围的解析、计算、比较。[介绍](https://cnodejs.org/topic/570f8331510629637266685a)
-
-
-
-
-
-
 
 > 专有名词注解：
 >
 > 三个打包器 [对比](https://stackshare.io/stackups/gulp-vs-parcel-vs-webpack)：
 >
-> webpack、gulp、[Parcel](https://www.html.cn/doc/parcel/getting_started.html) 
+> webpack、gulp、[Parcel](https://www.html.cn/doc/parcel/getting_started.html)
 >
 > 还有更多对比 [NPM vs. Bower vs. Browserify vs. Gulp vs. Grunt vs. Webpack - Stack Overflow](https://stackoverflow.com/questions/35062852/npm-vs-bower-vs-browserify-vs-gulp-vs-grunt-vs-webpack)

@@ -5,10 +5,10 @@ cover: false
 toc: true
 mathjax: false
 date: 2020-07-07 14:31:50
-tags: ["笔记"]
+tags: ["webGL图形学"]
 password:
 summary:
-categories:
+categories: ["笔记"]
 ---
 
 ```js

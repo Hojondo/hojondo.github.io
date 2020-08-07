@@ -5,10 +5,10 @@ cover: false
 toc: true
 mathjax: false
 date: 2019-09-19 19:37:00
-tags: ["js", "UI库"]
+tags: ["UI库"]
 password:
 summary:
-categories:
+categories: ["笔记"]
 ---
 
 # 前言

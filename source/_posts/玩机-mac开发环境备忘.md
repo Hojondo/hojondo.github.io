@@ -5,12 +5,13 @@ cover: false
 toc: true
 mathjax: false
 date: 2020-04-14 16:02:21
-tags: ['玩机']
+tags: ["Mac"]
 password:
 summary:
-categories:
+categories: ["玩机"]
 ---
-系统自带shell：
+
+系统自带 shell：
 /bin/bash
 /bin/csh
 /bin/dash
@@ -18,8 +19,8 @@ categories:
 /bin/sh
 /bin/tcsh
 /bin/zsh
-设置zsh为默认shell
-安装oh-my-zsh
+设置 zsh 为默认 shell
+安装 oh-my-zsh
 
-- linux命令行中的 curl & wget [对比](https://www.cnblogs.com/lsdb/p/7171779.html)
+- linux 命令行中的 curl & wget [对比](https://www.cnblogs.com/lsdb/p/7171779.html)
 - sh 命令

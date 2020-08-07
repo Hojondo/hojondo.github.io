@@ -5,28 +5,29 @@ cover: false
 toc: true
 mathjax: false
 date: 2019-09-19 19:40:56
-tags: ['vue', '组件库']
+tags: ["vue", "UI库"]
 password:
 summary:
-categories:
+categories: ["笔记"]
 ---
-# iview 
+
+# iview
 
 ## 通用类别
 
 `../iview/src/styles/custom.less` [定制主题 颜色/字体](https://www.iviewui.com/docs/guide/theme)
 
-*属性值都可绑定变量 :loading="istrue"*
+_属性值都可绑定变量 :loading="istrue"_
 
 ### `Button`
 
-> `Button` 的 属性props
+> `Button` 的 属性 props
 >
 > 1. `[type=""]`
 >
 >    `default` `primary` `dashed` `text` `info` `success` `warning` `error`
 >
-> 2. `[ghost]`    *幽灵按钮将其他按钮的内容反色，背景变为透明，常用在有色背景上*
+> 2. `[ghost]` _幽灵按钮将其他按钮的内容反色，背景变为透明，常用在有色背景上_
 >
 > 3. `[shape=""]`
 >
@@ -34,30 +35,28 @@ categories:
 >
 > 4. `[size=""]`
 >
->    `small` `default` `large` 
+>    `small` `default` `large`
 >
 > 5. `[long]`
 >
 > 6. `[disabled]`
 >
-> 7. `[icon=""]`    *使用`Button`的icon属性，图标位置将在最左边，如果需要自定义位置，需使用`Icon`组件*
+> 7. `[icon=""]` _使用`Button`的 icon 属性，图标位置将在最左边，如果需要自定义位置，需使用`Icon`组件_
 >
 > 8. `[loading]`
 >
-> 9. `[to=""], [replace], [target=""]`    *实现点击按钮直接跳转a*
+> 9. `[to=""], [replace], [target=""]` _实现点击按钮直接跳转 a_
 >
 > `ButtonGroup[vertical]>Button`
->
-> 
 
 ### `Icon`
 
 > 属性 props
 >
-> 1. `[type=""]`    *[所有图标](<https://www.iviewui.com/components/icon>)*
-> 2. `[size=""]`    *Number | String 图标的大小，单位是 px*
+> 1. `[type=""]` _[所有图标](https://www.iviewui.com/components/icon)_
+> 2. `[size=""]` _Number | String 图标的大小，单位是 px_
 > 3. `[color=""]`
-> 4. `[custom=""]`    自定义图标。 Icon 支持使用第三方自定义图标，你可以引入任意的字体文件库来使用
+> 4. `[custom=""]` 自定义图标。 Icon 支持使用第三方自定义图标，你可以引入任意的字体文件库来使用
 > 5. todo
 
 ## 布局
@@ -116,7 +115,7 @@ categories:
 
 ### TimePicker
 
-### Cascader  级联选择
+### Cascader 级联选择
 
 ### Transfer 穿梭框
 
@@ -162,7 +161,7 @@ categories:
 
 ## 其他
 
-### Circle进度环
+### Circle 进度环
 
 ### Affix 图钉
 
@@ -171,4 +170,3 @@ categories:
 ### Spin
 
 ### Scroll
-
