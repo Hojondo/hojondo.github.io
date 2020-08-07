@@ -1,5 +1,5 @@
 ---
-title: 杂谈-js-event loop
+title: js-event loop
 top: false
 cover: false
 toc: true

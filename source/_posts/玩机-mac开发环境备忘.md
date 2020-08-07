@@ -1,5 +1,5 @@
 ---
-title: 玩机-MAC开发环境配置备忘
+title: MAC开发环境配置备忘
 top: false
 cover: false
 toc: true

@@ -1,5 +1,5 @@
 ---
-title: 杂谈-css-flex实现 gutter between align to grid
+title: css-flex实现 gutter between align to grid
 top: false
 cover: false
 toc: true

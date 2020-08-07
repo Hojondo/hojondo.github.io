@@ -1,5 +1,5 @@
 ---
-title: 杂谈-css-小技巧tips
+title: css tips
 top: false
 cover: false
 toc: true

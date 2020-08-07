@@ -1,5 +1,5 @@
 ---
-title: vscode 调教
+title: VS CODE 调教
 top: false
 cover: false
 toc: true

@@ -1,5 +1,5 @@
 ---
-title: 杂谈-webpack-多入口多出口打包
+title: webpack-多入口多出口打包
 top: false
 cover: false
 toc: true

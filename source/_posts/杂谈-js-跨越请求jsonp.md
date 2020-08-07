@@ -1,5 +1,5 @@
 ---
-title: 杂谈-js-跨越请求jsonp
+title: js-跨越请求jsonp
 top: false
 cover: false
 toc: true
