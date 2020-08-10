@@ -386,6 +386,8 @@ app.use('/', router) // 关键点去看下use源码逻辑 并且tips一下：等
 
 ---
 
+> [devDependencies vs dependencies](https://stackoverflow.com/questions/40143357/do-you-put-babel-and-webpack-in-devdependencies-or-dependencies/40143446#40143446)
+
 ## 安装
 
 全局安装 `npm i nodemon -g` 代替 node 自动重启 `nodemon file.js`
@@ -394,4 +396,114 @@ app.use('/', router) // 关键点去看下use源码逻辑 并且tips一下：等
 
 1. bash 运行： `node xx.js`
 2. nodemon
-3. vs code 进行 debug:
+3. vs code 进行 debug: RUN and Debug
+
+## 单元测试
+
+`npm install jest -g`
+`__test__ > xxname.spec.js`
+`jest foldername --watch`
+
+```js
+test('测试备注名', ()=>{
+  const ret = require('../index)
+  console.log(ret)
+  expect(ret)
+    .toBe('期望值')
+})
+```
+
+## 测试代码 自动生成工具
+
+```js
+// index.spec.js
+const fs = require("fs");
+const path = require("path");
+test("集成测试 测试生成测试代码文件", () => {
+  // 删除测试文件夹
+  fs.rmdirSync(path.join(__dirname, "..", "/data/__test__"), {
+    recursive: true, // 递归为true 则同时迭代清除文件夹下的所有文件
+  });
+  const src = new (require("../index"))();
+  src.getJsetSource(path.join(__dirname, "..", "/data"));
+});
+```
+
+```js
+const path = require("path");
+const fs = require("fs");
+module.exports = class TestGenerator {
+  getJsetSource(sourcePath = path.resolve("./")) {
+    const testPath = `${sourcePath}/__test__`;
+    if (!fs.existsSync(testPath)) fs.mkdirSync(testPath);
+    // 遍历代码文件
+    let list = fs.readdirSync(sourcePath);
+    list
+      .map((v) => `${sourcePath}/${v}`) // 添加为完整路径
+      // 过滤文件
+      .filter((v) => fs.statSync(v).isFile())
+      // 排除测试代码
+      .filter((v) => v.indexOf(".spec") === -1)
+      .map((v) => this.genTestFile(v));
+  }
+  genTestFile(filename) {
+    const testFileName = this.getTestFileName(filename);
+    // 判断此文件是否存在
+    if (fs.existsSync(testFileName)) {
+      console.log(`该测试代码已存在${testFileName}`);
+      return;
+    }
+    const mod = require(filename);
+    let source;
+    if (typeof mod === "object") {
+      const baseName = path.basename(filename);
+      source = Object.keys(mod)
+        .map((v) => this.getTestSource(v, baseName, true))
+        .join("\n");
+    } else if (typeof mod === "function") {
+      const baseName = path.basename(filename);
+      source = this.getTestSource(baseName.replace(".js", ""), baseName);
+    }
+    fs.writeFileSync(testFileName, source);
+  }
+  getTestSource(methodName, classFile, isClass = false) {
+    return `
+test('TEST ${methodName}', ()=>{
+  const ${
+    isClass ? "{" + methodName + "}" : methodName
+  } = require('../${classFile}')
+  const ret = ${methodName}()
+  // expect(ret)
+  //  .toBe('test return')
+})
+    `;
+  }
+  getTestFileName(filename) {
+    const dirName = path.dirname(filename);
+    const baseName = path.basename(filename);
+    const extName = path.extname(filename);
+    const testName = baseName.replace(extName, `.spec${extName}`);
+    return path.format({
+      root: dirName + "/__test__/",
+      base: testName,
+    });
+  }
+};
+```
+
+# 生成测试代码函数
+
+# todo
+
+`path`相关方法
+
+- path.dirname
+- path.basename
+- path.extname
+- path.resolve
+- \_\_dirname
+  `fs`相关方法
+- fs.mkdirSync
+- fs.rmdirSync
+- fs.existsSync
+- fs.statSync 是不是一个文件
