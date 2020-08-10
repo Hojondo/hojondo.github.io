@@ -25,6 +25,19 @@ categories: ["玩机"]
 - linux 命令行中的 curl & wget [对比](https://www.cnblogs.com/lsdb/p/7171779.html)
 - sh 命令
 
+# 安装 nvm
+
+在 bash shell 下
+[官方链接](https://github.com/nvm-sh/nvm)
+`curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash` / `wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash`
+或[通过 git](https://github.com/nvm-sh/nvm#git-install)
+
+## 切换 node version
+
+`nvm install node # "node" is an alias for the latest version` 或 `nvm install 6.14.4 # or 10.10.0, 8.9.1, etc`
+`nvm use node`
+`nvm which 5.0 #get the path to the executable to where it was installed`
+
 # 更改 shell
 
 - `brew install zsh zsh-completions` / `sudo apt install zsh`
@@ -71,7 +84,17 @@ plugins=(
 ```
 
 > 注：切换成 zsh 后，需要把 bash shell `.bashrc` 的 PATH 配置项 合并到 `.zshrc`
-
-# 安装 nvm
+> 如：nvm 配置：https://github.com/nvm-sh/nvm#zsh
+>
+> ```shell
+> export NVM_DIR="$HOME/.nvm"
+> [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+> [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+> ```
 
 # 安装 yarn
+
+`npm i -g yarn`
+`yarn init`
+`yarn install / yarn`
+`yarn add [package] --dev`
