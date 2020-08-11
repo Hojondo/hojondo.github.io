@@ -491,7 +491,15 @@ test('TEST ${methodName}', ()=>{
 };
 ```
 
-# 生成测试代码函数
+# 异步编程
+
+[教程链接](https://www.josephxia.com/document/node/)
+
+- callback
+- promise
+- generator
+- async & await
+- eventEmitter 事件监听方式 event.emit()&event.on()
 
 # todo
 

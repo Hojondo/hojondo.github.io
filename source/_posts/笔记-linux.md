@@ -10,3 +10,5 @@ password:
 summary:
 categories: ["笔记"]
 ---
+
+[老师博客](https://www.josephxia.com/document/server/Linux%E5%91%BD%E4%BB%A4.html)

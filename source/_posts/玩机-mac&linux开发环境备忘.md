@@ -98,3 +98,5 @@ plugins=(
 `yarn init`
 `yarn install / yarn`
 `yarn add [package] --dev`
+
+# 安装 docker
