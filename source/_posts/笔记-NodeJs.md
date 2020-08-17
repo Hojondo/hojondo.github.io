@@ -386,6 +386,8 @@ app.use('/', router) // 关键点去看下use源码逻辑 并且tips一下：等
 
 ---
 
+[node 全栈课程大纲](https://www.processon.com/view/link/5d4b852ee4b07c4cf3069fec)
+
 > [devDependencies vs dependencies](https://stackoverflow.com/questions/40143357/do-you-put-babel-and-webpack-in-devdependencies-or-dependencies/40143446#40143446)
 
 ## 安装
@@ -562,6 +564,16 @@ javascript 异步解决方案的进化
         - request.js
         - response.js
     - listen
+
+## 网络工程学
+
+- [OSI 7 层协议和 TCP/IP 4 层协议](https://blog.csdn.net/mccand1234/article/details/51590804)
+  ![图示](https://i.loli.net/2020/08/17/iUX4ZmkSJxytK2O.png)
+- TCP 面向可靠性连接，UDP 不可靠
+- TELNET 传输的是明文，SSH 更安全
+
+- TCP 协议写个聊天室 js
+- `curl -v http://www.baidu.com`
 
 # todo
 
