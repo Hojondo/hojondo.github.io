@@ -495,11 +495,73 @@ test('TEST ${methodName}', ()=>{
 
 [教程链接](https://www.josephxia.com/document/node/)
 
+- js 的执行环境是单线程
+- I/O 处理需要回调函数异步处理（异步 I/O）
+- 前端异步 IO 可以消除 UI 阻塞，提高用户体验
+- 后端异步可以提高 CPU 和内存利用率
+
+javascript 异步解决方案的进化
+
 - callback
 - promise
 - generator
-- async & await
+- async & await:
+  > 任何一个 await 语句后面的 Promise 对象变为 reject 状态，那么整个 async 函数都会中断执行。
+  > async 函数返回的 Promise 对象，必须等到内部所有 await 命令后面的 Promise 对象执行完，才会发生状态改变，除非遇到 return 语句或者抛出错误。也就是说，只有 async 函数内部的异步操作执行完，才会执行 then 方法指定的回调函数。
 - eventEmitter 事件监听方式 event.emit()&event.on()
+
+# node.js 基础
+
+## I/O 处理
+
+- 同步阻塞
+- 同步非阻塞
+- 异步阻塞
+- 异步非阻塞
+
+## node 文档
+
+英文 https://nodejs.org/dist/latest-v10.x/docs/api/
+中文 http://nodejs.cn/api/
+
+## 基础 API
+
+- readFileSync & readFile
+- promisify
+  `const { promisify } = require('util')` `const readFile = promisify(fs.readFile)`
+- Buffer 读取数据类型为 Buffer。用于在 TCP 流、文件系统操作、以及其他上下文中与八位字节流进行交互。 八位字节组 成的数组，可以有效的在 JS 中存储二进制数据
+- Http 创建一个 http 服务器
+  - response.end() 即 中止这个 stream
+  - 流 stream
+  - [res.setHeader()和 res.writeHead()](https://www.jianshu.com/p/4418de5d6183)
+
+## CLI 工具
+
+实现一个 cli 工具（vue 路由约定）
+
+- npm init
+- 新建脚本 xx.js，开头是`#!/usr/bin/env node`对 shell 指定使用 node 解析脚本
+- 在 package.json > bin > xx.js 指定开始脚本
+  - init**初始化 clone & spawn & open**: spawn
+  - refresh**约定路由**: hbs([handlebars 模版引擎](https://zhuanlan.zhihu.com/p/32742178)/[hbs 最佳实践](https://www.jianshu.com/p/6dccc8459cd8))
+  - serve
+- [npm link](https://www.jianshu.com/p/aaa7db89a5b2) 其实就是相当于 ln 指令操作
+- publish 发布自己的库 执行`publish.sh`脚本
+
+## Koa 源码
+
+- koa 的产生原因： 原生 http 的不足：1.令人困惑的 request 和 response;2. 对描述复杂业务逻辑的描述比如 AOP(Aspect-oriented-programing)/切面描述需要
+- 为了简化 API，引入上下文 context 概念，核心是 `洋葱圈模型 - use, next`
+- 简单实现一个 koa 框架
+  - index.js
+    - use
+    - listen
+  - kkb.js
+    - use
+      - createContext context.js
+        - request.js
+        - response.js
+    - listen
 
 # todo
 
