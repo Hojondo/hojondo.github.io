@@ -532,6 +532,7 @@ javascript 异步解决方案的进化
 - promisify
   `const { promisify } = require('util')` `const readFile = promisify(fs.readFile)`
 - Buffer 读取数据类型为 Buffer。用于在 TCP 流、文件系统操作、以及其他上下文中与八位字节流进行交互。 八位字节组 成的数组，可以有效的在 JS 中存储二进制数据
+- readFile 和 writeFile 是会占用服务器缓存空间的，所以用 stream
 - Http 创建一个 http 服务器
   - response.end() 即 中止这个 stream
   - 流 stream
@@ -572,8 +573,22 @@ javascript 异步解决方案的进化
 - TCP 面向可靠性连接，UDP 不可靠
 - TELNET 传输的是明文，SSH 更安全
 
-- TCP 协议写个聊天室 js
-- `curl -v http://www.baidu.com`
+- TCP 协议写个聊天室 js `require('net')`
+- **[http 协议 - 前端角度](https://www.processon.com/view/link/5ec52841e0b34d5f261e14e0#map)[http 协议- 网工角度](https://processon.com/view/5c5157f7e4b0f0908a8c996e)**查看 req & res 例子： `curl -v http://www.baidu.com`
+  - request: 请求行（method.etc），消息报头（Accept 系,Content-Type.etc），请求正文(根据 Content-Type 确定)
+  - response： 状态行（1xx...5xx），实体报头，响应正文
+  - [http 缓存](https://juejin.im/post/6844904116972421128)
+  - http 例子， img.src 埋点
+  - 浏览器跨域三层封印： http request 发送时，已经发送给了后端也返回给了前端，但是浏览器不显示 response。协议端口域名 3 者任一不同就是非同源.
+    - node 层设置`res.setHeader('Access-Control-Allow-Origin', '*'或特写某个url)`
+    - [预检请求，即在请求阶段被浏览器拦截](https://www.jianshu.com/p/b55086cbd9af) option
+    - 如果携带 cookie 信息：`res.setHeader('Access-Control-Allow-Credentials', 'true')`
+    - 服务器反向代理： 让同源服务器去请求非同源服务器，返回给同源的前端。`const proxy = require('http-proxy-middleware')`
+- bodyParer
+- 实现一个爬虫 `request`
+- 又补充了 http/socket.io 两种方法写 im 通讯程序
+- 用 socket.io 写了浏览器模拟 terminal，推拉流：后端的流推到前端
+- monaco-editor 编辑器，尤雨溪也写了个基于这个的 docker 在线编辑器
 
 # todo
 
@@ -591,3 +606,7 @@ javascript 异步解决方案的进化
 - fs.rmdirSync
 - fs.existsSync
 - fs.statSync 是不是一个文件
+
+# 参考
+
+> [Koa, Redux, Express 中间件对比](https://github.com/nanjixiong218/analys-middlewares/tree/master/src) > [对 Compose 详尽的总结](https://segmentfault.com/a/1190000016707187#item-7-5) > [责任链模式](https://blog.csdn.net/liuwenzhe2008/article/details/70199520)
