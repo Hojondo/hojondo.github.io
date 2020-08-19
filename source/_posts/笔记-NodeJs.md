@@ -548,7 +548,7 @@ javascript 异步解决方案的进化
   - init**初始化 clone & spawn & open**: spawn
   - refresh**约定路由**: hbs([handlebars 模版引擎](https://zhuanlan.zhihu.com/p/32742178)/[hbs 最佳实践](https://www.jianshu.com/p/6dccc8459cd8))
   - serve
-- [npm link](https://www.jianshu.com/p/aaa7db89a5b2) 其实就是相当于 ln 指令操作
+- [npm link](https://www.jianshu.com/p/aaa7db89a5b2) [链接 2](https://juejin.im/entry/6844903625899294727) 其实就是相当于 ln 指令操作
 - publish 发布自己的库 执行`publish.sh`脚本
 
 ## Koa 源码
@@ -589,6 +589,19 @@ javascript 异步解决方案的进化
 - 又补充了 http/socket.io 两种方法写 im 通讯程序
 - 用 socket.io 写了浏览器模拟 terminal，推拉流：后端的流推到前端
 - monaco-editor 编辑器，尤雨溪也写了个基于这个的 docker 在线编辑器
+
+## 持久化
+
+数据就是放在磁盘里，所谓的持久化，就是指 关了机再开还是能读取到数据
+
+- 文件系统 fs
+- mysql 和 SQL 语句
+- 数据库中间件 ORM（Object Relation Mapping），把数据库映射成对象，像操作对象一样操作数据库： [sequelize](https://sequelize.org/)
+  [Transactions - 事务](https://github.com/demopark/sequelize-docs-Zh-CN/blob/master/other-topics/transactions.md)
+- [ELK elasticsearch 做复杂查询](https://www.elastic.co/guide/cn/elasticsearch/guide/current/_more_complicated_searches.html)
+- MySql Workbench: 画 ER 图的工具；不存在多对多的关系，多对多之间一定是用一个中间 mapping 表来联系；反向工程：比如用 Workbench 通过数据库反向生成 ER 表
+- 简单的电商系统 ./shop 文件夹
+- mongodb 数据库
 
 # todo
 
