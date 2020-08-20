@@ -600,8 +600,59 @@ javascript 异步解决方案的进化
   [Transactions - 事务](https://github.com/demopark/sequelize-docs-Zh-CN/blob/master/other-topics/transactions.md)
 - [ELK elasticsearch 做复杂查询](https://www.elastic.co/guide/cn/elasticsearch/guide/current/_more_complicated_searches.html)
 - MySql Workbench: 画 ER 图的工具；不存在多对多的关系，多对多之间一定是用一个中间 mapping 表来联系；反向工程：比如用 Workbench 通过数据库反向生成 ER 表
-- 简单的电商系统 ./shop 文件夹
-- mongodb 数据库
+- 用 sequelize 实现简单的电商系统 ./shop 文件夹
+- `mongodb` 非传统的关系型数据库
+
+  - eventEmmiter 在文件夹./mongo & initData.js
+  - 一个水果商店 例子 在文件夹./example
+  - `mongoose` 提供的本质就是 domain 领域模型，而一旦定义了模型就可以自动基于约定产生 api
+
+- 开发方法论
+  原型 ->ER -> DB -> 后端代码 -> UI
+  有 sequlee 后改变成了
+  原型 -> 后端代码（domain 领域模型）-> (DB -> ER 两者沦为持久化服务)-> api ->UI
+- 一个 team 需要的东西：
+  技术框架
+  开发方法论
+  管理方法
+- CRUD 基于约定，基于 restful
+- UI admin 基于约定
+- restful api 实现小例子在 ./restful 文件夹
+
+## 鉴权
+
+### 三种常见鉴权方式
+
+- Session/Cookie
+- Token
+- OAuth
+- SSO
+
+### Session/Cookie
+
+http 协议本身是无状态的
+
+- cookie 有大小限制，格式问题，明文状态不安全
+- session 所以后端放一个 key-value 的集合，前端只存一个 key
+- koa-session
+- hash 防篡改
+- 使用 redis 存储 session;redis 是高性能的 key-value 数据库，支持持久化，但是绝大多时间存在内存中
+- 例子：使用 koa-session，koa-router 等 鉴权例子 在文件夹./session 里
+
+### Token
+
+- session 的不足，离开浏览器玩不转；并且服务器需要状态保持
+- token 是密码形式，不需要服务器保持状态。
+- token 是有 3 段(令牌头 加密规则 base64 加密；payload(载和)token 内容「并且一般不要放敏感信息」 base64 加密；根据密钥对前两两部分全文 hash 运算的结果)组成
+- [jwt 验证的原理](http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html)
+
+### OAuth
+
+![整个流程图解](https://i.loli.net/2020/08/20/AqIMQeOPtdscmjD.png)
+
+### SSO
+
+![整个流程图解](https://i.loli.net/2020/08/20/ihyZjg4Hf9BbvGz.png)
 
 # todo
 
@@ -623,3 +674,5 @@ javascript 异步解决方案的进化
 # 参考
 
 > [Koa, Redux, Express 中间件对比](https://github.com/nanjixiong218/analys-middlewares/tree/master/src) > [对 Compose 详尽的总结](https://segmentfault.com/a/1190000016707187#item-7-5) > [责任链模式](https://blog.csdn.net/liuwenzhe2008/article/details/70199520)
+
+> [restful 风格](https://www.ruanyifeng.com/blog/2011/09/restful.html) > [GraphQL 下一代接口风格](https://graphql.org/) > [一个用 node 和 graphQL 风格 API 写的 博客系统](https://www.keystonejs.com/)
