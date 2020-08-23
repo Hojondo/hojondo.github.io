@@ -29,3 +29,9 @@ Validate 接⼝口格式检查
 三层结构
 jwt 统⼀一鉴权
 ⽂文件上传
+
+## 手写 eggjs
+
+- 下载`npm i egg-init -g`脚手架
+- 约定大于配置 3 层结构： controler,model,service
+- 手写简单版 egg - 文件夹 kgg
