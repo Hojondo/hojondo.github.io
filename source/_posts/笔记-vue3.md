@@ -8,7 +8,7 @@ date: 2020-08-24 14:44:25
 tags:
 password:
 summary:
-categories:
+categories: ["笔记"]
 ---
 
 ## Vite
