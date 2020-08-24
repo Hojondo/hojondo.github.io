@@ -633,7 +633,7 @@ javascript 异步解决方案的进化
 http 协议本身是无状态的
 
 - cookie 有大小限制，格式问题，明文状态不安全
-- session 所以后端放一个 key-value 的集合，前端只存一个 key
+- session 所以 后端放一个 key-value 的集合，前端只存一个 key
 - koa-session
 - hash 防篡改
 - 使用 redis 存储 session;redis 是高性能的 key-value 数据库，支持持久化，但是绝大多时间存在内存中
