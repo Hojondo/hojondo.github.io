@@ -100,3 +100,7 @@ plugins=(
 `yarn add [package] --dev`
 
 # 安装 docker
+
+# linux 安装 synaptic
+
+# linux 美化

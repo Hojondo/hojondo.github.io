@@ -730,3 +730,16 @@ Route 渲染方式互斥，优先级:`children`>`component`>`render`
    不管 document.location 是否匹配都会被渲染。工作方法与 render 完全一样
 
 # React-redux
+
+# 更新重点
+
+- context
+  - xxContext.Provider [& xxContext.Consumer] _Provider 的 value 值要提升到父节点的 state 变量_
+  - 子孙组件
+    - class 组件： static contextType = xxContext ; const {obj} = this.context
+    - fun 组件：const {obj} = useContext(xxContext)
+    - 两种组件都可以用：`<xxConsumer>{ctx=><div>内部接收格式必须是函数</div>}</xxConsumer>`
+- HOC 高阶组件
+  - 参数是组件，返回一个新的组件，本质上是个函数
+  - 装饰器 @xx 只能用于 class 组件
+  - 不要在 render 中（的 return 前）使用 HOC
