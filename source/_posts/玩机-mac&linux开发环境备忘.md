@@ -10,7 +10,13 @@ password:
 summary:
 categories: ["玩机"]
 ---
+# 安装 git
+`apt-get install git`
+设置代理
+- Clone with HTTPS： `git config --global http.https://github.com.proxy http://127.0.0.1:8889`，在`~/gitconfig`中可见。[取消代理`git config --global --unset http.proxy`]
+- Clone with SSH： 在`~/.ssh/config`中添加两行 `Host github.com`\n`ProxyCommand nc -X 5 -x 127.0.0.1:8889 %h %p`
 
+# 更改 shell 为zsh
 系统自带 shell：
 /bin/bash
 /bin/csh
@@ -19,11 +25,50 @@ categories: ["玩机"]
 /bin/sh
 /bin/tcsh
 /bin/zsh
-设置 zsh 为默认 shell
-安装 oh-my-zsh
+- 查看系统中已安装的shell `cat /etc/shells` 当前应用的shell`echo $SHELL`
+- 安装 oh-my-zsh`brew install zsh zsh-completions` / `sudo apt install zsh`
+- 设置 zsh 为默认 shell`[sudo] chsh -s $(which zsh)` / `chsh -s /usr/local/bin/zsh`
 
-- linux 命令行中的 curl & wget [对比](https://www.cnblogs.com/lsdb/p/7171779.html)
-- sh 命令
+## 安装 oh-my-zsh For ZSH shell
+
+[官方引导](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
+[推荐教程](https:snap设置代理也比较方便，注意，下面这个也是http，不是打错了//juejin.im/post/6844903939121348616)
+
+- 通过 github
+  - `git clone git@//github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh`
+    或通过 curl/wget
+    `sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
+    `sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
+  - 备份旧zsh配置文件`cp ~/.zsh ~/.zshrc.originBackup`，使用oh-my-zsh提供的模板配置`cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc`
+  
+
+## oh-my-zsh插件推荐
+- [autojump](https://github.com/wting/autojump),实现目录间快速跳转，想去哪个目录直接 j + 目录名，不用在频繁的cd
+- zsh-autosuggestions(命令进一步补全)
+- zsh-syntax-highlighting(日常用的命令会高亮显示，命令错误显示红色)
+- [embedding](https://asciinema.org/docs/embedding)
+安装highlighting示例
+`git clone git://github.com/zsh-users/zsh-syntax-highlighting $ZSH_CUSTOM/plugins/zsh-syntax-highlighting`
+并在`.zshrc`中添加
+```JS
+plugins=(
+  autojump
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
+```
+
+> 注：切换成 zsh 后，需要把 bash shell `.bashrc` 的 PATH 配置项 合并到 `.zshrc`
+> 如：nvm 配置：https://github.com/nvm-sh/nvm#zsh
+>
+> ```shell
+> export PATH=$HOME/bin:/usr/local/bin:$PATH
+> export NVM_DIR="$HOME/.nvm"
+> [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+> [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+> ```
+
+
 
 # 安装 nvm
 
@@ -38,60 +83,6 @@ categories: ["玩机"]
 `nvm use node`
 `nvm which 5.0 #get the path to the executable to where it was installed`
 
-# 更改 shell
-
-- `brew install zsh zsh-completions` / `sudo apt install zsh`
-- `[sudo] chsh -s $(which zsh)` / `chsh -s /usr/local/bin/zsh`
-
-# 安装 oh-my-zsh For ZSH shell
-
-[官方引导](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
-[推荐教程](https://juejin.im/post/6844903939121348616)
-
-## 通过 github
-
-- `git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh`
-- `cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc`
-
-## 通过 curl/wget
-
-`sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
-`sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
-
-# 安装 3 个插件
-
-安装
-
-- [autojump](https://github.com/wting/autojump),实现目录间快速跳转，想去哪个目录直接 j + 目录名，不用在频繁的 cd 了
-
-zsh-autosuggestions(命令进一步补全)
-zsh-syntax-highlighting(日常用的命令会高亮显示，命令错误显示红色)
-[embedding](https://asciinema.org/docs/embedding)
-四个插件
-`brew install autojump`
-`git clone git://github.com/zsh-users/zsh-autosuggestions`
-`$ZSH_CUSTOM/plugins/zsh-autosuggestions`
-`git clone git://github.com/zsh-users/zsh-syntax-highlighting`
-`$ZSH_CUSTOM/plugins/zsh-syntax-highlighting`
-并在`.zshrc`中添加
-
-```JS
-plugins=(
-  autojump
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-)
-```
-
-> 注：切换成 zsh 后，需要把 bash shell `.bashrc` 的 PATH 配置项 合并到 `.zshrc`
-> 如：nvm 配置：https://github.com/nvm-sh/nvm#zsh
->
-> ```shell
-> export NVM_DIR="$HOME/.nvm"
-> [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-> [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-> ```
-
 # 安装 yarn
 
 `npm i -g yarn`
@@ -104,3 +95,13 @@ plugins=(
 # linux 安装 synaptic
 
 # linux 美化
+
+# linux 安装wine
+wget -O- https://deepin-wine.i-m.dev/setup.sh | sh
+sudo apt-get install deepin.com.wechat
+
+
+# 参考
+> [Mac、Linux 安装zsh & oh my zsh - 零点开始Coding - SegmentFault 思否](https://segmentfault.com/a/1190000013857738)
+> - linux 命令行中的 curl & wget [对比](https://www.cnblogs.com/lsdb/p/7171779.html)
+- sh 命令
