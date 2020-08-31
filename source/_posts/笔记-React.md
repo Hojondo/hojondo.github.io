@@ -747,3 +747,12 @@ Route 渲染方式互斥，优先级:`children`>`component`>`render`
   - Form - FieldContext, FieldContext.Provider; forwardRef & useImperativeHandle;
   - Field
   - useForm
+- react-dom - Portal 传送门
+- reducer
+  - `import {createStore} from 'redux'` & `createStore(reducerFun)`
+  - store.getState()
+  - store.dispatch({type: 'add',payload: 100})
+  - sotre.subscribe(()=>{this.forceUpdate()})
+- redux 中间件
+  redux 只是个纯粹的状态管理器，dispatch()参数只接收对象，默认只支持同步。为了实现异步需要中间件的支持
+  - `createStore(reducerFn, applyMiddleware(中间件1,...中间件n))`
