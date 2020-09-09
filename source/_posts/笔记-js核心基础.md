@@ -23,17 +23,40 @@ categories: ["笔记"]
 # 骚操作
 
 - 实现 sleep 阻塞目的:
+
   1. while()限定时间条件达到
+
   ```js
   const expire = Date.now() + 1000
   while(Date.now()<expire)
   // after that, do something
   ```
+
   2. promise 异步
+
   ```js
   new promise((reslove, reject) = > {
       setTimeout  (()=>{
           reslove()
       }, 2000)
   })
+  ```
+
+  # 冷知识
+
+  [赋值详详详详解](https://www.cnblogs.com/52cik/p/js-assignment-operators.html)
+  [神奇的JS连续赋值语句](http://xiaoyuze88.github.io/blog/2013/09/20/%E7%A5%9E%E5%A5%87%E7%9A%84JS%E8%BF%9E%E7%BB%AD%E8%B5%8B%E5%80%BC%E8%AF%AD%E5%8F%A5)
+  JS 赋值语句 永远返回值，声明语句 永远返回 undefined
+  JavaScript 中赋值语句的返回值就是等号右边的值，例子中 obj.getThis 的值是一个匿名函数，非严格模式下 this 会指向 window
+
+  ```js
+  var obj = {
+    name: "My Object",
+    getThis: function () {
+      console.log(this);
+    },
+  };
+  (obj.getThis = obj.getThis)(); // window
+  //
+  if (x = 10) // 会判断为10，隐式转换为true
   ```
