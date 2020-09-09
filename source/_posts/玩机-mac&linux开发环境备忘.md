@@ -91,7 +91,43 @@ plugins=(
 `yarn add [package] --dev`
 
 # 安装 docker
-
+```shell
+sudo apt-get remove docker docker-engine docker.io containerd runc
+sudo apt-get update
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common
+# 添加
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88
+# 启动docker
+sudo systemctl enable docker
+sudo systemctl start docker
+# 建立 docker 用户组
+sudo groupadd docker
+sudo usermod -aG docker $USER
+# 解决ubuntu安装docker很慢的问题，把官方的仓库源https://download.docker.com/linux/ubuntu 替换成阿里的
+sudo add-apt-repository \
+   "deb [arch=amd64] https://mirrors.aliyun.com/docker-ce/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+# 换docker hub仓库源，改成阿里云申请的私人镜像[镜像中心-镜像加速器](https://account.aliyun.com/login/login.htm?oauth_callback=https://cr.console.aliyun.com/#/imageList)
+sudo tee /etc/docker/daemon.json <<-'EOF'\
+{\
+  "registry-mirrors": ["https://d0usu3nm.mirror.aliyuncs.com"]\
+}\
+EOF
+# 重启docker
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+# 测试 是否安装成功可pull image
+docker run hello-world
+```
 # linux 安装 synaptic
 
 # linux 美化
