@@ -762,3 +762,9 @@ Route 渲染方式互斥，优先级:`children`>`component`>`render`
   > 在 function 组件中（class 组件 setState 不会比对前后 state），因为如果前后两次的值相同，`useState`和`useReducer`都会放弃更新。而通常，不应该在 react 中修改本地 state，作为一条出路，可以用一个增长的计数器来在 state 没变的时候依然强制一次重新渲染
   > 为什么函数组件需要缓存 useCallback,useMemo。
   > 函数式编程的优点：自定义 hook 逻辑复用。与 UI 层脱离
+
+
+
+# Tips
+## React.Fragment
+https://reactjs.org/docs/fragments.html
