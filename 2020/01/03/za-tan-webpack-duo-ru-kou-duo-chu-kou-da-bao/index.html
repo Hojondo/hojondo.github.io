@@ -4,12 +4,12 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="杂谈-webpack-多入口多出口打包, Hojondo&#39;s">
+    <meta name="keywords" content="webpack-多入口多出口打包, Hojondo&#39;s">
 <!--    <meta name="baidu-site-verification" content="fmlEuI34ir" />-->
 <!--    <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />-->
-    <meta name="description" content="需求背景某天老板看到了京东商城不一样的二级域名，但是他们的UI风格和某些页面块是完全一致的。也要这样，项目代码根据业务构建目录，用同一个package.json，打包3个二级目录。。。OK.
+    <meta name="description" content="需求背景某天老板看到了京东商城不一样的二级域名，但是他们的 UI 风格和某些页面块是完全一致的。也要这样，项目代码根据业务构建目录，用同一个 package.json，打包 3 个二级目录。。。OK.
 同时有两个硬核需求：
-项目越来越多，维护量较大。">
+项目越来越多，维">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>杂谈-webpack-多入口多出口打包 | Hojondo&#39;s</title>
+    <title>webpack-多入口多出口打包 | Hojondo&#39;s</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -310,13 +310,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        杂谈-webpack-多入口多出口打包
+                        webpack-多入口多出口打包
                     </div>
                 </div>
             </div>
@@ -431,14 +431,19 @@
                                 <span class="chip bg-color">webpack</span>
                             </a>
                         
-                            <a href="/tags/杂谈/" target="_blank">
-                                <span class="chip bg-color">杂谈</span>
-                            </a>
-                        
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/杂谈/" class="post-category" target="_blank">
+                                杂谈
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -460,7 +465,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        856
+                        857
                     </div>
                     
 
@@ -483,12 +488,12 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="需求背景"><a href="#需求背景" class="headerlink" title="需求背景"></a>需求背景</h2><p>某天老板看到了京东商城不一样的二级域名，但是他们的UI风格和某些页面块是完全一致的。也要这样，项目代码根据业务构建目录，用同一个package.json，打包3个二级目录。。。OK.</p>
+                <h2 id="需求背景"><a href="#需求背景" class="headerlink" title="需求背景"></a>需求背景</h2><p>某天老板看到了京东商城不一样的二级域名，但是他们的 UI 风格和某些页面块是完全一致的。也要这样，项目代码根据业务构建目录，用同一个 package.json，打包 3 个二级目录。。。OK.</p>
 <p>同时有两个硬核需求：</p>
-<p>项目越来越多，维护量较大。起初，只有一两个项目时，代码管理和开发还是比较轻松的。但当老系统逐渐拆分，新项目的不断启动，问题就来了。项目越来越多，每一个都需要单独vue-cli生成，然后配置一堆参数。当一个配置的参数有变，所有的其他项目都需要联动调整，维护量较大。</p>
-<p>每个项目，所属的业务不同。但是整体上应当： 系统UI一致、部分相同业务逻辑代码处理一致。重复coding很多，维护量也很大。当编码不受控时，各个项目的处理方式也可能各不相同。</p>
-<p><strong>解决方法</strong><br>对于各种发现的问题，简单构想一下可以整合前台项目，通过Webpack按项目打包生成多个SPA。</p>
-<h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>entry入口多个</p>
+<p>项目越来越多，维护量较大。起初，只有一两个项目时，代码管理和开发还是比较轻松的。但当老系统逐渐拆分，新项目的不断启动，问题就来了。项目越来越多，每一个都需要单独 vue-cli 生成，然后配置一堆参数。当一个配置的参数有变，所有的其他项目都需要联动调整，维护量较大。</p>
+<p>每个项目，所属的业务不同。但是整体上应当： 系统 UI 一致、部分相同业务逻辑代码处理一致。重复 coding 很多，维护量也很大。当编码不受控时，各个项目的处理方式也可能各不相同。</p>
+<p><strong>解决方法</strong><br>对于各种发现的问题，简单构想一下可以整合前台项目，通过 Webpack 按项目打包生成多个 SPA。</p>
+<h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>entry 入口多个</p>
 <pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// entry: [</span>
 <span class="token comment" spellcheck="true">//     "babel-polyfill",</span>
 <span class="token comment" spellcheck="true">//     path.join(__dirname, './src/index.js')</span>
@@ -516,8 +521,8 @@ entry<span class="token punctuation">:</span> <span class="token punctuation">{<
     chunks<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'index2'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
     template<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'./src/index.html'</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span></code></pre>
-<h2 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h2><p>生产环境没问题了，开发环境dev-server需要额外配置一下</p>
-<p>以上用了多页配置，加上了HtmlWebpackPlugin实现了，但是每次只能启动一个单页。虽然两个模板关系不是特别紧密，但是如果能一次直接启动全部肯定是更好的。</p>
+<h2 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h2><p>生产环境没问题了，开发环境 dev-server 需要额外配置一下</p>
+<p>以上用了多页配置，加上了 HtmlWebpackPlugin 实现了，但是每次只能启动一个单页。虽然两个模板关系不是特别紧密，但是如果能一次直接启动全部肯定是更好的。</p>
 <p>devServer.historyApiFallback。参照文档描述，只需要自己指定路由重写机制，就可以实现开发模式多页面注入并导航。</p>
 <pre class=" language-js"><code class="language-js">devServer<span class="token punctuation">:</span> <span class="token punctuation">{</span>
     historyApiFallback<span class="token punctuation">:</span> <span class="token punctuation">{</span>
@@ -528,119 +533,126 @@ entry<span class="token punctuation">:</span> <span class="token punctuation">{<
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre>
 <h2 id="封装-示例"><a href="#封装-示例" class="headerlink" title="封装 示例"></a>封装 示例</h2><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//config.js</span>
-<span class="token keyword">const</span> glob <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'glob'</span><span class="token punctuation">)</span>
-<span class="token keyword">const</span> HtmlWebpackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'html-webpack-plugin'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> glob <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"glob"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> HtmlWebpackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"html-webpack-plugin"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token keyword">const</span> getEntrys <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>entryPattern<span class="token punctuation">)</span><span class="token punctuation">{</span>
-  <span class="token keyword">let</span> entrys <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-  <span class="token keyword">let</span> entry <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">const</span> getEntrys <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>entryPattern<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> entrys <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> entry <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
   glob<span class="token punctuation">.</span><span class="token function">sync</span><span class="token punctuation">(</span>entryPattern<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> length <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span>
-    path <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">[</span>length<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-    entry<span class="token punctuation">[</span>path<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token template-string"><span class="token string">`./src/pages/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>path<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>path<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">.js`</span></span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  <span class="token keyword">return</span> entry
-<span class="token punctuation">}</span>
+    <span class="token keyword">let</span> length <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    path <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">[</span>length<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"."</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    entry<span class="token punctuation">[</span>path<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token template-string"><span class="token string">`./src/pages/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>path<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>path<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">.js`</span></span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> entry<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-<span class="token keyword">const</span> getOutHtmls <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>entryPattern<span class="token punctuation">)</span><span class="token punctuation">{</span>
-  <span class="token keyword">let</span> outHtmls <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> getOutHtmls <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>entryPattern<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> outHtmls <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
   glob<span class="token punctuation">.</span><span class="token function">sync</span><span class="token punctuation">(</span>entryPattern<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> length <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span>
-    <span class="token keyword">let</span> filename <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">[</span>length<span class="token punctuation">]</span>
-    <span class="token keyword">let</span> template <span class="token operator">=</span> path
-    pageName <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">[</span>length<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-    outHtmls<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">HtmlWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      filename<span class="token punctuation">,</span>
-      template<span class="token punctuation">,</span>
-      inject<span class="token punctuation">:</span><span class="token boolean">true</span><span class="token punctuation">,</span>
-      chunks<span class="token punctuation">:</span> <span class="token punctuation">[</span>pageName<span class="token punctuation">,</span> <span class="token string">'common'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-      minify<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-        removeComments<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-        collapseWhitespace<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-        removeAttributeQuotes<span class="token punctuation">:</span> <span class="token boolean">true</span>
-      <span class="token punctuation">}</span><span class="token punctuation">,</span>
-      <span class="token comment" spellcheck="true">// chunksSortMode: 'dependency'</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  <span class="token keyword">return</span> outHtmls
-<span class="token punctuation">}</span>
+    <span class="token keyword">let</span> length <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> filename <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">[</span>length<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> template <span class="token operator">=</span> path<span class="token punctuation">;</span>
+    pageName <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">[</span>length<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"."</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    outHtmls<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>
+      <span class="token keyword">new</span> <span class="token class-name">HtmlWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        filename<span class="token punctuation">,</span>
+        template<span class="token punctuation">,</span>
+        inject<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        chunks<span class="token punctuation">:</span> <span class="token punctuation">[</span>pageName<span class="token punctuation">,</span> <span class="token string">"common"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        minify<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+          removeComments<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+          collapseWhitespace<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+          removeAttributeQuotes<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token comment" spellcheck="true">// chunksSortMode: 'dependency'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> outHtmls<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 
 module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
   getEntrys<span class="token punctuation">,</span>
-  getOutHtmls
-<span class="token punctuation">}</span></code></pre>
+  getOutHtmls<span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 <pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// webpack.config.js</span>
-<span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span>
-<span class="token keyword">const</span> HtmlWebpackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'html-webpack-plugin'</span><span class="token punctuation">)</span>
-<span class="token keyword">const</span> CleanWebpackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'clean-webpack-plugin'</span><span class="token punctuation">)</span>
-<span class="token keyword">const</span> ManifestWebpackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack-manifest-plugin'</span><span class="token punctuation">)</span>
-<span class="token keyword">const</span> ExtractTextPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"extract-text-webpack-plugin"</span><span class="token punctuation">)</span>
-<span class="token keyword">const</span> webpack <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack'</span><span class="token punctuation">)</span>
-<span class="token keyword">const</span> multipe <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./config/config.js'</span><span class="token punctuation">)</span>
-<span class="token keyword">const</span> getEntrys <span class="token operator">=</span> multipe<span class="token punctuation">.</span>getEntrys
-<span class="token keyword">const</span> getOutHtmls <span class="token operator">=</span> multipe<span class="token punctuation">.</span>getOutHtmls
+<span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"path"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> HtmlWebpackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"html-webpack-plugin"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> CleanWebpackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"clean-webpack-plugin"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> ManifestWebpackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"webpack-manifest-plugin"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> ExtractTextPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"extract-text-webpack-plugin"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> webpack <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"webpack"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> multipe <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"./config/config.js"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> getEntrys <span class="token operator">=</span> multipe<span class="token punctuation">.</span>getEntrys<span class="token punctuation">;</span>
+<span class="token keyword">const</span> getOutHtmls <span class="token operator">=</span> multipe<span class="token punctuation">.</span>getOutHtmls<span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">//根据具体目录结构来确定路径</span>
-<span class="token keyword">const</span> entryPattern <span class="token operator">=</span> <span class="token string">'./src/pages/**.html'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> entryPattern <span class="token operator">=</span> <span class="token string">"./src/pages/**.html"</span><span class="token punctuation">;</span>
 
 module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
-  entry<span class="token punctuation">:</span><span class="token function">getEntrys</span><span class="token punctuation">(</span>entryPattern<span class="token punctuation">)</span><span class="token punctuation">,</span>
+  entry<span class="token punctuation">:</span> <span class="token function">getEntrys</span><span class="token punctuation">(</span>entryPattern<span class="token punctuation">)</span><span class="token punctuation">,</span>
   output<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-    filename<span class="token punctuation">:</span> <span class="token string">'[name]/js/[name].[hash].bundle.js'</span><span class="token punctuation">,</span>
-    path<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'dist'</span><span class="token punctuation">)</span>
+    filename<span class="token punctuation">:</span> <span class="token string">"[name]/js/[name].[hash].bundle.js"</span><span class="token punctuation">,</span>
+    path<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">"dist"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
   resolve<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-    extensions<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'.js'</span><span class="token punctuation">,</span> <span class="token string">'.json'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    extensions<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">".js"</span><span class="token punctuation">,</span> <span class="token string">".json"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
     alias<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-      <span class="token string">'@'</span><span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'./src'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-      <span class="token string">'config'</span><span class="token punctuation">:</span>path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'./config'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token punctuation">}</span>
+      <span class="token string">"@"</span><span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">"./src"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      config<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">"./config"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
   module<span class="token punctuation">:</span> <span class="token punctuation">{</span>
     rules<span class="token punctuation">:</span> <span class="token punctuation">[</span>
       <span class="token punctuation">{</span>
         test<span class="token punctuation">:</span> <span class="token regex">/\.js$/</span><span class="token punctuation">,</span>
-        use<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'babel-loader'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-        exclude<span class="token punctuation">:</span> <span class="token string">"/node_modules"</span>
+        use<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"babel-loader"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        exclude<span class="token punctuation">:</span> <span class="token string">"/node_modules"</span><span class="token punctuation">,</span>
       <span class="token punctuation">}</span><span class="token punctuation">,</span>
       <span class="token punctuation">{</span>
         test<span class="token punctuation">:</span> <span class="token regex">/\.css$/</span><span class="token punctuation">,</span>
         use<span class="token punctuation">:</span> ExtractTextPlugin<span class="token punctuation">.</span><span class="token function">extract</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
           fallback<span class="token punctuation">:</span> <span class="token string">"style-loader"</span><span class="token punctuation">,</span>
-          use<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"css-loader?importLoaders=1&amp;&amp;minimize"</span><span class="token punctuation">,</span><span class="token string">"postcss-loader"</span><span class="token punctuation">]</span>
+          use<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"css-loader?importLoaders=1&amp;&amp;minimize"</span><span class="token punctuation">,</span> <span class="token string">"postcss-loader"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
         <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-        exclude<span class="token punctuation">:</span><span class="token string">"/node_modules"</span>
+        exclude<span class="token punctuation">:</span> <span class="token string">"/node_modules"</span><span class="token punctuation">,</span>
       <span class="token punctuation">}</span><span class="token punctuation">,</span>
       <span class="token comment" spellcheck="true">// LESS</span>
       <span class="token punctuation">{</span>
         test<span class="token punctuation">:</span> <span class="token regex">/\.less$/</span><span class="token punctuation">,</span>
-        use<span class="token punctuation">:</span> ExtractTextPlugin<span class="token punctuation">.</span><span class="token function">extract</span><span class="token punctuation">(</span><span class="token punctuation">{</span> 
-          fallback<span class="token punctuation">:</span> <span class="token string">'style-loader'</span><span class="token punctuation">,</span> 
-          use<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'css-loader?importLoaders=1&amp;&amp;minimize'</span><span class="token punctuation">,</span> <span class="token string">'postcss-loader'</span><span class="token punctuation">,</span> <span class="token string">'less-loader'</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        use<span class="token punctuation">:</span> ExtractTextPlugin<span class="token punctuation">.</span><span class="token function">extract</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+          fallback<span class="token punctuation">:</span> <span class="token string">"style-loader"</span><span class="token punctuation">,</span>
+          use<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token string">"css-loader?importLoaders=1&amp;&amp;minimize"</span><span class="token punctuation">,</span>
+            <span class="token string">"postcss-loader"</span><span class="token punctuation">,</span>
+            <span class="token string">"less-loader"</span><span class="token punctuation">,</span>
+          <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
       <span class="token punctuation">}</span><span class="token punctuation">,</span>
       <span class="token punctuation">{</span>
         test<span class="token punctuation">:</span> <span class="token regex">/\.(png|svg|jpg|gif)$/</span><span class="token punctuation">,</span>
-        loader<span class="token punctuation">:</span> <span class="token string">'file-loader'</span><span class="token punctuation">,</span>
-        options<span class="token punctuation">:</span><span class="token punctuation">{</span>
-          limit<span class="token punctuation">:</span><span class="token number">10000</span><span class="token punctuation">,</span>
-          name<span class="token punctuation">:</span><span class="token string">'[name]/img/[name].[hash].[ext]'</span>
+        loader<span class="token punctuation">:</span> <span class="token string">"file-loader"</span><span class="token punctuation">,</span>
+        options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+          limit<span class="token punctuation">:</span> <span class="token number">10000</span><span class="token punctuation">,</span>
+          name<span class="token punctuation">:</span> <span class="token string">"[name]/img/[name].[hash].[ext]"</span><span class="token punctuation">,</span>
         <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        exclude<span class="token punctuation">:</span> <span class="token string">"/node_modules"</span>
-      <span class="token punctuation">}</span>
-    <span class="token punctuation">]</span>
+        exclude<span class="token punctuation">:</span> <span class="token string">"/node_modules"</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
   plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
     <span class="token keyword">new</span> <span class="token class-name">ManifestWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token keyword">new</span> <span class="token class-name">CleanWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'dist'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword">new</span> <span class="token class-name">CleanWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">"dist"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
     <span class="token keyword">new</span> <span class="token class-name">webpack<span class="token punctuation">.</span>optimize<span class="token punctuation">.</span>CommonsChunkPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      name<span class="token punctuation">:</span> <span class="token string">'common'</span> <span class="token comment" spellcheck="true">// 指定公共 bundle 的名称。</span>
+      name<span class="token punctuation">:</span> <span class="token string">"common"</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 指定公共 bundle 的名称。</span>
     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
     <span class="token keyword">new</span> <span class="token class-name">ExtractTextPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      filename<span class="token punctuation">:</span><span class="token string">"[name]/css/[name].[contenthash].css"</span><span class="token punctuation">,</span>
-      allChunks<span class="token punctuation">:</span><span class="token boolean">true</span>
+      filename<span class="token punctuation">:</span> <span class="token string">"[name]/css/[name].[contenthash].css"</span><span class="token punctuation">,</span>
+      allChunks<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token operator">...</span><span class="token function">getOutHtmls</span><span class="token punctuation">(</span>entryPattern<span class="token punctuation">)</span>
-  <span class="token punctuation">]</span>
-<span class="token punctuation">}</span></code></pre>
+    <span class="token operator">...</span><span class="token function">getOutHtmls</span><span class="token punctuation">(</span>entryPattern<span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 <blockquote>
 <p><a href="https://blog.csdn.net/xyphf/article/details/79824777" target="_blank" rel="noopener">教程来源</a></p>
 </blockquote>
@@ -678,7 +690,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《杂谈-webpack-多入口多出口打包》
+                    《webpack-多入口多出口打包》
                 </span> 由
             <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/01/03/za-tan-webpack-duo-ru-kou-duo-chu-kou-da-bao/" property="cc:attributionName"
                rel="cc:attributionURL">
@@ -750,19 +762,19 @@ module<span class="token punctuation">.</span>exports <span class="token operato
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="杂谈-css-flex实现 gutter between align to grid">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="css-flex实现 gutter between align to grid">
                         
-                        <span class="card-title">杂谈-css-flex实现 gutter between align to grid</span>
+                        <span class="card-title">css-flex实现 gutter between align to grid</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            css实现flex布局下，带间隔between最后一行自动对齐表格目标效果：
+                            css 实现 flex 布局下，带间隔 between 最后一行自动对齐表格目标效果：
 &lt;div class="commentBrands">
-    &lt;img src="" alt=""/>
+  &lt;img src="" alt="" />
 &lt;/div>
-    .comment
+.comment
                         
                     </div>
                     <div class="publish-info">
@@ -771,15 +783,18 @@ module<span class="token punctuation">.</span>exports <span class="token operato
                         </span>
                         <span class="publish-author">
                             
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/杂谈/" class="post-category" target="_blank">
+                                    杂谈
+                                </a>
+                            
+                            
                         </span>
                     </div>
                 </div>
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/杂谈/" target="_blank">
-                        <span class="chip bg-color">杂谈</span>
-                    </a>
                     
                     <a href="/tags/css/" target="_blank">
                         <span class="chip bg-color">css</span>
@@ -796,7 +811,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/12/26/threejs/">
+                <a href="/2019/12/26/bi-ji-threejs/">
                     <div class="card-image">
                         
                         
@@ -817,6 +832,13 @@ module<span class="token punctuation">.</span>exports <span class="token operato
                             </span>
                         <span class="publish-author">
                             
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/笔记/" class="post-category" target="_blank">
+                                    笔记
+                                </a>
+                            
+                            
                         </span>
                     </div>
                 </div>
@@ -825,10 +847,6 @@ module<span class="token punctuation">.</span>exports <span class="token operato
                     
                     <a href="/tags/webGL图形学/" target="_blank">
                         <span class="chip bg-color">webGL图形学</span>
-                    </a>
-                    
-                    <a href="/tags/threeJS/" target="_blank">
-                        <span class="chip bg-color">threeJS</span>
                     </a>
                     
                 </div>
@@ -984,7 +1002,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">86.9k</span>
+            <span class="white-color">132.3k</span>
             
 
             <br>

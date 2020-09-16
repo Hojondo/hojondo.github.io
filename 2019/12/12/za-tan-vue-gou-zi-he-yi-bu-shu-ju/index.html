@@ -4,14 +4,14 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="杂谈-vue-钩子顺序和数据异步请求, Hojondo&#39;s">
+    <meta name="keywords" content="vue-钩子顺序和数据异步请求, Hojondo&#39;s">
 <!--    <meta name="baidu-site-verification" content="fmlEuI34ir" />-->
 <!--    <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />-->
-    <meta name="description" content="vue生命周期钩子函数，作者就没有设计成阻塞。但是为了实现上一个钩子的异步请求回调成功之前不允许下一个钩子的需求的话，就做不到了。
+    <meta name="description" content="vue 生命周期钩子函数，作者就没有设计成阻塞。但是为了实现上一个钩子的异步请求回调成功之前不允许下一个钩子的需求的话，就做不到了。
 问题相关segmentfault
 所以目前有两种实现方式：
 
-vi-if先禁止渲染，直到异步回来赋值之后才允">
+vi-if先禁止渲染，直到异步回来赋值之后才">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +19,7 @@ vi-if先禁止渲染，直到异步回来赋值之后才允">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>杂谈-vue-钩子顺序和数据异步请求 | Hojondo&#39;s</title>
+    <title>vue-钩子顺序和数据异步请求 | Hojondo&#39;s</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -312,13 +312,13 @@ vi-if先禁止渲染，直到异步回来赋值之后才允">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        杂谈-vue-钩子顺序和数据异步请求
+                        vue-钩子顺序和数据异步请求
                     </div>
                 </div>
             </div>
@@ -433,14 +433,19 @@ vi-if先禁止渲染，直到异步回来赋值之后才允">
                                 <span class="chip bg-color">vue</span>
                             </a>
                         
-                            <a href="/tags/杂谈/" target="_blank">
-                                <span class="chip bg-color">杂谈</span>
-                            </a>
-                        
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/杂谈/" class="post-category" target="_blank">
+                                杂谈
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -462,7 +467,7 @@ vi-if先禁止渲染，直到异步回来赋值之后才允">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        265
+                        268
                     </div>
                     
 
@@ -485,17 +490,17 @@ vi-if先禁止渲染，直到异步回来赋值之后才允">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>vue生命周期钩子函数，作者就没有设计成阻塞。但是为了实现上一个钩子的异步请求回调成功之前不允许下一个钩子的需求的话，就做不到了。</p>
+                <p>vue 生命周期钩子函数，作者就没有设计成阻塞。但是为了实现上一个钩子的异步请求回调成功之前不允许下一个钩子的需求的话，就做不到了。</p>
 <p>问题相关<a href="https://segmentfault.com/q/1010000013787292" target="_blank" rel="noopener">segmentfault</a></p>
 <p>所以目前有两种实现方式：</p>
 <ol>
 <li><p><code>vi-if</code>先禁止渲染，直到异步回来赋值之后才允许渲染</p>
 </li>
-<li><p>同方法1，在入口js里，先异步请求，拿到数据后才允许<code>new Vue({render})</code></p>
+<li><p>同方法 1，在入口 js 里，先异步请求，拿到数据后才允许<code>new Vue({render})</code></p>
 </li>
 <li><p><strong>放弃</strong> 用<a href="https://router.vuejs.org/zh/guide/advanced/navigation-guards.html#路由独享的守卫" target="_blank" rel="noopener">组件内路由守卫</a>的<code>next()</code>来控制，思路来源<a href="https://juejin.im/post/5bfa4bb951882558ae3c171e" target="_blank" rel="noopener">掘金</a>。</p>
-<p><em>补充：beforeRouteEnter的函数体中是访问不到当前组件的上下文的，需要在回调参参数next（这是个函数引用）中，使用next这个函数的回调参数<code>vm（next(vm =&gt; {})）</code>中的<code>vm</code>才能访问到当前组件的上下文；beforeRouterEnter的阻塞作用基本就废掉了</em></p>
-<p><em>二次补充：或者在next之前把数据存在localStorage里，next之后在create钩子里拿。</em>结论是绕远了，更不如直接用v-if控制。</p>
+<p><em>补充：beforeRouteEnter 的函数体中是访问不到当前组件的上下文的，需要在回调参参数 next（这是个函数引用）中，使用 next 这个函数的回调参数<code>vm（next(vm =&gt; {})）</code>中的<code>vm</code>才能访问到当前组件的上下文；beforeRouterEnter 的阻塞作用基本就废掉了</em></p>
+<p><em>二次补充：或者在 next 之前把数据存在 localStorage 里，next 之后在 create 钩子里拿。</em>结论是绕远了，更不如直接用 v-if 控制。</p>
 </li>
 </ol>
 
@@ -532,7 +537,7 @@ vi-if先禁止渲染，直到异步回来赋值之后才允">
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《杂谈-vue-钩子顺序和数据异步请求》
+                    《vue-钩子顺序和数据异步请求》
                 </span> 由
             <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/12/12/za-tan-vue-gou-zi-he-yi-bu-shu-ju/" property="cc:attributionName"
                rel="cc:attributionURL">
@@ -600,21 +605,21 @@ vi-if先禁止渲染，直到异步回来赋值之后才允">
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/12/12/vscode-shortcut/">
+                <a href="/2019/12/12/sui-bi-vscode-diao-jiao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="vscode 调教">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="VS CODE 调教">
                         
-                        <span class="card-title">vscode 调教</span>
+                        <span class="card-title">VS CODE 调教</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                             开坑 比如 文件格式模版 比如 快捷键 设置 command+K + command+S 比如 神器插件 所有的默认配置项中文描述
+                            开坑比如 文件格式模版比如 快捷键 设置 command+K + command+S比如 神器插件所有的默认配置项中文描述
 
-vscode 开启对 webpack alias(文件别名) 引入的智能提示 jsconfig.json
+vscode 开启对 webpack alias(文件别名) 引入的智能提示 jsconfig.jsongithu
                         
                     </div>
                     <div class="publish-info">
@@ -622,6 +627,13 @@ vscode 开启对 webpack alias(文件别名) 引入的智能提示 jsconfig.json
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-12
                         </span>
                         <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/随笔/" class="post-category" target="_blank">
+                                    随笔
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -631,10 +643,6 @@ vscode 开启对 webpack alias(文件别名) 引入的智能提示 jsconfig.json
                     
                     <a href="/tags/IDE/" target="_blank">
                         <span class="chip bg-color">IDE</span>
-                    </a>
-                    
-                    <a href="/tags/vs-code/" target="_blank">
-                        <span class="chip bg-color">vs-code</span>
                     </a>
                     
                 </div>
@@ -648,19 +656,22 @@ vscode 开启对 webpack alias(文件别名) 引入的智能提示 jsconfig.json
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/12/linux/">
+                <a href="/2019/11/12/bi-ji-linux/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="linux">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Linux">
                         
-                        <span class="card-title">linux</span>
+                        <span class="card-title">Linux</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            sudo apt autoremove 
+老师博客
+Cron 表达式csdc 链接[简书 链接]https://www.jianshu.com/p/9ddb40797685
+
                         
                     </div>
                     <div class="publish-info">
@@ -668,6 +679,13 @@ vscode 开启对 webpack alias(文件别名) 引入的智能提示 jsconfig.json
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-12
                             </span>
                         <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/笔记/" class="post-category" target="_blank">
+                                    笔记
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -832,7 +850,7 @@ vscode 开启对 webpack alias(文件别名) 引入的智能提示 jsconfig.json
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">86.9k</span>
+            <span class="white-color">132.3k</span>
             
 
             <br>

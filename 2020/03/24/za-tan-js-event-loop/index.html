@@ -4,11 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="杂谈-js-event loop, Hojondo&#39;s">
+    <meta name="keywords" content="js-event loop, Hojondo&#39;s">
 <!--    <meta name="baidu-site-verification" content="fmlEuI34ir" />-->
 <!--    <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />-->
-    <meta name="description" content="事件循环机制浏览器javascript的机制https://learnku.com/articles/38802
-setTimeout(fn,0)的原因及妙用 比如防抖函数https://segmentfault.com/a/1190000">
+    <meta name="description" content="事件循环机制浏览器 javascript 的机制https://learnku.com/articles/38802
+setTimeout(fn,0)的原因及妙用 比如防抖函数https://segmentfault.com/a/11900">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@ setTimeout(fn,0)的原因及妙用 比如防抖函数https://segmentfault.com/a/
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>杂谈-js-event loop | Hojondo&#39;s</title>
+    <title>js-event loop | Hojondo&#39;s</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -309,13 +309,13 @@ setTimeout(fn,0)的原因及妙用 比如防抖函数https://segmentfault.com/a/
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        杂谈-js-event loop
+                        js-event loop
                     </div>
                 </div>
             </div>
@@ -430,14 +430,19 @@ setTimeout(fn,0)的原因及妙用 比如防抖函数https://segmentfault.com/a/
                                 <span class="chip bg-color">js</span>
                             </a>
                         
-                            <a href="/tags/杂谈/" target="_blank">
-                                <span class="chip bg-color">杂谈</span>
-                            </a>
-                        
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/杂谈/" class="post-category" target="_blank">
+                                杂谈
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -459,7 +464,7 @@ setTimeout(fn,0)的原因及妙用 比如防抖函数https://segmentfault.com/a/
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        69
+                        71
                     </div>
                     
 
@@ -482,9 +487,9 @@ setTimeout(fn,0)的原因及妙用 比如防抖函数https://segmentfault.com/a/
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="事件循环机制"><a href="#事件循环机制" class="headerlink" title="事件循环机制"></a>事件循环机制</h1><h2 id="浏览器javascript的机制"><a href="#浏览器javascript的机制" class="headerlink" title="浏览器javascript的机制"></a>浏览器javascript的机制</h2><p><a href="https://learnku.com/articles/38802" target="_blank" rel="noopener">https://learnku.com/articles/38802</a></p>
+                <h1 id="事件循环机制"><a href="#事件循环机制" class="headerlink" title="事件循环机制"></a>事件循环机制</h1><h2 id="浏览器-javascript-的机制"><a href="#浏览器-javascript-的机制" class="headerlink" title="浏览器 javascript 的机制"></a>浏览器 javascript 的机制</h2><p><a href="https://learnku.com/articles/38802" target="_blank" rel="noopener">https://learnku.com/articles/38802</a></p>
 <h3 id="setTimeout-fn-0-的原因及妙用-比如防抖函数"><a href="#setTimeout-fn-0-的原因及妙用-比如防抖函数" class="headerlink" title="setTimeout(fn,0)的原因及妙用 比如防抖函数"></a>setTimeout(fn,0)的原因及妙用 比如防抖函数</h3><p><a href="https://segmentfault.com/a/1190000013538587" target="_blank" rel="noopener">https://segmentfault.com/a/1190000013538587</a></p>
-<h3 id="setInterval-fn-100-执行间隔非预期"><a href="#setInterval-fn-100-执行间隔非预期" class="headerlink" title="setInterval(fn, 100) 执行间隔非预期"></a>setInterval(fn, 100) 执行间隔非预期</h3><h2 id="NodeJs端的机制"><a href="#NodeJs端的机制" class="headerlink" title="NodeJs端的机制"></a>NodeJs端的机制</h2><h2 id="两个环境下的动图对比"><a href="#两个环境下的动图对比" class="headerlink" title="两个环境下的动图对比"></a>两个环境下的动图对比</h2><p><a href="http://lynnelv.github.io/js-event-loop-nodejs" target="_blank" rel="noopener">http://lynnelv.github.io/js-event-loop-nodejs</a></p>
+<h3 id="setInterval-fn-100-执行间隔非预期"><a href="#setInterval-fn-100-执行间隔非预期" class="headerlink" title="setInterval(fn, 100) 执行间隔非预期"></a>setInterval(fn, 100) 执行间隔非预期</h3><h2 id="NodeJs-端的机制"><a href="#NodeJs-端的机制" class="headerlink" title="NodeJs 端的机制"></a>NodeJs 端的机制</h2><h2 id="两个环境下的动图对比"><a href="#两个环境下的动图对比" class="headerlink" title="两个环境下的动图对比"></a>两个环境下的动图对比</h2><p><a href="http://lynnelv.github.io/js-event-loop-nodejs" target="_blank" rel="noopener">http://lynnelv.github.io/js-event-loop-nodejs</a></p>
 
             </div>
             <hr/>
@@ -519,7 +524,7 @@ setTimeout(fn,0)的原因及妙用 比如防抖函数https://segmentfault.com/a/
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《杂谈-js-event loop》
+                    《js-event loop》
                 </span> 由
             <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/03/24/za-tan-js-event-loop/" property="cc:attributionName"
                rel="cc:attributionURL">
@@ -591,19 +596,18 @@ setTimeout(fn,0)的原因及妙用 比如防抖函数https://segmentfault.com/a/
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="随笔-前端面试题">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="前端面试题">
                         
-                        <span class="card-title">随笔-前端面试题</span>
+                        <span class="card-title">前端面试题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
                             面试题[TOC]
-js基础：bind手写实现
+js 基础：bind 手写实现
 算法：排序、查找、二叉树
-ES6：新特性、promise和setTimeout区别 - Event Loop、map、set、async、let/const/var、解构赋值、剪头函数
-原型链：
+ES6：新特性、promise 和 setTimeout 区别 - Event Loop、map、set、async、let/const/var、解构赋值、剪头函数
                         
                     </div>
                     <div class="publish-info">
@@ -623,6 +627,14 @@ ES6：新特性、promise和setTimeout区别 - Event Loop、map、set、async、
                     </div>
                 </div>
                 
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/前端/" target="_blank">
+                        <span class="chip bg-color">前端</span>
+                    </a>
+                    
+                </div>
+                
             </div>
         </div>
         
@@ -632,7 +644,7 @@ ES6：新特性、promise和setTimeout区别 - Event Loop、map、set、async、
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/03/22/project-h5/">
+                <a href="/2020/03/22/xiang-mu-h5/">
                     <div class="card-image">
                         
                         
@@ -821,7 +833,7 @@ ES6：新特性、promise和setTimeout区别 - Event Loop、map、set、async、
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">86.9k</span>
+            <span class="white-color">132.3k</span>
             
 
             <br>

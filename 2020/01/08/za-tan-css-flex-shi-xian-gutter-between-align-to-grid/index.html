@@ -4,14 +4,14 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="杂谈-css-flex实现 gutter between align to grid, Hojondo&#39;s">
+    <meta name="keywords" content="css-flex实现 gutter between align to grid, Hojondo&#39;s">
 <!--    <meta name="baidu-site-verification" content="fmlEuI34ir" />-->
 <!--    <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />-->
-    <meta name="description" content="css实现flex布局下，带间隔between最后一行自动对齐表格目标效果：
+    <meta name="description" content="css 实现 flex 布局下，带间隔 between 最后一行自动对齐表格目标效果：
 &amp;lt;div class=&#34;commentBrands&#34;&gt;
-    &amp;lt;img src=&#34;&#34; alt=&#34;&#34;/&gt;
+  &amp;lt;img src=&#34;&#34; alt=&#34;&#34; /&gt;
 &amp;lt;/div&gt;
-    .comment">
+.comment">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +19,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>杂谈-css-flex实现 gutter between align to grid | Hojondo&#39;s</title>
+    <title>css-flex实现 gutter between align to grid | Hojondo&#39;s</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -312,13 +312,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        杂谈-css-flex实现 gutter between align to grid
+                        css-flex实现 gutter between align to grid
                     </div>
                 </div>
             </div>
@@ -429,10 +429,6 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/杂谈/" target="_blank">
-                                <span class="chip bg-color">杂谈</span>
-                            </a>
-                        
                             <a href="/tags/css/" target="_blank">
                                 <span class="chip bg-color">css</span>
                             </a>
@@ -441,6 +437,15 @@
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/杂谈/" class="post-category" target="_blank">
+                                杂谈
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -462,7 +467,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        61
+                        64
                     </div>
                     
 
@@ -485,24 +490,24 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="css实现flex布局下，带间隔between最后一行自动对齐表格"><a href="#css实现flex布局下，带间隔between最后一行自动对齐表格" class="headerlink" title="css实现flex布局下，带间隔between最后一行自动对齐表格"></a>css实现flex布局下，带间隔between最后一行自动对齐表格</h1><p>目标效果：<br><a href="https://imgchr.com/i/Jx524S" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/05/03/Jx524S.md.png" alt="Jx524S.md.png"></a></p>
+                <h1 id="css-实现-flex-布局下，带间隔-between-最后一行自动对齐表格"><a href="#css-实现-flex-布局下，带间隔-between-最后一行自动对齐表格" class="headerlink" title="css 实现 flex 布局下，带间隔 between 最后一行自动对齐表格"></a>css 实现 flex 布局下，带间隔 between 最后一行自动对齐表格</h1><p>目标效果：<br><a href="https://imgchr.com/i/Jx524S" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/05/03/Jx524S.md.png" alt="Jx524S.md.png"></a></p>
 <pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>commentBrands<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
-<pre class=" language-css"><code class="language-css">    <span class="token selector"><span class="token class">.commentBrands</span></span><span class="token punctuation">{</span>
-        <span class="token selector">display: flex;
-        flex-flow: row wrap;
-        justify-content: space-between;
-        margin: 0 -<span class="token class">.08rem</span>;
-        &amp;<span class="token pseudo-element">:after</span></span><span class="token punctuation">{</span>
-            <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">;</span>
-            <span class="token property">flex</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token selector">>img</span><span class="token punctuation">{</span>
-            <span class="token property">width</span><span class="token punctuation">:</span> <span class="token function">calc</span><span class="token punctuation">(</span><span class="token number">100%</span> / <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">0</span> <span class="token number">.08</span>rem<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span></code></pre>
+<pre class=" language-css"><code class="language-css"><span class="token selector"><span class="token class">.commentBrands</span> </span><span class="token punctuation">{</span>
+  <span class="token selector">display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin: 0 -0<span class="token class">.08rem</span>;
+  &amp;<span class="token pseudo-element">:after</span> </span><span class="token punctuation">{</span>
+    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">;</span>
+    <span class="token property">flex</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">> img </span><span class="token punctuation">{</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token function">calc</span><span class="token punctuation">(</span><span class="token number">100%</span> / <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">0</span> <span class="token number">0.08</span>rem<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 
             </div>
             <hr/>
@@ -537,7 +542,7 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《杂谈-css-flex实现 gutter between align to grid》
+                    《css-flex实现 gutter between align to grid》
                 </span> 由
             <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/01/08/za-tan-css-flex-shi-xian-gutter-between-align-to-grid/" property="cc:attributionName"
                rel="cc:attributionURL">
@@ -609,20 +614,20 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="杂谈-js-跨越请求jsonp">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="js-跨越请求jsonp">
                         
-                        <span class="card-title">杂谈-js-跨越请求jsonp</span>
+                        <span class="card-title">js-跨越请求jsonp</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
                             const jsonp = (url) => {
-    if (!url) {
-      console.error('Axios.JSONP 至少需要一个url参数!');
-      return;
-    }
-    return
+  if (!url) {
+    console.error("Axios.JSONP 至少需要一个url参数!");
+    return;
+  }
+  return new Promi
                         
                     </div>
                     <div class="publish-info">
@@ -630,6 +635,13 @@
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2020-01-09
                         </span>
                         <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/杂谈/" class="post-category" target="_blank">
+                                    杂谈
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -639,10 +651,6 @@
                     
                     <a href="/tags/js/" target="_blank">
                         <span class="chip bg-color">js</span>
-                    </a>
-                    
-                    <a href="/tags/杂谈/" target="_blank">
-                        <span class="chip bg-color">杂谈</span>
                     </a>
                     
                 </div>
@@ -660,17 +668,17 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="杂谈-webpack-多入口多出口打包">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="webpack-多入口多出口打包">
                         
-                        <span class="card-title">杂谈-webpack-多入口多出口打包</span>
+                        <span class="card-title">webpack-多入口多出口打包</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            需求背景某天老板看到了京东商城不一样的二级域名，但是他们的UI风格和某些页面块是完全一致的。也要这样，项目代码根据业务构建目录，用同一个package.json，打包3个二级目录。。。OK.
+                            需求背景某天老板看到了京东商城不一样的二级域名，但是他们的 UI 风格和某些页面块是完全一致的。也要这样，项目代码根据业务构建目录，用同一个 package.json，打包 3 个二级目录。。。OK.
 同时有两个硬核需求：
-项目越来越多，维护量较大。
+项目越来越多，维
                         
                     </div>
                     <div class="publish-info">
@@ -678,6 +686,13 @@
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2020-01-03
                             </span>
                         <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/杂谈/" class="post-category" target="_blank">
+                                    杂谈
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -687,10 +702,6 @@
                     
                     <a href="/tags/webpack/" target="_blank">
                         <span class="chip bg-color">webpack</span>
-                    </a>
-                    
-                    <a href="/tags/杂谈/" target="_blank">
-                        <span class="chip bg-color">杂谈</span>
                     </a>
                     
                 </div>
@@ -846,7 +857,7 @@
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">86.9k</span>
+            <span class="white-color">132.3k</span>
             
 
             <br>

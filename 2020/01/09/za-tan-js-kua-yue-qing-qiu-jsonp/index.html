@@ -4,15 +4,15 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="杂谈-js-跨越请求jsonp, Hojondo&#39;s">
+    <meta name="keywords" content="js-跨越请求jsonp, Hojondo&#39;s">
 <!--    <meta name="baidu-site-verification" content="fmlEuI34ir" />-->
 <!--    <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />-->
     <meta name="description" content="const jsonp = (url) =&gt; {
-    if (!url) {
-      console.error(&#39;Axios.JSONP 至少需要一个url参数!&#39;);
-      return;
-    }
-    return">
+  if (!url) {
+    console.error(&#34;Axios.JSONP 至少需要一个url参数!&#34;);
+    return;
+  }
+  return new Promi">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +20,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>杂谈-js-跨越请求jsonp | Hojondo&#39;s</title>
+    <title>js-跨越请求jsonp | Hojondo&#39;s</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -313,13 +313,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        杂谈-js-跨越请求jsonp
+                        js-跨越请求jsonp
                     </div>
                 </div>
             </div>
@@ -434,14 +434,19 @@
                                 <span class="chip bg-color">js</span>
                             </a>
                         
-                            <a href="/tags/杂谈/" target="_blank">
-                                <span class="chip bg-color">杂谈</span>
-                            </a>
-                        
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/杂谈/" class="post-category" target="_blank">
+                                杂谈
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -487,20 +492,22 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> jsonp <span class="token operator">=</span> <span class="token punctuation">(</span>url<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>url<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'Axios.JSONP 至少需要一个url参数!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token keyword">return</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-      <span class="token keyword">const</span> JSONP <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'script'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      JSONP<span class="token punctuation">.</span>type <span class="token operator">=</span> <span class="token string">'text/javascript'</span><span class="token punctuation">;</span>
-      JSONP<span class="token punctuation">.</span>src <span class="token operator">=</span> <span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>url<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">;</span>
-      document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">'head'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>JSONP<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>url<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">"Axios.JSONP 至少需要一个url参数!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> JSONP <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">"script"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    JSONP<span class="token punctuation">.</span>type <span class="token operator">=</span> <span class="token string">"text/javascript"</span><span class="token punctuation">;</span>
+    JSONP<span class="token punctuation">.</span>src <span class="token operator">=</span> <span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>url<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">;</span>
+    document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">"head"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>JSONP<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token function">jsonp</span><span class="token punctuation">(</span><span class="token string">'http://192.168.0.11:8079/HWCollaborationDashboard/passport/removeFreeLogin'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<span class="token function">jsonp</span><span class="token punctuation">(</span>
+  <span class="token string">"http://192.168.0.11:8079/HWCollaborationDashboard/passport/removeFreeLogin"</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <blockquote>
-<p><a href="https://juejin.im/post/5cc2e3ecf265da03904c1e06#heading-19" target="_blank" rel="noopener">CORB警告</a></p>
+<p><a href="https://juejin.im/post/5cc2e3ecf265da03904c1e06#heading-19" target="_blank" rel="noopener">CORB 警告</a></p>
 </blockquote>
 
             </div>
@@ -536,7 +543,7 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《杂谈-js-跨越请求jsonp》
+                    《js-跨越请求jsonp》
                 </span> 由
             <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/01/09/za-tan-js-kua-yue-qing-qiu-jsonp/" property="cc:attributionName"
                rel="cc:attributionURL">
@@ -604,7 +611,7 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/01/15/nodejs/">
+                <a href="/2020/01/15/bi-ji-nodejs/">
                     <div class="card-image">
                         
                         
@@ -620,9 +627,9 @@
 Node.js前言浏览器的组成
 人机交互部分 UI
 网络请求部分 socket
-javascript 引擎部分（解析之行javascript）
-渲染引擎部分（渲染HTML、CSS）
-数据存储部分（cookie、localStor
+javascript 引擎部分（解析之行 javascript）
+渲染引擎部分（渲染 HTML、CSS）
+数据存储部分（cookie、localSt
                         
                     </div>
                     <div class="publish-info">
@@ -630,6 +637,13 @@ javascript 引擎部分（解析之行javascript）
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2020-01-15
                         </span>
                         <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/笔记/" class="post-category" target="_blank">
+                                    笔记
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -656,19 +670,19 @@ javascript 引擎部分（解析之行javascript）
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="杂谈-css-flex实现 gutter between align to grid">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="css-flex实现 gutter between align to grid">
                         
-                        <span class="card-title">杂谈-css-flex实现 gutter between align to grid</span>
+                        <span class="card-title">css-flex实现 gutter between align to grid</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            css实现flex布局下，带间隔between最后一行自动对齐表格目标效果：
+                            css 实现 flex 布局下，带间隔 between 最后一行自动对齐表格目标效果：
 &lt;div class="commentBrands">
-    &lt;img src="" alt=""/>
+  &lt;img src="" alt="" />
 &lt;/div>
-    .comment
+.comment
                         
                     </div>
                     <div class="publish-info">
@@ -677,15 +691,18 @@ javascript 引擎部分（解析之行javascript）
                             </span>
                         <span class="publish-author">
                             
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/杂谈/" class="post-category" target="_blank">
+                                    杂谈
+                                </a>
+                            
+                            
                         </span>
                     </div>
                 </div>
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/杂谈/" target="_blank">
-                        <span class="chip bg-color">杂谈</span>
-                    </a>
                     
                     <a href="/tags/css/" target="_blank">
                         <span class="chip bg-color">css</span>
@@ -844,7 +861,7 @@ javascript 引擎部分（解析之行javascript）
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">86.9k</span>
+            <span class="white-color">132.3k</span>
             
 
             <br>
