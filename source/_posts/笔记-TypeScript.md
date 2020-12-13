@@ -760,3 +760,263 @@ interface Alarm {
 #### 类合并
 
 _有处矛盾，待更新_
+
+---
+
+ts 的核心之一就是对值/数据所具有的结构进行类型检查
+
+## ts 配置文件 tsconfig.json
+
+例：
+
+```json
+{
+  "compilerOptions": {
+    "target": "es3",
+    "outDir": "./dist",
+    "strctNullChecks": true
+  },
+  "includes": ["./src/**/*"]
+}
+```
+
+ts 和 eslint 的区别：理解成
+eslint 是语法规范，包括缩进 变量命名 大小写 单双引号 还有值限定
+ts 是值的限定，帮助提示值/数据类型安全，比如某对象的可用属性或方法
+
+## 类型系统
+
+- 类型标注（签名）格式`变量: 标注类型`
+
+  - 基础类型(基元)： `string`, `number`, `boolean`
+  - `null` 和 `undefined`
+    1. 默认情况下 `null` 和 `undefined` 是所有类型的子类型。即 所有类型(除了`null`和`undefined`)的值都可以被赋值为 null/undefined 值
+    2. 默认一个变量声明时未赋值，则该变量值为 undefined，类型为`any`
+    3. 在 ts 配置文件中 添加 `strctNullChecks: true`，可以检测值可能为 null 的情况，以智能提示 对值进行容错处理，使程序更加严谨
+  - Object 类型,用接口（Interfaces）
+    - 对象字面量的类型标注
+      ```ts
+      let obj: { x: number; y: string } = {};
+      ```
+    - 内置对象类型
+      `Date`, `Set`, `Array`
+      ```ts
+      let d1: Date = new Date();
+      ```
+    - 包装对象
+      `String`, `Number`, `Boolean`类和基础`string`类不一样
+      ```ts
+      let Str: String = new String("sss");
+      let st: string = "sss";
+      Str.split(" ");
+      // st.split() 错
+      Str = "s2";
+      // st = new String('s2') 错
+      ```
+      可以理解成`string`类型是`String`类型的子类
+  - `number[]`或`string[]`... 数组类型 用泛型（Generics）
+    解释：在数据结构中数组的定义是：存储**相同类型**的**有序**集合，但是 js 中的 Array 并没有遵守相同类型规则
+    泛形：例`let a: Array<number> = []`
+  - 元组 类型
+    元组概念类似数组，但是允许元素类型不唯一相同，但是保留规则：1. 初始化数据的**个数**和**对应位置标注类型**必须一致，2.越界数据必须是元组标注允许的类型之一
+    例： `let d: [string, number] = ['xx', 2]`
+    `d.push(3)` 可以
+    `d.push(false)` 错
+    _注意：如果开启了开启 strctNullChecks 则必须在声明变量的时候就初始化值 到满足第 1 个规则，如果不开启 strctNullChecks，则会默许声明变量时可以是 undefined 并且后续 push 的值放在对应位置可以不满足第 1 条规则：相同位置一一对应，但是仍需满足第 2 条规则？：类型之一_
+    _例允许：let d2: [string, number];d2.push(2)_
+  - 枚举 类型
+    枚举概念： 其作用是组织收集一组相关联数据。一般常用于定义 constants 常量.
+    格式： `enum NAME {key1=val1, key2=val2}`
+    其中 key 的命名和变量命名规则一致，所有 value 类型必须 number 或 string 二选一，且一致(ts 并不限定两者同时用但是不建议)，不写 val1 的话默认是 0 开始的数字 number 枚举
+    如：
+    ```ts
+    enum Http_code {
+      OK = 200,
+      NoT_FOund = 404,
+    }
+    Http_code.OK; // 200
+    ```
+  - `void` （函数）无返回值类型
+    函数的默认标注类型，标注无返回值的函数
+  - `never` （函数）永远无返回值类型
+    表示一个函数永不可能执行 return，比如 throw new Error('xx')结尾
+    `never`类型同 null/undefined 一样也是 其他所有类型的子类；所有其他类型也都不可以赋值给 never 类型，包括 any 类型
+  - `any` 类型
+    1. 任何值都可以赋值给 any 类型，2.any 类型可以赋值给任意类型， 3. any 类型有任意属性和方法
+    ```ts
+    let a: any;
+    a = 1;
+    let b: string;
+    b = a; // 不会报错...any类型可以赋值给其他任何类型，
+    ```
+    可以理解成 any 类型被 ts 编译器放弃了进行类型检测，同时 IDE 的智能提示也忽略
+    _建议给 tsconfig.json 配置 noImplicitAny: true 以禁止存在隐式 any 类型_
+  - `unknow` 类型
+    ts3.0 新增，理解成安全版的 any，与 any 的区别：
+    - unkonw 只能赋值给 unknow 或 any，不能赋值给其他任何类型
+    - unknow 没有任何属性和方法
+  - 函数 类型
+    函数是一等公民，ts 中同 js 中一样也是一种数据。
+    格式：
+
+    ```ts
+    function add(x: number, y: string): string {
+      return x + y;
+    }
+    // 例：
+    function foreach(data: string[], cb: (k:number, v: string)=>void): void {
+      for(let i:number = 0;i<data.length;i++>){
+        cb(i, data[i])
+      }
+    }
+    foreach(['sss','ddd'], function(kk, vvvv){
+
+    })
+    ```
+
+    后续学习 函数重载和数组泛形，接口
+    todo
+
+- 类型检测
+  即 编译器在编译过程中根据标注的类型进行检测，使数据使用更安全，帮住减少错误，IDE 也可以提供智能提示
+
+  ## 接口 类型
+
+  对复杂的对象类型进行标注的方式之一；或者说是给其他代码定义的一种契约（比如 Class）
+
+  ```ts
+  interface Point {
+    x: number;
+    y: string; // 可以是,或;进行分隔
+    z: boolean[];
+  }
+  let p1: Point = {
+    x: 1,
+    y: "s",
+    z: [false, true],
+  };
+  ```
+
+  - 可选属性`key?: type`, 该属性可有可无
+  - 只读属性`readonly key: type`，该属性只能初始化时赋值，后续不能再次被赋值
+  - 任意属性`[prop: key-type]: value-type`，
+    - key-type 必须是 string 或 number 二选一；
+    ```ts
+    interface IAny {
+      x: number;
+      y: string;
+      [prop: string]: number;
+    }
+    let ia: IAny = {
+      x: 1,
+      y: "ss",
+      dfs: 2,
+    };
+    ia.xxsdfs = 5;
+    ia[1] = 1; // 注意这里[]内是数字可以，因为js中对象中属性key可以是number，但是[]中即使是数字也会变成字符串key，原则上说对象的所有键名都是字符串（ES6 又引入了 Symbol 值也可以作为键名），所以加不加引号都可以，只不过遇到number的话会被解释器自动转成'number'； 换句话说 key-type是string的话，对象的属性可以是string也可以是number 即ia['sss']或ia[2]都可，但是key-type是number的话，只能是ia[2]
+    ```
+    _object 对应的 key 没有限制，只是如果是数字，取值的时候就不能用英文句号(.)，只能用中括号的方式取值。详细规定见[链接](https://www.cnblogs.com/canger/p/6382944.html)和[阮一峰博客](https://javascript.ruanyifeng.com/grammar/object.html)_
+    - 当同时存在 key-type 是 string 和 number 时，`[prop: number]: `的`value-type`必须是`[prop: string]:`的`value-type`相同类型或者其**子类型**
+    ```ts
+    interface IBoth {
+      x: number;
+      [prop: string]: Object;
+      [prop: number]: Date; // 可以
+    }
+    interface IBoth2 {
+      x: number;
+      [prop: string]: string;
+      [prop: number]: boolean; // 不可以
+    }
+    ```
+
+## 深入了解 类型
+
+### 联合类型
+
+多选类型，当我们希望标注一个变量为多个类型之一时
+`变量: 类型1 ｜ 类型2`
+
+```ts
+function fn1(x: number, y: string | boolean): string | boolean {
+  return y;
+}
+```
+
+### 交叉类型
+
+合并类型，把多种类型合并到一起成为一种新的类型，包括各个类型的特点
+`变量: 类型1 & 类型2`
+
+```ts
+interface o1 {
+  x: number;
+  y: string;
+}
+interface o2 {
+  z: boolean;
+}
+let obj1: o1 = { x: 1, y: "s" };
+let obj2: o2 = { z: false };
+let obj3: o1 & o2 = Object.assign({}.obj1, obj2);
+```
+
+### 字面量类型
+
+```ts
+function setPosition(els: Element, direction: "left" | "right" | "center") {
+  // left. top, right, bottom
+}
+let box = document.querySelector(".box");
+if (box) {
+  setPosition(box, "center 这里只能从3个固定值之中选一");
+}
+```
+
+### 类型别名
+
+对于对象类型，可以用 interface 来提出来 多次多处使用，但是对于非对象类型来说可以用类型别名来复用
+
+```ts
+// 如上例子
+type dir = "left" | "right" | "center";
+function setPosition(ele: Element, direction: dir) {
+  // 如上上个例子
+  type o3 = o1 & o2;
+}
+```
+
+### 类型推导
+
+基于使用情况，比如每次声明变量/函数时都要手动写一遍类型，会很累赘，所以有了类型推导机制，即 ts 编译器会自动根据上下文推导出对应的类型标注，但是这种机制只会出现在
+
+- 变量初始化时
+- 函数形参 提供默认值时
+- 函数 返回值的类型判定 也会根据函数内 return 值来推导
+
+```ts
+function fn(x = 2, y = "s") {
+  return x + y;
+}
+// 相当于
+function fn(x: number = 2, y: string = "s"): string {
+  return x + y;
+}
+```
+
+### 类型断言
+
+只是一种预判，类似于类型转换，但是并非真正的转换了，强制告诉 ts 编译器说这个变量一定会是就是这个类型。
+例：
+
+```ts
+// 以下两种格式都可以
+let img = <HTMLInageElment>document.querySelector(".box");
+let img = document.querySelector(".box") as HTMLInageElment;
+// 这样的话 img变量一定会有src属性了
+if (img) {
+  img.src;
+}
+```
+### 类型操作符
+### 类型保护
