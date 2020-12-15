@@ -1019,4 +1019,80 @@ if (img) {
 }
 ```
 ### 类型操作符
+- `typeof` 获取值的类型
+  在ts中，typeof可以抽取**某个值**的类型，作为一个变量类型
+  例。注意其后一定必须是个值 不能是类型
+  ```ts
+  let colors = {
+    c1: 'red',
+    c2: 'black'
+  }
+  let a = typeof colors; // 可能是'object', 'string'...等等
+  type b = typeof colors
+  let data: b // 意即 data的类型和colors的类型一致
+  ```
+- `keyof` 抽取**某个类型**的key的集合，作为一个变量类型
+  ```ts
+  interface Person {
+    name: string,
+    age: number,
+  }
+  type a = keyof Person;
+  // 相当于 type a = 'name' | 'age'
+  ```
+  实例：
+  ```ts
+  interface Person {
+    name: string,
+    age: number,
+  }
+  
+  type personKeys = keyof Person;
+  let p1: Person = {
+    name: 'ha',
+    age: 21,
+  }
+  function getPersonVal(k: personKeys) {
+    return p1[k]
+  }
+  // 
+  let p2 = {
+    x: 1,
+    y: 2,
+    z: 3
+  }
+  function getPersonVal(k: keyof typeof p2) {
+    return p1[k]
+  }
+  // 
+  let attr : keyof CSSStyleDeclaration = 'width'
+  ```
+  - `in`
+    - 针对值，判断值中是否包含指定key，返回boolean
+    - 针对类型，内部使用for...in对类型进行遍历？格式`k in type`其中type必须是string或number或symbol，因为要保证key的类型
+      ```ts
+      interface Person {
+        name: string,
+        age: number
+      }
+      type keysInP = keyof Person
+      type newPerson = {
+        [k in keysInP]: number,
+        // 等同于
+        [k in 'name'|'age']: number
+      }
+      ```
+  - `extends` 接口的继承
+    ```ts
+    interface type1 {
+      x: number
+    }
+    interface type2 extends type1 {
+      y: string
+    }
+    let t2: type2 = {
+      x:1,
+      y: 'ss'
+    }
+    ```
 ### 类型保护
