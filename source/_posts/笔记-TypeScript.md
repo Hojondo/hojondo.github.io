@@ -623,7 +623,7 @@ c.interval = 5.0;
 
 ### 泛型
 
-泛型（Generics）是指在定义函数、接口或类的时候，不预先指定具体的类型，而在使用的时候再指定类型的一种特性。
+泛型（Generics）是指在定义函数、接口或类的时候，不预先指定具体的类型，而在使用的时候再指定类型的一种特性。给类型定参
 
 ```typescript
 function createArray<T>(length: number, value: T): Array<T> {
@@ -1018,58 +1018,64 @@ if (img) {
   img.src;
 }
 ```
+
 ### 类型操作符
+
 - `typeof` 获取值的类型
-  在ts中，typeof可以抽取**某个值**的类型，作为一个变量类型
+  在 ts 中，typeof 可以抽取**某个值**的类型，作为一个变量类型
   例。注意其后一定必须是个值 不能是类型
   ```ts
   let colors = {
-    c1: 'red',
-    c2: 'black'
-  }
+    c1: "red",
+    c2: "black",
+  };
   let a = typeof colors; // 可能是'object', 'string'...等等
-  type b = typeof colors
-  let data: b // 意即 data的类型和colors的类型一致
+  type b = typeof colors;
+  let data: b; // 意即 data的类型和colors的类型一致
   ```
-- `keyof` 抽取**某个类型**的key的集合，作为一个变量类型
+- `keyof` 抽取**某个类型**的 key 的集合，作为一个变量类型
+
   ```ts
   interface Person {
-    name: string,
-    age: number,
+    name: string;
+    age: number;
   }
   type a = keyof Person;
   // 相当于 type a = 'name' | 'age'
   ```
+
   实例：
+
   ```ts
   interface Person {
-    name: string,
-    age: number,
+    name: string;
+    age: number;
   }
-  
+
   type personKeys = keyof Person;
   let p1: Person = {
-    name: 'ha',
+    name: "ha",
     age: 21,
-  }
+  };
   function getPersonVal(k: personKeys) {
-    return p1[k]
+    return p1[k];
   }
-  // 
+  //
   let p2 = {
     x: 1,
     y: 2,
-    z: 3
-  }
+    z: 3,
+  };
   function getPersonVal(k: keyof typeof p2) {
-    return p1[k]
+    return p1[k];
   }
-  // 
-  let attr : keyof CSSStyleDeclaration = 'width'
+  //
+  let attr: keyof CSSStyleDeclaration = "width";
   ```
+
   - `in`
-    - 针对值，判断值中是否包含指定key，返回boolean
-    - 针对类型，内部使用for...in对类型进行遍历？格式`k in type`其中type必须是string或number或symbol，因为要保证key的类型
+    - 针对值，判断值中是否包含指定 key，返回 boolean
+    - 针对类型，内部使用 for...in 对类型进行遍历？格式`k in type`其中 type 必须是 string 或 number 或 symbol，因为要保证 key 的类型
       ```ts
       interface Person {
         name: string,
@@ -1085,14 +1091,53 @@ if (img) {
   - `extends` 接口的继承
     ```ts
     interface type1 {
-      x: number
+      x: number;
     }
     interface type2 extends type1 {
-      y: string
+      y: string;
     }
     let t2: type2 = {
-      x:1,
-      y: 'ss'
-    }
+      x: 1,
+      y: "ss",
+    };
     ```
+  - 泛型 是指一种不确定参数类型，占位符先，给类型定参。重点是各个类型的关联关系
+
 ### 类型保护
+
+- `typeof / instanceof`
+  有的时候 值得类型并不惟一，
+
+```ts
+function stringToUpperCase(str: string | string[]) {
+  if ((<string>str).toUpperCase) {
+    return (<string>str).toUpperCase();
+  } else {
+    return (<string[]>str).map((s) => s.toUpperCase());
+  }
+  // 等同于
+  if(typeof str === 'string')
+    return str.toUpperCase();
+  else return str.map((s) => s.toUpperCase());
+  // 等同于
+  if(str instanceof Array) return str.map((s) => s.toUpperCase());
+}
+```
+- 自定义类型保护 
+`variable is type` 返回这种类型的函数可以被ts识别位类型保护
+```ts
+function canEach(data: Element[]|NodeList|Element) : data is Element[]|NodeList {
+    return (<NodeList>data).forEach !== undefined
+}
+
+let eles = document.querySelectorAll('.box')
+function fn(ele:Element[]|NodeList|Element) {
+    if(canEach(ele)) {
+        ele.forEach((e)=>{
+            console.log(e);
+            
+        })
+    }
+}
+fn(eles)
+```
