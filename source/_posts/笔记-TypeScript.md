@@ -1141,3 +1141,7 @@ function fn(ele:Element[]|NodeList|Element) {
 }
 fn(eles)
 ```
+
+- 函数
+- 类
+- 泛型
