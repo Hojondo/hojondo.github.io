@@ -14,7 +14,7 @@ categories: ["笔记"]
 sudo apt autoremove 
 
 
-[老师博客](https://www.josephxia.com/document/server/Linux%E5%91%BD%E4%BB%A4.html)
+[博客](https://www.josephxia.com/document/server/Linux%E5%91%BD%E4%BB%A4.html)
 
 ## Cron 表达式
 

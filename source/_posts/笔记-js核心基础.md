@@ -60,3 +60,47 @@ categories: ["笔记"]
   //
   if (x = 10) // 会判断为10，隐式转换为true
   ```
+
+# 解构赋值
+1. 解构赋值的规则是，只要等号右边的值不是对象或数组，就先将其转为对象，字符串被转为类数组对象，数值和布尔型则转为包装对象。由于 undefined 和 null 无法转为对象，所以对它们进行解构赋值，都会报错。
+  ```js
+  const [a, b, c, d, e] = 'hello';
+  a // "h"
+  b // "e"
+  c // "l"
+  d // "l"
+  e // "o"
+
+  //字符串转为的对象有length属性
+  let {length : len} = 'hello';
+  len // 5
+
+  let {toString: s} = 123;
+  s === Number.prototype.toString // true
+
+  let {toString: s} = true;
+  s === Boolean.prototype.toString // true
+
+  let { prop: x } = undefined; // TypeError
+  let { prop: y } = null; // TypeError
+  ```
+2. 数组是特殊的对象，所以可以对数组进行对象属性的解构
+  ```js
+  let arr = [1, 2, 3];
+  let {0 : first, [arr.length - 1] : last} = arr;
+  first // 1
+  last // 3
+  ```
+3. 数组的解构赋值也可以这样使用 `let [,m] = [2,3]`
+4. 设置解构赋值的默认值
+  ```js
+  function move({x = 0, y = 0} = {}) {
+    return [x, y];
+  }
+  ```
+5. 如果解构赋值语句不是变量声明语句（前面没有var，let，const），即对已经声明的变量进行进行解构赋值需要注意加上括号 *注：数组的解构赋值[x,y]=[y,x]好像不用加括号*
+```js
+let x;
+;({x} = {x: 1}); // 和立即执行函数一样，该语句的前面一行最好加上分号，否则可能会被当做函数调用
+```
+6. 解构赋值 可以直接提取 JSON 数据，当作object处理
