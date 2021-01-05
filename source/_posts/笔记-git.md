@@ -166,6 +166,8 @@ git config --global --unset https.proxy
      $ git branch -a
      # 查看各个分支最后提交信息
      $ git branch -v
+     # 移动/重命名分支及其对应的日志
+     $ git branch -m oldName newName
      # 查看已经被合并到当前分支的分支
      $ git branch --merged
      # 查看尚未被合并到当前分支的分支
