@@ -558,7 +558,7 @@ Babel 把 Javascript 语法 分为 syntax 和 api
 <p>总结：</p>
 <p>具体项目还是需要使用 babel-polyfill，只使用 babel-runtime 的话，实例方法不能正常工作（例如 <code>&quot;foobar&quot;.includes(&quot;foo&quot;)</code>）；</p>
 <p>JavaScript 库和工具可以使用 babel-runtime，在实际项目中使用这些库和工具，需要该项目本身提供 polyfill；</p>
-<p>疑问：像 <a href="mailto:&#97;&#x6e;&#116;&#100;&#64;&#x32;&#x2e;&#x78;">&#97;&#x6e;&#116;&#100;&#64;&#x32;&#x2e;&#x78;</a> 这样的库使用了 babel-runtime，在实际项目中使用 <a href="mailto:&#97;&#x6e;&#x74;&#100;&#x40;&#50;&#x2e;&#120;">&#97;&#x6e;&#x74;&#100;&#x40;&#50;&#x2e;&#120;</a>，我们需要引入 babel-polyfill。但全部 polyfill 打包压缩下来也有 80kb 左右，其中很多 polyfill 是没有用到的，如何减少体积呢？手工一个个引入使用到的 polyfill，似乎维护成本太高！</p>
+<p>疑问：像 <a href="mailto:&#97;&#110;&#116;&#100;&#x40;&#x32;&#46;&#120;">&#97;&#110;&#116;&#100;&#x40;&#x32;&#46;&#120;</a> 这样的库使用了 babel-runtime，在实际项目中使用 <a href="mailto:&#x61;&#110;&#116;&#100;&#x40;&#50;&#x2e;&#120;">&#x61;&#110;&#116;&#100;&#x40;&#50;&#x2e;&#120;</a>，我们需要引入 babel-polyfill。但全部 polyfill 打包压缩下来也有 80kb 左右，其中很多 polyfill 是没有用到的，如何减少体积呢？手工一个个引入使用到的 polyfill，似乎维护成本太高！</p>
 <p>参考文献</p>
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/58624930">知乎专栏：Babel 学习系列 4-polyfill 和 runtime 差别(必看)</a><br><a target="_blank" rel="noopener" href="https://segmentfault.com/q/1010000005596587">Segmentfault 问题：babel 的 polyfill 和 runtime 的区别</a></p>
 
