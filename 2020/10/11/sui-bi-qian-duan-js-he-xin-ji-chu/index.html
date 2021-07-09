@@ -1,0 +1,1614 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="js核心基础, Hojondo&#39;s">
+<!--    <meta name="baidu-site-verification" content="fmlEuI34ir" />-->
+<!--    <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />-->
+    <meta name="description" content="术语索引https://developer.mozilla.org/en-US/docs/Glossary
+
+可枚举性 enumerable： 可枚举是集合的属性，隐式要求每个元素都是唯一的，for ... in
+迭代 iterate： 可">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>js核心基础 | Hojondo&#39;s</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        code[class*="language-"],
+            pre[class*="language-"] {
+                white-space: pre !important;
+            }
+
+            
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+    <script defer>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?46e79e71af0709a5b9106bf20cecc493";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+  <body>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BJ2KZHWDKZ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-BJ2KZHWDKZ');
+</script>
+
+ <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Hojondo's</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-folder-open"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-heart"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-link"></i>
+            
+            <span>友链</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/contact" class="waves-effect waves-light">
+            
+            <i class="fa fa-comments"></i>
+            
+            <span>树洞</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Hojondo's</div>
+        <div class="logo-desc">
+            
+            前端开发
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-folder-open"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-heart"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                友链
+            </a>
+        </li>
+        
+        <li>
+            <a href="/contact" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-comments"></i>
+                
+                树洞
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/hojondo" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/hojondo" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+        <div class="progress-bar"></div>
+    </nav>
+
+</header>
+ 
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        js核心基础
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/todo/" target="_blank">
+                                <span class="chip bg-color">todo</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%89%8D%E7%AB%AF/" target="_blank">
+                                <span class="chip bg-color">前端</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E9%9A%8F%E7%AC%94/" class="post-category" target="_blank">
+                                随笔
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-10-11
+                </div>
+
+                <div class="post-author info-break-policy">
+                    <i class="fa fa-user-o fa-fw"></i>作者:&nbsp;&nbsp;
+                    
+                        Ryan Who
+                    
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        2.8k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        11 分
+                    </div>
+                    
+                
+
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="术语索引"><a href="#术语索引" class="headerlink" title="术语索引"></a>术语索引</h1><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary">https://developer.mozilla.org/en-US/docs/Glossary</a></p>
+<ul>
+<li>可枚举性 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Enumeration">enumerable</a>： 可枚举是集合的属性，隐式要求每个元素都是唯一的，<code>for ... in</code></li>
+<li>迭代 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Iteration">iterate</a>： <a target="_blank" rel="noopener" href="https://zh.javascript.info/iterable">可迭代</a> 迭代器是借鉴 C++等语言的概念，迭代器的原理就像指针一样，它指向数据集合中的某个元素，你可以获取它指向的元素，也可以移动它以获取其它元素。迭代器类似于数组中下标的拓展，各种数据结构，如链表（List）、集合（Set）、映射（Map）都有与之对应的迭代器。迭代器是专门为了遍历这一操作设计的。迭代是按照某种顺序逐个访问列表中的每一项，是将输出做为输入,再次进行相同动作处理。<code>for ...of</code></li>
+<li>递归 recursion： 自己调用自己，自己包含自己。从计算机角度讲，递归是迭代的特例</li>
+<li>遍历：按规则访问非线性结构中的每一项。强调非线性结构(树, 图). 而迭代一般适用于线性结构(数组, 队列).</li>
+</ul>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/dec28ac0175f">遍历、枚举、迭代</a><br>递归是重复调用函数自身实现循环。迭代是函数内某段代码实现循环，而迭代与普通循环的区别是：循环代码中参与运算的变量同时是保存结果的变量，当前保存的结果作为下一次循环计算的初始值。</p>
+</blockquote>
+<p><strong>数组</strong>对象其实是一个特殊对象，他拥有普通对象的全部特性，所以不止负值索引，小数索引，连字符串索引都是可以的，只是用这些索引向数组添加属性时，数组的 length 不会增加罢了，而只有当索引是正整数或其对应数字串时，length 才会增加</p>
+<p><img src="https://i.loli.net/2021/05/13/SqHcxF7a9JCtBPE.png" alt="自己出的一个面试题 涉及symbol,for, 和..."></p>
+<h2 id="operator-操作符-细节"><a href="#operator-操作符-细节" class="headerlink" title="operator 操作符 细节"></a>operator 操作符 细节</h2><p><a target="_blank" rel="noopener" href="https://segmentfault.com/q/1010000011100158">连续声明多个变量</a></p>
+<h2 id="Object-的几个遍历方法-对比"><a href="#Object-的几个遍历方法-对比" class="headerlink" title="Object 的几个遍历方法 对比"></a>Object 的几个遍历方法 对比</h2><ul>
+<li><p><code>for..of</code> 遍历 <code>enumerable</code>, <code>string-keyed</code> 属性</p>
+</li>
+<li><p><code>for..in</code> 遍历 <code>enumerable</code>, <code>string-keyed</code> 属性(包括<code>inherit-property</code>) <em>for in 的顺序问题，准确的说是<a target="_blank" rel="noopener" href="http://jartto.wang/2016/10/25/does-js-guarantee-object-property-order/">基于不同浏览器</a>有不同的实现方式。对于大多数是这样的：先遍历出整数属性<code>String(Math.trunc(Number(prop)) === prop</code>（integer properties，按照升序），然后其他属性按照创建时候的顺序遍历出来</em></p>
+</li>
+<li><p><code>...obj</code> 拷贝<code>own</code>, <code>enumerable</code> 属性(包括<code>Symbol-keyed</code>)</p>
+</li>
+<li><p><code>Object.assign(target,...sources)</code> 同…拷贝<code>own</code>, <code>enumerable</code> 属性(包括<code>Symbol-keyed</code>) <em>内部对 target 执行 set,对 source 执行 get。正因为 source-obj 会 invoke property 的 getter<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/45772178/poor-use-case-of-object-assign-simple-example">所以 prototype 不适合做 target</a>,请改用<code>Object.getOwnPropertyDescriptor()</code>配合<code>Object.defineProperty()</code></em></p>
+</li>
+<li><p><code>Object.keys()</code> 返回 <code>own</code>, <code>enumerable</code>, <code>string-keyed</code> 属性</p>
+</li>
+<li><p><code>Object.getOwnPropertyNames()</code> 返回 <code>own</code>, <code>string-keyed</code> 属性(包括<code>non-enumerable</code>) <em>non-enumerable 属性的创建只有一种方式：<code>Object.defineProperty(obj1, &#39;non-enumerable-key1&#39;, &#123;value: &#39;xx&#39;, enumerable: false&#125;)</code></em></p>
+</li>
+<li><p><code>Object.getOwnPropertySymbols()</code> 同上，但是只是 <code>Symbol-keyed</code> 属性</p>
+</li>
+</ul>
+<blockquote>
+<p>Object.is(v1,v2) 判断的还是两个 v 的指针</p>
+</blockquote>
+<h1 id="this-详解"><a href="#this-详解" class="headerlink" title="this 详解"></a>this 详解</h1><p><a target="_blank" rel="noopener" href="https://wangdoc.com/javascript/oop/this.html">网道这里解释的很好！！</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this">官方 MDN</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/346985961">知乎解释</a></p>
+<ul>
+<li>给当前元素的某一个事件行为绑定函数，方法执行时的 this 就是绑定的当前元素本身</li>
+<li>自执行函数中的 this 一般都是 window，严格模式下是 undefined</li>
+<li>回调函数中的 this 一般都是 window，严格模式下是 undefined</li>
+<li>箭头函数在创建执行上下文的时候，在初始化上下文环境时，不会创建 this 属性，所以在箭头函数中如果使用到 this 会根据作用域链向上级上下文寻找,箭头函数中所使用的 this，都是来自上级<strong>函数作用域</strong>链，即上级函数被谁调用这个 this 就是谁</li>
+<li>构造函数时的 this 是指实例</li>
+</ul>
+<h1 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h1><ul>
+<li>箭头函数有作用域（词法作用域），词法作用域简单来讲就是，一切变量（包括 this）都根据作用域链来查找。.箭头函数中的 this 因为绑定了词法作用域，所以始终指向自身外的第一个 this（由于自身没有声明 this，所以会去作用域链上找 this），也就是始终等于调用它的函数的 this（以为这个 this 离它最近）</li>
+<li>不可以使用 arguments 对象，该对象在函数体内不存在。如果要用，可以用 Rest 参数代替。</li>
+<li>不可以当作构造函数，也就是说，不可以使用 new 命令，否则会抛出一个错误。</li>
+<li>不可以使用 yield 命令，因此箭头函数不能用作 Generator 函数。</li>
+<li>准确的说 this、super、arguments、new.target 都没有自己的，全都来自父作用域，父作用域能找到的 就不会 undefined</li>
+</ul>
+<h1 id="骚操作"><a href="#骚操作" class="headerlink" title="骚操作"></a>骚操作</h1><ul>
+<li><p>实现 sleep 阻塞目的:</p>
+<ol>
+<li>while()限定时间条件达到</li>
+</ol>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> expire <span class="token operator">=</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1000</span>
+<span class="token keyword">while</span><span class="token punctuation">(</span>Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;</span>expire<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// after that, do something</span>
+</code></pre>
+<ol start="2">
+<li>promise 异步</li>
+</ol>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> wait <span class="token operator">=</span> <span class="token punctuation">(</span>timeout<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">setTimeout</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> timeout<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+<span class="token function">wait</span><span class="token punctuation">(</span><span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">setRefreshing</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">/**
+new promise((reslove, reject) = > &amp;#123;
+    setTimeout  (()=>&amp;#123;
+        reslove()
+    &amp;#125;, 2000)
+&amp;#125;)
+*/</span>
+</code></pre>
+<h1 id="冷知识"><a href="#冷知识" class="headerlink" title="冷知识"></a>冷知识</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/52cik/p/js-assignment-operators.html">赋值详详详详解</a><br><a target="_blank" rel="noopener" href="http://xiaoyuze88.github.io/blog/2013/09/20/%E7%A5%9E%E5%A5%87%E7%9A%84JS%E8%BF%9E%E7%BB%AD%E8%B5%8B%E5%80%BC%E8%AF%AD%E5%8F%A5">神奇的 JS 连续赋值语句</a><br>JS 赋值语句 永远返回值，声明语句 永远返回 undefined<br>JavaScript 中赋值语句的返回值就是等号右边的值，例子中 obj.getThis 的值是一个匿名函数，非严格模式下 this 会指向 window</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  name<span class="token punctuation">:</span> <span class="token string">"My Object"</span><span class="token punctuation">,</span>
+  getThis<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+<span class="token punctuation">(</span>obj<span class="token punctuation">.</span>getThis <span class="token operator">=</span> obj<span class="token punctuation">.</span>getThis<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// window</span>
+<span class="token comment" spellcheck="true">//</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 会判断为10，隐式转换为true</span>
+</code></pre>
+</li>
+</ul>
+<h1 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h1><ol>
+<li>解构赋值的规则是，只要等号右边的值不是对象或数组，就先将其转为对象，字符串被转为类数组对象，数值和布尔型则转为包装对象。由于 undefined 和 null 无法转为对象，所以对它们进行解构赋值，都会报错。</li>
+</ol>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token punctuation">[</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d<span class="token punctuation">,</span> e<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"hello"</span><span class="token punctuation">;</span>
+a<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// "h"</span>
+b<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// "e"</span>
+c<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// "l"</span>
+d<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// "l"</span>
+e<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// "o"</span>
+
+<span class="token comment" spellcheck="true">//字符串转为的对象有length属性</span>
+<span class="token keyword">let</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> length<span class="token punctuation">:</span> len <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">=</span> <span class="token string">"hello"</span><span class="token punctuation">;</span>
+len<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 5</span>
+
+<span class="token keyword">let</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> toString<span class="token punctuation">:</span> s <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">=</span> <span class="token number">123</span><span class="token punctuation">;</span>
+s <span class="token operator">===</span> Number<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>toString<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// true</span>
+
+<span class="token keyword">let</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> toString<span class="token punctuation">:</span> s <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+s <span class="token operator">===</span> Boolean<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>toString<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// true</span>
+
+<span class="token keyword">let</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> prop<span class="token punctuation">:</span> x <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">=</span> undefined<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// TypeError</span>
+<span class="token keyword">let</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> prop<span class="token punctuation">:</span> y <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// TypeError</span>
+</code></pre>
+<ol start="2">
+<li>数组是特殊的对象，所以可以对数组进行对象属性的解构</li>
+</ol>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> <span class="token number">0</span><span class="token punctuation">:</span> first<span class="token punctuation">,</span> <span class="token punctuation">[</span>arr<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span> last <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">=</span> arr<span class="token punctuation">;</span>
+first<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 1</span>
+last<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 3</span>
+</code></pre>
+<ol start="3">
+<li>数组的解构赋值也可以这样使用 <code>let [,m] = [2,3]</code></li>
+<li>设置解构赋值的默认值</li>
+</ol>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">move</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> y <span class="token operator">=</span> <span class="token number">0</span> <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">[</span>x<span class="token punctuation">,</span> y<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<ol start="5">
+<li>如果解构赋值语句不是变量声明语句（前面没有 var，let，const），即对已经声明的变量进行进行解构赋值需要注意加上括号 <em>注：数组的解构赋值[x,y]=[y,x]好像不用加括号</em></li>
+</ol>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">let</span> x<span class="token punctuation">;</span>
+<span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> x <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> x<span class="token punctuation">:</span> <span class="token number">1</span> <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 和立即执行函数一样，该语句的前面一行最好加上分号，否则可能会被当做函数调用</span>
+</code></pre>
+<ol start="6">
+<li>解构赋值 可以直接提取 JSON 数据，当作 object 处理</li>
+</ol>
+<h1 id="按位运算-妙用"><a href="#按位运算-妙用" class="headerlink" title="按位运算 妙用"></a>按位运算 妙用</h1><ol>
+<li><a target="_blank" rel="noopener" href="http://www.matrix67.com/blog/archives/263">http://www.matrix67.com/blog/archives/263</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.matrix67.com/blog/archives/264">http://www.matrix67.com/blog/archives/264</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.matrix67.com/blog/archives/266">http://www.matrix67.com/blog/archives/266</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.matrix67.com/blog/archives/268">http://www.matrix67.com/blog/archives/268</a></li>
+</ol>
+<h1 id="switch-case-不加-break-会怎样"><a href="#switch-case-不加-break-会怎样" class="headerlink" title="switch case 不加 break 会怎样"></a>switch case 不加 break 会怎样</h1><p>看一段代码:</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">switch</span> <span class="token punctuation">(</span>direction<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token keyword">case</span> <span class="token string">"U"</span><span class="token punctuation">:</span>
+  <span class="token keyword">case</span> <span class="token string">"R"</span><span class="token punctuation">:</span>
+  <span class="token keyword">case</span> <span class="token string">"D"</span><span class="token punctuation">:</span>
+  <span class="token keyword">case</span> <span class="token string">"L"</span><span class="token punctuation">:</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<p>在这个语句中，如果 direction=U。那么四个 case 语句都将执行。如果 direction=R。将执行剩下三个语句。<br>原因是 switch 语句原理是跳转到 caseX 位置执行剩下的语句，直到最后或者遇见 break 为止。<br>比如 React 源码中有过这样使用</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">switch</span> <span class="token punctuation">(</span>type<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token keyword">case</span> <span class="token string">"string"</span><span class="token punctuation">:</span>
+  <span class="token keyword">case</span> <span class="token string">"number"</span><span class="token punctuation">:</span>
+    invokeCallback <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">case</span> <span class="token string">"object"</span><span class="token punctuation">:</span>
+    <span class="token keyword">switch</span> <span class="token punctuation">(</span>children<span class="token punctuation">.</span>$$<span class="token keyword">typeof</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+      <span class="token keyword">case</span> REACT_ELEMENT_TYPE<span class="token punctuation">:</span>
+      <span class="token keyword">case</span> REACT_PORTAL_TYPE<span class="token punctuation">:</span>
+        invokeCallback <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<h1 id="事件-event-捕获和冒泡详解"><a href="#事件-event-捕获和冒泡详解" class="headerlink" title="事件 event 捕获和冒泡详解"></a>事件 event 捕获和冒泡详解</h1><p><a target="_blank" rel="noopener" href="https://wangdoc.com/javascript/events/index.html">一个 event 详解</a></p>
+<p><a target="_blank" rel="noopener" href="https://zh.javascript.info/bubbling-and-capturing">https://zh.javascript.info/bubbling-and-capturing</a><br>DOM 事件标准描述了事件传播的 3 个阶段：</p>
+<p>捕获阶段（Capturing phase）—— 事件（从 Window）向下走近元素。<br>目标阶段（Target phase）—— 事件到达目标元素。<em>没有被单独处理：捕获阶段和冒泡阶段的处理程序都在该阶段被触发。</em><br>冒泡阶段（Bubbling phase）—— 事件从元素上开始冒泡。</p>
+<p>如果我们在同一阶段有多个事件处理程序，并通过 addEventListener 分配给了相同的元素，则它们的运行顺序与创建顺序相同</p>
+<h2 id="注册事件-handler-的三种方式"><a href="#注册事件-handler-的三种方式" class="headerlink" title="注册事件 handler 的三种方式"></a>注册事件 handler 的三种方式</h2><ol>
+<li>使用 dom 对象的同名 property 赋值：<code>document.querySelector(&#39;button&#39;).onclick = function (e)&#123;&#125;</code></li>
+<li>使用<code>addEventListener()</code>方法</li>
+<li>在 html 的 dom 的 attribute 中 直接 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#inline_event_handlers_%E2%80%94_dont_use_these"><code>inline event handler</code></a> <em>不建议,html 和 js 这样 mix up 在一起不易管理也低效，只能用于一个 handler 只 handle 单个元素的情况</em><br><a target="_blank" rel="noopener" href="https://www.htmlgoodies.com/javascript/working-with-inline-event-handlers/">inline event 也有点优点</a><br>实质上，当事件处理程序被指定为 HTML 属性，指定的代码被包装在有 以下参数 的函数中。_<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/orphaned/Web/Guide/Events/Event_handlers#%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E5%99%A8%E7%9A%84%E5%8F%82%E6%95%B0%EF%BC%8Cthis_%E7%BB%91%E5%AE%9A%E5%92%8C%E8%BF%94%E5%9B%9E%E5%80%BC">该 inline handler 函数的入参：event / this</a>_</li>
+</ol>
+<h2 id="EventTarget-接口"><a href="#EventTarget-接口" class="headerlink" title="EventTarget 接口"></a>EventTarget 接口</h2><p><a target="_blank" rel="noopener" href="https://wangdoc.com/javascript/events/eventtarget.html">https://wangdoc.com/javascript/events/eventtarget.html</a></p>
+<ul>
+<li>addEventListener(type, listener[, options={capture, once, passive, signal} / useCapture=false ])</li>
+<li>removeEventListener(type, listener[, options={capture} / useCapture=false])</li>
+<li>dispatchEvent() <code>cancelled = !target.dispatchEvent(event instance)</code></li>
+</ul>
+<h2 id="事件代理"><a href="#事件代理" class="headerlink" title="事件代理"></a>事件代理</h2><p><code>ul.addEventListener(&#39;click&#39;, function (event) &#123;event.target blabla...&#125;)</code></p>
+<h2 id="取消各种"><a href="#取消各种" class="headerlink" title="取消各种"></a>取消各种</h2><ul>
+<li>event.preventDefault 取消浏览器对当前事件的默认行为。比如点击链接的默认跳转页面</li>
+<li>event.stopPropagation 阻止事件在 DOM 中继续传播（addEventListener 时 默认未指定触发阶段的情况下，这里即取消冒泡阶段），防止再触发定义在别的节点上的监听函数。<em>但是不包括在当前节点上其他的事件监听函数</em></li>
+<li>event.stopImmediatePropagation 阻止同一个事件的其他监听函数被调用。取消冒泡阶段 基础上，取消自己的</li>
+</ul>
+<h2 id="自定义事件"><a href="#自定义事件" class="headerlink" title="自定义事件"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent">自定义事件</a></h2><p><code>new CustomEvent(typeArg, &#123;detail: null&#125;)</code></p>
+<h2 id="判断类型的-4-种方法"><a href="#判断类型的-4-种方法" class="headerlink" title="判断类型的 4 种方法"></a>判断类型的 4 种方法</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/onepixel/p/5126046.html">https://www.cnblogs.com/onepixel/p/5126046.html</a></p>
+<ul>
+<li>typeof</li>
+<li>instanceof 内部实质：<code>A.__proto__ === B.prototype</code>, <em>有个<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray#instanceof_vs_isarray">极端抬扛的情况</a>是，一个网页有多个 iframe 即多个全局执行环境时，iframe1 的 arr1 肯定不会 === iframe2 的 Array 的，这时候用 Array.isArray(arr)来判断</em></li>
+<li>constructor 找到构造函数</li>
+<li>Object.toString() 使用：<code>Object.prototype.toString.call(true)</code> 解释：If this method is not overridden in a custom object, toString() returns “[object type]” 如<code>[].toString.call(&#39;sss&#39;) // &quot;[object String]&quot;</code></li>
+</ul>
+<h1 id="symbol-的应用场景"><a href="#symbol-的应用场景" class="headerlink" title="symbol 的应用场景"></a>symbol 的应用场景</h1><p><a href="/2021/05/31/za-tan-js-symbol-xiang-jie/">Relative Post</a></p>
+<h1 id="promise"><a href="#promise" class="headerlink" title="promise"></a>promise</h1><p><a href="/2021/05/23/za-tan-js-promise-xiang-jie/">Relative Post</a></p>
+<h1 id="深入理解try-catch-error-finally"><a href="#深入理解try-catch-error-finally" class="headerlink" title="深入理解try catch(error) finally"></a>深入理解<code>try catch(error) finally</code></h1><ul>
+<li>try 的 {} 是必须的，即使只有一行</li>
+<li>try 之后至少一个（catch 或 finally）</li>
+<li>可以嵌套 try，最里面 throw 了但是没有 catch 的话，会向上一层层找 catch</li>
+<li>If the finally-block returns a value, this value becomes the return value of the entire <code>try-catch-finally</code> statement；否则就按前面<strong>最后一个</strong>执行的 block 的 return</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch#conditional_catch-blocks">最佳实践</a></li>
+<li><a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/error-boundaries.html">react 的 顶层 try catch - Error Boundaries</a>: <code>componentDidCatch(error, errorInfo) &#123;&#125;</code> &amp; <code>static getDerivedStateFromError(error) &#123;&#125;</code></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/340424710">react 中的错误捕获</a> &amp; <a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904088950292494#heading-0">错误边界</a>: 错误边界不能捕获的异常有两个<ol>
+<li>事件处理(使用 try catch)；</li>
+<li>异步代码(<a target="_blank" rel="noopener" href="https://developer.huawei.com/consumer/cn/forum/topic/0201416830199360473">局部</a>的话就<code>async await</code> + <code>try catch</code>； 全局的解决方案是：window.addEventListener(‘error’, e=&gt;{}) 和 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/unhandledrejection_event">window.addEventListener(“unhandledrejection”,e=&gt;{})</a>)</li>
+<li>服务端渲染</li>
+<li>自身错误(将边界组件和业务组件分离，各司其职)</li>
+</ol>
+</li>
+</ul>
+<h1 id="fetch-amp-xmlhttprequest-amp-axios-对他们的封装-amp-websocket-amp-request-response-header-body-http1-2-协议"><a href="#fetch-amp-xmlhttprequest-amp-axios-对他们的封装-amp-websocket-amp-request-response-header-body-http1-2-协议" class="headerlink" title="fetch &amp; xmlhttprequest &amp; axios 对他们的封装 &amp; websocket &amp; request/response header body, http1/2 协议"></a>fetch &amp; xmlhttprequest &amp; axios 对他们的封装 &amp; websocket &amp; request/response header body, http1/2 协议</h1><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest">https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/58062212">fetch &amp; Ajax &amp; axois 对比 及 xss 和 csrf 攻击 安全问题</a><br><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904184748195848">https://juejin.cn/post/6844904184748195848</a></p>
+<h1 id="跨域-和-csrf-攻击"><a href="#跨域-和-csrf-攻击" class="headerlink" title="跨域 和 csrf 攻击"></a>跨域 和 csrf 攻击</h1><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903934310498312">https://juejin.cn/post/6844903934310498312</a></p>
+<h1 id="localStorage-amp-indexedDB-amp-sessionStorage-amp-cookie-amp-session"><a href="#localStorage-amp-indexedDB-amp-sessionStorage-amp-cookie-amp-session" class="headerlink" title="localStorage &amp; indexedDB &amp; sessionStorage &amp; cookie &amp; session"></a>localStorage &amp; indexedDB &amp; sessionStorage &amp; cookie &amp; session</h1><h1 id="babel-详解"><a href="#babel-详解" class="headerlink" title="babel 详解"></a>babel 详解</h1><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/43249121">https://zhuanlan.zhihu.com/p/43249121</a></p>
+
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">能否打赏一杯咖啡?</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信“扫一扫”</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        <p class="reprint-tip">
+            <i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;
+            <span>转载规则</span>
+        </p>
+        
+            <div class="center-align">
+                <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                    <img alt=""
+                         style="border-width:0"
+                         src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
+                </a>
+            </div>
+            <br/>
+            <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title" rel="dct:type">
+                    《js核心基础》
+                </span> 由
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/10/11/sui-bi-qian-duan-js-he-xin-ji-chu/" property="cc:attributionName"
+               rel="cc:attributionURL">
+                Ryan Who
+            </a> 采用
+            <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                知识共享署名 4.0 国际许可协议
+            </a>进行许可。
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments input[type=text],
+    #vcomments input[type=email],
+    #vcomments input[type=url],
+    #vcomments textarea {
+        box-sizing: border-box;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #42b983;
+        font-weight: 500;
+        text-decoration: underline;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        margin: unset;
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        margin: unset;
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        margin: unset;
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        margin: unset;
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        margin: unset;
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        margin: unset;
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div id="vcomments" class="card-content"></div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'nIm0EpgkwmISA1OvAkn9CuKp-MdYXbMMI',
+        appKey: 'MaeG3zmgpfFBHEU6pa22dF0t',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'retro',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/10/20/bi-ji-mongodb/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="mongoDB">
+                        
+                        <span class="card-title">mongoDB</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            简介史前时代： LAMP/LNMP（Linux, Apache/Nginx, Mysql, PHP）现在 MEAN（MongoDB, Express,Angular.js,Node）
+Mongo
+
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-10-20
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%AC%94%E8%AE%B0/" class="post-category" target="_blank">
+                                    笔记
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/todo/" target="_blank">
+                        <span class="chip bg-color">todo</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" target="_blank">
+                        <span class="chip bg-color">数据库</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/09/17/bi-ji-handlebars-mo-ban-yin-qing/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="handlebars模版引擎">
+                        
+                        <span class="card-title">handlebars模版引擎</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            简介
+Handlebars 是一个 Javascript 模板引擎，能让你轻松高效的编写语义化模板，它是 Mustache 模板引擎的一个扩展，Handlebars 和 Mustache 都是弱逻辑的模板引擎，能将 Web 前端的视图和代码
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-09-17
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%AC%94%E8%AE%B0/" class="post-category" target="_blank">
+                                    笔记
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/todo/" target="_blank">
+                        <span class="chip bg-color">todo</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%A8%A1%E7%89%88%E5%BC%95%E6%93%8E/" target="_blank">
+                        <span class="chip bg-color">模版引擎</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + "来源: Hojondo's<br />"
+            + '作者: Ryan Who<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+ <footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            &copy; 2019 Hojondo. All Rights Reserved.
+
+            
+            &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+            <span class="white-color">183.2k</span>
+            
+
+            <br>
+            <span id="sitetime"></span>
+
+            
+            
+            <br>
+            
+            <span id="busuanzi_container_site_pv" style='display:none'>
+                <i class="fa fa-heart-o"></i>
+                本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv" style='display:none'>
+                人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+            </span>
+            
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+    <a href="mailto:hztdream@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<!-- 不蒜子计数 虚拟初始值 -->
+<!--<script>-->
+<!--    $(document).ready(function () {-->
+
+<!--        var int = setInterval(fixCount, 50);-->
+<!--        var pvcountOffset = 80000;-->
+<!--        var uvcountOffset = 20000;-->
+
+<!--        function fixCount() {-->
+<!--            console.log('fixCount');-->
+<!--            if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {-->
+<!--                console.log('document');-->
+<!--                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + pvcountOffset);-->
+<!--                clearInterval(int);-->
+<!--            }-->
+<!--            if ($("#busuanzi_container_site_pv").css("display") != "none") {-->
+<!--                console.log('jquery');-->
+<!--                $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + uvcountOffset); // 加上初始数据-->
+<!--                clearInterval(int);-->
+<!--            }-->
+<!--        }-->
+<!--    });-->
+<!--</script>-->
+
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+        var t1 = Date.UTC(2019, 8, 1, 0, 0, 0);
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已运行 " + diffYears + " 年 " + diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+    }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
+ <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script> <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+     
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+    <!--<script src="https://api.itswincer.com/hitokoto/v2/?encode=js" defer></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js"></script>
+    <!-- <script>
+      fetch("https://v1.hitokoto.cn")
+        .then(function (res) {
+          return res.json();
+        })
+        .then(function (data) {
+          var hitokoto = document.getElementById("hitokoto");
+          if (!!hitokoto)
+            hitokoto.innerText = "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + data.hitokoto;
+          var hitofrom = document.getElementById("hitofrom");
+          if (!!hitofrom) hitofrom.innerText = "— 「" + data.from + "\xa0」";
+        })
+        .catch(function (err) {
+          console.error(err);
+        });
+    </script> -->
+    <script>
+      function subtitleType() {
+        fetch("https://v1.hitokoto.cn")
+          .then((response) => response.json())
+          .then((data) => {
+            var from = "— 「\xa0" + data.from + "\xa0」";
+            var sub = new Array(data.hitokoto);
+            var hitokoto = document.getElementById("hitokoto");
+            if (!!hitokoto)
+              var typed = new Typed("#hitokoto", {
+                strings: sub,
+                startDelay: 300,
+                typeSpeed: 150,
+                loop: true,
+                backSpeed: 50,
+              });
+            var hitofrom = document.getElementById("hitofrom");
+            if (!!hitofrom) hitofrom.innerText = from;
+          })
+          .catch(function (err) {
+            console.error(err);
+          });
+      }
+      subtitleType();
+    </script>
+  </body>
+</html>

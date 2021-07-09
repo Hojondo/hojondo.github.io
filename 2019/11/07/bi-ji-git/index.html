@@ -1,0 +1,1761 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Git, Hojondo&#39;s">
+<!--    <meta name="baidu-site-verification" content="fmlEuI34ir" />-->
+<!--    <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />-->
+    <meta name="description" content="官方链接，官方中文
+导图
+
+Workspace：工作区
+Index / Stage：暂存区
+Repository：仓库区（或本地仓库）
+Remote：远程仓库
+HEAD：理解为 当前分支的最近一次 commit
+
+Base初始化init# ">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Git | Hojondo&#39;s</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        code[class*="language-"],
+            pre[class*="language-"] {
+                white-space: pre !important;
+            }
+
+            
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+    <script defer>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?46e79e71af0709a5b9106bf20cecc493";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+  <body>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BJ2KZHWDKZ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-BJ2KZHWDKZ');
+</script>
+
+ <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Hojondo's</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-folder-open"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-heart"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-link"></i>
+            
+            <span>友链</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/contact" class="waves-effect waves-light">
+            
+            <i class="fa fa-comments"></i>
+            
+            <span>树洞</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Hojondo's</div>
+        <div class="logo-desc">
+            
+            前端开发
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-folder-open"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-heart"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                友链
+            </a>
+        </li>
+        
+        <li>
+            <a href="/contact" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-comments"></i>
+                
+                树洞
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/hojondo" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/hojondo" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+        <div class="progress-bar"></div>
+    </nav>
+
+</header>
+ 
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Git
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%89%88%E6%9C%AC%E5%BA%93/" target="_blank">
+                                <span class="chip bg-color">版本库</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E7%AC%94%E8%AE%B0/" class="post-category" target="_blank">
+                                笔记
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-11-07
+                </div>
+
+                <div class="post-author info-break-policy">
+                    <i class="fa fa-user-o fa-fw"></i>作者:&nbsp;&nbsp;
+                    
+                        Ryan Who
+                    
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        3.3k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        13 分
+                    </div>
+                    
+                
+
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p><a target="_blank" rel="noopener" href="https://git-scm.com/docs/">官方链接</a>，<br><a target="_blank" rel="noopener" href="https://git-scm.com/book/zh">官方中文</a></p>
+<h2 id="导图"><a href="#导图" class="headerlink" title="导图"></a>导图</h2><p><img src="https://www.ruanyifeng.com/blogimg/asset/2015/bg2015120901.png" alt="导图"></p>
+<ul>
+<li>Workspace：工作区</li>
+<li>Index / Stage：暂存区</li>
+<li>Repository：仓库区（或本地仓库）</li>
+<li>Remote：远程仓库</li>
+<li>HEAD：理解为 当前分支的最近一次 commit</li>
+</ul>
+<h2 id="Base"><a href="#Base" class="headerlink" title="Base"></a>Base</h2><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><h4 id="init"><a href="#init" class="headerlink" title="init"></a><code>init</code></h4><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 在当前目录新建一个Git代码库</span>
+$ <span class="token function">git</span> init
+<span class="token comment" spellcheck="true"># 在当前目录新创建一个名为repo且只包含 .git 子文件夹的空目录，将其初始化为Git代码库</span>
+$ <span class="token function">git</span> init <span class="token punctuation">[</span>repo<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 在服务器机器上创建裸仓库（因为服务器不需要对工作区直接操作，纯/裸仓库即普通仓库的.git文件夹）</span>
+<span class="token function">mkdir</span> robbin_site.git + <span class="token function">cd</span> robbin_site.git + <span class="token function">git</span> --bare init
+</code></pre>
+<h3 id="指定远程仓库"><a href="#指定远程仓库" class="headerlink" title="指定远程仓库"></a>指定远程仓库</h3><h4 id="remote"><a href="#remote" class="headerlink" title="remote"></a><code>remote</code></h4><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#查看远程库的信息</span>
+$ <span class="token function">git</span> remote
+<span class="token comment" spellcheck="true">#查看所有远程库地址和名称</span>
+$ <span class="token function">git</span> remote –v
+<span class="token comment" spellcheck="true"># 查看某个远程服务器仓库状态</span>
+$ <span class="token function">git</span> remote show <span class="token punctuation">[</span>remote-repo<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 增加一个新的远程仓库，并命名</span>
+$ <span class="token function">git</span> remote add <span class="token punctuation">[</span>remote-repo<span class="token punctuation">]</span> <span class="token punctuation">[</span>git@github:robbin/robbin_site.git<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 设置远程仓库地址(用于修改远程仓库地址)</span>
+$ <span class="token function">git</span> remote set-url <span class="token punctuation">[</span>remote-repo<span class="token punctuation">]</span> <span class="token punctuation">[</span>git@github.com:robbin/robbin_site.git<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 设置远程仓库的HEAD指向master分支</span>
+$ <span class="token function">git</span> remote set-head <span class="token punctuation">[</span>remote-repo<span class="token punctuation">]</span> <span class="token punctuation">[</span>master<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 删除远程仓库</span>
+$ <span class="token function">git</span> remote <span class="token function">rm</span> <span class="token punctuation">[</span>remote-repo<span class="token punctuation">]</span>
+</code></pre>
+<h3 id="拉数据"><a href="#拉数据" class="headerlink" title="拉数据"></a>拉数据</h3><h4 id="clone"><a href="#clone" class="headerlink" title="clone"></a><code>clone</code></h4><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 根据[url]从远程仓库中克隆下载一个项目和它的整个代码历史</span>
+$ <span class="token function">git</span> clone <span class="token punctuation">[</span>https://github.com/Hojondo/barerepo.git<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 用带版本的项目创建纯版裸仓库，不包括工作区直接就是版本库的内容</span>
+$ <span class="token function">git</span> clone --bare <span class="token punctuation">[</span>remote-bare-repo<span class="token punctuation">]</span> <span class="token punctuation">[</span>local-bare-repo.git<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 将纯仓库上传到服务器上</span>
+<span class="token function">scp</span> -r my_project.git git@git.csdn.net:~
+</code></pre>
+<p>[注：]<a target="_blank" rel="noopener" href="https://www.worldhello.net/gotgit/02-git-solo/100-git-clone.html">–bare &amp; –mirror的区别</a></p>
+<h4 id="fetch"><a href="#fetch" class="headerlink" title="fetch"></a><code>fetch</code></h4><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 抓取下载远程仓库更新，加下一条指令等同于git pull</span>
+<span class="token comment" spellcheck="true"># 与git pull相比git fetch相当于是从远程获取最新版本到本地，但不会自动merge</span>
+$ <span class="token function">git</span> fetch <span class="token punctuation">[</span>remote-repo<span class="token punctuation">]</span>
+$ <span class="token function">git</span> merge <span class="token punctuation">[</span>remote-repo<span class="token punctuation">]</span>/master    <span class="token comment" spellcheck="true"># 将远程主分支合并到本地当前分支</span>
+</code></pre>
+<h4 id="pull"><a href="#pull" class="headerlink" title="pull"></a><code>pull</code></h4><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 抓取远程仓库所有分支更新并合并到本地</span>
+$ <span class="token function">git</span> pull
+<span class="token comment" spellcheck="true"># 取回远程仓库的某分支变化，并与当前本地分支合并</span>
+$ <span class="token function">git</span> pull <span class="token punctuation">[</span>remote-repo<span class="token punctuation">]</span> <span class="token punctuation">[</span>remote-branch<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 抓取远程仓库所有分支更新并合并到本地，不要快进合并</span>
+$ <span class="token function">git</span> pull --no-ff
+</code></pre>
+<h3 id="推数据"><a href="#推数据" class="headerlink" title="推数据"></a>推数据</h3><h4 id="push"><a href="#push" class="headerlink" title="push"></a><code>push</code></h4><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># push所有分支（所有已经设置好upstream的本地分支）</span>
+$ <span class="token function">git</span> push
+<span class="token comment" spellcheck="true"># 客户端首次提交(没有master时)需要加-u</span>
+$ <span class="token function">git</span> push –u <span class="token punctuation">[</span>remote-repo<span class="token punctuation">]</span> master
+<span class="token comment" spellcheck="true"># 将本地某分支推到远程分支 / 创建远程分支（远程没有对应分支时）</span>
+$ <span class="token function">git</span> push <span class="token punctuation">[</span>remote-repo<span class="token punctuation">]</span> <span class="token punctuation">[</span>local-branch<span class="token punctuation">]</span>:<span class="token punctuation">[</span>remote-branch<span class="token punctuation">]</span>
+$ <span class="token function">git</span> push <span class="token punctuation">[</span>remote-repo<span class="token punctuation">]</span> branchName <span class="token comment" spellcheck="true"># 当本地远程分支名字相同时</span>
+<span class="token comment" spellcheck="true"># 强行推送当前分支到远程仓库，即使有冲突</span>
+$ <span class="token function">git</span> push <span class="token punctuation">[</span>remote-repo<span class="token punctuation">]</span> --force
+<span class="token comment" spellcheck="true"># 推送所有分支到远程仓库</span>
+$ <span class="token function">git</span> push <span class="token punctuation">[</span>remote-repo<span class="token punctuation">]</span> --all
+<span class="token comment" spellcheck="true"># 先删除本地分支，然后再push删除远程分支</span>
+$ <span class="token function">git</span> branch -d <span class="token punctuation">[</span>local-branch<span class="token punctuation">]</span>
+$ <span class="token function">git</span> push <span class="token punctuation">[</span>remote-repo<span class="token punctuation">]</span> :<span class="token punctuation">[</span>remote_branch<span class="token punctuation">]</span>
+
+<span class="token comment" spellcheck="true"># 删除远程tag</span>
+$ <span class="token function">git</span> push <span class="token punctuation">[</span>remote-repo<span class="token punctuation">]</span> :refs/tags/<span class="token punctuation">[</span>tagName<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 提交指定tag</span>
+$ <span class="token function">git</span> push <span class="token punctuation">[</span>remote-repo<span class="token punctuation">]</span> <span class="token punctuation">[</span>tag<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 提交所有tag</span>
+$ <span class="token function">git</span> push <span class="token punctuation">[</span>remote-repo<span class="token punctuation">]</span> --tags
+</code></pre>
+<h4 id="submodule"><a href="#submodule" class="headerlink" title="submodule"></a><code>submodule</code></h4><h2 id="配置-gitconfig"><a href="#配置-gitconfig" class="headerlink" title="配置 gitconfig"></a>配置 gitconfig</h2><p>用户的配置文件<code>~/.gitconfig</code></p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 显示当前的Git配置,列举所有配置</span>
+$ <span class="token function">git</span> config --list
+<span class="token comment" spellcheck="true"># 编辑Git配置文件</span>
+$ <span class="token function">git</span> config -e <span class="token punctuation">[</span>--global<span class="token punctuation">]</span>
+
+<span class="token comment" spellcheck="true"># 设置提交代码时的用户信息</span>
+<span class="token function">git</span> config --global user.name <span class="token string">"xxx"</span>
+<span class="token function">git</span> config --global user.email <span class="token string">"xxxxxx@gmail.com"</span>
+
+<span class="token comment" spellcheck="true"># git status等命令自动着色</span>
+<span class="token function">git</span> config --global color.ui <span class="token boolean">true</span>
+<span class="token function">git</span> config --global color.status auto
+<span class="token function">git</span> config --global color.diff auto
+<span class="token function">git</span> config --global color.branch auto
+<span class="token function">git</span> config --global color.interactive auto
+<span class="token comment" spellcheck="true"># 配置别名，co 配为checkout 别名，等等etc...</span>
+<span class="token function">git</span> config --global alias.co checkout
+<span class="token function">git</span> config --global alias.ci commit
+<span class="token function">git</span> config --global alias.st status
+<span class="token function">git</span> config --global alias.br branch
+
+<span class="token comment" spellcheck="true"># 设置Editor使用textmate</span>
+<span class="token function">git</span> config --global core.editor <span class="token string">"mate -w"</span>
+
+<span class="token comment" spellcheck="true"># remove  proxy configuration on git</span>
+<span class="token function">git</span> config --global --unset https.proxy
+</code></pre>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><h3 id="分支和合并"><a href="#分支和合并" class="headerlink" title="分支和合并"></a>分支和合并</h3><h4 id="branch"><a href="#branch" class="headerlink" title="branch"></a><code>branch</code></h4><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 列出所有本地分支</span>
+$ <span class="token function">git</span> branch
+<span class="token comment" spellcheck="true"># 列出所有远程分支</span>
+$ <span class="token function">git</span> branch -r
+<span class="token comment" spellcheck="true"># 列出所有本地分支和远程分支</span>
+$ <span class="token function">git</span> branch -a
+<span class="token comment" spellcheck="true"># 查看各个分支最后提交信息</span>
+$ <span class="token function">git</span> branch -v
+<span class="token comment" spellcheck="true"># 移动/重命名分支及其对应的日志</span>
+$ <span class="token function">git</span> branch -m oldName newName
+<span class="token comment" spellcheck="true"># 查看已经被合并到当前分支的分支</span>
+$ <span class="token function">git</span> branch --merged
+<span class="token comment" spellcheck="true"># 查看尚未被合并到当前分支的分支</span>
+$ <span class="token function">git</span> branch --no-merged
+
+<span class="token comment" spellcheck="true"># 建立追踪关系，在现已有本地分支与指定的远程分支之间</span>
+$ <span class="token function">git</span> branch --set-upstream-to <span class="token punctuation">[</span>local-branch<span class="token punctuation">]</span> <span class="token punctuation">[</span>remote-branch<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 建立追踪关系，在当前激活本地分支与指定的远程分支之间</span>
+$ <span class="token function">git</span> branch --set-upstream-to <span class="token punctuation">[</span>remote-branch<span class="token punctuation">]</span>
+
+<span class="token comment" spellcheck="true"># 新建一个分支，但依然停留在当前分支</span>
+$ <span class="token function">git</span> branch <span class="token punctuation">[</span>local-branch<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 新建一个分支，指向指定commit</span>
+$ <span class="token function">git</span> branch <span class="token punctuation">[</span>local-branch<span class="token punctuation">]</span> <span class="token punctuation">[</span>commit-id<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 新建一个分支，与指定的远程分支建立追踪关系</span>
+$ <span class="token function">git</span> branch --track <span class="token punctuation">[</span>local-branch<span class="token punctuation">]</span> <span class="token punctuation">[</span>remote-branch<span class="token punctuation">]</span>
+
+<span class="token comment" spellcheck="true"># 删除本地分支</span>
+$ <span class="token function">git</span> branch -d <span class="token punctuation">[</span>local-branch<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 强制删除分支 (未被合并的分支被删除时 需要强制)</span>
+$ <span class="token function">git</span> branch -D <span class="token punctuation">[</span>local-branch<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 删除远程分支</span>
+$ <span class="token function">git</span> push <span class="token punctuation">[</span>remote-repo<span class="token punctuation">]</span> --delete <span class="token punctuation">[</span>remote-branch<span class="token punctuation">]</span>
+$ <span class="token function">git</span> push <span class="token punctuation">[</span>remote-repo<span class="token punctuation">]</span> :<span class="token punctuation">[</span>remote-branch<span class="token punctuation">]</span>
+$ <span class="token function">git</span> branch -dr <span class="token punctuation">[</span>remote-branch<span class="token punctuation">]</span>
+</code></pre>
+<h4 id="checkout"><a href="#checkout" class="headerlink" title="checkout"></a><code>checkout</code></h4><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 新建一个分支，并切换到该分支(-b等同于branch命令)</span>
+$ <span class="token function">git</span> checkout -b <span class="token punctuation">[</span>local-branch<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 切换到指定分支，并更新工作区</span>
+$ <span class="token function">git</span> checkout <span class="token punctuation">[</span>local-branch<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 切换到上一个分支</span>
+$ <span class="token function">git</span> checkout -
+<span class="token comment" spellcheck="true"># 基于branch创建新的new_branch</span>
+$ <span class="token function">git</span> checkout -b <span class="token punctuation">[</span>new_branch<span class="token punctuation">]</span> <span class="token punctuation">[</span>branch<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 跟踪某个远程分支创建相应的本地分支</span>
+$ <span class="token function">git</span> checkout --track <span class="token punctuation">[</span>remote-repo<span class="token punctuation">]</span>/<span class="token punctuation">[</span>remote-branch<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 基于远程分支创建本地分支，功能同上</span>
+$ <span class="token function">git</span> checkout -b <span class="token punctuation">[</span>local_branch<span class="token punctuation">]</span> <span class="token punctuation">[</span>remote-repo<span class="token punctuation">]</span>/<span class="token punctuation">[</span>remote-branch<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 把某次历史提交记录checkout出来，但无分支信息，切换到其他分支会自动删除</span>
+$ <span class="token function">git</span> checkout  <span class="token punctuation">[</span>commit-id<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 把某次历史提交记录checkout出来，创建成一个分支</span>
+$ <span class="token function">git</span> checkout  <span class="token punctuation">[</span>commit-id<span class="token punctuation">]</span> -b <span class="token punctuation">[</span>new_branch<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 依据需要合并的最后一条 commit 创建新分支</span>
+$ <span class="token function">git</span> checkout -b newbranch <span class="token punctuation">[</span>last_commit<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 新建一个分支，指向某个tag</span>
+$ <span class="token function">git</span> checkout -b <span class="token punctuation">[</span>branch<span class="token punctuation">]</span> <span class="token punctuation">[</span>tag<span class="token punctuation">]</span>
+
+<span class="token comment" spellcheck="true"># 撤销工作区修改，恢复暂存区的所有文件到工作区</span>
+$ <span class="token function">git</span> checkout <span class="token keyword">.</span>
+<span class="token comment" spellcheck="true"># 撤销xx文件修改，在工作区的修改全部撤销到暂存区状态</span>
+$ <span class="token function">git</span> checkout -- xx
+<span class="token comment" spellcheck="true"># 恢复暂存区的指定文件到工作区</span>
+$ <span class="token function">git</span> checkout <span class="token punctuation">[</span>file<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 撤销指定文件到指定版本，恢复某个commit的指定文件到暂存区和工作区</span>
+$ <span class="token function">git</span> checkout <span class="token punctuation">[</span>commit-id<span class="token punctuation">]</span> <span class="token punctuation">[</span>/path/to/file<span class="token punctuation">]</span>
+</code></pre>
+<h4 id="merge"><a href="#merge" class="headerlink" title="merge"></a><code>merge</code></h4><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/58a166f24c81">git merge 详解</a></p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 合并指定分支到当前分支</span>
+$ <span class="token function">git</span> merge <span class="token punctuation">[</span>branch<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 将远程主分支合并到本地当前分支</span>
+$ <span class="token function">git</span> merge <span class="token punctuation">[</span>remote-branch<span class="token punctuation">]</span>/<span class="token punctuation">[</span>local-branch<span class="token punctuation">]</span>
+
+<span class="token comment" spellcheck="true"># 不要Fast-Foward合并，这样可以生成merge提交</span>
+$ <span class="token function">git</span> merge <span class="token punctuation">[</span>branch<span class="token punctuation">]</span> --no-ff
+<span class="token comment" spellcheck="true"># 选择一个其它分支的某一次提交commit，合并进当前分支(合并其它分支一系列提交，后缀为 first_commit ~ last_commit)</span>
+$ <span class="token function">git</span> cherry-pick <span class="token punctuation">[</span>commit-id<span class="token punctuation">]</span>
+
+<span class="token comment" spellcheck="true"># 将master rebase到branch，等同于：</span>
+<span class="token comment" spellcheck="true"># git checkout   [branch] + git rebase master + git checkout  master + git merge [branch]</span>
+$ <span class="token function">git</span> rebase <span class="token punctuation">[</span>master<span class="token punctuation">]</span> <span class="token punctuation">[</span>branch<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 从新分支中需要合并的第一条 commit 开始合并</span>
+$ <span class="token function">git</span> rebase --onto master <span class="token punctuation">[</span>first_commit<span class="token punctuation">]</span>^
+</code></pre>
+<h4 id="stash"><a href="#stash" class="headerlink" title="stash"></a><code>stash</code></h4><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#暂存当前分支的工作区，恢复现场后可继续工作</span>
+$ <span class="token function">git</span> stash
+<span class="token comment" spellcheck="true">#查看暂存文件队列列表</span>
+$ <span class="token function">git</span> stash list
+<span class="token comment" spellcheck="true">#恢复暂存内容，暂存区不删除</span>
+$ <span class="token function">git</span> stash apply <span class="token punctuation">[</span>stash@<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;2&amp;#125;]</span>
+<span class="token comment" spellcheck="true">#删除暂存文件</span>
+$ <span class="token function">git</span> stash drop <span class="token punctuation">[</span>stash@<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;0&amp;#125;]</span>
+<span class="token comment" spellcheck="true">#恢复并删除文件</span>
+$ <span class="token function">git</span> stash pop <span class="token punctuation">[</span>stash@<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;2&amp;#125;]</span>
+</code></pre>
+<h4 id="tag"><a href="#tag" class="headerlink" title="tag"></a><code>tag</code></h4><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 列出所有tag</span>
+$ <span class="token function">git</span> tag
+<span class="token comment" spellcheck="true"># 新建一个tag在当前commit</span>
+$ <span class="token function">git</span> tag <span class="token punctuation">[</span>tag<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 新建一个tag在指定commit</span>
+$ <span class="token function">git</span> tag <span class="token punctuation">[</span>tag<span class="token punctuation">]</span> <span class="token punctuation">[</span>commit-id<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 删除本地tag</span>
+$ <span class="token function">git</span> tag -d <span class="token punctuation">[</span>tag<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 删除远程tag</span>
+$ <span class="token function">git</span> push origin :refs/tags/<span class="token punctuation">[</span>tagName<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 查看tag信息</span>
+$ <span class="token function">git</span> show <span class="token punctuation">[</span>tag<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 提交指定tag</span>
+$ <span class="token function">git</span> push <span class="token punctuation">[</span>remote-repo<span class="token punctuation">]</span> <span class="token punctuation">[</span>tag<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 提交所有tag</span>
+$ <span class="token function">git</span> push <span class="token punctuation">[</span>remote-repo<span class="token punctuation">]</span> --tags
+<span class="token comment" spellcheck="true"># 新建一个分支，指向某个tag</span>
+$ <span class="token function">git</span> checkout -b <span class="token punctuation">[</span>branch<span class="token punctuation">]</span> <span class="token punctuation">[</span>tag<span class="token punctuation">]</span>
+</code></pre>
+<h3 id="基本快照操作"><a href="#基本快照操作" class="headerlink" title="基本快照操作"></a>基本快照操作</h3><h4 id="add"><a href="#add" class="headerlink" title="add"></a><code>add</code></h4><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 添加指定文件到暂存区</span>
+$ <span class="token function">git</span> add <span class="token punctuation">[</span>file1<span class="token punctuation">]</span> <span class="token punctuation">[</span>file2<span class="token punctuation">]</span> <span class="token punctuation">..</span>.
+<span class="token comment" spellcheck="true"># 添加指定目录到暂存区，包括子目录</span>
+$ <span class="token function">git</span> add <span class="token punctuation">[</span>dir<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 添加当前目录的所有文件到暂存区</span>
+$ <span class="token function">git</span> add <span class="token keyword">.</span>
+<span class="token comment" spellcheck="true"># 添加每个变化前，都会要求确认</span>
+<span class="token comment" spellcheck="true"># 对于同一个文件的多处变化，可以实现分次提交</span>
+$ <span class="token function">git</span> add -p
+</code></pre>
+<h4 id="rm"><a href="#rm" class="headerlink" title="rm"></a><code>rm</code></h4><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 删除工作区文件，并且将这次删除放入暂存区</span>
+$ <span class="token function">git</span> <span class="token function">rm</span> <span class="token punctuation">[</span>file1<span class="token punctuation">]</span> <span class="token punctuation">[</span>file2<span class="token punctuation">]</span> <span class="token punctuation">..</span>.
+<span class="token comment" spellcheck="true"># 停止追踪指定文件，但该文件会保留在工作区，即 从远程版本库中删除文件，但不删除本地文件</span>
+$ <span class="token function">git</span> <span class="token function">rm</span> --cached <span class="token punctuation">[</span>file<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 改名文件，并且将这个改名放入暂存区</span>
+$ <span class="token function">git</span> <span class="token function">mv</span> <span class="token punctuation">[</span>file-original<span class="token punctuation">]</span> <span class="token punctuation">[</span>file-renamed<span class="token punctuation">]</span>
+</code></pre>
+<h4 id="commit"><a href="#commit" class="headerlink" title="commit"></a><code>commit</code></h4><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#提交单个文件</span>
+$ <span class="token function">git</span> commit  <span class="token punctuation">[</span>file<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true">#提交暂存区的文件到仓库区</span>
+$ <span class="token function">git</span> commit –m “description”
+<span class="token comment" spellcheck="true"># 提交工作区自上次commit之后的变化，直接到仓库区，等同执行git add、 git rm及git commit</span>
+$ <span class="token function">git</span> commit -a
+$ <span class="token function">git</span> commit -am <span class="token string">"some comments"</span>
+<span class="token comment" spellcheck="true"># 撤销最后一次提交记录，重新提交；如果代码没有任何新变化，则用来改写上一次commit的提交信息</span>
+$ <span class="token function">git</span> commit --amend
+</code></pre>
+<h4 id="reset"><a href="#reset" class="headerlink" title="reset"></a><code>reset</code></h4><p>重置 HEAD(当前分支的版本顶端）到另外一个 commit。<br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/0e1fe709dd97">reset 和 revert 的区别详解</a><br>其实就是<code>--soft</code> 、<code>--mixed</code> 以及<code>--hard</code> 是三个恢复等级。</p>
+<ol>
+<li>使用<code>--soft</code> 就仅仅将 HEAD 指针恢复，已经 add 的缓存以及工作空间的所有东西都不变。</li>
+<li>如果使用<code>--mixed</code>(默认)，就将 HEAD 恢复掉，已经 add 的缓存也会丢失掉，工作空间的代码什么的是不变的。</li>
+<li>如果使用<code>--hard</code>，那么一切就全都恢复了，HEAD 变，aad 的缓存消失，代码什么的也恢复到以前状态。</li>
+</ol>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 从暂存区恢复某一文件，重置HEAD到另外一个commit,并且重置index以便和HEAD相匹配，working copy不会被更改</span>
+$ <span class="token function">git</span> reset <span class="token punctuation">[</span>file<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变</span>
+$ <span class="token function">git</span> reset <span class="token punctuation">[</span>commit<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 从暂存区恢复所有文件</span>
+$ <span class="token function">git</span> reset -- <span class="token keyword">.</span>
+<span class="token comment" spellcheck="true"># 重置当前分支的HEAD为上一次commit，重置暂存区与工作区</span>
+$ <span class="token function">git</span> reset --hard 或 $ <span class="token function">git</span> reset  –hard HEAD^/HEAD~
+<span class="token comment" spellcheck="true"># 重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致</span>
+$ <span class="token function">git</span> reset --hard <span class="token punctuation">[</span>commit<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 重置当前HEAD为指定commit，但保持暂存区和工作区不变,即 取消最后一次commit</span>
+$ <span class="token function">git</span> reset --keep <span class="token punctuation">[</span>commit<span class="token punctuation">]</span>
+</code></pre>
+<h4 id="status"><a href="#status" class="headerlink" title="status"></a><code>status</code></h4><pre class=" language-bash"><code class="language-bash">$ <span class="token function">git</span> status        <span class="token comment" spellcheck="true">#查看仓库状态，显示有变更的文件</span>
+</code></pre>
+<h3 id="审核-amp-比较"><a href="#审核-amp-比较" class="headerlink" title="审核&amp;比较"></a>审核&amp;比较</h3><h4 id="show"><a href="#show" class="headerlink" title="show"></a><code>show</code></h4><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 显示某次提交的元数据和内容变化</span>
+$ <span class="token function">git</span> show <span class="token punctuation">[</span>commit-id<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 显示某次提交发生变化的文件名</span>
+$ <span class="token function">git</span> show --name-only <span class="token punctuation">[</span>commit-id<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 显示某次提交时，某个文件的内容</span>
+$ <span class="token function">git</span> show <span class="token punctuation">[</span>commit<span class="token punctuation">]</span>:<span class="token punctuation">[</span>filename<span class="token punctuation">]</span>
+</code></pre>
+<h4 id="log"><a href="#log" class="headerlink" title="log"></a><code>log</code></h4><p><a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v1/Git-%E5%9F%BA%E7%A1%80-%E6%9F%A5%E7%9C%8B%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2">官方中文文档</a></p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 查看（文件）提交历史记录</span>
+$ <span class="token function">git</span> log   <span class="token punctuation">(</span>file<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 查看每次详细修改内容的diff</span>
+$ <span class="token function">git</span> log -p <span class="token punctuation">[</span>file<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 查看最近两次详细修改内容的diff</span>
+$ <span class="token function">git</span> log -p -2
+<span class="token comment" spellcheck="true"># 查看提交统计信息,显示简要的增改行数统计</span>
+$ <span class="token function">git</span> log --stat
+<span class="token comment" spellcheck="true"># 同上，用'log'格式输出</span>
+$ <span class="token function">git</span> log -g
+<span class="token comment" spellcheck="true"># 搜索包含name的log</span>
+$ <span class="token function">git</span> log -- <span class="token function">grep</span> <span class="token string">"name"</span>
+<span class="token comment" spellcheck="true"># 查看指定ID记录，-L [?startLine],[?endLine]:fileName显示一行</span>
+$ <span class="token function">git</span> log record-ID  -L 2,3:file2.txt
+<span class="token comment" spellcheck="true"># 搜索提交历史，根据关键词</span>
+$ <span class="token function">git</span> log -S <span class="token punctuation">[</span>keyword-string<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 显示某个commit之后的所有变动，按 每个commit占据一行 的格式</span>
+$ <span class="token function">git</span> log <span class="token punctuation">[</span>tag<span class="token punctuation">]</span> HEAD --pretty<span class="token operator">=</span>format:%s
+<span class="token comment" spellcheck="true"># 显示过去5次提交</span>
+$ <span class="token function">git</span> log -5 --pretty --oneline 或 $ <span class="token function">git</span> log -5 --pretty<span class="token operator">=</span>oneline
+<span class="token comment" spellcheck="true"># 显示某个commit之后的所有变动，筛选"提交说明"中符合关键字搜索条件的历史记录</span>
+$ <span class="token function">git</span> log <span class="token punctuation">[</span>tag<span class="token punctuation">]</span> HEAD --grep feature
+<span class="token comment" spellcheck="true"># 显示某个文件的版本历史，包括文件改名前的历史</span>
+$ <span class="token function">git</span> log --follow <span class="token punctuation">[</span>file<span class="token punctuation">]</span>
+$ <span class="token function">git</span> whatchanged <span class="token punctuation">[</span>file<span class="token punctuation">]</span>
+</code></pre>
+<h4 id="shortlog"><a href="#shortlog" class="headerlink" title="shortlog"></a><code>shortlog</code></h4><p>汇总 git log 的输出</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 显示所有提交过的用户，-n:按提交次数排序,-s:省略commit注释</span>
+$ <span class="token function">git</span> shortlog -sn
+</code></pre>
+<h4 id="diff"><a href="#diff" class="headerlink" title="diff"></a><code>diff</code></h4><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 比较当前文件和暂存区文件差异</span>
+$ <span class="token function">git</span> <span class="token function">diff</span> <span class="token punctuation">[</span>file<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 比较所有文件,显示暂存区和工作区的差异</span>
+$ <span class="token function">git</span> <span class="token function">diff</span>
+<span class="token comment" spellcheck="true"># 比较本地和远端仓库</span>
+$ <span class="token function">git</span> <span class="token function">diff</span> master<span class="token punctuation">..</span>Andylee-Github/master
+<span class="token comment" spellcheck="true"># 比较两次提交之间的差异</span>
+$ <span class="token function">git</span> <span class="token function">diff</span> <span class="token punctuation">[</span>commit-id1<span class="token punctuation">]</span> <span class="token punctuation">[</span>commit-id2<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 比较分支</span>
+$ <span class="token function">git</span> <span class="token function">diff</span> <span class="token punctuation">[</span>branch1<span class="token punctuation">]</span><span class="token punctuation">..</span><span class="token punctuation">[</span>branch2<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 比较暂存区和版本库差异</span>
+$ <span class="token function">git</span> <span class="token function">diff</span> --staged
+<span class="token comment" spellcheck="true"># 比较暂存区和版本库即上一个commit的差异</span>
+$ <span class="token function">git</span> <span class="token function">diff</span> --cached
+<span class="token comment" spellcheck="true"># 仅仅比较统计信息</span>
+$ <span class="token function">git</span> <span class="token function">diff</span> --stat
+<span class="token comment" spellcheck="true"># 显示工作区与当前分支最新commit之间的差异</span>
+$ <span class="token function">git</span> <span class="token function">diff</span> HEAD
+<span class="token comment" spellcheck="true"># 显示今天你做了哪些改动</span>
+$ <span class="token function">git</span> <span class="token function">diff</span> --shortstat <span class="token string">"@&amp;#123;0 day ago&amp;#125;"</span>
+</code></pre>
+<h3 id="补丁-Patch"><a href="#补丁-Patch" class="headerlink" title="补丁 Patch"></a>补丁 Patch</h3><h4 id="diff-1"><a href="#diff-1" class="headerlink" title="diff"></a><code>diff</code></h4><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 生成补丁</span>
+$ <span class="token function">git</span> <span class="token function">diff</span> <span class="token operator">></span> <span class="token punctuation">..</span>/sync.patch
+</code></pre>
+<h4 id="cherry-pick"><a href="#cherry-pick" class="headerlink" title="cherry-pick"></a><code>cherry-pick</code></h4><pre class=" language-bash"><code class="language-bash">
+</code></pre>
+<h4 id="apply"><a href="#apply" class="headerlink" title="apply"></a><code>apply</code></h4><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 打补丁</span>
+$ <span class="token function">git</span> apply <span class="token punctuation">..</span>/sync.patch
+<span class="token comment" spellcheck="true"># 测试补丁能否成功</span>
+$ <span class="token function">git</span> apply --check <span class="token punctuation">..</span>/sync.patch
+</code></pre>
+<h4 id="revert"><a href="#revert" class="headerlink" title="revert"></a><code>revert</code></h4><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/0e1fe709dd97">reset 和 revert 的区别详解</a><br>git revert 是用一次新的 commit 来回滚之前的 commit，git reset 是直接删除指定的 commit；<br>git reset 是把 HEAD 向后移动了一下，而 git revert 是 HEAD 继续前进，只是新的 commit 的内容和要 revert 的内容正好相反，能够抵消要被 revert 的内容。</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> revert <span class="token punctuation">[</span><span class="token variable">$id</span><span class="token punctuation">]</span>    <span class="token comment" spellcheck="true"># 恢复某次提交的状态，恢复动作本身也创建了一次提交对象</span>
+<span class="token function">git</span> revert HEAD     <span class="token comment" spellcheck="true"># 恢复最后一次提交的状态</span>
+<span class="token function">git</span> revert <span class="token punctuation">[</span>commit<span class="token punctuation">]</span>  <span class="token comment" spellcheck="true"># 撤销提交</span>
+<span class="token function">git</span> revert --continue <span class="token comment" spellcheck="true"># 处理完后，重新提交</span>
+
+<span class="token comment" spellcheck="true"># 新建一个commit，用来撤销指定commit</span>
+<span class="token comment" spellcheck="true"># 后者的所有变化都将被前者抵消，并且应用到当前分支</span>
+$ <span class="token function">git</span> revert <span class="token punctuation">[</span>commit<span class="token punctuation">]</span>
+</code></pre>
+<h4 id="rebase"><a href="#rebase" class="headerlink" title="rebase"></a><code>rebase</code></h4><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/129e721adc6e">merge 和 rebase 的区别</a>，<a target="_blank" rel="noopener" href="https://jartto.wang/2018/12/11/git-rebase/">rebase 的详解</a><br>rebase 用于合并多次提交记录</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 合并最近的4次提交记录</span>
+$ <span class="token function">git</span> rebase -i HEAD~4
+</code></pre>
+<h3 id="调试-Debug"><a href="#调试-Debug" class="headerlink" title="调试 Debug"></a>调试 Debug</h3><h4 id="blame"><a href="#blame" class="headerlink" title="blame"></a><code>blame</code></h4><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 显示指定文件是什么人在什么时间修改过</span>
+$ <span class="token function">git</span> blame <span class="token punctuation">[</span>file<span class="token punctuation">]</span>
+</code></pre>
+<h4 id="grep"><a href="#grep" class="headerlink" title="grep"></a><code>grep</code></h4><h3 id="管理"><a href="#管理" class="headerlink" title="管理"></a>管理</h3><h4 id="archive"><a href="#archive" class="headerlink" title="archive"></a><code>archive</code></h4><h4 id="bundle"><a href="#bundle" class="headerlink" title="bundle"></a><code>bundle</code></h4><h4 id="clean"><a href="#clean" class="headerlink" title="clean"></a><code>clean</code></h4><p>…</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/39400848/in-github-urls-what-is-the-difference-between-a-tree-and-a-blob">what is the difference between a tree and a blob?</a></p>
+</blockquote>
+
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">能否打赏一杯咖啡?</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信“扫一扫”</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        <p class="reprint-tip">
+            <i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;
+            <span>转载规则</span>
+        </p>
+        
+            <div class="center-align">
+                <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                    <img alt=""
+                         style="border-width:0"
+                         src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
+                </a>
+            </div>
+            <br/>
+            <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title" rel="dct:type">
+                    《Git》
+                </span> 由
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/11/07/bi-ji-git/" property="cc:attributionName"
+               rel="cc:attributionURL">
+                Ryan Who
+            </a> 采用
+            <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                知识共享署名 4.0 国际许可协议
+            </a>进行许可。
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments input[type=text],
+    #vcomments input[type=email],
+    #vcomments input[type=url],
+    #vcomments textarea {
+        box-sizing: border-box;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #42b983;
+        font-weight: 500;
+        text-decoration: underline;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        margin: unset;
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        margin: unset;
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        margin: unset;
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        margin: unset;
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        margin: unset;
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        margin: unset;
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div id="vcomments" class="card-content"></div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'nIm0EpgkwmISA1OvAkn9CuKp-MdYXbMMI',
+        appKey: 'MaeG3zmgpfFBHEU6pa22dF0t',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'retro',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/11/12/bi-ji-linux/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Linux">
+                        
+                        <span class="card-title">Linux</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            sudo apt autoremove
+博客
+Cron 表达式csdc 链接[简书 链接]https://www.jianshu.com/p/9ddb40797685
+
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-12
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%AC%94%E8%AE%B0/" class="post-category" target="_blank">
+                                    笔记
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/todo/" target="_blank">
+                        <span class="chip bg-color">todo</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" target="_blank">
+                        <span class="chip bg-color">操作系统</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/09/20/bi-ji-webpack/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Webpack">
+                        
+                        <span class="card-title">Webpack</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            webpack是基于 Node.js 开发的前端项目构建工具
+
+常见的静态资源
+.js .jsx .coffee .ts(typescript)
+.css .less .scss
+.jpg .png .gif .bmp .svg
+.svg 
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-20
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%AC%94%E8%AE%B0/" class="post-category" target="_blank">
+                                    笔记
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%89%93%E5%8C%85/" target="_blank">
+                        <span class="chip bg-color">打包</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + "来源: Hojondo's<br />"
+            + '作者: Ryan Who<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+ <footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            &copy; 2019 Hojondo. All Rights Reserved.
+
+            
+            &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+            <span class="white-color">183.2k</span>
+            
+
+            <br>
+            <span id="sitetime"></span>
+
+            
+            
+            <br>
+            
+            <span id="busuanzi_container_site_pv" style='display:none'>
+                <i class="fa fa-heart-o"></i>
+                本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv" style='display:none'>
+                人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+            </span>
+            
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+    <a href="mailto:hztdream@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<!-- 不蒜子计数 虚拟初始值 -->
+<!--<script>-->
+<!--    $(document).ready(function () {-->
+
+<!--        var int = setInterval(fixCount, 50);-->
+<!--        var pvcountOffset = 80000;-->
+<!--        var uvcountOffset = 20000;-->
+
+<!--        function fixCount() {-->
+<!--            console.log('fixCount');-->
+<!--            if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {-->
+<!--                console.log('document');-->
+<!--                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + pvcountOffset);-->
+<!--                clearInterval(int);-->
+<!--            }-->
+<!--            if ($("#busuanzi_container_site_pv").css("display") != "none") {-->
+<!--                console.log('jquery');-->
+<!--                $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + uvcountOffset); // 加上初始数据-->
+<!--                clearInterval(int);-->
+<!--            }-->
+<!--        }-->
+<!--    });-->
+<!--</script>-->
+
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+        var t1 = Date.UTC(2019, 8, 1, 0, 0, 0);
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已运行 " + diffYears + " 年 " + diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+    }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
+ <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script> <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+     
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+    <!--<script src="https://api.itswincer.com/hitokoto/v2/?encode=js" defer></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js"></script>
+    <!-- <script>
+      fetch("https://v1.hitokoto.cn")
+        .then(function (res) {
+          return res.json();
+        })
+        .then(function (data) {
+          var hitokoto = document.getElementById("hitokoto");
+          if (!!hitokoto)
+            hitokoto.innerText = "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + data.hitokoto;
+          var hitofrom = document.getElementById("hitofrom");
+          if (!!hitofrom) hitofrom.innerText = "— 「" + data.from + "\xa0」";
+        })
+        .catch(function (err) {
+          console.error(err);
+        });
+    </script> -->
+    <script>
+      function subtitleType() {
+        fetch("https://v1.hitokoto.cn")
+          .then((response) => response.json())
+          .then((data) => {
+            var from = "— 「\xa0" + data.from + "\xa0」";
+            var sub = new Array(data.hitokoto);
+            var hitokoto = document.getElementById("hitokoto");
+            if (!!hitokoto)
+              var typed = new Typed("#hitokoto", {
+                strings: sub,
+                startDelay: 300,
+                typeSpeed: 150,
+                loop: true,
+                backSpeed: 50,
+              });
+            var hitofrom = document.getElementById("hitofrom");
+            if (!!hitofrom) hitofrom.innerText = from;
+          })
+          .catch(function (err) {
+            console.error(err);
+          });
+      }
+      subtitleType();
+    </script>
+  </body>
+</html>

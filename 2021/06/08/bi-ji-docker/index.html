@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="笔记-docker, Hojondo&#39;s">
+<!--    <meta name="baidu-site-verification" content="fmlEuI34ir" />-->
+<!--    <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />-->
+    <meta name="description" content="Docker 彻底释放了计算虚拟化的威力，极大提高了应用的维护效率，降低了云计算应用开发的成本！让应用的部署、测试和分发都变得前所未有的高效和轻松。
+Docker 使用 Google 公司推出的 Go 语言 进行开发实现，基于 Linux ">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>笔记-docker | Hojondo&#39;s</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        code[class*="language-"],
+            pre[class*="language-"] {
+                white-space: pre !important;
+            }
+
+            
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+    <script defer>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?46e79e71af0709a5b9106bf20cecc493";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+  <body>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BJ2KZHWDKZ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-BJ2KZHWDKZ');
+</script>
+
+ <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Hojondo's</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-folder-open"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-heart"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-link"></i>
+            
+            <span>友链</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/contact" class="waves-effect waves-light">
+            
+            <i class="fa fa-comments"></i>
+            
+            <span>树洞</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Hojondo's</div>
+        <div class="logo-desc">
+            
+            前端开发
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-folder-open"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-heart"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                友链
+            </a>
+        </li>
+        
+        <li>
+            <a href="/contact" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-comments"></i>
+                
+                树洞
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/hojondo" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/hojondo" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+        <div class="progress-bar"></div>
+    </nav>
+
+</header>
+ 
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        笔记-docker
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/todo/" target="_blank">
+                                <span class="chip bg-color">todo</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/" target="_blank">
+                                <span class="chip bg-color">工程化</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E7%AC%94%E8%AE%B0/" class="post-category" target="_blank">
+                                笔记
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-06-08
+                </div>
+
+                <div class="post-author info-break-policy">
+                    <i class="fa fa-user-o fa-fw"></i>作者:&nbsp;&nbsp;
+                    
+                        Ryan Who
+                    
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        4.4k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        16 分
+                    </div>
+                    
+                
+
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>Docker 彻底释放了计算虚拟化的威力，极大提高了应用的维护效率，降低了云计算应用开发的成本！<br>让应用的部署、测试和分发都变得前所未有的高效和轻松。</p>
+<p><strong>Docker</strong> 使用 <code>Google</code> 公司推出的 <a target="_blank" rel="noopener" href="https://golang.google.cn/">Go 语言</a> 进行开发实现，基于 <code>Linux</code> 内核的 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Cgroups">cgroup</a>，<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Linux_namespaces">namespace</a>，以及 <a target="_blank" rel="noopener" href="https://docs.docker.com/storage/storagedriver/overlayfs-driver/">OverlayFS</a> 类的 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Union_mount">Union FS</a> 等技术，对进程进行封装隔离，属于 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Operating-system-level_virtualization">操作系统层面的虚拟化技术</a>。由于隔离的进程独立于宿主和其它的隔离的进程，因此也称其为容器。最初实现是基于 <a target="_blank" rel="noopener" href="https://linuxcontainers.org/lxc/introduction/">LXC</a>，从 <code>0.7</code> 版本以后开始去除 <code>LXC</code>，转而使用自行开发的 <a target="_blank" rel="noopener" href="https://github.com/docker/libcontainer">libcontainer</a>，从 <code>1.11</code> 版本开始，则进一步演进为使用 <a target="_blank" rel="noopener" href="https://github.com/opencontainers/runc">runC</a> 和 <a target="_blank" rel="noopener" href="https://github.com/containerd/containerd">containerd</a>。</p>
+<p><strong>Docker 和 传统虚拟化方式的不同</strong></p>
+<ul>
+<li>传统虚拟机技术是<strong>虚拟出一套硬件</strong>后，在其上运行一个<strong>完整操作系统</strong>，再在该<strong>系统上运行所需应用进程</strong>；</li>
+<li>而容器内的<strong>应用进程直接运行于宿主的内核</strong>，容器内没有自己的内核，而且也没有进行硬件虚拟。因此容器要比传统虚拟机更为轻便。</li>
+</ul>
+<p>优点：</p>
+<ol>
+<li>更高效利用系统资源。容器不需要进行硬件虚拟以及运行完整操作系统等额外开销，<code>Docker</code> 对系统资源的利用率更高</li>
+<li>更快启动时间。由于直接运行于宿主内核，无需启动完整的操作系统，因此可以做到秒级、甚至毫秒级的启动时间</li>
+<li>一致的运行环境。<code>Docker</code> 的镜像提供了除内核外完整的运行时环境，确保了应用运行环境一致性</li>
+<li>持续交付和部署。对开发和运维（<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/DevOps">DevOps</a>）人员来说，最好的就是一次创建/配置，任意地方运行。<code>Docker</code> 可以定制应用镜像，开发人员通过 <a href="">Dockerfile</a> 来进行透明化镜像构建</li>
+<li>更轻松的迁移。<code>Docker</code> 确保了执行环境的一致性</li>
+<li>更轻松的维护和扩展。使用的分层存储以及镜像的技术，使得应用重复部分的复用更为容易，也使得应用的维护更新更加简单，基于基础镜像进一步扩展镜像也变得非常简单，同时docker官方维护了一大批高质量的 <a target="_blank" rel="noopener" href="https://hub.docker.com/search/?type=image&image_filter=official">官方镜像</a></li>
+</ol>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="镜像-Image"><a href="#镜像-Image" class="headerlink" title="镜像 Image"></a>镜像 Image</h3><p>操作系统分为 <strong>内核</strong> 和 <strong>用户空间</strong>。<strong>Docker 镜像</strong>（<code>Image</code>），就相当于是一个 文件系统 提供用户空间支持。</p>
+<p>除了提供容器运行时所需的程序、库、资源、配置等文件外，还包含了一些为运行时准备的一些配置参数（如匿名卷、环境变量、用户等）。镜像 <strong>不包含</strong> 任何动态数据，其内容在构建之后也不会被改变。</p>
+<p>镜像只是一个虚拟的概念，其实际体现是由一组文件系统组成。镜像构建时，会一层层构建，前一层是后一层的基础。每一层构建完就不会再发生改变，后一层上的任何改变只发生在自己这一层。</p>
+<p>分层存储的特征还使得镜像的复用、定制变的更为容易。甚至可以用之前构建好的镜像作为基础层，然后进一步添加新的层，以定制自己所需的内容，构建新的镜像</p>
+<h3 id="容器-Container"><a href="#容器-Container" class="headerlink" title="容器 Container"></a>容器 Container</h3><p><code>镜像</code>和<code>容器</code>，可以理解成面向对象程序设计中的 <code>类</code> 和 <code>实例</code> 一样的实例。容器可以被<strong>创建</strong>、<strong>启动</strong>、<strong>停止</strong>、<strong>删除</strong>、<strong>暂停</strong>。</p>
+<p>容器的实质是进程，不同于直接在宿主执行的进程，容器进程运行于自己独立的命名空间。</p>
+<p>容器也是使用的分层存储。每一个容器运行时，是以镜像为基础层，在其上创建一个当前容器的存储层，我们可以称这个为容器运行时读写而准备的存储层为 <strong>容器存储层</strong>。</p>
+<p>容器存储层的生存周期和容器保持一致，最佳实践的标准，容器不应该向其存储层内写入任何数据，容器存储层要保持无状态化。文件的写入操作建议应该使用 <a target="_blank" rel="noopener" href="https://yeasy.gitbook.io/docker_practice/data_management/volume">数据卷（Volume）</a>、或者 <a target="_blank" rel="noopener" href="https://yeasy.gitbook.io/docker_practice/data_management/bind-mounts">绑定宿主目录</a>，在这些位置的读写会跳过容器存储层，<strong>直接对宿主</strong>（或网络存储）发生读写，其性能和稳定性更高。数据卷的生存周期独立于容器，使用volumn后，容器删除不会直接导致数据丢失。</p>
+<h3 id="仓库-Repository"><a href="#仓库-Repository" class="headerlink" title="仓库 Repository"></a>仓库 Repository</h3><p>一个 <strong>Docker Registry</strong> 中可以包含多个 <strong>仓库</strong>（<code>Repository</code>）：</p>
+<p>每个仓库可以包含多个 <strong>标签</strong><code>Tag</code><em>（通常，一个仓库会包含同一个软件不同版本的镜像）</em>：</p>
+<p>每个标签对应一个镜像。可以通过 <code>仓库名:标签</code> 的格式来指定具体是这个软件哪个版本的镜像。如果不给出标签，将以 latest 作为默认标签。<em>IMAGE ID是一个镜像的唯一标示。不排除一个镜像可以对应多个标签。</em></p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h3><p><code>$ docker pull [选项] [Docker Registry 地址[:端口号]/]仓库名[:标签]</code></p>
+<ul>
+<li>地址默认Docker Hub(docker.io)</li>
+<li>docker.io的仓库名是两段式名称，<code>&lt;用户名&gt;/&lt;软件名&gt;</code> 用户名默认library官方<h3 id="运行-启动一个ubuntu-18-04容器"><a href="#运行-启动一个ubuntu-18-04容器" class="headerlink" title="运行 启动一个ubuntu:18.04容器"></a>运行 启动一个ubuntu:18.04容器</h3><code>docker run -it --rm ubuntu:18.04 bash</code><h3 id="列出镜像"><a href="#列出镜像" class="headerlink" title="列出镜像"></a>列出镜像</h3><code>docker image ls</code><br>所有镜像实际硬盘消耗 &lt;= 列表中的镜像体积总和。因为 Docker 镜像是多层存储结构，可以继承、复用。因此不同镜像可能会因为使用相同的基础镜像，从而拥有共同的层。而Docker 使用 Union FS，相同的层只需要保存一份即可。</li>
+</ul>
+<h3 id="删除镜像"><a href="#删除镜像" class="headerlink" title="删除镜像"></a>删除镜像</h3><p><code>docker image rm [选项] &lt;镜像1&gt; [&lt;镜像2&gt; ...]</code></p>
+<p>其中，<code>&lt;镜像&gt;</code> 可以是 <code>镜像短 ID</code>一般取前3个字符即可、<code>镜像长 ID</code>、<code>镜像名&lt;仓库名&gt;:&lt;标签&gt;</code> 或者 <code>镜像摘要DIGEST</code>。<br>删除行为分为两类，一类是 Untagged，另一类是 Deleted。<br>使用上面命令删除镜像的时候，实际上是在要求删除某个标签的镜像。首先需要做的是将满足我们要求的所有镜像标签都取消。因为一个镜像可以对应多个标签，因此当我们删除了所指定的标签后，可能还有别的标签指向了这个镜像，如果是这种情况，那么 Delete 行为就不会发生。所以并非所有的 docker image rm 都会产生删除镜像的行为。<br>当该镜像所有的标签都被取消了，该镜像很可能会失去了存在的意义，因此会触发删除行为。镜像是多层存储结构，因此在删除的时候也是从上层向基础层方向依次进行判断删除。判断过程中 不会触发删除某层被其他仍在复用的中间层镜像，直到没有任何层依赖当前层时，才会真实的删除当前层。<br>除了镜像依赖以外，还需要注意的是容器对镜像的依赖。当用到这个镜像的容器仍然存在（即使没有运行中）同样不可以删除该镜像。<br><strong>配合docker image ls -q 来批量删除</strong><br><code>docker image rm $(docker image ls -q redis)</code><br>例 删除所有仓库名为 redis 的镜像</p>
+<h3 id="定制一个web服务器"><a href="#定制一个web服务器" class="headerlink" title="定制一个web服务器"></a>定制一个web服务器</h3><p><code>docker run --name webserver -d -p 80:80 nginx</code></p>
+<p>用 <code>nginx</code> 镜像启动一个容器，命名为 <code>webserver</code>，并且映射了 80 端口。</p>
+<p>使用 <code>docker exec</code> 命令进入容器，修改其内容</p>
+<p><code>docker exec -it webserver bash</code></p>
+<p><code>echo &#39;&lt;h1&gt;Hello, Docker!&lt;/h1&gt;&#39; &gt; /usr/share/nginx/html/index.html</code> &amp; <code>exit</code></p>
+<p>修改了容器的文件，也就是改动了容器的存储层。我们可以通过 <code>docker diff</code> 命令看到具体的改动。<code>docker diff webserver</code></p>
+<p>当运行一个容器的时候（如果不使用卷的话），我们做的任何文件修改都会被记录于<strong>容器存储层</strong>里。而 Docker 提供了一个 <code>docker commit</code> 命令，可以将容器的存储层保存下来成为镜像，即<strong>在原有镜像的基础上，再叠加上容器的存储层，并构成新的镜像</strong></p>
+<p><code>docker commit [选项] &lt;容器ID或容器名&gt; [&lt;仓库名&gt;[:&lt;标签&gt;]]</code></p>
+<pre class=" language-bash"><code class="language-bash">docker commit \
+    --author <span class="token string">"xx &lt;xx@gmail.com>"</span> \
+    --message <span class="token string">"修改了默认网页"</span> \
+    webserver \
+    nginx:v2
+</code></pre>
+<p>查看镜像的历史commit 记录</p>
+<p><code>docker history nginx:v2</code></p>
+<p>运行刚刚定制的镜像成容器，映射到81端口，打开浏览器访问localhost:81可以看到：</p>
+<p><code>docker run --name web2 -d -p 81:80 nginx:v2</code></p>
+<p>最后，在上例中，即使只改动了一个html文件，因为docker commit 命令的执行，导致很多无直接关系的文件被改动或添加，如果是更复杂的操作只会涉及更多无关内容被添加进来，最后导致镜像极为臃肿；docker commit 所有对镜像的操作都是黑箱操作，除了制作人其他都不知道执行过什么命令，也被称作黑箱镜像。</p>
+<p>所以 不建议用这种方式定制镜像，请改用<code>Dockerfile</code></p>
+<h3 id="使用Dockerfile定制镜像"><a href="#使用Dockerfile定制镜像" class="headerlink" title="使用Dockerfile定制镜像"></a>使用Dockerfile定制镜像</h3><p>相比docker commit的方式，有以下几个问题：</p>
+<p>无法重复、镜像构建透明性的问题、体积臃肿。</p>
+<p>Dockerfile 是一个文本文件，其内包含了一条条的 **指令(Instruction)**，每一条指令构建一层，因此每一条指令的内容，就是描述该层应当如何构建。</p>
+<p>一个 <code>Dockerfile</code> 中 <code>FROM</code> 是必备的指令，并且必须是第一条指令，指定 <strong>基础镜像</strong>。</p>
+<p><code>RUN</code> 指令是用来执行命令行命令的。<em>Dockerfile 支持 Shell 类的行尾添加 <code>\</code> 的命令换行方式，以及行首 <code>#</code> 进行注释的格式</em></p>
+<p>… 等命令</p>
+<h4 id="构建镜像"><a href="#构建镜像" class="headerlink" title="构建镜像"></a>构建镜像</h4><p>在 Dockerfile 文件所在目录执行：<code>docker build -t nginx:v3 .</code><br>指定了最终镜像的名称 -t nginx:v3<br><code>.</code>指定了上下文路径 为当前目录</p>
+<p><code>docker build [选项] &lt;上下文路径/URL/-&gt;</code></p>
+<p><strong><code>docker build</code> 的工作原理</strong>：</p>
+<p>Docker 在运行时分为 <strong>Docker 引擎</strong>（也就是服务端守护进程）和<strong>客户端工具</strong>。</p>
+<p>Docker 的引擎提供了一组 REST API，被称为 <a target="_blank" rel="noopener" href="https://docs.docker.com/develop/sdk/">Docker Remote API</a>，而如 <code>docker</code> 命令这样的客户端工具，则是通过这组 API 与 Docker 引擎交互，从而完成各种功能。这种 C/S 设计，让我们操作远程服务器的 Docker 引擎变得轻而易举。</p>
+<p>因此表面上各种的docker命令，其实使用的远程调用形式在服务端（Docker 引擎）完成。而 <code>docker build</code> 命令构建镜像，其实并非在本地构建，而是在服务端，也就是 Docker 引擎中构建的。进而有个问题是：在这种客户端/服务端的架构中，如何才能让服务端获得本地文件呢？引入 上下文的概念——</p>
+<p><code>docker build</code> 命令上下文路径（即该例中的<code>.</code>）后，会将路径下的所有内容打包，然后上传给 Docker 引擎。这样 Docker 引擎收到这个上下文包后，展开就会获得构建镜像所需的一切文件。</p>
+<p><code>COPY ./package.json /app/</code> </p>
+<p>该命令是复制 <strong>上下文（build context）</strong> 目录下的 <code>package.json</code>。因此，<code>COPY</code> 这类指令中的源文件的路径都是<em>相对路径</em>。</p>
+<p>默认情况下，如果不额外指定 <code>Dockerfile</code> 的话，会将上下文目录下的名为 <code>Dockerfile</code> 的文件作为 Dockerfile。一般大家习惯性的会使用默认的文件名 <code>Dockerfile</code>，以及会将其置于镜像构建上下文目录中。</p>
+<h5 id="其他构建镜像的方式"><a href="#其他构建镜像的方式" class="headerlink" title="其他构建镜像的方式"></a>其他构建镜像的方式</h5><ul>
+<li><p>Url: git repo</p>
+<p><code>$ docker build -t hello-world https://github.com/docker-library/hello-world.git#master:amd64/hello-world</code></p>
+<p>命令指定了构建所需的 Git repo，并且指定分支为 <code>master</code>，构建目录为 <code>/amd64/hello-world/</code>，然后 Docker 就会自己去 <code>git clone</code> 这个项目、切换到指定分支、并进入到指定目录后开始构建。</p>
+</li>
+<li><p>Url: 用给定的 tar 压缩包构建</p>
+<p><code>docker build http://server/context.tar.gz</code></p>
+<p>如果所给出的 URL 不是个 Git repo，而是个 <code>tar</code> 压缩包，那么 Docker 引擎会下载这个包，并自动解压缩，以其作为上下文，开始构建。</p>
+</li>
+<li><p>标准输入：文本文件</p>
+<p>如<code>docker build - &lt; Dockerfile</code></p>
+<p>这种形式由于直接从标准输入中读取 Dockerfile 的内容，它没有上下文，因此不可以像其他方法那样可以将本地文件 <code>COPY</code> 进镜像之类的事情</p>
+</li>
+<li><p>标准输入：非文本文件</p>
+<p><code>docker build - &lt; context.tar.gz</code></p>
+<p>如果发现标准输入的文件格式是 <code>gzip</code>、<code>bzip2</code> 以及 <code>xz</code> 的话，将会使其为上下文压缩包，直接将其展开，将里面视为上下文，并开始构建。</p>
+</li>
+</ul>
+<h4 id="Dockerfile指令"><a href="#Dockerfile指令" class="headerlink" title="Dockerfile指令"></a>Dockerfile指令</h4><ul>
+<li><p><strong>FROM</strong> 必填，指定base镜像</p>
+</li>
+<li><p><strong>RUN</strong> </p>
+<p>执行命令行命令</p>
+</li>
+<li><p><strong>CMD</strong></p>
+<p>两种格式：</p>
+<ul>
+<li><code>shell</code> 格式：<code>CMD &lt;命令&gt;</code>，实际的命令会被包装为 <code>sh -c</code> 的参数的形式进行执行。如<code>CMD echo $HOME</code> 等于 <code>CMD [ &quot;sh&quot;, &quot;-c&quot;, &quot;echo $HOME&quot; ]</code></li>
+<li><code>exec</code> 格式：<code>CMD [&quot;可执行文件&quot;, &quot;参数1&quot;, &quot;参数2&quot;...]</code> 并且必须是双引号 不可单引号。</li>
+<li>参数列表格式：<code>CMD [&quot;参数1&quot;, &quot;参数2&quot;...]</code>。在指定了 <code>ENTRYPOINT</code> 指令后，用 <code>CMD</code> 指定具体的参数</li>
+</ul>
+<p>Docker 不是虚拟机 是个进程：</p>
+<ol>
+<li>CMD指令就是用于指定默认的容器主进程的启动命令的。</li>
+<li>所以容器内没有后台服务的概念，容器中的应用都应该以前台执行。如直接执行 <code>nginx</code> 可执行文件，并且要求以前台形式运行<code>CMD [&quot;nginx&quot;, &quot;-g&quot;, &quot;daemon off;&quot;]</code></li>
+</ol>
+</li>
+<li><p><strong>ENTRYPOINT</strong></p>
+<p>目的和 <code>CMD</code> 一样，都是在指定容器启动程序及参数。当指定了 <code>ENTRYPOINT</code> 后，<code>CMD</code> 的含义就发生了改变，不再是直接的运行其命令，而是将 <code>CMD</code> 的内容作为参数传给 <code>ENTRYPOINT</code> 指令，换句话说实际执行时，将变为：<code>&lt;ENTRYPOINT&gt; &quot;&lt;CMD&gt;&quot;</code></p>
+</li>
+</ul>
+<ul>
+<li><p><strong>COPY</strong></p>
+<p>将从构建上下文目录中 <code>&lt;源路径&gt;</code> 的文件/目录复制到新的一层的镜像内的 <code>&lt;目标路径&gt;</code> 位置</p>
+<p><code>COPY [--chown=&lt;user&gt;:&lt;group&gt;] &lt;源路径&gt;... &lt;目标路径&gt;</code></p>
+<p><code>COPY [--chown=&lt;user&gt;:&lt;group&gt;] [&quot;&lt;源路径1&gt;&quot;,&quot;&lt;源路径2&gt;&quot;... &quot;&lt;目标路径&gt;&quot;]</code><br><code>源路径</code>可以多个，可以是通配符，其通配符规则要满足 Go 的 <a target="_blank" rel="noopener" href="https://golang.org/pkg/path/filepath/#Match"><code>filepath.Match</code></a> 规则。</p>
+<p><code>&lt;目标路径&gt;</code> 可以是容器内的绝对路径，也可以是相对于工作目录的相对路径（工作目录可以用 <code>WORKDIR</code> 指令来指定）</p>
+<p>使用 <code>COPY</code> 指令，源文件的各种元数据都会保留。比如读、写、执行权限、文件变更时间等。使用该指令的时候还可以加上 <code>--chown=&lt;user&gt;:&lt;group&gt;</code> 选项来改变文件的所属用户及所属组。</p>
+<p>例<code>COPY --chown=55:mygroup files* /mydir/</code></p>
+</li>
+<li><p><strong>ADD</strong> </p>
+<p>相比copy增加了一些功能</p>
+<ul>
+<li>源路径可以是<code>url</code>：Docker 引擎会试图去下载这个链接的文件放到 <code>&lt;目标路径&gt;</code> 去。下载后的文件权限自动设置为 <code>600</code>。</li>
+<li>源路径可以是<code>tar</code>压缩文件：压缩格式为 <code>gzip</code>, <code>bzip2</code> 以及 <code>xz</code> 的情况下，<code>ADD</code> 指令将会自动解压缩这个压缩文件到 <code>&lt;目标路径&gt;</code> 去。</li>
+</ul>
+<p>最佳实践中，建议尽可能的使用copy，因为其语义明确，而且add的行为不一定清晰，此外<code>ADD</code> 指令会令镜像构建缓存失效 从而可能会令镜像构建变得比较缓慢。</p>
+<p>例：<code>ADD --chown=10:11 files* /mydir/</code></p>
+</li>
+</ul>
+<ul>
+<li><p><strong>ENV</strong></p>
+</li>
+<li><p><strong>ARG</strong> 构建参数</p>
+</li>
+<li><p><strong>VOLUME</strong> 定义匿名卷</p>
+</li>
+<li><p><strong>EXPOSE</strong> 暴露端口</p>
+</li>
+<li><p><strong>WORKDIR</strong> 指定工作目录</p>
+</li>
+<li><p><strong>USER</strong> 指定当前用户</p>
+</li>
+<li><p><strong>HEALTHCHECK</strong> 健康检查</p>
+</li>
+<li><p><strong>ONBUILD</strong> </p>
+</li>
+<li><p><strong>LABEL</strong> 为镜像添加元数据</p>
+</li>
+<li><p><strong>SHELL</strong></p>
+</li>
+</ul>
+<h1 id="常用命令行Command"><a href="#常用命令行Command" class="headerlink" title="常用命令行Command"></a>常用命令行Command</h1><p><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/run/">官方DOC</a></p>
+<ul>
+<li><p>docker pull</p>
+</li>
+<li><p>docker run <image></p>
+</li>
+<li><p>docker image ls    列出已经下载下来的镜像</p>
+</li>
+<li><p>docker image ls -a    默认只显示顶层镜像，加-a显示中间层镜像(无标签的镜像很多都是中间层镜像，是其它镜像所依赖的镜像)在内的所有</p>
+</li>
+<li><p>docker image ls -f since=mongo:3.2 例子 查找在 mongo:3.2 之后建立的镜像</p>
+</li>
+<li><p>docker image ls -q    <code>--filter</code> 配合 <code>-q</code> 产生出指定范围的 ID 列表，然后送给另一个 docker 命令作为参数，从而针对这组实体成批的进行某种操作的做法在 Docker 命令行使用过程中非常常见</p>
+</li>
+<li><p>自定义搜索结果表格格式，用了 <a target="_blank" rel="noopener" href="https://gohugo.io/templates/introduction/">Go 的模板语法</a>Go 是特别适合容器微服务架构的语言的原因之一。</p>
+<pre class=" language-bash"><code class="language-bash">docker image <span class="token function">ls</span> --format <span class="token string">"&amp;#123;&amp;#123;.ID&amp;#125;&amp;#125;: &amp;#123;&amp;#123;.Repository&amp;#125;&amp;#125;"</span>
+</code></pre>
+</li>
+<li><p>docker system df    便捷的查看镜像、容器、数据卷所占用的空间</p>
+</li>
+<li><p>docker image prune    删除所有虚悬镜像dangling-image（镜像仓库维护后 已经抛弃的镜像仓库名）</p>
+</li>
+<li><p>docker image rm [选项] &lt;镜像1&gt; [&lt;镜像2&gt; …]    删除本地镜像。</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1></li>
+</ul>
+<blockquote>
+<p> <a target="_blank" rel="noopener" href="https://yeasy.gitbook.io/docker_practice/">https://yeasy.gitbook.io/docker_practice/</a><br> <a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/commandline/docker/">docker commands</a><br><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903902807080973">Dockerfile RUN 、 CMD 、 ENTRYPOINT区别</a>  </p>
+</blockquote>
+
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">能否打赏一杯咖啡?</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信“扫一扫”</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        <p class="reprint-tip">
+            <i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;
+            <span>转载规则</span>
+        </p>
+        
+            <div class="center-align">
+                <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                    <img alt=""
+                         style="border-width:0"
+                         src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
+                </a>
+            </div>
+            <br/>
+            <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title" rel="dct:type">
+                    《笔记-docker》
+                </span> 由
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2021/06/08/bi-ji-docker/" property="cc:attributionName"
+               rel="cc:attributionURL">
+                Ryan Who
+            </a> 采用
+            <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                知识共享署名 4.0 国际许可协议
+            </a>进行许可。
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments input[type=text],
+    #vcomments input[type=email],
+    #vcomments input[type=url],
+    #vcomments textarea {
+        box-sizing: border-box;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #42b983;
+        font-weight: 500;
+        text-decoration: underline;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        margin: unset;
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        margin: unset;
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        margin: unset;
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        margin: unset;
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        margin: unset;
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        margin: unset;
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div id="vcomments" class="card-content"></div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'nIm0EpgkwmISA1OvAkn9CuKp-MdYXbMMI',
+        appKey: 'MaeG3zmgpfFBHEU6pa22dF0t',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'retro',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/07/09/bi-ji-vue3/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="重学vue3">
+                        
+                        <span class="card-title">重学vue3</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-07-09
+                        </span>
+                        <span class="publish-author">
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/06/06/bi-ji-wang-luo-qian-duan-wang-an-gong-ji/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="前端网安攻防 详记">
+                        
+                        <span class="card-title">前端网安攻防 详记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            点击劫持（click-Jacking）wiki
+点击劫持（clickjacking）是一种在网页中将恶意代码等隐藏在看似无害的内容（如按钮）之下，并诱使用户点击的手段。举例来说，如用户收到一封包含一段视频的电子邮件，但其中的“播放”按钮并不
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-06-06
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%AC%94%E8%AE%B0/" class="post-category" target="_blank">
+                                    笔记
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/webAPI/" target="_blank">
+                        <span class="chip bg-color">webAPI</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BD%91%E7%BB%9C/" target="_blank">
+                        <span class="chip bg-color">网络</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + "来源: Hojondo's<br />"
+            + '作者: Ryan Who<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+ <footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            &copy; 2019 Hojondo. All Rights Reserved.
+
+            
+            &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+            <span class="white-color">183.2k</span>
+            
+
+            <br>
+            <span id="sitetime"></span>
+
+            
+            
+            <br>
+            
+            <span id="busuanzi_container_site_pv" style='display:none'>
+                <i class="fa fa-heart-o"></i>
+                本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv" style='display:none'>
+                人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+            </span>
+            
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+    <a href="mailto:hztdream@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<!-- 不蒜子计数 虚拟初始值 -->
+<!--<script>-->
+<!--    $(document).ready(function () {-->
+
+<!--        var int = setInterval(fixCount, 50);-->
+<!--        var pvcountOffset = 80000;-->
+<!--        var uvcountOffset = 20000;-->
+
+<!--        function fixCount() {-->
+<!--            console.log('fixCount');-->
+<!--            if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {-->
+<!--                console.log('document');-->
+<!--                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + pvcountOffset);-->
+<!--                clearInterval(int);-->
+<!--            }-->
+<!--            if ($("#busuanzi_container_site_pv").css("display") != "none") {-->
+<!--                console.log('jquery');-->
+<!--                $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + uvcountOffset); // 加上初始数据-->
+<!--                clearInterval(int);-->
+<!--            }-->
+<!--        }-->
+<!--    });-->
+<!--</script>-->
+
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+        var t1 = Date.UTC(2019, 8, 1, 0, 0, 0);
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已运行 " + diffYears + " 年 " + diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+    }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
+ <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script> <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+     
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+    <!--<script src="https://api.itswincer.com/hitokoto/v2/?encode=js" defer></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js"></script>
+    <!-- <script>
+      fetch("https://v1.hitokoto.cn")
+        .then(function (res) {
+          return res.json();
+        })
+        .then(function (data) {
+          var hitokoto = document.getElementById("hitokoto");
+          if (!!hitokoto)
+            hitokoto.innerText = "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + data.hitokoto;
+          var hitofrom = document.getElementById("hitofrom");
+          if (!!hitofrom) hitofrom.innerText = "— 「" + data.from + "\xa0」";
+        })
+        .catch(function (err) {
+          console.error(err);
+        });
+    </script> -->
+    <script>
+      function subtitleType() {
+        fetch("https://v1.hitokoto.cn")
+          .then((response) => response.json())
+          .then((data) => {
+            var from = "— 「\xa0" + data.from + "\xa0」";
+            var sub = new Array(data.hitokoto);
+            var hitokoto = document.getElementById("hitokoto");
+            if (!!hitokoto)
+              var typed = new Typed("#hitokoto", {
+                strings: sub,
+                startDelay: 300,
+                typeSpeed: 150,
+                loop: true,
+                backSpeed: 50,
+              });
+            var hitofrom = document.getElementById("hitofrom");
+            if (!!hitofrom) hitofrom.innerText = from;
+          })
+          .catch(function (err) {
+            console.error(err);
+          });
+      }
+      subtitleType();
+    </script>
+  </body>
+</html>

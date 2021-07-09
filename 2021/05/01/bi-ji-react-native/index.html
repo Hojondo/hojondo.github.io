@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="React Native, Hojondo&#39;s">
+<!--    <meta name="baidu-site-verification" content="fmlEuI34ir" />-->
+<!--    <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />-->
+    <meta name="description" content="官网
+weex、cordova、flutter、react-native、uniapp 对比https://zhuanlan.zhihu.com/p/103409129
+Core Components文档
+最常用的 native 组件
+
+
+">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>React Native | Hojondo&#39;s</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        code[class*="language-"],
+            pre[class*="language-"] {
+                white-space: pre !important;
+            }
+
+            
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+    <script defer>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?46e79e71af0709a5b9106bf20cecc493";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+  <body>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BJ2KZHWDKZ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-BJ2KZHWDKZ');
+</script>
+
+ <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Hojondo's</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-folder-open"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-heart"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-link"></i>
+            
+            <span>友链</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/contact" class="waves-effect waves-light">
+            
+            <i class="fa fa-comments"></i>
+            
+            <span>树洞</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Hojondo's</div>
+        <div class="logo-desc">
+            
+            前端开发
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-folder-open"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-heart"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                友链
+            </a>
+        </li>
+        
+        <li>
+            <a href="/contact" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-comments"></i>
+                
+                树洞
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/hojondo" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/hojondo" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+        <div class="progress-bar"></div>
+    </nav>
+
+</header>
+ 
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        React Native
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%B7%A8%E7%AB%AF/" target="_blank">
+                                <span class="chip bg-color">跨端</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E7%AC%94%E8%AE%B0/" class="post-category" target="_blank">
+                                笔记
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-05-01
+                </div>
+
+                <div class="post-author info-break-policy">
+                    <i class="fa fa-user-o fa-fw"></i>作者:&nbsp;&nbsp;
+                    
+                        Ryan Who
+                    
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        1.3k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        6 分
+                    </div>
+                    
+                
+
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p><a target="_blank" rel="noopener" href="https://reactnative.dev/docs/getting-started">官网</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/385373552">weex、cordova、flutter、react-native、uniapp 对比</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/103409129">https://zhuanlan.zhihu.com/p/103409129</a></p>
+<h2 id="Core-Components"><a href="#Core-Components" class="headerlink" title="Core Components"></a>Core Components</h2><p><a target="_blank" rel="noopener" href="https://reactnative.dev/docs/components-and-apis">文档</a></p>
+<h3 id="最常用的-native-组件"><a href="#最常用的-native-组件" class="headerlink" title="最常用的 native 组件"></a>最常用的 native 组件</h3><table>
+<thead>
+<tr>
+<th align="left">REACT NATIVE UI COMPONENT</th>
+<th align="left">ANDROID VIEW</th>
+<th align="left">IOS VIEW</th>
+<th align="left">WEB ANALOG</th>
+<th align="left">DESCRIPTION</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>&lt;View&gt;</code></td>
+<td align="left"><code>&lt;ViewGroup&gt;</code></td>
+<td align="left"><code>&lt;UIView&gt;</code></td>
+<td align="left">A non-scrollling <code>&lt;div&gt;</code></td>
+<td align="left">A container that supports layout with flexbox, style, some touch handling, and accessibility controls</td>
+</tr>
+<tr>
+<td align="left"><code>&lt;Text&gt;</code></td>
+<td align="left"><code>&lt;TextView&gt;</code></td>
+<td align="left"><code>&lt;UITextView&gt;</code></td>
+<td align="left"><code>&lt;p&gt;</code></td>
+<td align="left">Displays, styles, and nests strings of text and even handles touch events</td>
+</tr>
+<tr>
+<td align="left"><code>&lt;Image&gt;</code></td>
+<td align="left"><code>&lt;ImageView&gt;</code></td>
+<td align="left"><code>&lt;UIImageView&gt;</code></td>
+<td align="left"><code>&lt;img&gt;</code></td>
+<td align="left">Displays different types of images</td>
+</tr>
+<tr>
+<td align="left"><code>&lt;ScrollView&gt;</code></td>
+<td align="left"><code>&lt;ScrollView&gt;</code></td>
+<td align="left"><code>&lt;UIScrollView&gt;</code></td>
+<td align="left"><code>&lt;div&gt;</code></td>
+<td align="left">A generic scrolling container that can contain multiple components and views</td>
+</tr>
+<tr>
+<td align="left"><code>&lt;TextInput&gt;</code></td>
+<td align="left"><code>&lt;EditText&gt;</code></td>
+<td align="left"><code>&lt;UITextField&gt;</code></td>
+<td align="left"><code>&lt;input type=&quot;text&quot;&gt;</code></td>
+<td align="left">Allows the user to enter text</td>
+</tr>
+</tbody></table>
+<h3 id="基本组件-Basic"><a href="#基本组件-Basic" class="headerlink" title="基本组件 Basic"></a>基本组件 Basic</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://reactnative.dev/docs/scrollview">ScrollView</a>: 在 IOS 设置<code>maximumZoomScale</code> &amp; <code>minimumZoomScale</code>可以放大缩小；<code>pagingEnabled</code>实现 scroll 变整页滑动；默认在 layout 实现上 类似 html 的<code>div&#123;flex: 0, maxHeight: 100vh&#125;</code></li>
+<li><a target="_blank" rel="noopener" href="https://reactnative.dev/docs/view">View</a></li>
+<li><a target="_blank" rel="noopener" href="https://reactnative.dev/docs/text">Text</a></li>
+<li><a target="_blank" rel="noopener" href="https://reactnative.dev/docs/image">Image</a></li>
+<li><a target="_blank" rel="noopener" href="https://reactnative.dev/docs/textinput">TextInput</a></li>
+<li><a target="_blank" rel="noopener" href="https://reactnative.dev/docs/stylesheet">StyleSheet</a>: <code>StyleSheet.create(&#123; xxx css obj&#125;)</code></li>
+<li>[ImageBackground]: props as <code>Image</code>, mean as <code>background-image</code></li>
+</ul>
+<h3 id="用户界面-User-Interface"><a href="#用户界面-User-Interface" class="headerlink" title="用户界面 User Interface"></a>用户界面 User Interface</h3><ul>
+<li><p><a target="_blank" rel="noopener" href="https://reactnative.dev/docs/button">Button</a></p>
+</li>
+<li><p><a href="">TouchableHighlight</a>: 包裹仅一个 ElementNode，点击后 backgroundColor 加深 <em>建议替代为 Pressable</em></p>
+</li>
+<li><p><a href="">TouchableOpacity</a>: 包裹 children，点击后 backgroundColor 变浅（加大透明度）<em>建议替代为 Pressable</em></p>
+</li>
+<li><p><a href="">TouchableWithoutFeedback</a>: 包裹仅一个 ElementNode，没有交互 styles and effects <em>建议替代为 Pressable</em></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://reactnative.dev/docs/pressable">Pressable</a>: 包裹 children，使其(该 tag)类似 button 具有按压事件：<code>onPressIn</code> &amp; <code>onLongPress</code> &amp; <code>onPressOut</code> &amp; <code>onPress</code>等</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://reactnative.dev/docs/switch">Switch</a></p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://medium.com/@mahyarmohammadi/react-native-pressable-vs-touchable-5fec6b332f15">对比 Pressable 和 Touchable</a></p>
+<h3 id="列表-List-Views"><a href="#列表-List-Views" class="headerlink" title="列表 List Views"></a>列表 List Views</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://reactnative.dev/docs/flatlist">FlatList</a>: <code>&lt;FlatList data=&#123;dataArray&#125; renderItem=&#123;renderItem&#125; keyExtractor=&#123;item =&gt; item.id&#125; onPress=&#123;fn&#125; /&gt;</code> 内部实现了虚拟列表 virtual-scrolling</li>
+<li><a target="_blank" rel="noopener" href="https://reactnative.dev/docs/sectionlist">SectionList</a>: <code>&lt;SectionList renderSectionHeader=&#123;renderHeader&#125; sections=&#123;dataArrayNested&#125; renderItem=&#123;renderItem&#125; keyExtractor=&#123;item =&gt; item.id&#125; onPress=&#123;fn&#125; /&gt;</code> 相比 FlatList 多了 header 和一层分组</li>
+<li><a href="">VirtualizedList</a>:</li>
+</ul>
+<p>性能上：因为虚拟列表的原因每次 scroll 都是新的 item render 尽量避免在<code>renderItem</code>中计算；在<code>renderItemComp</code>内尽量拆分 props；<code>renderItemComp extends PureComponent</code>；as simple as possible</p>
+<h3 id="安卓特有-Android"><a href="#安卓特有-Android" class="headerlink" title="安卓特有 Android"></a>安卓特有 Android</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://reactnative.dev/docs/backhandler">API - BackHandler</a>: <code>BackHandler.addEventListener(&#39;target&#39;, function()&#123; return true/false&#125;)</code> <em>订阅栈 监听用户后退点击物理按键后退键动作，后 register 的先 trigger</em> return true 即 preventDefault 安卓退出操作</li>
+<li><a target="_blank" rel="noopener" href="https://reactnative.dev/docs/drawerlayoutandroid">DrawerLayoutAndroid</a>: rendered with renderNavigationView and direct children are the main view (where your content goes).</li>
+<li><a target="_blank" rel="noopener" href="https://reactnative.dev/docs/permissionsandroid">API - PermissionsAndroid</a>: <code>const granted = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.CAMERA, optionalObj); if (granted === PermissionsAndroid.RESULTS.GRANTED)&#123;...&#125;</code> <em><a target="_blank" rel="noopener" href="https://reactnative.dev/docs/permissionsandroid#permissions-that-require-prompting-the-user">所有可选权限</a></em></li>
+<li><a target="_blank" rel="noopener" href="https://reactnative.dev/docs/toastandroid">API - ToastAndroid</a>: 安卓原生提示冒泡框 <code>ToastAndroid.showWithGravity(&#39;msg&#39;, ToastAndroid.SHORT, ToastAndroid.CENTER)</code> ,<a target="_blank" rel="noopener" href="https://reactnative.dev/docs/toastandroid#imperative-hack">命令式 改 组件式 调用 例子</a></li>
+<li><a href="">TouchableNativeFeedback</a>: 安卓原生按钮 <em>建议替代为 Pressable</em></li>
+</ul>
+<h3 id="ios-特有-IOS"><a href="#ios-特有-IOS" class="headerlink" title="ios 特有 IOS"></a>ios 特有 IOS</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://reactnative.dev/docs/actionsheetios">API - ActionSheettIOS</a>: IOS 的下弹选项列 <code>ActionSheetIOS.showActionSheetWithOptions(options, callback)</code></li>
+<li><a target="_blank" rel="noopener" href="https://reactnative.dev/docs/safeareaview">SafeAreaView</a>: 解决 刘海屏等 safe area boundaries 适配问题</li>
+<li><a target="_blank" rel="noopener" href="https://reactnative.dev/docs/inputaccessoryview">InputAccessoryView</a>: 一个只在出现输入法的情况下才显示的 toolbar，<code>InputAccessoryView的nativeID</code> 对应 <code>TextInput的inputAccessoryViewID</code>对其进行操作</li>
+</ul>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://reactnative.dev/docs/activityindicator">ActivityIndicator</a>: loading icon</li>
+<li><a target="_blank" rel="noopener" href="https://reactnative.dev/docs/alert">Alert</a>: <code>Alert.alert(title, message?, buttonsConfigArray?, options?)</code></li>
+<li><a target="_blank" rel="noopener" href="https://reactnative.dev/docs/animated">Animated</a>: using <code>Animated.timing()</code> updates <code>Animated.Value</code>, 例子：<code>const fadeAnim = useRef(new Animated.Value(0)).current; const fadeIn = () =&gt; &#123; Animated.timing(fadeAnim, &#123;toValue: 1, duration: 1000&#125;).start() &#125;; const fadeOut = () =&gt; &#123; Animated.timing(fadeAnim, &#123;toValue: 0, duration: 1000&#125;).start() &#125;</code></li>
+<li><a target="_blank" rel="noopener" href="https://reactnative.dev/docs/dimensions">Dimensions</a>: <code>Dimensions.addEventListener(&quot;change&quot;, (&#123; window, screen &#125;)=&gt;&#123; setDimensions(&#123; window, screen &#125;) &#125;)</code>, <code>Dimensions.get(&#39;window&#39;).height</code> 这里的 window 更推荐使用<code>useWindowDimensions</code></li>
+<li><a target="_blank" rel="noopener" href="https://reactnative.dev/docs/keyboardavoidingview">KeyboardAvoidingView</a>: 当自带输入法出现时，该 view 自动收缩 based on the keyboard height. <code>&lt;KeyboardAvoidingView&gt;&lt;TouchableWithoutFeedback onPress=&#123;Keyboard.dismiss&#125;&gt;放置需要根据键盘调整位置的组件&lt;/TouchableWithoutFeedback&gt;&lt;/KeyboardAvoidingView&gt;</code> <em>配合 flex</em></li>
+<li><a target="_blank" rel="noopener" href="https://reactnative.dev/docs/linking">Linking</a>: 对应安卓的<code>Deep Links</code> 和 IOS 的<code>Universal Links</code>,可以根据 url 跳转其他 app</li>
+<li><a target="_blank" rel="noopener" href="https://reactnative.dev/docs/modal">Modal</a>:</li>
+<li><a target="_blank" rel="noopener" href="https://reactnative.dev/docs/pixelratio">PixelRatio</a>: 返回设备的像素分辨率 和 缩放大小。<code>PixelRatio.getPixelSizeForLayoutSize(layoutSize: number): number</code> 返回<code>PixelRatio.get() * layoutSize</code>把 dp 单位转为 px <em>roundToNearestPixel 相比这个 返回值会 Math.round 取整</em></li>
+<li><a target="_blank" rel="noopener" href="https://reactnative.dev/docs/refreshcontrol">RefreshControl</a>: 刷新 icon</li>
+<li><a target="_blank" rel="noopener" href="https://reactnative.dev/docs/statusbar">StatusBar</a>: 控制手机顶端的状态栏，显示隐藏和样式 <em>虽然也有 Imperative API 但是不建议使用 因为全局</em></li>
+</ul>
+<h3 id="一些-native-组件可接受的-style-有一定限制"><a href="#一些-native-组件可接受的-style-有一定限制" class="headerlink" title="一些 native 组件可接受的 style 有一定限制"></a>一些 native 组件可接受的 style 有一定限制</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://reactnative.dev/docs/image-style-props">https://reactnative.dev/docs/image-style-props</a></li>
+<li><a target="_blank" rel="noopener" href="https://reactnative.dev/docs/text-style-props">https://reactnative.dev/docs/text-style-props</a><br>…</li>
+</ul>
+<h2 id="跨端实现"><a href="#跨端实现" class="headerlink" title="跨端实现"></a>跨端实现</h2><h3 id="Platform-模块"><a href="#Platform-模块" class="headerlink" title="Platform 模块"></a>Platform 模块</h3><ul>
+<li><code>Platform.OS</code> : ‘ios’ / ‘android’</li>
+<li><code>Platform.select(&#123;key: returnedContent&#125;)</code> : ios / android / native / default</li>
+<li><code>Platform.Version</code> :s</li>
+<li>文件后缀 自动(即 Platform.select 后台进程实现)识别 ‘XX.ios.js’ / ‘XX.android.js’， <code>import XX from &#39;./XX&#39;;</code><br><code>Container.js</code> # picked up by Webpack, Rollup or any other Web bundler<br><code>Container.native.js</code> # picked up by the React Native bundler for both Android and iOS (Metro), Configure your Web bundler to ignore .native.js 减少 bundle 体积</li>
+</ul>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> Platform<span class="token punctuation">,</span> StyleSheet <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">from</span> <span class="token string">"react-native"</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> Component <span class="token operator">=</span> Platform<span class="token punctuation">.</span><span class="token function">select</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  ios<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"ComponentIOS"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  android<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"ComponentAndroid"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  native<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"ComponentForNative"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"ComponentForWeb"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> majorVersionIOS <span class="token operator">=</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>Platform<span class="token punctuation">.</span>Version<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 对ios version 取整</span>
+
+<span class="token keyword">return</span> <span class="token operator">&lt;</span>Component <span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> styles <span class="token operator">=</span> StyleSheet<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  container<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    height<span class="token punctuation">:</span> Platform<span class="token punctuation">.</span>OS <span class="token operator">===</span> <span class="token string">"ios"</span> <span class="token operator">?</span> <span class="token number">200</span> <span class="token punctuation">:</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 'android'</span>
+    flex<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token operator">...</span>Platform<span class="token punctuation">.</span><span class="token function">select</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+      ios<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        backgroundColor<span class="token punctuation">:</span> <span class="token string">"red"</span><span class="token punctuation">,</span>
+      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+      android<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        backgroundColor<span class="token punctuation">:</span> <span class="token string">"green"</span><span class="token punctuation">,</span>
+      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// other platforms, web for example</span>
+        backgroundColor<span class="token punctuation">:</span> <span class="token string">"blue"</span><span class="token punctuation">,</span>
+      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="开发辅助工具"><a href="#开发辅助工具" class="headerlink" title="开发辅助工具"></a>开发辅助工具</h2><ul>
+<li>构建方式：<ol>
+<li><code>react-native-cli</code> 配合 <code>Android Studio</code>和<code>Xcode</code>: <code>npm install -g react-native-cli</code> &amp; <code>react-native init demo</code> &amp; <code>react-native run-ios</code></li>
+<li><code>expo</code> 的 <code>npm install -g expo-cli</code> &amp; <code>expo init</code> &amp; <code>npm run android</code></li>
+</ol>
+</li>
+<li>一个 popular boilerplat 脚手架 模版 <a target="_blank" rel="noopener" href="https://shift.infinite.red/creating-a-trivia-app-with-ignite-bowser-part-1-1987cc6e93a1">ignite</a> <code>npm i ignite-cli -g</code> <code>npx ignite-cli new PizzaApp --expo</code> <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/cb8dc64e650a">https://www.jianshu.com/p/cb8dc64e650a</a><ul>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/39170622/what-is-the-difference-between-expo-and-react-native">expo vs ignite</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903599793766413">几种脚手架对比 react-native-cli、create-react-native-app、expo</a></li>
+<li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000018768848">Expo，React Native CLI，CocoaPods</a></li>
+</ul>
+</li>
+<li>一个 RN 专用 在线 IDE<a target="_blank" rel="noopener" href="https://snack.expo.io/">snack</a></li>
+<li>RN 的<a target="_blank" rel="noopener" href="https://reactnative.directory/">NPM</a></li>
+<li>一个傻瓜<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000016272845">教程</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.infoq.cn/article/2018/08/18-11-react-native-componetlib">推荐组件库</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/jhen0409/react-native-debugger">debugger</a></li>
+<li><a target="_blank" rel="noopener" href="https://fbflipper.com/">推荐的 IDE</a></li>
+</ul>
+<h1 id="嗯哼"><a href="#嗯哼" class="headerlink" title="嗯哼"></a>嗯哼</h1><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.izhaoo.com/2020/06/25/rn-adapt-to-full-screen/">全面屏适配方案</a>:<code>Dimensions.get(&#39;window&#39;).height + StatusBar.currentHeight</code>&amp; 判断纵横比1.8<br><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000021258428">https://segmentfault.com/a/1190000021258428</a><br><a target="_blank" rel="noopener" href="https://learnku.com/articles/40958">rn 的 fetch</a></p>
+</blockquote>
+
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">能否打赏一杯咖啡?</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信“扫一扫”</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        <p class="reprint-tip">
+            <i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;
+            <span>转载规则</span>
+        </p>
+        
+            <div class="center-align">
+                <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                    <img alt=""
+                         style="border-width:0"
+                         src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
+                </a>
+            </div>
+            <br/>
+            <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title" rel="dct:type">
+                    《React Native》
+                </span> 由
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2021/05/01/bi-ji-react-native/" property="cc:attributionName"
+               rel="cc:attributionURL">
+                Ryan Who
+            </a> 采用
+            <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                知识共享署名 4.0 国际许可协议
+            </a>进行许可。
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments input[type=text],
+    #vcomments input[type=email],
+    #vcomments input[type=url],
+    #vcomments textarea {
+        box-sizing: border-box;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #42b983;
+        font-weight: 500;
+        text-decoration: underline;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        margin: unset;
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        margin: unset;
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        margin: unset;
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        margin: unset;
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        margin: unset;
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        margin: unset;
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div id="vcomments" class="card-content"></div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'nIm0EpgkwmISA1OvAkn9CuKp-MdYXbMMI',
+        appKey: 'MaeG3zmgpfFBHEU6pa22dF0t',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'retro',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/05/08/bi-ji-wang-luo-webworker/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="webWorker">
+                        
+                        <span class="card-title">webWorker</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            ForewordJavaScript 作为浏览器脚本语言，被定义为了只有单线程的语言，也就是同一时间只能做同一事情。如果 JavaScript 不是单线程，那么就有点棘手了。比如，与用户交互或者对 DOM 进行操作时，在一个线程上修改某个 
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-05-08
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%AC%94%E8%AE%B0/" class="post-category" target="_blank">
+                                    笔记
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/todo/" target="_blank">
+                        <span class="chip bg-color">todo</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" target="_blank">
+                        <span class="chip bg-color">性能优化</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/05/01/bi-ji-react-yuan-ma-bai-du/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="React源码拜读">
+                        
+                        <span class="card-title">React源码拜读</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            概览官网 guide
+React-coreReact 早期口号是 Rethinking Best Practices(重新思考最佳实践)。背靠 Facebook 的 React，从开始起就不缺关注和用户，而且 React 想要做的是用更好的
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-05-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%AC%94%E8%AE%B0/" class="post-category" target="_blank">
+                                    笔记
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/todo/" target="_blank">
+                        <span class="chip bg-color">todo</span>
+                    </a>
+                    
+                    <a href="/tags/react/" target="_blank">
+                        <span class="chip bg-color">react</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + "来源: Hojondo's<br />"
+            + '作者: Ryan Who<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+ <footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            &copy; 2019 Hojondo. All Rights Reserved.
+
+            
+            &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+            <span class="white-color">183.2k</span>
+            
+
+            <br>
+            <span id="sitetime"></span>
+
+            
+            
+            <br>
+            
+            <span id="busuanzi_container_site_pv" style='display:none'>
+                <i class="fa fa-heart-o"></i>
+                本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv" style='display:none'>
+                人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+            </span>
+            
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+    <a href="mailto:hztdream@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<!-- 不蒜子计数 虚拟初始值 -->
+<!--<script>-->
+<!--    $(document).ready(function () {-->
+
+<!--        var int = setInterval(fixCount, 50);-->
+<!--        var pvcountOffset = 80000;-->
+<!--        var uvcountOffset = 20000;-->
+
+<!--        function fixCount() {-->
+<!--            console.log('fixCount');-->
+<!--            if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {-->
+<!--                console.log('document');-->
+<!--                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + pvcountOffset);-->
+<!--                clearInterval(int);-->
+<!--            }-->
+<!--            if ($("#busuanzi_container_site_pv").css("display") != "none") {-->
+<!--                console.log('jquery');-->
+<!--                $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + uvcountOffset); // 加上初始数据-->
+<!--                clearInterval(int);-->
+<!--            }-->
+<!--        }-->
+<!--    });-->
+<!--</script>-->
+
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+        var t1 = Date.UTC(2019, 8, 1, 0, 0, 0);
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已运行 " + diffYears + " 年 " + diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+    }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
+ <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script> <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+     
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+    <!--<script src="https://api.itswincer.com/hitokoto/v2/?encode=js" defer></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js"></script>
+    <!-- <script>
+      fetch("https://v1.hitokoto.cn")
+        .then(function (res) {
+          return res.json();
+        })
+        .then(function (data) {
+          var hitokoto = document.getElementById("hitokoto");
+          if (!!hitokoto)
+            hitokoto.innerText = "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + data.hitokoto;
+          var hitofrom = document.getElementById("hitofrom");
+          if (!!hitofrom) hitofrom.innerText = "— 「" + data.from + "\xa0」";
+        })
+        .catch(function (err) {
+          console.error(err);
+        });
+    </script> -->
+    <script>
+      function subtitleType() {
+        fetch("https://v1.hitokoto.cn")
+          .then((response) => response.json())
+          .then((data) => {
+            var from = "— 「\xa0" + data.from + "\xa0」";
+            var sub = new Array(data.hitokoto);
+            var hitokoto = document.getElementById("hitokoto");
+            if (!!hitokoto)
+              var typed = new Typed("#hitokoto", {
+                strings: sub,
+                startDelay: 300,
+                typeSpeed: 150,
+                loop: true,
+                backSpeed: 50,
+              });
+            var hitofrom = document.getElementById("hitofrom");
+            if (!!hitofrom) hitofrom.innerText = from;
+          })
+          .catch(function (err) {
+            console.error(err);
+          });
+      }
+      subtitleType();
+    </script>
+  </body>
+</html>
