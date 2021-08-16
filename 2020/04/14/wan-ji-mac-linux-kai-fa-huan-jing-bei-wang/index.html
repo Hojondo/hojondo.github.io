@@ -476,14 +476,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1k
+                        1.2k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        5 分
+                        6 分
                     </div>
                     
                 
@@ -509,7 +509,8 @@
 </ul>
 </li>
 <li>user 配置<br>  <code>git config --global user.name &quot;XXX&quot;</code><br>  <code>git config --global user.email &quot;xxx@gmail.com&quot;</code></li>
-<li>alias 大家在代码提交到 icode 的代码仓库时，需要先过评审，无法直接 push 到该仓库，只能 push 到缓冲区。可以设置个名 bpush 的快捷指令：<br>  <code>git config --global alias.bpush &#39;!f() &#123; : push ; r=$1; [[ -z $r ]] &amp;&amp; r=origin; b=$2; t=$(awk &quot;&#123; print \$2 &#125;&quot; $(git rev-parse --git-dir)/HEAD); t=$&#123;t#refs/heads/&#125;; [[ -z $b ]] &amp;&amp; b=$t; cmd=&quot;git push $r HEAD:refs/for/$b%topic=$t&quot;; echo $cmd; echo; $cmd; &#125;; f&#39;</code></li>
+<li>简单的快速 push alias<br>  <code>git config --global alias.fpush &#39;!git add . &amp;&amp; git commit -m &quot;update&quot; &amp;&amp; git push&#39;</code></li>
+<li>alias 厂内代码提交到 icode 的代码仓库时，需要先过评审，无法直接 push 到该仓库，只能 push 到缓冲区。可以设置个名 bpush 的快捷指令：<br>  <code>git config --global alias.bpush &#39;!f() &#123; : push ; r=$1; [[ -z $r ]] &amp;&amp; r=origin; b=$2; t=$(awk &quot;&#123; print \$2 &#125;&quot; $(git rev-parse --git-dir)/HEAD); t=$&#123;t#refs/heads/&#125;; [[ -z $b ]] &amp;&amp; b=$t; cmd=&quot;git push $r HEAD:refs/for/$b%topic=$t&quot;; echo $cmd; echo; $cmd; &#125;; f&#39;</code></li>
 </ul>
 <h1 id="安装-最新-python-和-pip"><a href="#安装-最新-python-和-pip" class="headerlink" title="安装 最新 python 和 pip"></a>安装 最新 python 和 pip</h1><p><code>brew install python</code><br>因为 mac 系统自带 2.x，安装 python 后 最好不要直接修改默认的 python2，防止导致系统某些用 python2 写的系统文件出错<br>可以执行<code>python3 xx.py</code><br>check:<br><code>python3 --version</code><br><code>python3 -m pip --version</code></p>
 <p><a target="_blank" rel="noopener" href="https://pip.pypa.io/en/stable/">pip 是 python 的 package installer</a></p>
@@ -544,49 +545,53 @@
 <h1 id="转移-bash-中的配置到-zsh"><a href="#转移-bash-中的配置到-zsh" class="headerlink" title="转移 bash 中的配置到 zsh"></a>转移 bash 中的配置到 zsh</h1><p><em>如果 nvm / node 在 zsh 之前安装的话 需要</em></p>
 <blockquote>
 <p>注：切换成 zsh 后，需要把 bash shell <code>.bashrc</code> 的 PATH 配置项 合并到 <code>.zshrc</code><br>如：nvm 配置：<a target="_blank" rel="noopener" href="https://github.com/nvm-sh/nvm#zsh">https://github.com/nvm-sh/nvm#zsh</a><br>在 .zshrc 结尾加：</p>
-<pre class=" language-shell"><code class="language-shell">export PATH=$HOME/bin:/usr/local/bin:$PATH
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+<pre class=" language-bash"><code class="language-bash"><span class="token function">export</span> PATH<span class="token operator">=</span><span class="token variable">$HOME</span>/bin:/usr/local/bin:<span class="token variable">$PATH</span>
+<span class="token function">export</span> NVM_DIR<span class="token operator">=</span><span class="token string">"<span class="token variable">$HOME</span>/.nvm"</span>
+<span class="token punctuation">[</span> -s <span class="token string">"<span class="token variable">$NVM_DIR</span>/nvm.sh"</span> <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> \. <span class="token string">"<span class="token variable">$NVM_DIR</span>/nvm.sh"</span>  <span class="token comment" spellcheck="true"># This loads nvm</span>
+<span class="token punctuation">[</span> -s <span class="token string">"<span class="token variable">$NVM_DIR</span>/bash_completion"</span> <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> \. <span class="token string">"<span class="token variable">$NVM_DIR</span>/bash_completion"</span>  <span class="token comment" spellcheck="true"># This loads nvm bash_completion</span>
 </code></pre>
 </blockquote>
 <h1 id="安装-nvm"><a href="#安装-nvm" class="headerlink" title="安装 nvm"></a>安装 nvm</h1><p>在 bash shell 下<br><a target="_blank" rel="noopener" href="https://github.com/nvm-sh/nvm">官方链接</a><br><code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash</code> / <code>wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash</code><br>或<a target="_blank" rel="noopener" href="https://github.com/nvm-sh/nvm#git-install">通过 git</a></p>
-<h2 id="切换-node-version"><a href="#切换-node-version" class="headerlink" title="切换 node version"></a>切换 node version</h2><p><code>nvm install node # &quot;node&quot; is an alias for the latest version</code> 或 <code>nvm install 6.14.4 # or 10.10.0, 8.9.1, etc</code><br><code>nvm use node</code><br><code>nvm which 5.0 #get the path to the executable to where it was installed</code></p>
+<h2 id="切换-node-version"><a href="#切换-node-version" class="headerlink" title="切换 node version"></a>切换 node version</h2><pre class=" language-bash"><code class="language-bash">nvm <span class="token function">install</span> node <span class="token comment" spellcheck="true"># "node" is an alias for the latest version`</span>
+<span class="token comment" spellcheck="true"># nvm install 6.14.4 # or 10.10.0, 8.9.1, etc</span>
+nvm use node
+nvm <span class="token function">which</span> 5.0 <span class="token comment" spellcheck="true">#get the path to the executable to where it was installed</span>
+</code></pre>
 <h1 id="安装-yarn"><a href="#安装-yarn" class="headerlink" title="安装 yarn"></a>安装 yarn</h1><p><code>npm i -g yarn</code><br><code>yarn init</code><br><code>yarn install / yarn</code><br><code>yarn add [package] --dev</code></p>
-<h1 id="安装-docker"><a href="#安装-docker" class="headerlink" title="安装 docker"></a>安装 docker</h1><pre class=" language-shell"><code class="language-shell">sudo apt-get remove docker docker-engine docker.io containerd runc
-sudo apt-get update
-sudo apt-get install \
+<h1 id="安装-docker"><a href="#安装-docker" class="headerlink" title="安装 docker"></a>安装 docker</h1><pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt-get</span> remove docker docker-engine docker.io containerd runc
+<span class="token function">sudo</span> <span class="token function">apt-get</span> update
+<span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> \
     apt-transport-https \
     ca-certificates \
     curl \
     gnupg-agent \
     software-properties-common
-# 添加
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo apt-key fingerprint 0EBFCD88
-# 启动docker
-sudo systemctl enable docker
-sudo systemctl start docker
-# 建立 docker 用户组
-sudo groupadd docker
-sudo usermod -aG docker $USER
-# 解决ubuntu安装docker很慢的问题，把官方的仓库源https://download.docker.com/linux/ubuntu 替换成阿里的
-sudo add-apt-repository \
-   "deb [arch=amd64] https://mirrors.aliyun.com/docker-ce/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
-sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io
-# 换docker hub仓库源，改成阿里云申请的私人镜像[镜像中心-镜像加速器](https://account.aliyun.com/login/login.htm?oauth_callback=https://cr.console.aliyun.com/#/imageList)
-sudo tee /etc/docker/daemon.json <<-'EOF'\
-{\
-  "registry-mirrors": ["https://d0usu3nm.mirror.aliyuncs.com"]\
-}\
+<span class="token comment" spellcheck="true"># 添加</span>
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg <span class="token operator">|</span> <span class="token function">sudo</span> apt-key add -
+<span class="token function">sudo</span> apt-key fingerprint 0EBFCD88
+<span class="token comment" spellcheck="true"># 启动docker</span>
+<span class="token function">sudo</span> systemctl <span class="token function">enable</span> docker
+<span class="token function">sudo</span> systemctl start docker
+<span class="token comment" spellcheck="true"># 建立 docker 用户组</span>
+<span class="token function">sudo</span> <span class="token function">groupadd</span> docker
+<span class="token function">sudo</span> <span class="token function">usermod</span> -aG docker <span class="token variable">$USER</span>
+<span class="token comment" spellcheck="true"># 解决ubuntu安装docker很慢的问题，把官方的仓库源https://download.docker.com/linux/ubuntu 替换成阿里的</span>
+<span class="token function">sudo</span> add-apt-repository \
+   <span class="token string">"deb [arch=amd64] https://mirrors.aliyun.com/docker-ce/linux/ubuntu \
+   <span class="token variable"><span class="token variable">$(</span>lsb_release -cs<span class="token variable">)</span></span> \
+   stable"</span>
+<span class="token function">sudo</span> <span class="token function">apt-get</span> update
+<span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> docker-ce docker-ce-cli containerd.io
+<span class="token comment" spellcheck="true"># 换docker hub仓库源，改成阿里云申请的私人镜像[镜像中心-镜像加速器](https://account.aliyun.com/login/login.htm?oauth_callback=https://cr.console.aliyun.com/#/imageList)</span>
+<span class="token function">sudo</span> <span class="token function">tee</span> /etc/docker/daemon.json <span class="token operator">&lt;&lt;</span>-<span class="token string">'EOF'</span>\
+<span class="token punctuation">{</span>\
+  <span class="token string">"registry-mirrors"</span><span class="token keyword">:</span> <span class="token punctuation">[</span><span class="token string">"https://d0usu3nm.mirror.aliyuncs.com"</span><span class="token punctuation">]</span>\
+<span class="token punctuation">}</span>\
 EOF
-# 重启docker
-sudo systemctl daemon-reload
-sudo systemctl restart docker
-# 测试 是否安装成功可pull image
+<span class="token comment" spellcheck="true"># 重启docker</span>
+<span class="token function">sudo</span> systemctl daemon-reload
+<span class="token function">sudo</span> systemctl restart docker
+<span class="token comment" spellcheck="true"># 测试 是否安装成功可pull image</span>
 docker run hello-world
 </code></pre>
 <h1 id="安装-vscode"><a href="#安装-vscode" class="headerlink" title="安装 vscode"></a>安装 vscode</h1><p>Settings sync 同步插件及 setting.config</p>
@@ -1325,7 +1330,7 @@ font-size 设置 fonti
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">180.2k</span>
+            <span class="white-color">182.8k</span>
             
 
             <br>

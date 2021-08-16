@@ -512,11 +512,11 @@
 </li>
 <li><p>在<strong>adb</strong>文件夹内运行 cmd.exe，依次输入以下<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/34412300">命令</a>：</p>
 <blockquote>
-<pre class=" language-shell"><code class="language-shell">adb devices
-adb reboot bootloader
+<pre class=" language-bash"><code class="language-bash">adb devices
+adb <span class="token function">reboot</span> bootloader
 fastboot flash recovery twrp.img
-fastboot boot twrp.img # 此行命令可以进TWRP的rec（或者刷入TWRP后重启前按音量加减和电源键进手机rec模式）
-fastboot reboot
+fastboot boot twrp.img <span class="token comment" spellcheck="true"># 此行命令可以进TWRP的rec（或者刷入TWRP后重启前按音量加减和电源键进手机rec模式）</span>
+fastboot <span class="token function">reboot</span>
 </code></pre>
 </blockquote>
 </li>
@@ -1256,7 +1256,7 @@ fastboot reboot
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">180.2k</span>
+            <span class="white-color">182.8k</span>
             
 
             <br>

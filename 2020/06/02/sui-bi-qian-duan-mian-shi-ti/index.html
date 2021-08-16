@@ -476,14 +476,14 @@ js">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        11.3k
+                        13.8k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        44 分
+                        53 分
                     </div>
                     
                 
@@ -869,8 +869,8 @@ p<span class="token punctuation">.</span>a<span class="token punctuation">;</spa
 <h4 id="Node-环境下"><a href="#Node-环境下" class="headerlink" title="Node 环境下"></a>Node 环境下</h4><p><a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/docs/guides/event-loop-timers-and-nexttick/">Node 的环境</a></p>
 <p>教程(<a target="_blank" rel="noopener" href="https://juejin.im/post/5dd24ecce51d453fb903ff37">https://juejin.im/post/5dd24ecce51d453fb903ff37</a>)</p>
 <p>6 个阶段，它们会按照顺序反复运行。每当进入某一个阶段的时候，都会从对应的回调队列中取出函数去执行。当队列为空或者执行的回调函数数量到达系统设定的阈值，就会进入下一阶段</p>
-<pre class=" language-shell"><code class="language-shell">   ┌───────────────────────────┐
-┌─>│      timers定时器          │
+<pre class=" language-bash"><code class="language-bash">   ┌───────────────────────────┐
+┌─<span class="token operator">></span>│      timers定时器          │
 │  └─────────────┬─────────────┘
 │  ┌─────────────┴─────────────┐
 │  │     pending callbacks     │
@@ -879,7 +879,7 @@ p<span class="token punctuation">.</span>a<span class="token punctuation">;</spa
 │  │       idle, prepare       │
 │  └─────────────┬─────────────┘      ┌───────────────┐
 │  ┌─────────────┴─────────────┐      │   incoming:   │
-│  │           poll轮询         │<─────┤  connections, │
+│  │           poll轮询         │<span class="token operator">&lt;</span>─────┤  connections, │
 │  └─────────────┬─────────────┘      │   data, etc.  │
 │  ┌─────────────┴─────────────┐      └───────────────┘
 │  │        check检测           │
@@ -2256,7 +2256,7 @@ process<span class="token punctuation">.</span><span class="token function">next
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">180.2k</span>
+            <span class="white-color">182.8k</span>
             
 
             <br>

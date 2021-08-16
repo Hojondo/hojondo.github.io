@@ -512,33 +512,33 @@ gulpvinyl-ftp自">
 <li><code>webpack</code>自搭建.webpack-devServer、webpack-merge、html-webpack-plugin、resolve.alias</li>
 <li><code>babel</code> stage-3、ployfill、react</li>
 </ul>
-<h2 id="项目目录"><a href="#项目目录" class="headerlink" title="项目目录"></a>项目目录</h2><pre class=" language-shell"><code class="language-shell">    |-dist*
-    |-build                     # webpack 配置文件
-    |-public                    # 静态文件
-    |-src
-        |-main.js               # webpack 的入口文件；
-        |-App.vue               # 根组件
-        |-layout                # 整体布局
-        |-api                   # 存放api请求(文件名与模型名称基本一致,文件名使用小驼峰, 方法名称与后端restful控制器一致)
-        |-components            # 存放项目共用的组件,通常是一些可复用的组件会单独存放在该目录
-        |-pages                 # 存放项目业务代码
-            |-page1
-                |-app.js        # 独立页面入口文件
-                |-index.js      # 单页面jsx
-                |-index.scss    # 样式
-                |-component.js  # 局部组件
-            |-...
-        |-common                # 存放项目共用的资源，如：常用的图片、图标，样式，常量文件等等
-            |-assets            # 存放项目共用的代码以外的资源，如：图片、图标、视频、字体 等
-            |-styles            #
-                |-index.scss    # 全局样式，出口文件
-                |-mixin.scss    # 混合指令 定义可重复使用的样式（字体通用样式
-                |-constant.scss # 存放scss的常量（主题相关通用颜色
-                |-...
-            |-...
-    |-package.json              # npm包配置文件，里面定义了项目的npm脚本，依赖包等信息
-    |-README.md                 # 项目说明文件
-    |-.babelrc                  # babel 的配置文件
+<h2 id="项目目录"><a href="#项目目录" class="headerlink" title="项目目录"></a>项目目录</h2><pre class=" language-bash"><code class="language-bash">    <span class="token operator">|</span>-dist*
+    <span class="token operator">|</span>-build                     <span class="token comment" spellcheck="true"># webpack 配置文件</span>
+    <span class="token operator">|</span>-public                    <span class="token comment" spellcheck="true"># 静态文件</span>
+    <span class="token operator">|</span>-src
+        <span class="token operator">|</span>-main.js               <span class="token comment" spellcheck="true"># webpack 的入口文件；</span>
+        <span class="token operator">|</span>-App.vue               <span class="token comment" spellcheck="true"># 根组件</span>
+        <span class="token operator">|</span>-layout                <span class="token comment" spellcheck="true"># 整体布局</span>
+        <span class="token operator">|</span>-api                   <span class="token comment" spellcheck="true"># 存放api请求(文件名与模型名称基本一致,文件名使用小驼峰, 方法名称与后端restful控制器一致)</span>
+        <span class="token operator">|</span>-components            <span class="token comment" spellcheck="true"># 存放项目共用的组件,通常是一些可复用的组件会单独存放在该目录</span>
+        <span class="token operator">|</span>-pages                 <span class="token comment" spellcheck="true"># 存放项目业务代码</span>
+            <span class="token operator">|</span>-page1
+                <span class="token operator">|</span>-app.js        <span class="token comment" spellcheck="true"># 独立页面入口文件</span>
+                <span class="token operator">|</span>-index.js      <span class="token comment" spellcheck="true"># 单页面jsx</span>
+                <span class="token operator">|</span>-index.scss    <span class="token comment" spellcheck="true"># 样式</span>
+                <span class="token operator">|</span>-component.js  <span class="token comment" spellcheck="true"># 局部组件</span>
+            <span class="token operator">|</span>-<span class="token punctuation">..</span>.
+        <span class="token operator">|</span>-common                <span class="token comment" spellcheck="true"># 存放项目共用的资源，如：常用的图片、图标，样式，常量文件等等</span>
+            <span class="token operator">|</span>-assets            <span class="token comment" spellcheck="true"># 存放项目共用的代码以外的资源，如：图片、图标、视频、字体 等</span>
+            <span class="token operator">|</span>-styles            <span class="token comment" spellcheck="true">#</span>
+                <span class="token operator">|</span>-index.scss    <span class="token comment" spellcheck="true"># 全局样式，出口文件</span>
+                <span class="token operator">|</span>-mixin.scss    <span class="token comment" spellcheck="true"># 混合指令 定义可重复使用的样式（字体通用样式</span>
+                <span class="token operator">|</span>-constant.scss <span class="token comment" spellcheck="true"># 存放scss的常量（主题相关通用颜色</span>
+                <span class="token operator">|</span>-<span class="token punctuation">..</span>.
+            <span class="token operator">|</span>-<span class="token punctuation">..</span>.
+    <span class="token operator">|</span>-package.json              <span class="token comment" spellcheck="true"># npm包配置文件，里面定义了项目的npm脚本，依赖包等信息</span>
+    <span class="token operator">|</span>-README.md                 <span class="token comment" spellcheck="true"># 项目说明文件</span>
+    <span class="token operator">|</span>-.babelrc                  <span class="token comment" spellcheck="true"># babel 的配置文件</span>
 </code></pre>
 <h2 id="重点Mark"><a href="#重点Mark" class="headerlink" title="重点Mark"></a>重点Mark</h2><h3 id="Webpack多入口多出口-实现各页面独立index-html-js"><a href="#Webpack多入口多出口-实现各页面独立index-html-js" class="headerlink" title="Webpack多入口多出口 实现各页面独立index.html/js"></a>Webpack多入口多出口 实现各页面独立index.html/js</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// webpack.base.js</span>
 <span class="token keyword">const</span> Creator_entries <span class="token operator">=</span> <span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
@@ -1279,7 +1279,7 @@ s
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">180.2k</span>
+            <span class="white-color">182.8k</span>
             
 
             <br>
