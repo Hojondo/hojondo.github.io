@@ -480,7 +480,7 @@ const s = Symbol(&amp;#39;key用来描述这个symbol值&amp;#39;) 这里的参�
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        465
+                        457
                     </div>
                     
 
@@ -510,12 +510,12 @@ const s = Symbol(&amp;#39;key用来描述这个symbol值&amp;#39;) 这里的参�
 <li><code>Symbol.keyFor(Symbol.for(&quot;foo&quot;)) === &quot;foo&quot;</code>: 返回一个使用 Symbol.for 方法创建的 symbol 值的 key</li>
 </ul>
 <h2 id="Symbol-iterator"><a href="#Symbol-iterator" class="headerlink" title="Symbol.iterator"></a>Symbol.iterator</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/iterator">mdn</a> 覆盖定义某个 object 的默认 iterator 迭代方法,Used by <code>for...of</code></p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> obj1 <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
-obj<span class="token punctuation">[</span>Symbol<span class="token punctuation">.</span>iterator<span class="token punctuation">]</span> <span class="token operator">=</span>  <span class="token operator">=</span> <span class="token keyword">function</span><span class="token operator">*</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> obj1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+obj<span class="token punctuation">[</span>Symbol<span class="token punctuation">.</span>iterator<span class="token punctuation">]</span> <span class="token operator">=</span>  <span class="token operator">=</span> <span class="token keyword">function</span><span class="token operator">*</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">yield</span> <span class="token number">1</span><span class="token punctuation">;</span>
   <span class="token keyword">yield</span> <span class="token number">2</span><span class="token punctuation">;</span>
   <span class="token keyword">yield</span> <span class="token number">3</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token operator">...</span>iterable1<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Array [1, 2, 3]</span>
 </code></pre>
 <h2 id="Symbol-asyncIterator"><a href="#Symbol-asyncIterator" class="headerlink" title="Symbol.asyncIterator"></a>Symbol.asyncIterator</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/asyncIterator">mdn</a><br>覆盖定义某个 object 的默认 AsyncIterator 迭代方法，Used by**<code>for await...of</code>**</p>
@@ -1245,7 +1245,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">183.2k</span>
+            <span class="white-color">180.2k</span>
             
 
             <br>

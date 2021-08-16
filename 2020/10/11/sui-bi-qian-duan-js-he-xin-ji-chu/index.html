@@ -564,25 +564,25 @@
 <ol start="2">
 <li>promise 异步</li>
 </ol>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> wait <span class="token operator">=</span> <span class="token punctuation">(</span>timeout<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> wait <span class="token operator">=</span> <span class="token punctuation">(</span>timeout<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
   <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">setTimeout</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> timeout<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token function">wait</span><span class="token punctuation">(</span><span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">setRefreshing</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">/**
-new promise((reslove, reject) = > &amp;#123;
-    setTimeout  (()=>&amp;#123;
+new promise((reslove, reject) = > {
+    setTimeout  (()=>{
         reslove()
-    &amp;#125;, 2000)
-&amp;#125;)
+    }, 2000)
+})
 */</span>
 </code></pre>
 <h1 id="冷知识"><a href="#冷知识" class="headerlink" title="冷知识"></a>冷知识</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/52cik/p/js-assignment-operators.html">赋值详详详详解</a><br><a target="_blank" rel="noopener" href="http://xiaoyuze88.github.io/blog/2013/09/20/%E7%A5%9E%E5%A5%87%E7%9A%84JS%E8%BF%9E%E7%BB%AD%E8%B5%8B%E5%80%BC%E8%AF%AD%E5%8F%A5">神奇的 JS 连续赋值语句</a><br>JS 赋值语句 永远返回值，声明语句 永远返回 undefined<br>JavaScript 中赋值语句的返回值就是等号右边的值，例子中 obj.getThis 的值是一个匿名函数，非严格模式下 this 会指向 window</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
   name<span class="token punctuation">:</span> <span class="token string">"My Object"</span><span class="token punctuation">,</span>
-  getThis<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  getThis<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token punctuation">(</span>obj<span class="token punctuation">.</span>getThis <span class="token operator">=</span> obj<span class="token punctuation">.</span>getThis<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// window</span>
 <span class="token comment" spellcheck="true">//</span>
 <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 会判断为10，隐式转换为true</span>
@@ -600,23 +600,23 @@ d<span class="token punctuation">;</span> <span class="token comment" spellcheck
 e<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// "o"</span>
 
 <span class="token comment" spellcheck="true">//字符串转为的对象有length属性</span>
-<span class="token keyword">let</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> length<span class="token punctuation">:</span> len <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">=</span> <span class="token string">"hello"</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> <span class="token punctuation">{</span> length<span class="token punctuation">:</span> len <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token string">"hello"</span><span class="token punctuation">;</span>
 len<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 5</span>
 
-<span class="token keyword">let</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> toString<span class="token punctuation">:</span> s <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">=</span> <span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> <span class="token punctuation">{</span> toString<span class="token punctuation">:</span> s <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token number">123</span><span class="token punctuation">;</span>
 s <span class="token operator">===</span> Number<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>toString<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// true</span>
 
-<span class="token keyword">let</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> toString<span class="token punctuation">:</span> s <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> <span class="token punctuation">{</span> toString<span class="token punctuation">:</span> s <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
 s <span class="token operator">===</span> Boolean<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>toString<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// true</span>
 
-<span class="token keyword">let</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> prop<span class="token punctuation">:</span> x <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">=</span> undefined<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// TypeError</span>
-<span class="token keyword">let</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> prop<span class="token punctuation">:</span> y <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// TypeError</span>
+<span class="token keyword">let</span> <span class="token punctuation">{</span> prop<span class="token punctuation">:</span> x <span class="token punctuation">}</span> <span class="token operator">=</span> undefined<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// TypeError</span>
+<span class="token keyword">let</span> <span class="token punctuation">{</span> prop<span class="token punctuation">:</span> y <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// TypeError</span>
 </code></pre>
 <ol start="2">
 <li>数组是特殊的对象，所以可以对数组进行对象属性的解构</li>
 </ol>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">let</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> <span class="token number">0</span><span class="token punctuation">:</span> first<span class="token punctuation">,</span> <span class="token punctuation">[</span>arr<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span> last <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">=</span> arr<span class="token punctuation">;</span>
+<span class="token keyword">let</span> <span class="token punctuation">{</span> <span class="token number">0</span><span class="token punctuation">:</span> first<span class="token punctuation">,</span> <span class="token punctuation">[</span>arr<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span> last <span class="token punctuation">}</span> <span class="token operator">=</span> arr<span class="token punctuation">;</span>
 first<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 1</span>
 last<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 3</span>
 </code></pre>
@@ -624,15 +624,15 @@ last<span class="token punctuation">;</span> <span class="token comment" spellch
 <li>数组的解构赋值也可以这样使用 <code>let [,m] = [2,3]</code></li>
 <li>设置解构赋值的默认值</li>
 </ol>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">move</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> y <span class="token operator">=</span> <span class="token number">0</span> <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">move</span><span class="token punctuation">(</span><span class="token punctuation">{</span> x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> y <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">return</span> <span class="token punctuation">[</span>x<span class="token punctuation">,</span> y<span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <ol start="5">
 <li>如果解构赋值语句不是变量声明语句（前面没有 var，let，const），即对已经声明的变量进行进行解构赋值需要注意加上括号 <em>注：数组的解构赋值[x,y]=[y,x]好像不用加括号</em></li>
 </ol>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">let</span> x<span class="token punctuation">;</span>
-<span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> x <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> x<span class="token punctuation">:</span> <span class="token number">1</span> <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 和立即执行函数一样，该语句的前面一行最好加上分号，否则可能会被当做函数调用</span>
+<span class="token punctuation">(</span><span class="token punctuation">{</span> x <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span> x<span class="token punctuation">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 和立即执行函数一样，该语句的前面一行最好加上分号，否则可能会被当做函数调用</span>
 </code></pre>
 <ol start="6">
 <li>解构赋值 可以直接提取 JSON 数据，当作 object 处理</li>
@@ -644,26 +644,26 @@ last<span class="token punctuation">;</span> <span class="token comment" spellch
 <li><a target="_blank" rel="noopener" href="http://www.matrix67.com/blog/archives/268">http://www.matrix67.com/blog/archives/268</a></li>
 </ol>
 <h1 id="switch-case-不加-break-会怎样"><a href="#switch-case-不加-break-会怎样" class="headerlink" title="switch case 不加 break 会怎样"></a>switch case 不加 break 会怎样</h1><p>看一段代码:</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">switch</span> <span class="token punctuation">(</span>direction<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">switch</span> <span class="token punctuation">(</span>direction<span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">case</span> <span class="token string">"U"</span><span class="token punctuation">:</span>
   <span class="token keyword">case</span> <span class="token string">"R"</span><span class="token punctuation">:</span>
   <span class="token keyword">case</span> <span class="token string">"D"</span><span class="token punctuation">:</span>
   <span class="token keyword">case</span> <span class="token string">"L"</span><span class="token punctuation">:</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>在这个语句中，如果 direction=U。那么四个 case 语句都将执行。如果 direction=R。将执行剩下三个语句。<br>原因是 switch 语句原理是跳转到 caseX 位置执行剩下的语句，直到最后或者遇见 break 为止。<br>比如 React 源码中有过这样使用</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">switch</span> <span class="token punctuation">(</span>type<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">switch</span> <span class="token punctuation">(</span>type<span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">case</span> <span class="token string">"string"</span><span class="token punctuation">:</span>
   <span class="token keyword">case</span> <span class="token string">"number"</span><span class="token punctuation">:</span>
     invokeCallback <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
     <span class="token keyword">break</span><span class="token punctuation">;</span>
   <span class="token keyword">case</span> <span class="token string">"object"</span><span class="token punctuation">:</span>
-    <span class="token keyword">switch</span> <span class="token punctuation">(</span>children<span class="token punctuation">.</span>$$<span class="token keyword">typeof</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">switch</span> <span class="token punctuation">(</span>children<span class="token punctuation">.</span>$$<span class="token keyword">typeof</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
       <span class="token keyword">case</span> REACT_ELEMENT_TYPE<span class="token punctuation">:</span>
       <span class="token keyword">case</span> REACT_PORTAL_TYPE<span class="token punctuation">:</span>
         invokeCallback <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <h1 id="事件-event-捕获和冒泡详解"><a href="#事件-event-捕获和冒泡详解" class="headerlink" title="事件 event 捕获和冒泡详解"></a>事件 event 捕获和冒泡详解</h1><p><a target="_blank" rel="noopener" href="https://wangdoc.com/javascript/events/index.html">一个 event 详解</a></p>
 <p><a target="_blank" rel="noopener" href="https://zh.javascript.info/bubbling-and-capturing">https://zh.javascript.info/bubbling-and-capturing</a><br>DOM 事件标准描述了事件传播的 3 个阶段：</p>
@@ -1433,7 +1433,7 @@ Handlebars 是一个 Javascript 模板引擎，能让你轻松高效的编写语
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">183.2k</span>
+            <span class="white-color">180.2k</span>
             
 
             <br>

@@ -696,11 +696,11 @@ $ <span class="token function">git</span> stash
 <span class="token comment" spellcheck="true">#查看暂存文件队列列表</span>
 $ <span class="token function">git</span> stash list
 <span class="token comment" spellcheck="true">#恢复暂存内容，暂存区不删除</span>
-$ <span class="token function">git</span> stash apply <span class="token punctuation">[</span>stash@<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;2&amp;#125;]</span>
+$ <span class="token function">git</span> stash apply <span class="token punctuation">[</span>stash@<span class="token punctuation">{</span>2<span class="token punctuation">}</span><span class="token punctuation">]</span>
 <span class="token comment" spellcheck="true">#删除暂存文件</span>
-$ <span class="token function">git</span> stash drop <span class="token punctuation">[</span>stash@<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;0&amp;#125;]</span>
+$ <span class="token function">git</span> stash drop <span class="token punctuation">[</span>stash@<span class="token punctuation">{</span>0<span class="token punctuation">}</span><span class="token punctuation">]</span>
 <span class="token comment" spellcheck="true">#恢复并删除文件</span>
-$ <span class="token function">git</span> stash pop <span class="token punctuation">[</span>stash@<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;2&amp;#125;]</span>
+$ <span class="token function">git</span> stash pop <span class="token punctuation">[</span>stash@<span class="token punctuation">{</span>2<span class="token punctuation">}</span><span class="token punctuation">]</span>
 </code></pre>
 <h4 id="tag"><a href="#tag" class="headerlink" title="tag"></a><code>tag</code></h4><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 列出所有tag</span>
 $ <span class="token function">git</span> tag
@@ -826,7 +826,7 @@ $ <span class="token function">git</span> <span class="token function">diff</spa
 <span class="token comment" spellcheck="true"># 显示工作区与当前分支最新commit之间的差异</span>
 $ <span class="token function">git</span> <span class="token function">diff</span> HEAD
 <span class="token comment" spellcheck="true"># 显示今天你做了哪些改动</span>
-$ <span class="token function">git</span> <span class="token function">diff</span> --shortstat <span class="token string">"@&amp;#123;0 day ago&amp;#125;"</span>
+$ <span class="token function">git</span> <span class="token function">diff</span> --shortstat <span class="token string">"@{0 day ago}"</span>
 </code></pre>
 <h3 id="补丁-Patch"><a href="#补丁-Patch" class="headerlink" title="补丁 Patch"></a>补丁 Patch</h3><h4 id="diff-1"><a href="#diff-1" class="headerlink" title="diff"></a><code>diff</code></h4><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 生成补丁</span>
 $ <span class="token function">git</span> <span class="token function">diff</span> <span class="token operator">></span> <span class="token punctuation">..</span>/sync.patch
@@ -1580,7 +1580,7 @@ Cron 表达式csdc 链接[简书 链接]https://www.jianshu.com/p/9ddb40797685
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">183.2k</span>
+            <span class="white-color">180.2k</span>
             
 
             <br>

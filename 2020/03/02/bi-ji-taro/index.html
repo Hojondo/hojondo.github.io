@@ -577,15 +577,15 @@ Rea">
 </ul>
 <h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><p><code>navigateTo(params)</code><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/api/route/wx.navigateTo.html">打开新页面</a><br><code>redirectTo(params)</code><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/api/route/wx.redirectTo.html">在当前页面打开</a></p>
 <h3 id="路由传参"><a href="#路由传参" class="headerlink" title="路由传参"></a>路由传参</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// A页面：传入参数 id=2&amp;type=test</span>
-Taro<span class="token punctuation">.</span><span class="token function">navigateTo</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+Taro<span class="token punctuation">.</span><span class="token function">navigateTo</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   url<span class="token punctuation">:</span> <span class="token string">"/pages/page/path/name?id=2&amp;type=test"</span><span class="token punctuation">,</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// B页面：</span>
-<span class="token keyword">class</span> <span class="token class-name">B</span> <span class="token keyword">extends</span> <span class="token class-name">Taro<span class="token punctuation">.</span>Component</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-  <span class="token function">componentWillMount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span>params<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 输出 &amp;#123; id: 2, type: 'test' &amp;#125;</span>
-  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">B</span> <span class="token keyword">extends</span> <span class="token class-name">Taro<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
+  <span class="token function">componentWillMount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span>params<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 输出 { id: 2, type: 'test' }</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <h2 id="设计稿和尺寸单位"><a href="#设计稿和尺寸单位" class="headerlink" title="设计稿和尺寸单位"></a>设计稿和尺寸单位</h2><p>在 Taro 中尺寸单位建议使用 px、 百分比 %，Taro 默认会对所有单位进行转换。当转成微信小程序的时候，尺寸将默认转换为 100rpx，当转成 H5 时将默认转换为以 rem 为单位的值。<br>Taro 默认以 750px 作为换算尺寸标准，如果设计稿不是以 750px 为标准，则需要在项目配置 config/index.js 中进行设置，例如设计稿尺寸是 640px，则需要修改项目配置 <code>config/index.js</code> 中的 <code>designWidth</code> 配置为 640<br>建议使用 Taro 时，设计稿以 iPhone 6 750px 作为设计尺寸标准</p>
 <h2 id="静态资源引用"><a href="#静态资源引用" class="headerlink" title="静态资源引用"></a>静态资源引用</h2><ul>
@@ -1317,7 +1317,7 @@ vue 在各种 v-for v-if v-show 上封装的挺多,以及还有表单救星 v-mo
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">183.2k</span>
+            <span class="white-color">180.2k</span>
             
 
             <br>

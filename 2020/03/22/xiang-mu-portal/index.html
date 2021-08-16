@@ -478,7 +478,7 @@ gulpvinyl-ftp自">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        519
+                        479
                     </div>
                     
 
@@ -541,37 +541,37 @@ gulpvinyl-ftp自">
     |-.babelrc                  # babel 的配置文件
 </code></pre>
 <h2 id="重点Mark"><a href="#重点Mark" class="headerlink" title="重点Mark"></a>重点Mark</h2><h3 id="Webpack多入口多出口-实现各页面独立index-html-js"><a href="#Webpack多入口多出口-实现各页面独立index-html-js" class="headerlink" title="Webpack多入口多出口 实现各页面独立index.html/js"></a>Webpack多入口多出口 实现各页面独立index.html/js</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// webpack.base.js</span>
-<span class="token keyword">const</span> Creator_entries <span class="token operator">=</span> <span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-    <span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
-    arr<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>element <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> Creator_entries <span class="token operator">=</span> <span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+    <span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    arr<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>element <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
        
-        a<span class="token punctuation">[</span>element<span class="token punctuation">.</span>name<span class="token punctuation">]</span> <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token template-string"><span class="token string">`../src/pages/$&amp;#123;element.name&amp;#125;/app.js`</span></span><span class="token punctuation">)</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        a<span class="token punctuation">[</span>element<span class="token punctuation">.</span>name<span class="token punctuation">]</span> <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token template-string"><span class="token string">`../src/pages/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>element<span class="token punctuation">.</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/app.js`</span></span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> a<span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> Creator_HtmlWebpackPlugin <span class="token operator">=</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> Creator_HtmlWebpackPlugin <span class="token operator">=</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
     <span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    arr<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>title <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        a<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">HtmlWebpackPlugin</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    arr<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>title <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        a<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">HtmlWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
             title<span class="token punctuation">:</span>title<span class="token punctuation">.</span>title<span class="token punctuation">,</span>
-            filename<span class="token punctuation">:</span> <span class="token template-string"><span class="token string">`$&amp;#123;title.name&amp;#125;/index.html`</span></span><span class="token punctuation">,</span>
+            filename<span class="token punctuation">:</span> <span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>title<span class="token punctuation">.</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/index.html`</span></span><span class="token punctuation">,</span>
                chunks<span class="token punctuation">:</span><span class="token punctuation">[</span>title<span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token punctuation">,</span>
             template<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'../public/index.html'</span><span class="token punctuation">)</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> a<span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
     entry<span class="token punctuation">:</span> <span class="token function">Creator_entries</span><span class="token punctuation">(</span>outArr<span class="token punctuation">)</span><span class="token punctuation">,</span>
-    output<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    output<span class="token punctuation">:</span> <span class="token punctuation">{</span>
         filename<span class="token punctuation">:</span> <span class="token string">'[name]/[name].bundle.js'</span><span class="token punctuation">,</span>
         path<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'../dist'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
         chunkFilename<span class="token punctuation">:</span> <span class="token string">'[name].bundle.js'</span><span class="token punctuation">,</span><span class="token comment" spellcheck="true">// 关键</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
     plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
         <span class="token operator">...</span><span class="token function">Creator_HtmlWebpackPlugin</span><span class="token punctuation">(</span>outArr<span class="token punctuation">)</span>
     <span class="token punctuation">]</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
             </div>
@@ -1279,7 +1279,7 @@ s
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">183.2k</span>
+            <span class="white-color">180.2k</span>
             
 
             <br>

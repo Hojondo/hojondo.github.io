@@ -552,34 +552,34 @@
 <h3 id="响应式断点-media-queries"><a href="#响应式断点-media-queries" class="headerlink" title="响应式断点 media queries"></a>响应式断点 media queries</h3><p>由于 Bootstrap 是被开发来作行动优先，我们使用许多  <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries">media queries</a>  建立灵敏的中断点用于我们的排版和介面。这些中断点大部分基于最小 viewport，并且允许我们随着 viewport 的变化放大组件。</p>
 <blockquote>
 <p>一般是以下几个尺寸</p>
-<pre class=" language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 576px<span class="token punctuation">)</span> &amp;#123<span class="token punctuation">;</span></span>
+<pre class=" language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 576px<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
   <span class="token number">...</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span> // Small devices <span class="token punctuation">(</span>landscape phones, <span class="token number">576</span>px and up<span class="token punctuation">)</span>
-<span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 768px<span class="token punctuation">)</span> &amp;#123<span class="token punctuation">;</span></span>
+<span class="token punctuation">}</span> // Small devices <span class="token punctuation">(</span>landscape phones, <span class="token number">576</span>px and up<span class="token punctuation">)</span>
+<span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 768px<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
   <span class="token number">...</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span> // Medium devices <span class="token punctuation">(</span>tablets, <span class="token number">768</span>px and up<span class="token punctuation">)</span>
-<span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 992px<span class="token punctuation">)</span> &amp;#123<span class="token punctuation">;</span></span>
+<span class="token punctuation">}</span> // Medium devices <span class="token punctuation">(</span>tablets, <span class="token number">768</span>px and up<span class="token punctuation">)</span>
+<span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 992px<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
   <span class="token number">...</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span> // Large devices <span class="token punctuation">(</span>desktops, <span class="token number">992</span>px and up<span class="token punctuation">)</span>
-<span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 1200px<span class="token punctuation">)</span> &amp;#123<span class="token punctuation">;</span></span>
+<span class="token punctuation">}</span> // Large devices <span class="token punctuation">(</span>desktops, <span class="token number">992</span>px and up<span class="token punctuation">)</span>
+<span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 1200px<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
   <span class="token number">...</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span> // Extra large devices <span class="token punctuation">(</span>large desktops, <span class="token number">1200</span>px and up<span class="token punctuation">)</span>
+<span class="token punctuation">}</span> // Extra large devices <span class="token punctuation">(</span>large desktops, <span class="token number">1200</span>px and up<span class="token punctuation">)</span>
 </code></pre>
-<pre class=" language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> 575.98px<span class="token punctuation">)</span> &amp;#123<span class="token punctuation">;</span></span>
+<pre class=" language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> 575.98px<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
   <span class="token number">...</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span> // Extra small devices <span class="token punctuation">(</span>portrait phones, less than <span class="token number">576</span>px<span class="token punctuation">)</span>
-<span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 576px<span class="token punctuation">)</span> and <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> 767.98px<span class="token punctuation">)</span> &amp;#123<span class="token punctuation">;</span></span>
+<span class="token punctuation">}</span> // Extra small devices <span class="token punctuation">(</span>portrait phones, less than <span class="token number">576</span>px<span class="token punctuation">)</span>
+<span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 576px<span class="token punctuation">)</span> and <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> 767.98px<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
   <span class="token number">...</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span> // Small devices <span class="token punctuation">(</span>landscape phones, <span class="token number">576</span>px and up<span class="token punctuation">)</span>
-<span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 768px<span class="token punctuation">)</span> and <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> 991.98px<span class="token punctuation">)</span> &amp;#123<span class="token punctuation">;</span></span>
+<span class="token punctuation">}</span> // Small devices <span class="token punctuation">(</span>landscape phones, <span class="token number">576</span>px and up<span class="token punctuation">)</span>
+<span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 768px<span class="token punctuation">)</span> and <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> 991.98px<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
   <span class="token number">...</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span> // Medium devices <span class="token punctuation">(</span>tablets, <span class="token number">768</span>px and up<span class="token punctuation">)</span>
-<span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 992px<span class="token punctuation">)</span> and <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> 1199.98px<span class="token punctuation">)</span> &amp;#123<span class="token punctuation">;</span></span>
+<span class="token punctuation">}</span> // Medium devices <span class="token punctuation">(</span>tablets, <span class="token number">768</span>px and up<span class="token punctuation">)</span>
+<span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 992px<span class="token punctuation">)</span> and <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> 1199.98px<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
   <span class="token number">...</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span> // Large devices <span class="token punctuation">(</span>desktops, <span class="token number">992</span>px and up<span class="token punctuation">)</span>
-<span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 1200px<span class="token punctuation">)</span> &amp;#123<span class="token punctuation">;</span></span>
+<span class="token punctuation">}</span> // Large devices <span class="token punctuation">(</span>desktops, <span class="token number">992</span>px and up<span class="token punctuation">)</span>
+<span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 1200px<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
   <span class="token number">...</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span> // Extra large devices <span class="token punctuation">(</span>large desktops, <span class="token number">1200</span>px and up<span class="token punctuation">)</span>
+<span class="token punctuation">}</span> // Extra large devices <span class="token punctuation">(</span>large desktops, <span class="token number">1200</span>px and up<span class="token punctuation">)</span>
 </code></pre>
 </blockquote>
 <h3 id="Z-index"><a href="#Z-index" class="headerlink" title="Z-index"></a>Z-index</h3><p>一些 Bootstrap 元件使用  <code>z-index</code> 校正图层导引、工具提示和 popover、modals  ， 这些偏高的数值，具体的目的是为了避免冲突，需要再不同的分层组建区分层级，如 工具提示、导览列、下拉选单、互动视窗的行为正确，没有理由不使用  <code>100</code>+ 或  <code>500</code>+。</p>
@@ -922,16 +922,16 @@ $<span class="token property">zindex-tooltip</span><span class="token punctuatio
 </ul>
 </li>
 </ul>
-<pre class=" language-css"><code class="language-css"><span class="token number">.</span>media &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<pre class=" language-css"><code class="language-css"><span class="token selector"><span class="token class">.media</span> </span><span class="token punctuation">{</span>
   <span class="token property">display</span><span class="token punctuation">:</span> -ms-flexbox<span class="token punctuation">;</span>
   <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
   <span class="token property">-ms-flex-align</span><span class="token punctuation">:</span> start<span class="token punctuation">;</span>
   <span class="token property">align-items</span><span class="token punctuation">:</span> flex-start<span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-<span class="token number">.</span>media-body &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector"><span class="token class">.media-body</span> </span><span class="token punctuation">{</span>
   <span class="token property">-ms-flex</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>
   <span class="token property">flex</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 </blockquote>
 </li>
@@ -1495,11 +1495,11 @@ $<span class="token property">zindex-tooltip</span><span class="token punctuatio
 <p><code>.fixed-top</code> <code>.fixed-bottom</code></p>
 <p><code>.sticky-top</code> <a target="_blank" rel="noopener" href="https://jsfiddle.net/hojondo/aq9Laaew/275806/"><em>粘性布局 jsfiddle 示例</em></a></p>
 <h2 id="浮动-float-breakpoint-left-right-none"><a href="#浮动-float-breakpoint-left-right-none" class="headerlink" title="浮动 .float-{breakpoint}-left/right/none"></a>浮动 .float-{breakpoint}-left/right/none</h2><p><code>.float-&#123;breakpoint&#125;-left</code> <code>.float-&#123;breakpoint&#125;-right</code> <code>.float-&#123;breakpoint&#125;-none</code></p>
-<h2 id="清除浮动-clearfix"><a href="#清除浮动-clearfix" class="headerlink" title="清除浮动 .clearfix"></a>清除浮动 .clearfix</h2><pre class=" language-css"><code class="language-css"><span class="token number">.</span><span class="token property">clearfix</span><span class="token punctuation">:</span><span class="token punctuation">:</span>after &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<h2 id="清除浮动-clearfix"><a href="#清除浮动-clearfix" class="headerlink" title="清除浮动 .clearfix"></a>清除浮动 .clearfix</h2><pre class=" language-css"><code class="language-css"><span class="token selector"><span class="token class">.clearfix</span><span class="token pseudo-element">::after</span> </span><span class="token punctuation">{</span>
   <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
   <span class="token property">clear</span><span class="token punctuation">:</span> both<span class="token punctuation">;</span>
   <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <h2 id="垂直对齐方式-align"><a href="#垂直对齐方式-align" class="headerlink" title="垂直对齐方式 .align-"></a>垂直对齐方式 .align-</h2><blockquote>
 <p>垂直对齐仅影响 inline、inline-block、inline-table、和 table 元素</p>
@@ -1584,18 +1584,18 @@ $<span class="token property">zindex-tooltip</span><span class="token punctuatio
 </ul>
 <h2 id="阴影-shadow"><a href="#阴影-shadow" class="headerlink" title="阴影 .shadow"></a>阴影 .shadow</h2><p><em>对组件 component 来说 默认不启用预设阴影 ,需要在 import bootstrap 之前 $enable-shadows:true;</em></p>
 <p><code>.shadow-none</code> .<code>shadow-sm</code> <code>.shadow</code> <code>.shadow-lg</code> 阴影逐步变大变明显</p>
-<pre class=" language-css"><code class="language-css"><span class="token number">.</span>shadow-none &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<pre class=" language-css"><code class="language-css"><span class="token selector"><span class="token class">.shadow-none</span> </span><span class="token punctuation">{</span>
   <span class="token property">box-shadow</span><span class="token punctuation">:</span> none <span class="token important">!important</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-<span class="token number">.</span>shadow-sm &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector"><span class="token class">.shadow-sm</span> </span><span class="token punctuation">{</span>
   <span class="token property">box-shadow</span><span class="token punctuation">:</span> <span class="token number">0</span> <span class="token number">0.125</span>rem <span class="token number">0.25</span>rem <span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">0</span>, <span class="token number">0</span>, <span class="token number">0</span>, <span class="token number">0.075</span><span class="token punctuation">)</span> <span class="token important">!important</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-<span class="token number">.</span>shadow &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector"><span class="token class">.shadow</span> </span><span class="token punctuation">{</span>
   <span class="token property">box-shadow</span><span class="token punctuation">:</span> <span class="token number">0</span> <span class="token number">0.5</span>rem <span class="token number">1</span>rem <span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">0</span>, <span class="token number">0</span>, <span class="token number">0</span>, <span class="token number">0.15</span><span class="token punctuation">)</span> <span class="token important">!important</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-<span class="token number">.</span>shadow-lg &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector"><span class="token class">.shadow-lg</span> </span><span class="token punctuation">{</span>
   <span class="token property">box-shadow</span><span class="token punctuation">:</span> <span class="token number">0</span> <span class="token number">1</span>rem <span class="token number">3</span>rem <span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">0</span>, <span class="token number">0</span>, <span class="token number">0</span>, <span class="token number">0.175</span><span class="token punctuation">)</span> <span class="token important">!important</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <h2 id="关闭图标-close-gt-span-times"><a href="#关闭图标-close-gt-span-times" class="headerlink" title="关闭图标 .close&gt;span{&times;}"></a>关闭图标 .close&gt;span{&times;}</h2><pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>close<span class="token punctuation">"</span></span> <span class="token attr-name">aria-label</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Close<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">aria-hidden</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token entity" title="&times;">&amp;times;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
@@ -2332,7 +2332,7 @@ Vu
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">183.2k</span>
+            <span class="white-color">180.2k</span>
             
 
             <br>

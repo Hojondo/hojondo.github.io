@@ -477,14 +477,14 @@ Babel 把 Javascript 语法 分为 syntax 和 api
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.3k
+                        1.2k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        5 分
+                        4 分
                     </div>
                     
                 
@@ -511,20 +511,20 @@ Babel 把 Javascript 语法 分为 syntax 和 api
 <h1 id="babel-polyfill-使用场景"><a href="#babel-polyfill-使用场景" class="headerlink" title="babel-polyfill 使用场景"></a>babel-polyfill 使用场景</h1><p>Babel 默认只转换新的 JavaScript 语法，而不转换新的 API。例如，Iterator、Generator、Set、Maps、Proxy、Reflect、Symbol、Promise 等全局对象，以及一些定义在全局对象上的方法（比如 Object.assign）都不会转译。如果想使用这些新的对象和方法，必须使用 babel-polyfill，为当前环境提供一个垫片。</p>
 <h1 id="babel-runtime-使用场景"><a href="#babel-runtime-使用场景" class="headerlink" title="babel-runtime 使用场景"></a>babel-runtime 使用场景</h1><p>Babel 转译后的代码要实现源代码同样的功能需要借助一些帮助函数，例如，{ [name]: ‘JavaScript’ } 转译后的代码如下所示：</p>
 <pre class=" language-js"><code class="language-js"><span class="token string">"use strict"</span><span class="token punctuation">;</span>
-<span class="token keyword">function</span> <span class="token function">_defineProperty</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> key<span class="token punctuation">,</span> value<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>key <span class="token keyword">in</span> obj<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-    Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> key<span class="token punctuation">,</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">_defineProperty</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> key<span class="token punctuation">,</span> value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>key <span class="token keyword">in</span> obj<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> key<span class="token punctuation">,</span> <span class="token punctuation">{</span>
       value<span class="token punctuation">:</span> value<span class="token punctuation">,</span>
       enumerable<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
       configurable<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
       writable<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
     obj<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> value<span class="token punctuation">;</span>
-  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
   <span class="token keyword">return</span> obj<span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token function">_defineProperty</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span> <span class="token string">"name"</span><span class="token punctuation">,</span> <span class="token string">"JavaScript"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token function">_defineProperty</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">"name"</span><span class="token punctuation">,</span> <span class="token string">"JavaScript"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>类似上面的帮助函数 _defineProperty 可能会重复出现在一些模块里，导致编译后的代码体积变大。Babel 为了解决这个问题，提供了单独的包 <code>babel-runtime</code> 供编译模块复用工具函数。</p>
 <p>启用插件<code>babel-plugin-transform-runtime</code> 后，Babel 就会使用 <code>babel-runtime</code> 下的工具函数，转译代码如下：</p>
@@ -532,23 +532,23 @@ Babel 把 Javascript 语法 分为 syntax 和 api
 <span class="token comment" spellcheck="true">// 之前的 _defineProperty 函数已经作为公共模块 `babel-runtime/helpers/defineProperty` 使用</span>
 <span class="token keyword">var</span> _defineProperty2 <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"babel-runtime/helpers/defineProperty"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> _defineProperty3 <span class="token operator">=</span> <span class="token function">_interopRequireDefault</span><span class="token punctuation">(</span>_defineProperty2<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">function</span> <span class="token function">_interopRequireDefault</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-  <span class="token keyword">return</span> obj <span class="token operator">&amp;&amp;</span> obj<span class="token punctuation">.</span>__esModule <span class="token operator">?</span> obj <span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> <span class="token keyword">default</span><span class="token punctuation">:</span> obj <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> _defineProperty3<span class="token punctuation">.</span><span class="token keyword">default</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span> <span class="token string">"name"</span><span class="token punctuation">,</span> <span class="token string">"JavaScript"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">_interopRequireDefault</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> obj <span class="token operator">&amp;&amp;</span> obj<span class="token punctuation">.</span>__esModule <span class="token operator">?</span> obj <span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token keyword">default</span><span class="token punctuation">:</span> obj <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> _defineProperty3<span class="token punctuation">.</span><span class="token keyword">default</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">"name"</span><span class="token punctuation">,</span> <span class="token string">"JavaScript"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>除此之外，babel 还为源代码的非实例方法（<code>Object.assign</code>，实例方法是类似这样的 <code>&quot;foobar&quot;.includes(&quot;foo&quot;)</code>）和 babel-runtime/helps 下的工具函数自动引用了 polyfill。这样可以避免污染全局命名空间，非常适合于 JavaScript 库和工具包的实现。例如 <code>const obj = &#123;&#125;, Object.assign(obj, &#123; age: 30 &#125;);</code> 转译后的代码如下所示：</p>
 <pre class=" language-js"><code class="language-js"><span class="token string">"use strict"</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// 使用了 core-js 提供的 assign</span>
 <span class="token keyword">var</span> _assign <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"babel-runtime/core-js/object/assign"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> _assign2 <span class="token operator">=</span> <span class="token function">_interopRequireDefault</span><span class="token punctuation">(</span>_assign<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">function</span> <span class="token function">_interopRequireDefault</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-  <span class="token keyword">return</span> obj <span class="token operator">&amp;&amp;</span> obj<span class="token punctuation">.</span>__esModule <span class="token operator">?</span> obj <span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> <span class="token keyword">default</span><span class="token punctuation">:</span> obj <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
-<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> _assign2<span class="token punctuation">.</span><span class="token keyword">default</span><span class="token punctuation">)</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">_interopRequireDefault</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> obj <span class="token operator">&amp;&amp;</span> obj<span class="token punctuation">.</span>__esModule <span class="token operator">?</span> obj <span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token keyword">default</span><span class="token punctuation">:</span> obj <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> _assign2<span class="token punctuation">.</span><span class="token keyword">default</span><span class="token punctuation">)</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> <span class="token punctuation">{</span>
   age<span class="token punctuation">:</span> <span class="token number">30</span><span class="token punctuation">,</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>思考：babel-runtime 为什么适合 JavaScript 库和工具包的实现？</p>
 <ol>
@@ -558,7 +558,7 @@ Babel 把 Javascript 语法 分为 syntax 和 api
 <p>总结：</p>
 <p>具体项目还是需要使用 babel-polyfill，只使用 babel-runtime 的话，实例方法不能正常工作（例如 <code>&quot;foobar&quot;.includes(&quot;foo&quot;)</code>）；</p>
 <p>JavaScript 库和工具可以使用 babel-runtime，在实际项目中使用这些库和工具，需要该项目本身提供 polyfill；</p>
-<p>疑问：像 <a href="mailto:&#x61;&#x6e;&#x74;&#100;&#64;&#x32;&#x2e;&#x78;">&#x61;&#x6e;&#x74;&#100;&#64;&#x32;&#x2e;&#x78;</a> 这样的库使用了 babel-runtime，在实际项目中使用 <a href="mailto:&#x61;&#x6e;&#116;&#x64;&#64;&#x32;&#x2e;&#120;">&#x61;&#x6e;&#116;&#x64;&#64;&#x32;&#x2e;&#120;</a>，我们需要引入 babel-polyfill。但全部 polyfill 打包压缩下来也有 80kb 左右，其中很多 polyfill 是没有用到的，如何减少体积呢？手工一个个引入使用到的 polyfill，似乎维护成本太高！</p>
+<p>疑问：像 <a href="mailto:&#97;&#110;&#x74;&#x64;&#x40;&#x32;&#46;&#x78;">&#97;&#110;&#x74;&#x64;&#x40;&#x32;&#46;&#x78;</a> 这样的库使用了 babel-runtime，在实际项目中使用 <a href="mailto:&#97;&#x6e;&#x74;&#x64;&#x40;&#x32;&#46;&#x78;">&#97;&#x6e;&#x74;&#x64;&#x40;&#x32;&#46;&#x78;</a>，我们需要引入 babel-polyfill。但全部 polyfill 打包压缩下来也有 80kb 左右，其中很多 polyfill 是没有用到的，如何减少体积呢？手工一个个引入使用到的 polyfill，似乎维护成本太高！</p>
 <p>参考文献</p>
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/58624930">知乎专栏：Babel 学习系列 4-polyfill 和 runtime 差别(必看)</a><br><a target="_blank" rel="noopener" href="https://segmentfault.com/q/1010000005596587">Segmentfault 问题：babel 的 polyfill 和 runtime 的区别</a></p>
 
@@ -1092,9 +1092,7 @@ Babel 把 Javascript 语法 分为 syntax 和 api
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            开坑比如 文件格式模版比如 快捷键 设置 command+K + command+SOption + enter在搜索之后 把光标移动到所有搜索结果之后比如 神器插件所有的默认配置项中文描述
-
-vscode 开启对 webpack alia
+                            开坑比如 文件格式模版比如 快捷键 设置 command+K + command+SOption + enter在搜索之后 把光标移动到所有搜索结果之后比如 神器插件:https://jishuin.proginn.com/p/763bfb
                         
                     </div>
                     <div class="publish-info">
@@ -1272,7 +1270,7 @@ vscode 开启对 webpack alia
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">183.2k</span>
+            <span class="white-color">180.2k</span>
             
 
             <br>

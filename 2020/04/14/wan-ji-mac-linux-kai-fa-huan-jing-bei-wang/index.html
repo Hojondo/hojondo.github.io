@@ -4,12 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="MAC/Linux 开发环境配置备忘, Hojondo&#39;s">
+    <meta name="keywords" content="个人 MAC/Linux 开发环境配置备忘, Hojondo&#39;s">
 <!--    <meta name="baidu-site-verification" content="fmlEuI34ir" />-->
 <!--    <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />-->
-    <meta name="description" content="安装 gitapt-get install git设置代理
-
-Clone with HTTPS： git config --global http.https://github.com.proxy http://127.0.0.1:8889">
+    <meta name="description" content="安装 homebrew/bin/bash -c &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&amp;quot;
+安装 ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +16,7 @@ Clone with HTTPS： git config --global http.https://github.com.proxy http://127
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>MAC/Linux 开发环境配置备忘 | Hojondo&#39;s</title>
+    <title>个人 MAC/Linux 开发环境配置备忘 | Hojondo&#39;s</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -328,7 +327,7 @@ Clone with HTTPS： git config --global http.https://github.com.proxy http://127
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        MAC/Linux 开发环境配置备忘
+                        个人 MAC/Linux 开发环境配置备忘
                     </div>
                 </div>
             </div>
@@ -477,14 +476,14 @@ Clone with HTTPS： git config --global http.https://github.com.proxy http://127
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        692
+                        1k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        3 分
+                        5 分
                     </div>
                     
                 
@@ -500,39 +499,51 @@ Clone with HTTPS： git config --global http.https://github.com.proxy http://127
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="安装-git"><a href="#安装-git" class="headerlink" title="安装 git"></a>安装 git</h1><p><code>apt-get install git</code><br>设置代理</p>
+                <h1 id="安装-homebrew"><a href="#安装-homebrew" class="headerlink" title="安装 homebrew"></a>安装 homebrew</h1><p><code>/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;</code></p>
+<h1 id="安装-git"><a href="#安装-git" class="headerlink" title="安装 git"></a>安装 git</h1><p><code>apt-get install git</code></p>
+<h2 id="git-全局-config-配置"><a href="#git-全局-config-配置" class="headerlink" title="git 全局 config 配置"></a>git 全局 config 配置</h2><p><a target="_blank" rel="noopener" href="https://hojondo.com/2019/11/07/bi-ji-git/#toc-heading-14">详细教程</a></p>
 <ul>
-<li>Clone with HTTPS： <code>git config --global http.https://github.com.proxy http://127.0.0.1:8889</code>，在<code>~/gitconfig</code>中可见。[取消代理<code>git config --global --unset http.proxy</code>]</li>
-<li>Clone with SSH： 在<code>~/.ssh/config</code>中添加两行 <code>Host github.com</code>\n<code>ProxyCommand nc -X 5 -x 127.0.0.1:8889 %h %p</code></li>
-</ul>
-<h1 id="更改-shell-为zsh"><a href="#更改-shell-为zsh" class="headerlink" title="更改 shell 为zsh"></a>更改 shell 为zsh</h1><p>系统自带 shell：<br>/bin/bash<br>/bin/csh<br>/bin/dash<br>/bin/ksh<br>/bin/sh<br>/bin/tcsh<br>/bin/zsh</p>
-<ul>
-<li>查看系统中已安装的shell <code>cat /etc/shells</code> 当前应用的shell<code>echo $SHELL</code></li>
-<li>安装 oh-my-zsh<code>brew install zsh zsh-completions</code> / <code>sudo apt install zsh</code></li>
-<li>设置 zsh 为默认 shell<code>[sudo] chsh -s $(which zsh)</code> / <code>chsh -s /usr/local/bin/zsh</code></li>
-</ul>
-<h2 id="安装-oh-my-zsh-For-ZSH-shell"><a href="#安装-oh-my-zsh-For-ZSH-shell" class="headerlink" title="安装 oh-my-zsh For ZSH shell"></a>安装 oh-my-zsh For ZSH shell</h2><p><a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH">官方引导</a><br><a target="_blank" rel="noopener" href="https://snap设置代理也比较方便,注意,下面这个也是http,不是打错了//juejin.im/post/6844903939121348616">推荐教程</a></p>
-<ul>
-<li>通过 github<ul>
-<li><code>git clone git@//github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh</code><br>或通过 curl/wget<br><code>sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;</code><br><code>sh -c &quot;$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;</code></li>
-<li>备份旧zsh配置文件<code>cp ~/.zsh ~/.zshrc.originBackup</code>，使用oh-my-zsh提供的模板配置<code>cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc</code></li>
+<li>设置代理<ul>
+<li>  Clone with HTTPS： <code>git config --global http.https://github.com.proxy http://127.0.0.1:8889</code>，在<code>~/gitconfig</code>中可见。[取消代理<code>git config --global --unset http.proxy</code>]</li>
+<li>  Clone with SSH： 在<code>~/.ssh/config</code>中添加两行 <code>Host github.com</code>\n<code>ProxyCommand nc -X 5 -x 127.0.0.1:8889 %h %p</code></li>
 </ul>
 </li>
+<li>user 配置<br>  <code>git config --global user.name &quot;XXX&quot;</code><br>  <code>git config --global user.email &quot;xxx@gmail.com&quot;</code></li>
+<li>alias 大家在代码提交到 icode 的代码仓库时，需要先过评审，无法直接 push 到该仓库，只能 push 到缓冲区。可以设置个名 bpush 的快捷指令：<br>  <code>git config --global alias.bpush &#39;!f() &#123; : push ; r=$1; [[ -z $r ]] &amp;&amp; r=origin; b=$2; t=$(awk &quot;&#123; print \$2 &#125;&quot; $(git rev-parse --git-dir)/HEAD); t=$&#123;t#refs/heads/&#125;; [[ -z $b ]] &amp;&amp; b=$t; cmd=&quot;git push $r HEAD:refs/for/$b%topic=$t&quot;; echo $cmd; echo; $cmd; &#125;; f&#39;</code></li>
 </ul>
-<h2 id="oh-my-zsh插件推荐"><a href="#oh-my-zsh插件推荐" class="headerlink" title="oh-my-zsh插件推荐"></a>oh-my-zsh插件推荐</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/wting/autojump">autojump</a>,实现目录间快速跳转，想去哪个目录直接 j + 目录名，不用在频繁的cd</li>
-<li>zsh-autosuggestions(命令进一步补全)</li>
-<li>zsh-syntax-highlighting(日常用的命令会高亮显示，命令错误显示红色)</li>
-<li><a target="_blank" rel="noopener" href="https://asciinema.org/docs/embedding">embedding</a><br>安装highlighting示例<br><code>git clone git://github.com/zsh-users/zsh-syntax-highlighting $ZSH_CUSTOM/plugins/zsh-syntax-highlighting</code><br>并在<code>.zshrc</code>中添加<pre class=" language-JS"><code class="language-JS">plugins=(
-autojump
-zsh-autosuggestions
-zsh-syntax-highlighting
+<h1 id="安装-最新-python-和-pip"><a href="#安装-最新-python-和-pip" class="headerlink" title="安装 最新 python 和 pip"></a>安装 最新 python 和 pip</h1><p><code>brew install python</code><br>因为 mac 系统自带 2.x，安装 python 后 最好不要直接修改默认的 python2，防止导致系统某些用 python2 写的系统文件出错<br>可以执行<code>python3 xx.py</code><br>check:<br><code>python3 --version</code><br><code>python3 -m pip --version</code></p>
+<p><a target="_blank" rel="noopener" href="https://pip.pypa.io/en/stable/">pip 是 python 的 package installer</a></p>
+<h1 id="安装-iterm2"><a href="#安装-iterm2" class="headerlink" title="安装 iterm2"></a>安装 iterm2</h1><p><a target="_blank" rel="noopener" href="https://iterm2.com/downloads.html">https://iterm2.com/downloads.html</a><br>默认 zsh shell<br>iterm2 删除整行<code>control + u</code>， 删除前一个单词<code>control + w</code>， 不删除直接下一行重新输入<code>ctrl+c</code></p>
+<h2 id="更改-shell-为-zsh"><a href="#更改-shell-为-zsh" class="headerlink" title="更改 shell 为 zsh"></a>更改 shell 为 zsh</h2><p><em>安装 iterm2 可忽略该步骤</em></p>
+<p>系统自带 shell：<br>/bin/bash, /bin/csh, /bin/dash, /bin/ksh, /bin/sh, /bin/tcsh, /bin/zsh</p>
+<ul>
+<li>  查看系统中已安装的 shell <code>cat /etc/shells</code> 当前应用的 shell<code>echo $SHELL</code></li>
+<li>  安装 zsh<code>brew install zsh zsh-completions</code> / <code>sudo apt install zsh</code></li>
+<li>  设置 zsh 为默认 shell<code>[sudo] chsh -s $(which zsh)</code> / <code>chsh -s /usr/local/bin/zsh</code></li>
+</ul>
+<h1 id="安装-oh-my-zsh-For-ZSH-shell"><a href="#安装-oh-my-zsh-For-ZSH-shell" class="headerlink" title="安装 oh-my-zsh For ZSH shell"></a>安装 oh-my-zsh For ZSH shell</h1><p><a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH">官方引导</a><br><a target="_blank" rel="noopener" href="https://juejin.im/post/6844903939121348616">推荐教程</a></p>
+<ul>
+<li>通过 github <code>git clone git@//github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh</code><br>  或通过 curl/wget<br>  <code>sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;</code><br>  <code>sh -c &quot;$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;</code></li>
+<li>  备份旧 zsh 配置文件<code>cp ~/.zsh ~/.zshrc.originBackup</code>，使用 oh-my-zsh 提供的模板配置<code>cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc</code></li>
+</ul>
+<h2 id="oh-my-zsh-插件推荐"><a href="#oh-my-zsh-插件推荐" class="headerlink" title="oh-my-zsh 插件推荐"></a>oh-my-zsh 插件推荐</h2><p><a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins">官方 Plugins list</a><br>check all the installed plugins: <code>ls ~/.oh-my-zsh/plugins</code></p>
+<ul>
+<li>  <a target="_blank" rel="noopener" href="https://github.com/wting/autojump">autojump</a>,实现目录间快速跳转，想去哪个目录直接 j + 目录名，不用在频繁的 cd</li>
+<li>  <a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#oh-my-zsh">zsh-autosuggestions</a> ,命令进一步补全</li>
+<li>  <a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md#oh-my-zsh">zsh-syntax-highlighting</a>, 日常用的命令会高亮显示，命令错误显示红色</li>
+<li>  <a target="_blank" rel="noopener" href="https://asciinema.org/docs/embedding">embedding</a></li>
+<li>  <a target="_blank" rel="noopener" href="https://powerline.readthedocs.io/en/latest/overview.html">powerline</a> 这里需要 pip 安装</li>
+</ul>
+<h3 id="安装-highlighting-示例"><a href="#安装-highlighting-示例" class="headerlink" title="安装 highlighting 示例"></a>安装 highlighting 示例</h3><p><code>git clone git://github.com/zsh-users/zsh-syntax-highlighting $ZSH_CUSTOM/plugins/zsh-syntax-highlighting</code><br>并在<code>.zshrc</code>中添加</p>
+<pre class=" language-JS"><code class="language-JS">plugins=(
+  autojump
+  zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 </code></pre>
-</li>
-</ul>
+<h1 id="转移-bash-中的配置到-zsh"><a href="#转移-bash-中的配置到-zsh" class="headerlink" title="转移 bash 中的配置到 zsh"></a>转移 bash 中的配置到 zsh</h1><p><em>如果 nvm / node 在 zsh 之前安装的话 需要</em></p>
 <blockquote>
-<p>注：切换成 zsh 后，需要把 bash shell <code>.bashrc</code> 的 PATH 配置项 合并到 <code>.zshrc</code><br>如：nvm 配置：<a target="_blank" rel="noopener" href="https://github.com/nvm-sh/nvm#zsh">https://github.com/nvm-sh/nvm#zsh</a></p>
+<p>注：切换成 zsh 后，需要把 bash shell <code>.bashrc</code> 的 PATH 配置项 合并到 <code>.zshrc</code><br>如：nvm 配置：<a target="_blank" rel="noopener" href="https://github.com/nvm-sh/nvm#zsh">https://github.com/nvm-sh/nvm#zsh</a><br>在 .zshrc 结尾加：</p>
 <pre class=" language-shell"><code class="language-shell">export PATH=$HOME/bin:/usr/local/bin:$PATH
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -568,9 +579,9 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io
 # 换docker hub仓库源，改成阿里云申请的私人镜像[镜像中心-镜像加速器](https://account.aliyun.com/login/login.htm?oauth_callback=https://cr.console.aliyun.com/#/imageList)
 sudo tee /etc/docker/daemon.json <<-'EOF'\
-&#123;\
+{\
   "registry-mirrors": ["https://d0usu3nm.mirror.aliyuncs.com"]\
-&#125;\
+}\
 EOF
 # 重启docker
 sudo systemctl daemon-reload
@@ -578,15 +589,18 @@ sudo systemctl restart docker
 # 测试 是否安装成功可pull image
 docker run hello-world
 </code></pre>
-<h1 id="linux-安装-synaptic"><a href="#linux-安装-synaptic" class="headerlink" title="linux 安装 synaptic"></a>linux 安装 synaptic</h1><h1 id="linux-美化"><a href="#linux-美化" class="headerlink" title="linux 美化"></a>linux 美化</h1><h1 id="linux-安装wine"><a href="#linux-安装wine" class="headerlink" title="linux 安装wine"></a>linux 安装wine</h1><p>wget -O- <a target="_blank" rel="noopener" href="https://deepin-wine.i-m.dev/setup.sh">https://deepin-wine.i-m.dev/setup.sh</a> | sh<br>sudo apt-get install deepin.com.wechat</p>
+<h1 id="安装-vscode"><a href="#安装-vscode" class="headerlink" title="安装 vscode"></a>安装 vscode</h1><p>Settings sync 同步插件及 setting.config</p>
+<h1 id="把全局配置文件拷贝到-根目录"><a href="#把全局配置文件拷贝到-根目录" class="headerlink" title="把全局配置文件拷贝到 ~根目录"></a>把全局配置文件拷贝到 ~根目录</h1><p>如 .prettierrc, .vuerc, .gitconfig, .zshrc<br><del>.eslintrc</del><br>线上备份都存在了 github utils 中</p>
+<hr>
+<h1 id="linux-安装-synaptic"><a href="#linux-安装-synaptic" class="headerlink" title="linux 安装 synaptic"></a>linux 安装 synaptic</h1><h1 id="linux-美化"><a href="#linux-美化" class="headerlink" title="linux 美化"></a>linux 美化</h1><h1 id="linux-安装-wine"><a href="#linux-安装-wine" class="headerlink" title="linux 安装 wine"></a>linux 安装 wine</h1><p>wget -O- <a target="_blank" rel="noopener" href="https://deepin-wine.i-m.dev/setup.sh">https://deepin-wine.i-m.dev/setup.sh</a> | sh<br>sudo apt-get install deepin.com.wechat</p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><blockquote>
-<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000013857738">Mac、Linux 安装zsh &amp; oh my zsh - 零点开始Coding - SegmentFault 思否</a></p>
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000013857738">Mac、Linux 安装 zsh &amp; oh my zsh - 零点开始 Coding - SegmentFault 思否</a></p>
 <ul>
-<li>linux 命令行中的 curl &amp; wget <a target="_blank" rel="noopener" href="https://www.cnblogs.com/lsdb/p/7171779.html">对比</a></li>
+<li>  linux 命令行中的 curl &amp; wget <a target="_blank" rel="noopener" href="https://www.cnblogs.com/lsdb/p/7171779.html">对比</a></li>
 </ul>
 </blockquote>
 <ul>
-<li>sh 命令</li>
+<li>  sh 命令</li>
 </ul>
 
             </div>
@@ -746,7 +760,7 @@ docker run hello-world
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《MAC/Linux 开发环境配置备忘》
+                    《个人 MAC/Linux 开发环境配置备忘》
                 </span> 由
             <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/04/14/wan-ji-mac-linux-kai-fa-huan-jing-bei-wang/" property="cc:attributionName"
                rel="cc:attributionURL">
@@ -1311,7 +1325,7 @@ font-size 设置 fonti
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">183.2k</span>
+            <span class="white-color">180.2k</span>
             
 
             <br>

@@ -7,8 +7,9 @@
     <meta name="keywords" content="MapboxGl &amp; DeckGl, Hojondo&#39;s">
 <!--    <meta name="baidu-site-verification" content="fmlEuI34ir" />-->
 <!--    <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />-->
-    <meta name="description" content="import React, &amp;amp;#123; useEffect, useState &amp;amp;#125; from &#34;react&#34;;
-import &amp;amp;#123; StaticMap &amp;amp;#125; from &#34;react">
+    <meta name="description" content="import React, { useEffect, useState } from &#34;react&#34;;
+import { StaticMap } from &#34;react-map-gl&#34;;
+import DeckGL, { GeoJsonLa">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -476,14 +477,14 @@ import &amp;amp;#123; StaticMap &amp;amp;#125; from &#34;react">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        362
+                        274
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        2 分
+                        1 分
                     </div>
                     
                 
@@ -499,10 +500,10 @@ import &amp;amp;#123; StaticMap &amp;amp;#125; from &#34;react">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> useEffect<span class="token punctuation">,</span> useState <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">from</span> <span class="token string">"react"</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> StaticMap <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">from</span> <span class="token string">"react-map-gl"</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> DeckGL<span class="token punctuation">,</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> GeoJsonLayer<span class="token punctuation">,</span> ArcLayer<span class="token punctuation">,</span> PolygonLayer <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">from</span> <span class="token string">"deck.gl"</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> MAPBOX_ACCESS_TOKEN_PUBLIC <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">from</span> <span class="token string">"../../data/mapbox-token"</span><span class="token punctuation">;</span>
+                <pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> useEffect<span class="token punctuation">,</span> useState <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"react"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> StaticMap <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"react-map-gl"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> DeckGL<span class="token punctuation">,</span> <span class="token punctuation">{</span> GeoJsonLayer<span class="token punctuation">,</span> ArcLayer<span class="token punctuation">,</span> PolygonLayer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"deck.gl"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> MAPBOX_ACCESS_TOKEN_PUBLIC <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"../../data/mapbox-token"</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// Set your mapbox token here</span>
 <span class="token keyword">const</span> MAPBOX_TOKEN <span class="token operator">=</span> MAPBOX_ACCESS_TOKEN_PUBLIC<span class="token punctuation">;</span>
 
@@ -510,28 +511,28 @@ import &amp;amp;#123; StaticMap &amp;amp;#125; from &#34;react">
 <span class="token keyword">const</span> AIR_PORTS <span class="token operator">=</span>
   <span class="token string">"https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_10m_airports.geojson"</span><span class="token punctuation">;</span>
 
-<span class="token keyword">const</span> INITIAL_VIEW_STATE <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> INITIAL_VIEW_STATE <span class="token operator">=</span> <span class="token punctuation">{</span>
   latitude<span class="token punctuation">:</span> <span class="token number">51.47</span><span class="token punctuation">,</span>
   longitude<span class="token punctuation">:</span> <span class="token number">0.45</span><span class="token punctuation">,</span>
   zoom<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
   maxZoom<span class="token punctuation">:</span> <span class="token number">7</span><span class="token punctuation">,</span>
   bearing<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
   <span class="token comment" spellcheck="true">// pitch: 30</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> ployData <span class="token operator">=</span>
   <span class="token string">"https://raw.githubusercontent.com/visgl/deck.gl-data/master/website/sf-zipcodes.json"</span><span class="token punctuation">;</span>
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">Map2D</span><span class="token punctuation">(</span>props<span class="token punctuation">,</span> ref<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-  <span class="token keyword">function</span> <span class="token function">_onClick</span><span class="token punctuation">(</span>info<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>info<span class="token punctuation">.</span>object<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">Map2D</span><span class="token punctuation">(</span>props<span class="token punctuation">,</span> ref<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">function</span> <span class="token function">_onClick</span><span class="token punctuation">(</span>info<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>info<span class="token punctuation">.</span>object<span class="token punctuation">)</span> <span class="token punctuation">{</span>
       <span class="token comment" spellcheck="true">// eslint-disable-next-line</span>
       <span class="token function">alert</span><span class="token punctuation">(</span>
-        <span class="token template-string"><span class="token string">`$&amp;#123;info.object.properties.name&amp;#125; ($&amp;#123;info.object.properties.abbrev&amp;#125;)`</span></span>
+        <span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>info<span class="token punctuation">.</span>object<span class="token punctuation">.</span>properties<span class="token punctuation">.</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> (</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>info<span class="token punctuation">.</span>object<span class="token punctuation">.</span>properties<span class="token punctuation">.</span>abbrev<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">)`</span></span>
       <span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
   <span class="token keyword">const</span> initialLayers <span class="token operator">=</span> <span class="token punctuation">[</span>
-    <span class="token keyword">new</span> <span class="token class-name">GeoJsonLayer</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">new</span> <span class="token class-name">GeoJsonLayer</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
       id<span class="token punctuation">:</span> <span class="token string">"airports"</span><span class="token punctuation">,</span>
       data<span class="token punctuation">:</span> AIR_PORTS<span class="token punctuation">,</span>
       <span class="token comment" spellcheck="true">// Styles</span>
@@ -544,8 +545,8 @@ import &amp;amp;#123; StaticMap &amp;amp;#125; from &#34;react">
       pickable<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
       autoHighlight<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
       onClick<span class="token punctuation">:</span> _onClick<span class="token punctuation">,</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token keyword">new</span> <span class="token class-name">ArcLayer</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword">new</span> <span class="token class-name">ArcLayer</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
       id<span class="token punctuation">:</span> <span class="token string">"arcs"</span><span class="token punctuation">,</span>
       data<span class="token punctuation">:</span> AIR_PORTS<span class="token punctuation">,</span>
       dataTransform<span class="token punctuation">:</span> <span class="token punctuation">(</span>d<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span>
@@ -558,8 +559,8 @@ import &amp;amp;#123; StaticMap &amp;amp;#125; from &#34;react">
       getWidth<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
       opacity<span class="token punctuation">:</span> <span class="token number">0.4</span><span class="token punctuation">,</span>
       coef<span class="token punctuation">:</span> <span class="token number">0.005</span><span class="token punctuation">,</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token keyword">new</span> <span class="token class-name">PolygonLayer</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword">new</span> <span class="token class-name">PolygonLayer</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
       id<span class="token punctuation">:</span> <span class="token string">"polygon-layer"</span><span class="token punctuation">,</span>
       data<span class="token punctuation">:</span> ployData<span class="token punctuation">,</span>
       pickable<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
@@ -576,29 +577,29 @@ import &amp;amp;#123; StaticMap &amp;amp;#125; from &#34;react">
       getLineWidth<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
       extruded<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
       visible<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
   <span class="token punctuation">]</span><span class="token punctuation">;</span>
   <span class="token keyword">const</span> <span class="token punctuation">[</span>layers<span class="token punctuation">,</span> setLayers<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span>initialLayers<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">//</span>
-    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
       <span class="token comment" spellcheck="true">//   cleanup</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
-  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">return</span> <span class="token punctuation">(</span>
     <span class="token operator">&lt;</span>DeckGL
-      initialViewState<span class="token operator">=</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>INITIAL_VIEW_STATE<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+      initialViewState<span class="token operator">=</span><span class="token punctuation">{</span>INITIAL_VIEW_STATE<span class="token punctuation">}</span>
       controller
-      layers<span class="token operator">=</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>layers<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-      <span class="token comment" spellcheck="true">// getTooltip=&amp;#123;(&amp;#123;object&amp;#125;) => object &amp;&amp; `$&amp;#123;object.zipcode&amp;#125;\nPopulation: $&amp;#123;object.population&amp;#125;`&amp;#125;</span>
+      layers<span class="token operator">=</span><span class="token punctuation">{</span>layers<span class="token punctuation">}</span>
+      <span class="token comment" spellcheck="true">// getTooltip={({object}) => object &amp;&amp; `${object.zipcode}\nPopulation: ${object.population}`}</span>
     <span class="token operator">></span>
       <span class="token operator">&lt;</span>StaticMap
-        mapboxApiAccessToken<span class="token operator">=</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>MAPBOX_TOKEN<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        mapboxApiAccessToken<span class="token operator">=</span><span class="token punctuation">{</span>MAPBOX_TOKEN<span class="token punctuation">}</span>
         mapStyle<span class="token operator">=</span><span class="token string">"mapbox://styles/mapbox/light-v10"</span>
       <span class="token operator">/</span><span class="token operator">></span>
     <span class="token operator">&lt;</span><span class="token operator">/</span>DeckGL<span class="token operator">></span>
   <span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
             </div>
@@ -1318,7 +1319,7 @@ import &amp;amp;#123; StaticMap &amp;amp;#125; from &#34;react">
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">183.2k</span>
+            <span class="white-color">180.2k</span>
             
 
             <br>

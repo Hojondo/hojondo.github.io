@@ -10,7 +10,8 @@
     <meta name="description" content="css 实现 flex 布局下，奇数行正向排序，偶数行反向排序目标效果：
 &amp;lt;ul&gt;
   &amp;lt;li v-for=&#34;(item,index) in listArr&#34; :key=&#34;index&#34;&gt;
-    &amp;amp;#123;&amp;amp;#">
+    {{ index }}
+  &amp;l">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -478,7 +479,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        495
+                        411
                     </div>
                     
 
@@ -504,16 +505,16 @@
                 <h1 id="css-实现-flex-布局下，奇数行正向排序，偶数行反向排序"><a href="#css-实现-flex-布局下，奇数行正向排序，偶数行反向排序" class="headerlink" title="css 实现 flex 布局下，奇数行正向排序，偶数行反向排序"></a>css 实现 flex 布局下，奇数行正向排序，偶数行反向排序</h1><p>目标效果：<br><a target="_blank" rel="noopener" href="https://imgchr.com/i/Jx4v0P"><img src="https://s1.ax1x.com/2020/05/03/Jx4v0P.md.png" alt="Jx4v0P.md.png"></a><br><a target="_blank" rel="noopener" href="https://imgchr.com/i/Jx4jmt"><img src="https://s1.ax1x.com/2020/05/03/Jx4jmt.md.png" alt="Jx4jmt.md.png"></a></p>
 <pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>(item,index) in listArr<span class="token punctuation">"</span></span> <span class="token attr-name">:key</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>index<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token entity" title="&#123;">&amp;#123;</span><span class="token entity" title="&#123;">&amp;#123;</span> index <span class="token entity" title="&#125;">&amp;#125;</span><span class="token entity" title="&#125;">&amp;#125;</span>
+    {{ index }}
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span>
 </code></pre>
 <h3 id="第一种解决方案-scss-flex-order"><a href="#第一种解决方案-scss-flex-order" class="headerlink" title="第一种解决方案 - scss/flex-order"></a>第一种解决方案 - scss/flex-order</h3><pre class=" language-scss"><code class="language-scss"><span class="token comment" spellcheck="true">// scss</span>
-ul &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token selector">ul </span><span class="token punctuation">{</span>
   <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
   <span class="token property">flex-direction</span><span class="token punctuation">:</span> row<span class="token punctuation">;</span>
   <span class="token property">flex-wrap</span><span class="token punctuation">:</span> wrap<span class="token punctuation">;</span>
-  li &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+  <span class="token selector">li </span><span class="token punctuation">{</span>
     <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 为::before做absolute position 准备</span>
     <span class="token property">flex-grow</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 掩护单行没到达5个item的情况，配合 偶数行第一个不要grow</span>
     <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">20%</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 宽度是5个item平分</span>
@@ -522,13 +523,13 @@ ul &amp;<span class="token hexcode">#123</span><span class="token punctuation">;
     <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">0</span> solid <span class="token hexcode">#b3b3b3</span><span class="token punctuation">;</span>
     <span class="token property">border-top-width</span><span class="token punctuation">:</span> <span class="token number">2</span>rpx<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 预留border-top</span>
     <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 偶数行最后（左）一个item的left:0会在边缘，要避免</span>
-    &amp;<span class="token number">.</span>active &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+    <span class="token selector"><span class="token parent important">&amp;</span>.active </span><span class="token punctuation">{</span>
       <span class="token property">border-top-color</span><span class="token punctuation">:</span> <span class="token hexcode">#3f4c8c</span><span class="token punctuation">;</span>
-      &amp;<span class="token punctuation">:</span><span class="token punctuation">:</span>before &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+      <span class="token selector"><span class="token parent important">&amp;</span>::before </span><span class="token punctuation">{</span>
         <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">4</span>rpx solid <span class="token hexcode">#3f4c8c</span><span class="token punctuation">;</span>
-      &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-    &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-    &amp;<span class="token punctuation">:</span><span class="token punctuation">:</span>before &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector"><span class="token parent important">&amp;</span>::before </span><span class="token punctuation">{</span>
       <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">;</span>
       <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
       <span class="token property">top</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
@@ -539,50 +540,50 @@ ul &amp;<span class="token hexcode">#123</span><span class="token punctuation">;
       <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode">#ffffff</span><span class="token punctuation">;</span>
       <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">4</span>rpx solid <span class="token hexcode">#999999</span><span class="token punctuation">;</span>
       <span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">50%</span><span class="token punctuation">;</span>
-    &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-    &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span><span class="token number">10</span>n <span class="token operator">+</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">:</span>last-child &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span><span class="token number">10</span>n <span class="token operator">+</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token selector">:last-child </span><span class="token punctuation">{</span>
       <span class="token property">border-top-width</span><span class="token punctuation">:</span> <span class="token number">2</span>rpx<span class="token punctuation">;</span>
       <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">80%</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 宽度是4个item的总长</span>
-    &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-    <span class="token keyword">@for</span> <span class="token variable">$i</span> <span class="token keyword">from</span> <span class="token number">0</span> <span class="token keyword">through</span> <span class="token number">150</span> &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
-      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>#&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span><span class="token variable">$i</span> <span class="token operator">+</span> <span class="token number">1</span>&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span><span class="token punctuation">)</span> &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">// @if ($i+1)/5 % 2==0 or $i/5 % 2==0&amp;#123;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">@for</span> <span class="token variable">$i</span> <span class="token keyword">from</span> <span class="token number">0</span> <span class="token keyword">through</span> <span class="token selector">150 </span><span class="token punctuation">{</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>#<span class="token punctuation">{</span><span class="token variable">$i</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// @if ($i+1)/5 % 2==0 or $i/5 % 2==0{</span>
         <span class="token comment" spellcheck="true">//     box-sizing: content-box;</span>
         <span class="token comment" spellcheck="true">//     padding-left: 80rpx;</span>
-        <span class="token comment" spellcheck="true">// &amp;#125;</span>
+        <span class="token comment" spellcheck="true">// }</span>
 
-        <span class="token keyword">@if</span> <span class="token punctuation">(</span><span class="token variable">$i</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>/<span class="token number">5</span> <span class="token number">%</span> <span class="token number">2</span>==<span class="token number">1</span> &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+        <span class="token keyword">@if</span> <span class="token punctuation">(</span><span class="token variable">$i</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token selector">/5 % 2==1 </span><span class="token punctuation">{</span>
           <span class="token property">border-right-width</span><span class="token punctuation">:</span> <span class="token number">2</span>rpx<span class="token punctuation">;</span>
           <span class="token property">border-bottom-width</span><span class="token punctuation">:</span> <span class="token number">2</span>rpx<span class="token punctuation">;</span>
           <span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">0</span> <span class="token number">50%</span> <span class="token number">50%</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span> <span class="token keyword">@else if</span> <span class="token punctuation">(</span><span class="token variable">$i</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>/<span class="token number">5</span> <span class="token number">%</span> <span class="token number">2</span>==<span class="token number">0</span> &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">@else if</span> <span class="token punctuation">(</span><span class="token variable">$i</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token selector">/5 % 2==0 </span><span class="token punctuation">{</span>
           <span class="token property">border-left-width</span><span class="token punctuation">:</span> <span class="token number">2</span>rpx<span class="token punctuation">;</span>
           <span class="token property">border-bottom-width</span><span class="token punctuation">:</span> <span class="token number">2</span>rpx<span class="token punctuation">;</span>
           <span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">50%</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">50%</span><span class="token punctuation">;</span>
-        &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span> <span class="token keyword">@else if</span> <span class="token variable">$i</span><span class="token number">%5</span>==<span class="token number">0</span> <span class="token operator">and</span> <span class="token variable">$i</span>!=<span class="token number">0</span> &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">@else if</span> <span class="token selector"><span class="token variable">$i</span><span class="token placeholder">%5</span>==0 and <span class="token variable">$i</span>!=0 </span><span class="token punctuation">{</span>
           <span class="token property">border-top-width</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
           <span class="token property">flex-grow</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 偶数行第一个 不要grow，以便后续兄弟的border-top-width能撑满这行</span>
-        &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-        <span class="token keyword">@if</span> <span class="token function">floor</span><span class="token punctuation">(</span><span class="token variable">$i</span> <span class="token operator">/</span> <span class="token number">5</span><span class="token punctuation">)</span> <span class="token number">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span> &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
-          <span class="token property">order</span><span class="token punctuation">:</span> #&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span><span class="token variable">$i</span>&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
-        &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span> <span class="token keyword">@else</span> &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
-          <span class="token property">order</span><span class="token punctuation">:</span> #&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span><span class="token variable">$i</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">-</span> <span class="token punctuation">(</span><span class="token variable">$i</span> <span class="token number">%</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">2</span>&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
-        &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-        <span class="token keyword">@if</span> <span class="token function">floor</span><span class="token punctuation">(</span><span class="token variable">$i</span>/<span class="token number">5</span><span class="token punctuation">)</span> ><span class="token number">0</span> &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">@if</span> <span class="token function">floor</span><span class="token punctuation">(</span><span class="token variable">$i</span> <span class="token operator">/</span> <span class="token number">5</span><span class="token punctuation">)</span> <span class="token selector">% 2 == 0 </span><span class="token punctuation">{</span>
+          <span class="token property">order</span><span class="token punctuation">:</span> <span class="token variable">#{$i}</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">@else</span> <span class="token punctuation">{</span>
+          <span class="token property">order</span><span class="token punctuation">:</span> #<span class="token punctuation">{</span><span class="token variable">$i</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">-</span> <span class="token punctuation">(</span><span class="token variable">$i</span> <span class="token number">%</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">@if</span> <span class="token function">floor</span><span class="token punctuation">(</span><span class="token variable">$i</span>/<span class="token number">5</span><span class="token punctuation">)</span> <span class="token selector">>0 </span><span class="token punctuation">{</span>
           <span class="token property">margin-top</span><span class="token punctuation">:</span> -<span class="token number">2</span>rpx<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 除第一行以为 统一向上缩进一个border-top-width的高度，以便这行线无缝连接</span>
-        &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-      &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-    &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
-<h3 id="第二种解决方案-float-nth-child"><a href="#第二种解决方案-float-nth-child" class="headerlink" title="第二种解决方案 float/nth-child()"></a>第二种解决方案 float/nth-child()</h3><pre class=" language-css"><code class="language-css">ul > <span class="token property">li</span><span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span><span class="token number">10</span>n + <span class="token number">6</span><span class="token punctuation">)</span>,
-ul > <span class="token property">li</span><span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span><span class="token number">10</span>n + <span class="token number">7</span><span class="token punctuation">)</span>,
-ul > <span class="token property">li</span><span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span><span class="token number">10</span>n + <span class="token number">8</span><span class="token punctuation">)</span>,
-ul > <span class="token property">li</span><span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span><span class="token number">10</span>n + <span class="token number">9</span><span class="token punctuation">)</span>,
-ul > <span class="token property">li</span><span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span><span class="token number">10</span>n<span class="token punctuation">)</span> &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<h3 id="第二种解决方案-float-nth-child"><a href="#第二种解决方案-float-nth-child" class="headerlink" title="第二种解决方案 float/nth-child()"></a>第二种解决方案 float/nth-child()</h3><pre class=" language-css"><code class="language-css"><span class="token selector">ul > li<span class="token pseudo-class">:nth-child(10n + 6)</span>,
+ul > li<span class="token pseudo-class">:nth-child(10n + 7)</span>,
+ul > li<span class="token pseudo-class">:nth-child(10n + 8)</span>,
+ul > li<span class="token pseudo-class">:nth-child(10n + 9)</span>,
+ul > li<span class="token pseudo-class">:nth-child(10n)</span> </span><span class="token punctuation">{</span>
   <span class="token property">float</span><span class="token punctuation">:</span> right<span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
             </div>
@@ -1298,7 +1299,7 @@ ul > <span class="token property">li</span><span class="token punctuation">:</sp
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">183.2k</span>
+            <span class="white-color">180.2k</span>
             
 
             <br>

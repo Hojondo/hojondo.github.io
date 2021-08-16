@@ -482,14 +482,14 @@ Vue前">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.7k
+                        1.4k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        8 分
+                        6 分
                     </div>
                     
                 
@@ -563,41 +563,41 @@ Vue前">
 <h2 id="重点Mark"><a href="#重点Mark" class="headerlink" title="重点Mark"></a>重点Mark</h2><h3 id="自定义实现跨父子多层分发机制"><a href="#自定义实现跨父子多层分发机制" class="headerlink" title="自定义实现跨父子多层分发机制"></a>自定义实现跨父子多层分发机制</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">/**
  * 后代改祖先数据
  */</span>
-Vue<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>$dispatch <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>eventName<span class="token punctuation">,</span> data<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+Vue<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>$dispatch <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>eventName<span class="token punctuation">,</span> data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">let</span> parent <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$parent<span class="token punctuation">;</span>
-  <span class="token keyword">while</span> <span class="token punctuation">(</span>parent<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span>parent<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     parent<span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span>eventName<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
     parent <span class="token operator">=</span> parent<span class="token punctuation">.</span>$parent<span class="token punctuation">;</span>
-  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">/**
  * 祖先改后代数据
  */</span>
 <span class="token comment" spellcheck="true">// 递归向上传播</span>
-<span class="token keyword">function</span> <span class="token function">boardcast</span><span class="token punctuation">(</span>eventName<span class="token punctuation">,</span> data<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-  <span class="token keyword">this</span><span class="token punctuation">.</span>$children<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>child<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">boardcast</span><span class="token punctuation">(</span>eventName<span class="token punctuation">,</span> data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>$children<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>child<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// 每一个子组件</span>
     child<span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span>eventName<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>child<span class="token punctuation">.</span>$children<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>child<span class="token punctuation">.</span>$children<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
       boardcast<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>child<span class="token punctuation">,</span> eventName<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-Vue<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>$boardcast <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>eventName<span class="token punctuation">,</span> data<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+Vue<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>$boardcast <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>eventName<span class="token punctuation">,</span> data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
   boardcast<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> eventName<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
-<h3 id="路由守卫实现loading-各页面document-title等赋值操作"><a href="#路由守卫实现loading-各页面document-title等赋值操作" class="headerlink" title="路由守卫实现loading,各页面document.title等赋值操作"></a>路由守卫实现loading,各页面document.title等赋值操作</h3><pre class=" language-javascript"><code class="language-javascript">router<span class="token punctuation">.</span><span class="token function">beforeEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>to<span class="token punctuation">,</span> <span class="token keyword">from</span><span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<h3 id="路由守卫实现loading-各页面document-title等赋值操作"><a href="#路由守卫实现loading-各页面document-title等赋值操作" class="headerlink" title="路由守卫实现loading,各页面document.title等赋值操作"></a>路由守卫实现loading,各页面document.title等赋值操作</h3><pre class=" language-javascript"><code class="language-javascript">router<span class="token punctuation">.</span><span class="token function">beforeEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>to<span class="token punctuation">,</span> <span class="token keyword">from</span><span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
   <span class="token comment" spellcheck="true">// 路由发生变化修改页面title</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>to<span class="token punctuation">.</span>meta<span class="token punctuation">.</span>title<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>to<span class="token punctuation">.</span>meta<span class="token punctuation">.</span>title<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     document<span class="token punctuation">.</span>title <span class="token operator">=</span> <span class="token string">'EBM - '</span> <span class="token operator">+</span> to<span class="token punctuation">.</span>meta<span class="token punctuation">.</span>title<span class="token punctuation">;</span>
-  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
   iView<span class="token punctuation">.</span>LoadingBar<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-router<span class="token punctuation">.</span><span class="token function">afterEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>route<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+router<span class="token punctuation">.</span><span class="token function">afterEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>route<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
   iView<span class="token punctuation">.</span>LoadingBar<span class="token punctuation">.</span><span class="token function">finish</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="通过scss实现通用风格样式整合和切换整体主题"><a href="#通过scss实现通用风格样式整合和切换整体主题" class="headerlink" title="通过scss实现通用风格样式整合和切换整体主题"></a>通过<code>scss</code>实现通用风格样式整合和切换整体主题</h3><p>颜色：</p>
 <pre class=" language-scss"><code class="language-scss"><span class="token comment" spellcheck="true">// common color</span>
@@ -619,184 +619,184 @@ router<span class="token punctuation">.</span><span class="token function">after
 <span class="token property"><span class="token variable">$theTheme</span></span><span class="token punctuation">:</span> theme_cyan<span class="token punctuation">;</span>
 
 <span class="token comment" spellcheck="true">// primary</span>
-<span class="token number">.</span>theme_color_primary&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
-  <span class="token number">.</span>theme_cyan &amp;&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token selector">.theme_color_primary</span><span class="token punctuation">{</span>
+  <span class="token selector">.theme_cyan <span class="token parent important">&amp;</span></span><span class="token punctuation">{</span>
     <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#2D8CF0</span><span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-  <span class="token number">.</span>theme_blue &amp;&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">.theme_blue <span class="token parent important">&amp;</span></span><span class="token punctuation">{</span>
     <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#156ECC</span><span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-  <span class="token number">.</span>theme_red &amp;&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">.theme_red <span class="token parent important">&amp;</span></span><span class="token punctuation">{</span>
     <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#D4575A</span><span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-<span class="token number">.</span>theme_bg_primary&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
-  <span class="token number">.</span>theme_cyan &amp;&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.theme_bg_primary</span><span class="token punctuation">{</span>
+  <span class="token selector">.theme_cyan <span class="token parent important">&amp;</span></span><span class="token punctuation">{</span>
     <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode">#2D8CF0</span>!important<span class="token punctuation">;</span>
     <span class="token property">border-color</span><span class="token punctuation">:</span> <span class="token hexcode">#2D8CF0</span>!important<span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-  <span class="token number">.</span>theme_blue &amp;&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">.theme_blue <span class="token parent important">&amp;</span></span><span class="token punctuation">{</span>
     <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode">#156ECC</span>!important<span class="token punctuation">;</span>
     <span class="token property">border-color</span><span class="token punctuation">:</span> <span class="token hexcode">#156ECC</span>!important<span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-  <span class="token number">.</span>theme_red &amp;&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">.theme_red <span class="token parent important">&amp;</span></span><span class="token punctuation">{</span>
     <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode">#D4575A</span>!important<span class="token punctuation">;</span>
     <span class="token property">border-color</span><span class="token punctuation">:</span> <span class="token hexcode">#D4575A</span>!important<span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 <span class="token comment" spellcheck="true">// lightPrimary</span>
-<span class="token number">.</span>theme_color_lightPrimary&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
-  <span class="token number">.</span>theme_cyan &amp;&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token selector">.theme_color_lightPrimary</span><span class="token punctuation">{</span>
+  <span class="token selector">.theme_cyan <span class="token parent important">&amp;</span></span><span class="token punctuation">{</span>
     <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#5CADFF</span><span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-  <span class="token number">.</span>theme_blue &amp;&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">.theme_blue <span class="token parent important">&amp;</span></span><span class="token punctuation">{</span>
     <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#3F90E6</span><span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-  <span class="token number">.</span>theme_red &amp;&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">.theme_red <span class="token parent important">&amp;</span></span><span class="token punctuation">{</span>
     <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#F27578</span><span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-<span class="token number">.</span>theme_bg_lightPrimary&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
-  <span class="token number">.</span>theme_cyan &amp;&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.theme_bg_lightPrimary</span><span class="token punctuation">{</span>
+  <span class="token selector">.theme_cyan <span class="token parent important">&amp;</span></span><span class="token punctuation">{</span>
     <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode">#5CADFF</span>!important<span class="token punctuation">;</span>
     <span class="token property">border-color</span><span class="token punctuation">:</span> <span class="token hexcode">#5CADFF</span>!important<span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-  <span class="token number">.</span>theme_blue &amp;&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">.theme_blue <span class="token parent important">&amp;</span></span><span class="token punctuation">{</span>
     <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode">#3F90E6</span>!important<span class="token punctuation">;</span>
     <span class="token property">border-color</span><span class="token punctuation">:</span> <span class="token hexcode">#3F90E6</span>!important<span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-  <span class="token number">.</span>theme_red &amp;&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">.theme_red <span class="token parent important">&amp;</span></span><span class="token punctuation">{</span>
     <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode">#F27578</span>!important<span class="token punctuation">;</span>
     <span class="token property">border-color</span><span class="token punctuation">:</span> <span class="token hexcode">#F27578</span>!important<span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 <span class="token comment" spellcheck="true">// darkPrimary</span>
-<span class="token number">.</span>theme_color_darkPrimary&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
-  <span class="token number">.</span>theme_cyan &amp;&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token selector">.theme_color_darkPrimary</span><span class="token punctuation">{</span>
+  <span class="token selector">.theme_cyan <span class="token parent important">&amp;</span></span><span class="token punctuation">{</span>
     <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#2B85E4</span><span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-  <span class="token number">.</span>theme_blue &amp;&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">.theme_blue <span class="token parent important">&amp;</span></span><span class="token punctuation">{</span>
     <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#0B55A4</span><span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-  <span class="token number">.</span>theme_red &amp;&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">.theme_red <span class="token parent important">&amp;</span></span><span class="token punctuation">{</span>
     <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#BE3F42</span><span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-<span class="token number">.</span>theme_bg_darkPrimary&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
-  <span class="token number">.</span>theme_cyan &amp;&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.theme_bg_darkPrimary</span><span class="token punctuation">{</span>
+  <span class="token selector">.theme_cyan <span class="token parent important">&amp;</span></span><span class="token punctuation">{</span>
     <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode">#2B85E4</span>!important<span class="token punctuation">;</span>
     <span class="token property">border-color</span><span class="token punctuation">:</span> <span class="token hexcode">#2B85E4</span>!important<span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-  <span class="token number">.</span>theme_blue &amp;&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">.theme_blue <span class="token parent important">&amp;</span></span><span class="token punctuation">{</span>
     <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode">#0B55A4</span>!important<span class="token punctuation">;</span>
     <span class="token property">border-color</span><span class="token punctuation">:</span> <span class="token hexcode">#0B55A4</span>!important<span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-  <span class="token number">.</span>theme_red &amp;&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">.theme_red <span class="token parent important">&amp;</span></span><span class="token punctuation">{</span>
     <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode">#BE3F42</span>!important<span class="token punctuation">;</span>
     <span class="token property">border-color</span><span class="token punctuation">:</span> <span class="token hexcode">#BE3F42</span>!important<span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 <span class="token comment" spellcheck="true">// label</span>
-<span class="token number">.</span>theme_color_label&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
-  <span class="token number">.</span>theme_cyan &amp;&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token selector">.theme_color_label</span><span class="token punctuation">{</span>
+  <span class="token selector">.theme_cyan <span class="token parent important">&amp;</span></span><span class="token punctuation">{</span>
     <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#E9F3FE</span><span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-  <span class="token number">.</span>theme_blue &amp;&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">.theme_blue <span class="token parent important">&amp;</span></span><span class="token punctuation">{</span>
     <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#E7F0FA</span><span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-  <span class="token number">.</span>theme_red &amp;&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">.theme_red <span class="token parent important">&amp;</span></span><span class="token punctuation">{</span>
     <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#FBEEEE</span><span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-<span class="token number">.</span>theme_bg_label&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
-  <span class="token number">.</span>theme_cyan &amp;&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.theme_bg_label</span><span class="token punctuation">{</span>
+  <span class="token selector">.theme_cyan <span class="token parent important">&amp;</span></span><span class="token punctuation">{</span>
     <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode">#E9F3FE</span>!important<span class="token punctuation">;</span>
     <span class="token property">border-color</span><span class="token punctuation">:</span> <span class="token hexcode">#E9F3FE</span>!important<span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-  <span class="token number">.</span>theme_blue &amp;&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">.theme_blue <span class="token parent important">&amp;</span></span><span class="token punctuation">{</span>
     <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode">#E7F0FA</span>!important<span class="token punctuation">;</span>
     <span class="token property">border-color</span><span class="token punctuation">:</span> <span class="token hexcode">#E7F0FA</span>!important<span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-  <span class="token number">.</span>theme_red &amp;&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">.theme_red <span class="token parent important">&amp;</span></span><span class="token punctuation">{</span>
     <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode">#FBEEEE</span>!important<span class="token punctuation">;</span>
     <span class="token property">border-color</span><span class="token punctuation">:</span> <span class="token hexcode">#FBEEEE</span>!important<span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
 
 <span class="token comment" spellcheck="true">// adjunctive_content</span>
-<span class="token number">.</span>theme_color_adjunctive_content&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
-  <span class="token number">.</span>theme_cyan &amp;&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token selector">.theme_color_adjunctive_content</span><span class="token punctuation">{</span>
+  <span class="token selector">.theme_cyan <span class="token parent important">&amp;</span></span><span class="token punctuation">{</span>
     <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode">#515A6E</span>!important<span class="token punctuation">;</span>
     <span class="token property">border-color</span><span class="token punctuation">:</span> <span class="token hexcode">#515A6E</span>!important<span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-  <span class="token number">.</span>theme_blue &amp;&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">.theme_blue <span class="token parent important">&amp;</span></span><span class="token punctuation">{</span>
     <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode">#313C53</span>!important<span class="token punctuation">;</span>
     <span class="token property">border-color</span><span class="token punctuation">:</span> <span class="token hexcode">#313C53</span>!important<span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-  <span class="token number">.</span>theme_red &amp;&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">.theme_red <span class="token parent important">&amp;</span></span><span class="token punctuation">{</span>
     <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode">#534D4D</span>!important<span class="token punctuation">;</span>
     <span class="token property">border-color</span><span class="token punctuation">:</span> <span class="token hexcode">#534D4D</span>!important<span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 <span class="token comment" spellcheck="true">// adjunctive_darkContent</span>
-<span class="token number">.</span>theme_color_adjunctive_darkContent&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
-  <span class="token number">.</span>theme_cyan &amp;&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token selector">.theme_color_adjunctive_darkContent</span><span class="token punctuation">{</span>
+  <span class="token selector">.theme_cyan <span class="token parent important">&amp;</span></span><span class="token punctuation">{</span>
     <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode">#363E4F</span>!important<span class="token punctuation">;</span>
     <span class="token property">border-color</span><span class="token punctuation">:</span> <span class="token hexcode">#363E4F</span>!important<span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-  <span class="token number">.</span>theme_blue &amp;&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">.theme_blue <span class="token parent important">&amp;</span></span><span class="token punctuation">{</span>
     <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode">#253048</span>!important<span class="token punctuation">;</span>
     <span class="token property">border-color</span><span class="token punctuation">:</span> <span class="token hexcode">#253048</span>!important<span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-  <span class="token number">.</span>theme_red &amp;&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">.theme_red <span class="token parent important">&amp;</span></span><span class="token punctuation">{</span>
     <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode">#4A4444</span>!important<span class="token punctuation">;</span>
     <span class="token property">border-color</span><span class="token punctuation">:</span> <span class="token hexcode">#4A4444</span>!important<span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 <span class="token comment" spellcheck="true">// adjunctive_background</span>
-<span class="token number">.</span>theme_color_adjunctive_background&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
-  <span class="token number">.</span>theme_cyan &amp;&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token selector">.theme_color_adjunctive_background</span><span class="token punctuation">{</span>
+  <span class="token selector">.theme_cyan <span class="token parent important">&amp;</span></span><span class="token punctuation">{</span>
     <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode">#F2F4F5</span>!important<span class="token punctuation">;</span>
     <span class="token property">border-color</span><span class="token punctuation">:</span> <span class="token hexcode">#F2F4F5</span>!important<span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-  <span class="token number">.</span>theme_blue &amp;&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">.theme_blue <span class="token parent important">&amp;</span></span><span class="token punctuation">{</span>
     <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode">#F2F4F5</span>!important<span class="token punctuation">;</span>
     <span class="token property">border-color</span><span class="token punctuation">:</span> <span class="token hexcode">#F2F4F5</span>!important<span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-  <span class="token number">.</span>theme_red &amp;&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">.theme_red <span class="token parent important">&amp;</span></span><span class="token punctuation">{</span>
     <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode">#F5F2F2</span>!important<span class="token punctuation">;</span>
     <span class="token property">border-color</span><span class="token punctuation">:</span> <span class="token hexcode">#F5F2F2</span>!important<span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
 <span class="token comment" spellcheck="true">// intersperse_combined</span>
-<span class="token number">.</span>theme_color_intersperse_combined&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
-  <span class="token number">.</span>theme_cyan &amp;&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token selector">.theme_color_intersperse_combined</span><span class="token punctuation">{</span>
+  <span class="token selector">.theme_cyan <span class="token parent important">&amp;</span></span><span class="token punctuation">{</span>
     <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span>to bottom, <span class="token hexcode">#D7DEE9</span>, <span class="token hexcode">#A2ADC1</span><span class="token punctuation">)</span><span class="token important">!important</span><span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-  <span class="token number">.</span>theme_blue &amp;&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">.theme_blue <span class="token parent important">&amp;</span></span><span class="token punctuation">{</span>
     <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span>to bottom, <span class="token hexcode">#4770BB</span>, <span class="token hexcode">#13387A</span><span class="token punctuation">)</span><span class="token important">!important</span><span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-  <span class="token number">.</span>theme_red &amp;&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">.theme_red <span class="token parent important">&amp;</span></span><span class="token punctuation">{</span>
     <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span>to bottom, <span class="token hexcode">#D4575A</span>, <span class="token hexcode">#8E1317</span><span class="token punctuation">)</span><span class="token important">!important</span><span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-<span class="token punctuation">:</span>export &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token selector">:export </span><span class="token punctuation">{</span>
   <span class="token comment" spellcheck="true">// the :export directive is the magic sauce for webpack</span>
   <span class="token property">theTheme</span><span class="token punctuation">:</span> <span class="token variable">$theTheme</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>改变主题：<code>document.getElementById(&#39;app&#39;).setAttribute(&#39;class&#39;, theTheme)</code><br>字体</p>
 <pre class=" language-scss"><code class="language-scss"><span class="token comment" spellcheck="true">/**
 全局字体定义
  */</span>
 
-html &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token selector">html </span><span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">//font-size: 100px;</span>
     <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">625%</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//基准 1rem = 100px</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
 <span class="token comment" spellcheck="true">// 字体大小变量 规定引用font时 内部参数必须用该变量</span>
 <span class="token property"><span class="token variable">$font_size_xl</span></span><span class="token punctuation">:</span> <span class="token number">.18</span>rem<span class="token punctuation">;</span>
@@ -804,182 +804,182 @@ html &amp;<span class="token hexcode">#123</span><span class="token punctuation"
 <span class="token property"><span class="token variable">$font_size_md</span></span><span class="token punctuation">:</span> <span class="token number">.14</span>rem<span class="token punctuation">;</span>
 <span class="token property"><span class="token variable">$font_size_sm</span></span><span class="token punctuation">:</span> <span class="token number">.12</span>rem<span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// 字体</span>
-<span class="token keyword">@mixin</span> font_title &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token keyword">@mixin</span> <span class="token selector">font_title </span><span class="token punctuation">{</span>
     <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">.32</span>rem<span class="token punctuation">;</span>
     <span class="token property">font-weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span>
     <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#17233D</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
 
 <span class="token comment" spellcheck="true">/*
 标题
  */</span>
 
-<span class="token keyword">@mixin</span> font_head &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token keyword">@mixin</span> <span class="token selector">font_head </span><span class="token punctuation">{</span>
     <span class="token property">font-weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span>
     <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#464C5B</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="token number">.</span>font_mainHead &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token selector">.font_mainHead </span><span class="token punctuation">{</span>
     <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token variable">$font_size_xl</span><span class="token punctuation">;</span>
     <span class="token keyword">@include</span> font_head<span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="token number">.</span>font_subHead &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token selector">.font_subHead </span><span class="token punctuation">{</span>
     <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token variable">$font_size_lg</span><span class="token punctuation">;</span>
     <span class="token keyword">@include</span> font_head<span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="token number">.</span>font_smallHead &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token selector">.font_smallHead </span><span class="token punctuation">{</span>
     <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token variable">$font_size_md</span><span class="token punctuation">;</span>
     <span class="token keyword">@include</span> font_head<span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
 <span class="token comment" spellcheck="true">//反</span>
-<span class="token keyword">@mixin</span> font_inverse_head &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token keyword">@mixin</span> <span class="token selector">font_inverse_head </span><span class="token punctuation">{</span>
     <span class="token property">font-weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span>
     <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#FFFFFF</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="token number">.</span>font_inverse_mainHead &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token selector">.font_inverse_mainHead </span><span class="token punctuation">{</span>
     <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token variable">$font_size_xl</span><span class="token punctuation">;</span>
     <span class="token keyword">@include</span> font_inverse_head<span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="token number">.</span>font_inverse_subHead &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token selector">.font_inverse_subHead </span><span class="token punctuation">{</span>
     <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token variable">$font_size_lg</span><span class="token punctuation">;</span>
     <span class="token keyword">@include</span> font_inverse_head<span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="token number">.</span>font_inverse_smallHead &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token selector">.font_inverse_smallHead </span><span class="token punctuation">{</span>
     <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token variable">$font_size_md</span><span class="token punctuation">;</span>
     <span class="token keyword">@include</span> font_inverse_head<span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
 
 <span class="token comment" spellcheck="true">/*
 正文
  */</span>
 
-<span class="token keyword">@mixin</span> font_text_color &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token keyword">@mixin</span> <span class="token selector">font_text_color </span><span class="token punctuation">{</span>
     <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#657180</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-<span class="token number">.</span>font_xlargeText&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.font_xlargeText</span><span class="token punctuation">{</span>
     <span class="token property">font-size</span><span class="token punctuation">:</span><span class="token variable">$font_size_xl</span><span class="token punctuation">;</span>
     <span class="token keyword">@include</span> font_text_color<span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-<span class="token number">.</span>font_largeText &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.font_largeText </span><span class="token punctuation">{</span>
     <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token variable">$font_size_lg</span><span class="token punctuation">;</span>
     <span class="token keyword">@include</span> font_text_color<span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="token number">.</span>font_text &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token selector">.font_text </span><span class="token punctuation">{</span>
     <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token variable">$font_size_md</span><span class="token punctuation">;</span>
     <span class="token keyword">@include</span> font_text_color<span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="token number">.</span>font_smallText &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token selector">.font_smallText </span><span class="token punctuation">{</span>
     <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token variable">$font_size_sm</span><span class="token punctuation">;</span>
     <span class="token keyword">@include</span> font_text_color<span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
 <span class="token comment" spellcheck="true">//反</span>
-<span class="token keyword">@mixin</span> font_inverse_text_color &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token keyword">@mixin</span> <span class="token selector">font_inverse_text_color </span><span class="token punctuation">{</span>
     <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#FFFFFF</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="token number">.</span>font_inverse_largeText &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token selector">.font_inverse_largeText </span><span class="token punctuation">{</span>
     <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token variable">$font_size_lg</span><span class="token punctuation">;</span>
     <span class="token keyword">@include</span> font_inverse_text_color<span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="token number">.</span>font_inverse_text &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token selector">.font_inverse_text </span><span class="token punctuation">{</span>
     <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token variable">$font_size_md</span><span class="token punctuation">;</span>
     <span class="token keyword">@include</span> font_inverse_text_color<span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="token number">.</span>font_inverse_smallText &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token selector">.font_inverse_smallText </span><span class="token punctuation">{</span>
     <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token variable">$font_size_sm</span><span class="token punctuation">;</span>
     <span class="token keyword">@include</span> font_inverse_text_color<span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
 
 <span class="token comment" spellcheck="true">/*
 辅助
  */</span>
 
-<span class="token keyword">@mixin</span> font_help_color &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token keyword">@mixin</span> <span class="token selector">font_help_color </span><span class="token punctuation">{</span>
     <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#9EA7B4</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="token number">.</span>font_help &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token selector">.font_help </span><span class="token punctuation">{</span>
     <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token variable">$font_size_md</span><span class="token punctuation">;</span>
     <span class="token keyword">@include</span> font_help_color<span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="token number">.</span>font_smallHelp &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token selector">.font_smallHelp </span><span class="token punctuation">{</span>
     <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token variable">$font_size_sm</span><span class="token punctuation">;</span>
     <span class="token keyword">@include</span> font_help_color<span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
 
 <span class="token comment" spellcheck="true">/*
 失效
  */</span>
 
-<span class="token keyword">@mixin</span> font_disabled_color &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token keyword">@mixin</span> <span class="token selector">font_disabled_color </span><span class="token punctuation">{</span>
     <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#C3CBD6</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="token number">.</span>font_disabled &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token selector">.font_disabled </span><span class="token punctuation">{</span>
     <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token variable">$font_size_md</span><span class="token punctuation">;</span>
     <span class="token keyword">@include</span> font_disabled_color<span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="token number">.</span>font_smallDisabled &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token selector">.font_smallDisabled </span><span class="token punctuation">{</span>
     <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token variable">$font_size_sm</span><span class="token punctuation">;</span>
     <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#C3CBD6</span>FF<span class="token punctuation">;</span>
 
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
 
 <span class="token comment" spellcheck="true">/*
 链接
  */</span>
 
-<span class="token keyword">@mixin</span> font_link_color &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token keyword">@mixin</span> <span class="token selector">font_link_color </span><span class="token punctuation">{</span>
     <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#3399FF</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="token number">.</span>font_link &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token selector">.font_link </span><span class="token punctuation">{</span>
     <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token variable">$font_size_md</span><span class="token punctuation">;</span>
     <span class="token keyword">@include</span> font_link_color<span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="token number">.</span>font_smallLink &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token selector">.font_smallLink </span><span class="token punctuation">{</span>
     <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token variable">$font_size_sm</span><span class="token punctuation">;</span>
     <span class="token keyword">@include</span> font_link_color<span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
 
 <span class="token comment" spellcheck="true">/*
 提示
  */</span>
 
-<span class="token number">.</span>font_tipError &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token selector">.font_tipError </span><span class="token punctuation">{</span>
     <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#ED4014</span><span class="token punctuation">;</span>
     <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token variable">$font_size_sm</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="token number">.</span>font_tipWarning &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token selector">.font_tipWarning </span><span class="token punctuation">{</span>
     <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#FA9600</span><span class="token punctuation">;</span>
     <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token variable">$font_size_sm</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="token number">.</span>font_tipSuccess &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token selector">.font_tipSuccess </span><span class="token punctuation">{</span>
     <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#19BE6B</span><span class="token punctuation">;</span>
     <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token variable">$font_size_sm</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
             </div>
@@ -1693,7 +1693,7 @@ project.config.json 小程序开发者工具在每个项目的根目
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">183.2k</span>
+            <span class="white-color">180.2k</span>
             
 
             <br>

@@ -477,7 +477,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        385
+                        329
                     </div>
                     
 
@@ -502,44 +502,44 @@
             <div id="articleContent">
                 <p>HOC 其实有两种模式,</p>
 <h2 id="一种是『属性代理』"><a href="#一种是『属性代理』" class="headerlink" title="一种是『属性代理』"></a>一种是『属性代理』</h2><p>属性代理大家很熟悉了,也是大家最常用的一种 HOC 形式,主要是用于修改 props,抽象 state, 调取 refs 等等,就不多赘述了,以上这些 React Hooks 都能完成的更出色.</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">HOC</span><span class="token punctuation">(</span>WrappedComponent<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-  <span class="token keyword">return</span> <span class="token keyword">class</span> <span class="token class-name">CHOC</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-      <span class="token keyword">return</span> <span class="token operator">&lt;</span>WrappedComponent <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">...</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">HOC</span><span class="token punctuation">(</span>WrappedComponent<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">class</span> <span class="token class-name">CHOC</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
+    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token operator">&lt;</span>WrappedComponent <span class="token punctuation">{</span><span class="token operator">...</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
-<h2 id="还有一种模式叫『反向继承』"><a href="#还有一种模式叫『反向继承』" class="headerlink" title="还有一种模式叫『反向继承』"></a>还有一种模式叫『反向继承』</h2><pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">HOC</span><span class="token punctuation">(</span>WrappedComponent<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-  <span class="token keyword">return</span> <span class="token keyword">class</span> <span class="token class-name">Enhancer</span> <span class="token keyword">extends</span> <span class="token class-name">WrappedComponent</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<h2 id="还有一种模式叫『反向继承』"><a href="#还有一种模式叫『反向继承』" class="headerlink" title="还有一种模式叫『反向继承』"></a>还有一种模式叫『反向继承』</h2><pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">HOC</span><span class="token punctuation">(</span>WrappedComponent<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">class</span> <span class="token class-name">Enhancer</span> <span class="token keyword">extends</span> <span class="token class-name">WrappedComponent</span> <span class="token punctuation">{</span>
+    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
       <span class="token keyword">return</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>此模式与『属性代理』不同之处是，HOC 返回的新组件其实是继承了原始组件的,当然这在 React 的理念中有点反模式,因为大家一直强调的是『组合优于继承』</p>
 <p>由于是<strong>继承了原始组件</strong>,所以『反向继承』中可以做一些更『出格的操作』,我们称这一系列的操作为『渲染劫持』</p>
 <p>比如一个渲染劫持的例子是修改 elements tree, 比如我们想把一个 input 组件的 value 修改为’world’</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> HOC <span class="token operator">=</span> <span class="token punctuation">(</span>Component<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-  <span class="token keyword">return</span> <span class="token keyword">class</span> <span class="token class-name">EnhancerComponent</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> HOC <span class="token operator">=</span> <span class="token punctuation">(</span>Component<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">class</span> <span class="token class-name">EnhancerComponent</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
     <span class="token keyword">static</span> displayName <span class="token operator">=</span> <span class="token string">"UserGetComponent"</span><span class="token punctuation">;</span>
-    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
       <span class="token keyword">const</span> elementsTree <span class="token operator">=</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token keyword">let</span> newProps <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span>elementsTree <span class="token operator">&amp;&amp;</span> elementsTree<span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">"input"</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        newProps <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> value<span class="token punctuation">:</span> <span class="token string">"world"</span> <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
-      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-      <span class="token keyword">const</span> props <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span> elementsTree<span class="token punctuation">.</span>props<span class="token punctuation">,</span> newProps<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">let</span> newProps <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>elementsTree <span class="token operator">&amp;&amp;</span> elementsTree<span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">"input"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        newProps <span class="token operator">=</span> <span class="token punctuation">{</span> value<span class="token punctuation">:</span> <span class="token string">"world"</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword">const</span> props <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> elementsTree<span class="token punctuation">.</span>props<span class="token punctuation">,</span> newProps<span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token keyword">const</span> newElementsTree <span class="token operator">=</span> React<span class="token punctuation">.</span><span class="token function">cloneElement</span><span class="token punctuation">(</span>
         elementsTree<span class="token punctuation">,</span>
         props<span class="token punctuation">,</span>
         elementsTree<span class="token punctuation">.</span>props<span class="token punctuation">.</span>children
       <span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token keyword">return</span> newElementsTree<span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
 <p>这种情况下,所有被 HOC 修饰过的组件,如果是一个 input 组件,那么 value 全部会被渲染为 world</p>
 
@@ -1103,12 +1103,12 @@ React-coreReact 早期口号是 Rethinking Best Practices(重新思考最佳实�
                         <span class="chip bg-color">todo</span>
                     </a>
                     
-                    <a href="/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/" target="_blank">
-                        <span class="chip bg-color">工程化</span>
-                    </a>
-                    
                     <a href="/tags/%E6%B5%8B%E8%AF%95/" target="_blank">
                         <span class="chip bg-color">测试</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/" target="_blank">
+                        <span class="chip bg-color">工程化</span>
                     </a>
                     
                 </div>
@@ -1263,7 +1263,7 @@ React-coreReact 早期口号是 Rethinking Best Practices(重新思考最佳实�
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">183.2k</span>
+            <span class="white-color">180.2k</span>
             
 
             <br>

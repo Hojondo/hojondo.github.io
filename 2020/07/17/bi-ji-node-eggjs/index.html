@@ -481,7 +481,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        562
+                        550
                     </div>
                     
 
@@ -550,16 +550,16 @@
 <li>持久化 mogoose<ul>
 <li>密码 hash 化 插件 npm i egg-bcrypt -S</li>
 <li>npm i egg-mongoose -S</li>
-<li>controller 下<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> payload <span class="token operator">=</span> ctx<span class="token punctuation">.</span>request<span class="token punctuation">.</span>body <span class="token operator">||</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+<li>controller 下<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> payload <span class="token operator">=</span> ctx<span class="token punctuation">.</span>request<span class="token punctuation">.</span>body <span class="token operator">||</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// 调用 Service 进行业务处理</span>
 <span class="token keyword">const</span> res <span class="token operator">=</span> <span class="token keyword">await</span> service<span class="token punctuation">.</span>user<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>payload<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 </li>
-<li>service 下<pre class=" language-js"><code class="language-js"><span class="token keyword">async</span> <span class="token function">create</span><span class="token punctuation">(</span>payload<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> ctx<span class="token punctuation">,</span> service <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">=</span> <span class="token keyword">this</span>
+<li>service 下<pre class=" language-js"><code class="language-js"><span class="token keyword">async</span> <span class="token function">create</span><span class="token punctuation">(</span>payload<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> ctx<span class="token punctuation">,</span> service <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span>
 payload<span class="token punctuation">.</span>password <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span>ctx<span class="token punctuation">.</span><span class="token function">genHash</span><span class="token punctuation">(</span>payload<span class="token punctuation">.</span>password<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// genHash是插件bcrypt提供的</span>
 <span class="token keyword">return</span> ctx<span class="token punctuation">.</span>model<span class="token punctuation">.</span>User<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>payload<span class="token punctuation">)</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 </li>
 </ul>
@@ -1097,8 +1097,9 @@ websocket
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            import React, &amp;#123; useEffect, useState &amp;#125; from "react";
-import &amp;#123; StaticMap &amp;#125; from "react
+                            import React, { useEffect, useState } from "react";
+import { StaticMap } from "react-map-gl";
+import DeckGL, { GeoJsonLa
                         
                     </div>
                     <div class="publish-info">
@@ -1276,7 +1277,7 @@ import &amp;#123; StaticMap &amp;#125; from "react
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">183.2k</span>
+            <span class="white-color">180.2k</span>
             
 
             <br>

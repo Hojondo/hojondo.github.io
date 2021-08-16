@@ -477,14 +477,14 @@ JavaScript
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        12k
+                        12.5k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        47 分
+                        49 分
                     </div>
                     
                 
@@ -552,34 +552,34 @@ JavaScript
 <span class="token function">isIsomorphic</span><span class="token punctuation">(</span><span class="token string">"paper"</span><span class="token punctuation">,</span> <span class="token string">'title'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//true</span>
 <span class="token function">isIsomorphic</span><span class="token punctuation">(</span><span class="token string">"kick"</span><span class="token punctuation">,</span> <span class="token string">'side'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//false</span>
 
-<span class="token keyword">function</span> <span class="token function">isIsomorphic</span><span class="token punctuation">(</span>firststring<span class="token punctuation">,</span> secondstring<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">isIsomorphic</span><span class="token punctuation">(</span>firststring<span class="token punctuation">,</span> secondstring<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
 <span class="token comment" spellcheck="true">//检查长度是否相等，如果不想等，他们不可能是同构的</span>
 <span class="token keyword">if</span><span class="token punctuation">(</span>firstString<span class="token punctuation">.</span>length <span class="token operator">!==</span> secondString<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span>
-<span class="token keyword">var</span> letterMap <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
-<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> firstString<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> letterMap <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> firstString<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
  <span class="token keyword">var</span> letterA <span class="token operator">=</span> firstString<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>
  letterB <span class="token operator">=</span> secondstring<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
 
  <span class="token comment" spellcheck="true">// 如果 letter 不存在,创建一个 map,并将 letterB 赋值给它</span>
- <span class="token keyword">if</span> <span class="token punctuation">(</span>letterMap <span class="token punctuation">[</span>letterA<span class="token punctuation">]</span> <span class="token operator">===</span> undefined<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+ <span class="token keyword">if</span> <span class="token punctuation">(</span>letterMap <span class="token punctuation">[</span>letterA<span class="token punctuation">]</span> <span class="token operator">===</span> undefined<span class="token punctuation">)</span> <span class="token punctuation">{</span>
  letterMap<span class="token punctuation">[</span>letterA<span class="token punctuation">]</span> <span class="token operator">=</span> letterB<span class="token punctuation">;</span>
- <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>letterMap <span class="token punctuation">[</span>letterA<span class="token punctuation">]</span> <span class="token operator">!==</span> lettersB<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>letterMap <span class="token punctuation">[</span>letterA<span class="token punctuation">]</span> <span class="token operator">!==</span> lettersB<span class="token punctuation">)</span> <span class="token punctuation">{</span>
  <span class="token comment" spellcheck="true">// 如果 lettera 在 map 中已存在,但不是与 letterB 对应,</span>
  <span class="token comment" spellcheck="true">// 那么这意味着letterA 与多个字符相对应</span>
  <span class="token keyword">return</span> <span class="token boolean">false</span>
- <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 迭代完毕，如果满足条件，那么返回true</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span> <span class="token comment" spellcheck="true">// 迭代完毕，如果满足条件，那么返回true</span>
 <span class="token comment" spellcheck="true">// 他们是同构的</span>
 <span class="token keyword">return</span> <span class="token boolean">true</span>
 </code></pre>
 </li>
-<li><h2 id="下面代码的输出结果是什么？-undefined-和-ReferenceError"><a href="#下面代码的输出结果是什么？-undefined-和-ReferenceError" class="headerlink" title="下面代码的输出结果是什么？( undefined 和 ReferenceError)"></a>下面代码的输出结果是什么？( undefined 和 ReferenceError)</h2><pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">sayhi</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<li><h2 id="下面代码的输出结果是什么？-undefined-和-ReferenceError"><a href="#下面代码的输出结果是什么？-undefined-和-ReferenceError" class="headerlink" title="下面代码的输出结果是什么？( undefined 和 ReferenceError)"></a>下面代码的输出结果是什么？( undefined 和 ReferenceError)</h2><pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">sayhi</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">"Lydia"</span><span class="token punctuation">;</span>
   <span class="token keyword">let</span> age <span class="token operator">=</span> <span class="token number">21</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>本题的考点主要是 var let 的区别以及 var 的预解析问题。 var 所声明的变量会被预解析, var name;提升到作用域最顶部,所以在开始的 console.log(name)时,name 已经存在,但是由于没 有赋值,所以是 undefined;而 let 会有暂时性死区,也就是在 let 声明变量之前,你都无法使用这 个变量,会抛出一个错误。</p>
 </li>
@@ -1109,6 +1109,39 @@ JavaScript
 <p>(5) transform: Scale(); 将一个元素设置为缩放无限小,元素将不可见,元素原来所在</p>
 <p>的位置将被保留。</p>
 <p>(6)</p>
+<hr>
+<h1 id="H5"><a href="#H5" class="headerlink" title="H5"></a>H5</h1><h3 id="1-设置Input框提示文案的属性是？"><a href="#1-设置Input框提示文案的属性是？" class="headerlink" title="1.设置Input框提示文案的属性是？"></a>1.设置Input框提示文案的属性是？</h3><p>placeholder</p>
+<h3 id="2-Canvas的width和height是用来指定其DOM元素大小的"><a href="#2-Canvas的width和height是用来指定其DOM元素大小的" class="headerlink" title="2.Canvas的width和height是用来指定其DOM元素大小的"></a>2.Canvas的width和height是用来指定其DOM元素大小的</h3><p>错，是画布的大小</p>
+<h3 id="3-将一个对象储存到localStorage的方法是？"><a href="#3-将一个对象储存到localStorage的方法是？" class="headerlink" title="3.将一个对象储存到localStorage的方法是？"></a>3.将一个对象储存到localStorage的方法是？</h3><p>setItem</p>
+<h3 id="4-怎么判断页面在微信app打开的？"><a href="#4-怎么判断页面在微信app打开的？" class="headerlink" title="4.怎么判断页面在微信app打开的？"></a>4.怎么判断页面在微信app打开的？</h3><p>userAgent</p>
+<h3 id="5-路由常见实现方式有哪两种？hash路由的实现是基于哪个监听事件？"><a href="#5-路由常见实现方式有哪两种？hash路由的实现是基于哪个监听事件？" class="headerlink" title="5.路由常见实现方式有哪两种？hash路由的实现是基于哪个监听事件？"></a>5.路由常见实现方式有哪两种？hash路由的实现是基于哪个监听事件？</h3><p>history &amp; hash</p>
+<p>onhashchange</p>
+<h3 id="6-当浏览器识别到href指向的文件时，会暂停其他资源的下载和处理"><a href="#6-当浏览器识别到href指向的文件时，会暂停其他资源的下载和处理" class="headerlink" title="6.当浏览器识别到href指向的文件时，会暂停其他资源的下载和处理"></a>6.当浏览器识别到href指向的文件时，会暂停其他资源的下载和处理</h3><p>错误， src会，href不会</p>
+<h3 id="7-说出2个常用的自闭和标签"><a href="#7-说出2个常用的自闭和标签" class="headerlink" title="7.说出2个常用的自闭和标签"></a>7.说出2个常用的自闭和标签</h3><p><br/> <input/> <img/><link/><meta/><source/><frame/></p>
+<h3 id="8-如果资源命中弱缓存，则返回的状态码是302"><a href="#8-如果资源命中弱缓存，则返回的状态码是302" class="headerlink" title="8.如果资源命中弱缓存，则返回的状态码是302"></a>8.如果资源命中弱缓存，则返回的状态码是302</h3><p>错误，302是重定向，304是协商缓存</p>
+<h3 id="9-怎么给网页加上favicon小图标"><a href="#9-怎么给网页加上favicon小图标" class="headerlink" title="9.怎么给网页加上favicon小图标"></a>9.怎么给网页加上favicon小图标</h3><link rel="shortcut icon" href="https://www.baidu.com/favicon.ico" type="image/x-icon">
+
+<h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><h3 id="1-CSS通过什么属性设置怪异盒模型"><a href="#1-CSS通过什么属性设置怪异盒模型" class="headerlink" title="1.CSS通过什么属性设置怪异盒模型"></a>1.CSS通过什么属性设置怪异盒模型</h3><p>box-sizing: border-box;</p>
+<h3 id="2-CSS选择器的优先级是-：内联-gt-ID选择器-gt-类选择器-gt-标签选择器"><a href="#2-CSS选择器的优先级是-：内联-gt-ID选择器-gt-类选择器-gt-标签选择器" class="headerlink" title="2.CSS选择器的优先级是 ：内联 &gt; ID选择器 &gt; 类选择器 &gt; 标签选择器"></a>2.CSS选择器的优先级是 ：内联 &gt; ID选择器 &gt; 类选择器 &gt; 标签选择器</h3><p>正确</p>
+<h3 id="3-position：fixed是相对于定位"><a href="#3-position：fixed是相对于定位" class="headerlink" title="3.position：fixed是相对于定位"></a>3.position：fixed是相对于<body>定位</h3><p>错误，指定元素相对于屏幕视口(viewport)的位置来指定元素位置 </p>
+<h3 id="4、如何用css写出一个圆形的div"><a href="#4、如何用css写出一个圆形的div" class="headerlink" title="4、如何用css写出一个圆形的div?"></a><strong>4、如何用css写出一个圆形的div?</strong></h3><p><strong>border-radius: 50%</strong></p>
+<h3 id="5-z-index只能影响设置了position值的元素"><a href="#5-z-index只能影响设置了position值的元素" class="headerlink" title="5.z-index只能影响设置了position值的元素"></a>5.z-index只能影响设置了position值的元素</h3><p>正确</p>
+<h3 id="6-CSS动画中，怎么去设置动画的关键帧"><a href="#6-CSS动画中，怎么去设置动画的关键帧" class="headerlink" title="6.CSS动画中，怎么去设置动画的关键帧"></a>6.CSS动画中，怎么去设置动画的关键帧</h3><p>@keyframes</p>
+<h3 id="7-padding-1px-2px-3px-4px-左内边距是多少？"><a href="#7-padding-1px-2px-3px-4px-左内边距是多少？" class="headerlink" title="7.padding: 1px 2px 3px 4px;左内边距是多少？"></a>7.padding: 1px 2px 3px 4px;左内边距是多少？</h3><p>4px</p>
+<h3 id="8-js怎么获取DOM元素的class"><a href="#8-js怎么获取DOM元素的class" class="headerlink" title="8.js怎么获取DOM元素的class"></a>8.js怎么获取DOM元素的class</h3><p>obj.className</p>
+<h3 id="9-有哪些方式-CSS-可以隐藏⻚面元素"><a href="#9-有哪些方式-CSS-可以隐藏⻚面元素" class="headerlink" title="9.有哪些方式(CSS)可以隐藏⻚面元素"></a>9.有哪些方式(CSS)可以隐藏⻚面元素</h3><p>opacity:0 ，display:none ，visibility:hidden，overflow:hidden，transform:scale(0)</p>
+<h3 id="10-css如何设置鼠标指针"><a href="#10-css如何设置鼠标指针" class="headerlink" title="10.css如何设置鼠标指针"></a>10.css如何设置鼠标指针</h3><p>cursor: pointer</p>
+<h1 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h1><h3 id="1-let-a-new-Set-1-2-2-3-a等于多少？"><a href="#1-let-a-new-Set-1-2-2-3-a等于多少？" class="headerlink" title="1.let a = new Set([1,2,2,3]); a等于多少？"></a>1.let a = new Set([1,2,2,3]); a等于多少？</h3><p>[1,2,3]</p>
+<h3 id="2-let-a-console-log-a-打印什么？"><a href="#2-let-a-console-log-a-打印什么？" class="headerlink" title="2.let a;console.log(a);打印什么？"></a>2.let a;console.log(a);打印什么？</h3><p>undefined</p>
+<h3 id="3-js中如何获取页面的完整url"><a href="#3-js中如何获取页面的完整url" class="headerlink" title="3.js中如何获取页面的完整url?"></a>3.js中如何获取页面的完整url?</h3><p>location.herf</p>
+<h3 id="4-Symbol-1-Symbol-1-？"><a href="#4-Symbol-1-Symbol-1-？" class="headerlink" title="4.Symbol(1) === Symbol(1)？"></a>4.Symbol(1) === Symbol(1)？</h3><p>console.log(Symbol(‘foo’) === Symbol(‘foo’));<br>// expected output: false</p>
+<h3 id="5-js模块的常见种类有哪些？"><a href="#5-js模块的常见种类有哪些？" class="headerlink" title="5.js模块的常见种类有哪些？"></a>5.js模块的常见种类有哪些？</h3><p>cmd、amd、umd、esm</p>
+<h3 id="6-哪些方法可以显示改变this指向-？"><a href="#6-哪些方法可以显示改变this指向-？" class="headerlink" title="6.哪些方法可以显示改变this指向 ？"></a>6.哪些方法可以显示改变this指向 ？</h3><p>call、apply、bind </p>
+<h3 id="7-js取消默认事件"><a href="#7-js取消默认事件" class="headerlink" title="7.js取消默认事件"></a>7.js取消默认事件</h3><p>e.preventDefault()</p>
+<h3 id="8-ajax使用的哪个对象实现？"><a href="#8-ajax使用的哪个对象实现？" class="headerlink" title="8.ajax使用的哪个对象实现？"></a>8.ajax使用的哪个对象实现？</h3><p> XMLHttpRequest</p>
+<h3 id="9-怎么将字符串转为json对象"><a href="#9-怎么将字符串转为json对象" class="headerlink" title="9.怎么将字符串转为json对象"></a>9.怎么将字符串转为json对象</h3><p>JSON.parse()</p>
+<h3 id="10-let-a-1-2-3-a-pop-返回什么？pop之后console-log-a）打印什么？"><a href="#10-let-a-1-2-3-a-pop-返回什么？pop之后console-log-a）打印什么？" class="headerlink" title="10.let a = [1,2,3]; a.pop()返回什么？pop之后console.log(a）打印什么？"></a>10.let a = [1,2,3]; a.pop()返回什么？pop之后console.log(a）打印什么？</h3><p>返回3。打印[1,2]</p>
+<h3 id="11-let-a-1-2-3-a-slice-0-1-返回什么？slice之后console-log-a）打印什么？"><a href="#11-let-a-1-2-3-a-slice-0-1-返回什么？slice之后console-log-a）打印什么？" class="headerlink" title="11.let a = [1,2,3]; a.slice(0,1)返回什么？slice之后console.log(a）打印什么？"></a>11.let a = [1,2,3]; a.slice(0,1)返回什么？slice之后console.log(a）打印什么？</h3><p>返回[1]（数组里有一个元素是1）。打印[1,2,3]。</p>
 
             </div>
             <hr/>
@@ -1830,7 +1863,7 @@ vue3-study
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">183.2k</span>
+            <span class="white-color">180.2k</span>
             
 
             <br>

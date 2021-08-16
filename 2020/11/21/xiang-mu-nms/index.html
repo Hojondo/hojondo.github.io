@@ -482,14 +482,14 @@ React r">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.3k
+                        1k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        6 分
+                        5 分
                     </div>
                     
                 
@@ -528,133 +528,133 @@ React r">
 <pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// server app.js</span>
 <span class="token keyword">const</span> send <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"koa-send"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"path"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>ctx<span class="token punctuation">.</span>status <span class="token operator">===</span> <span class="token number">404</span> <span class="token operator">&amp;&amp;</span> ctx<span class="token punctuation">.</span>body <span class="token operator">===</span> undefined<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>ctx<span class="token punctuation">.</span>status <span class="token operator">===</span> <span class="token number">404</span> <span class="token operator">&amp;&amp;</span> ctx<span class="token punctuation">.</span>body <span class="token operator">===</span> undefined<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">await</span> <span class="token function">send</span><span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>distDirectory<span class="token punctuation">,</span> <span class="token string">"index.html"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
   <span class="token keyword">await</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>这么做以后，node 方 不再返回 404 错误页面，因为对于所有路径都会返回 index.html 文件。<br>所以在客户端兜底 404，前端路由配置中加一个 defaultRoute，指向 404component<code>&#123; path: &#39;/404&#39;, component: &#39;@/pages/404/index&#39; &#125;,...,&#123; redirect: &#39;/404&#39; &#125;</code></p>
 <h3 id="User-Preference"><a href="#User-Preference" class="headerlink" title="User Preference"></a>User Preference</h3><p>node 层提供两个 api，一个 get，一个 set</p>
 <pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// user-preference.js</span>
 <span class="token keyword">const</span> preferenceRouter <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Router</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-preferenceRouter<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">"/api/preference/"</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-  <span class="token keyword">try</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-    <span class="token keyword">const</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-      user<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> Corpid <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">=</span> ctx<span class="token punctuation">.</span>req<span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>Corpid<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+preferenceRouter<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">"/api/preference/"</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span>
+      user<span class="token punctuation">:</span> <span class="token punctuation">{</span> Corpid <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span> <span class="token operator">=</span> ctx<span class="token punctuation">.</span>req<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>Corpid<span class="token punctuation">)</span> <span class="token punctuation">{</span>
       <span class="token keyword">const</span> res <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">getUserPreference</span><span class="token punctuation">(</span>Corpid<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      ctx<span class="token punctuation">.</span>body <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> userPreference<span class="token punctuation">:</span> res <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+      ctx<span class="token punctuation">.</span>body <span class="token operator">=</span> <span class="token punctuation">{</span> userPreference<span class="token punctuation">:</span> res <span class="token punctuation">}</span><span class="token punctuation">;</span>
       <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">error</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">error</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-preferenceRouter<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">"/api/preference/"</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-  <span class="token keyword">try</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-    <span class="token keyword">const</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-      user<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> Corpid <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">=</span> ctx<span class="token punctuation">.</span>req<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+preferenceRouter<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">"/api/preference/"</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span>
+      user<span class="token punctuation">:</span> <span class="token punctuation">{</span> Corpid <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span> <span class="token operator">=</span> ctx<span class="token punctuation">.</span>req<span class="token punctuation">;</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Corpid<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">const</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> feature<span class="token punctuation">,</span> pageName<span class="token punctuation">,</span> value <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">=</span> ctx<span class="token punctuation">.</span>request<span class="token punctuation">.</span>body<span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>Corpid <span class="token operator">&amp;&amp;</span> feature <span class="token operator">&amp;&amp;</span> value<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-      <span class="token keyword">const</span> res <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">setUserPreference</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> feature<span class="token punctuation">,</span> pageName<span class="token punctuation">,</span> value <span class="token punctuation">}</span> <span class="token operator">=</span> ctx<span class="token punctuation">.</span>request<span class="token punctuation">.</span>body<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>Corpid <span class="token operator">&amp;&amp;</span> feature <span class="token operator">&amp;&amp;</span> value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> res <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">setUserPreference</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
         user<span class="token punctuation">:</span> Corpid<span class="token punctuation">,</span>
         feature<span class="token punctuation">,</span>
         pageName<span class="token punctuation">,</span>
         value<span class="token punctuation">,</span>
-      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token keyword">if</span> <span class="token punctuation">(</span>res<span class="token punctuation">)</span> ctx<span class="token punctuation">.</span>status <span class="token operator">=</span> <span class="token number">200</span><span class="token punctuation">;</span>
       <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">error</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">error</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> preferenceRouter <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span> preferenceRouter <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
 <pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// app.js</span>
-<span class="token keyword">const</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> preferenceRouter <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"./user-preference"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> preferenceRouter <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"./user-preference"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>preferenceRouter<span class="token punctuation">.</span><span class="token function">routes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>其中 getUserPreference()和 setUserPreference() 操作 redis database，这里使用<code>ioredis</code> as redis client</p>
-<pre class=" language-js"><code class="language-js">Redis<span class="token punctuation">.</span>Command<span class="token punctuation">.</span><span class="token function">setReplyTransformer</span><span class="token punctuation">(</span><span class="token string">"hgetall"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>result<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>Array<span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-    <span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> result<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<pre class=" language-js"><code class="language-js">Redis<span class="token punctuation">.</span>Command<span class="token punctuation">.</span><span class="token function">setReplyTransformer</span><span class="token punctuation">(</span><span class="token string">"hgetall"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>result<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>Array<span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> result<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
       obj<span class="token punctuation">[</span>result<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> result<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
     <span class="token keyword">return</span> obj<span class="token punctuation">;</span>
-  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
   <span class="token keyword">return</span> result<span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token keyword">const</span> preferenceStore <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Redis</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> preferenceStore <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Redis</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   <span class="token operator">...</span>redisConfig<span class="token punctuation">,</span>
   keyPrefix<span class="token punctuation">:</span> redisConfig<span class="token punctuation">.</span>keyPrefix <span class="token operator">+</span> <span class="token string">"preference:"</span><span class="token punctuation">,</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">getUserPreference</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-  <span class="token keyword">try</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">getUserPreference</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">try</span> <span class="token punctuation">{</span>
     <span class="token keyword">const</span> res <span class="token operator">=</span> <span class="token keyword">await</span> preferenceStore<span class="token punctuation">.</span><span class="token function">hgetall</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> res<span class="token punctuation">;</span>
-  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">e</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">throw</span> e<span class="token punctuation">;</span>
-  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">setUserPreference</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> user<span class="token punctuation">,</span> feature<span class="token punctuation">,</span> pageName<span class="token punctuation">,</span> value <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-  <span class="token keyword">try</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">setUserPreference</span><span class="token punctuation">(</span><span class="token punctuation">{</span> user<span class="token punctuation">,</span> feature<span class="token punctuation">,</span> pageName<span class="token punctuation">,</span> value <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">try</span> <span class="token punctuation">{</span>
     <span class="token keyword">const</span> res <span class="token operator">=</span> <span class="token keyword">await</span> preferenceStore<span class="token punctuation">.</span><span class="token function">hset</span><span class="token punctuation">(</span>
       user<span class="token punctuation">,</span>
-      <span class="token template-string"><span class="token string">`$&amp;#123;feature&amp;#125;_$&amp;#123;pageName&amp;#125;`</span></span><span class="token punctuation">,</span>
+      <span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>feature<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">_</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>pageName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">,</span>
       value
     <span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">e</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">throw</span> e<span class="token punctuation">;</span>
-  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> getUserPreference<span class="token punctuation">,</span> setUserPreference <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span> getUserPreference<span class="token punctuation">,</span> setUserPreference <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
 <blockquote>
 <p>1: 前端本地应该维护一个全局变量，保存所有最新的 user-preference 值。在用户第一次打开 SPA 时向 node 获取 redis 数据库值；之后前端内部 每次变动 user-preference 时 都要维护这个全局变量（localStorage），hash-url 变动时，使用该全局变量 向 node 最新 redis（生命周期 mounted &amp; unmount &amp; window.onbeforeunload）。<br>2: 更新 redis 的时间点，可以选在前端每次改动 preference 时同时改变全局变量和向 node api 更新 redis 数据库。也可以在用户销毁 SPA 时向 node 更新 redis(相比前者 不推荐，因为，用户的所有改动都放在一个 api 里传风险大；而且降低每次的传参有助于加快每次 api 请求)</p>
 </blockquote>
-<h3 id="递归-Menu"><a href="#递归-Menu" class="headerlink" title="递归 Menu"></a>递归 Menu</h3><pre class=" language-jsx"><code class="language-jsx"><span class="token keyword">const</span> SideMenu <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token entity" title="&#123;">&amp;#123;</span>
+<h3 id="递归-Menu"><a href="#递归-Menu" class="headerlink" title="递归 Menu"></a>递归 Menu</h3><pre class=" language-jsx"><code class="language-jsx"><span class="token keyword">const</span> SideMenu <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
   currentMenuLevelArray<span class="token punctuation">,</span>
   defaultOpen <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
   badgetCountObj<span class="token punctuation">,</span>
-<span class="token entity" title="&#125;">&amp;#125;</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token entity" title="&#123;">&amp;#123;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
   <span class="token keyword">return</span> <span class="token punctuation">(</span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>List</span><span class="token punctuation">></span></span>
-      <span class="token entity" title="&#123;">&amp;#123;</span>currentMenuLevelArray<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>currentMenuLevelItem<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span>
+      <span class="token punctuation">{</span>currentMenuLevelArray<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>currentMenuLevelItem<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>SideMenuItem</span>
-          <span class="token attr-name">key</span><span class="token attr-value"><span class="token punctuation">=</span>&amp;#123;currentMenuLevelItem.key&amp;#125;</span>
-          <span class="token attr-name">currentMenuLevelItem</span><span class="token attr-value"><span class="token punctuation">=</span>&amp;#123;currentMenuLevelItem&amp;#125;</span>
-          <span class="token attr-name">defaultOpen</span><span class="token attr-value"><span class="token punctuation">=</span>&amp;#123;defaultOpen&amp;#125;</span>
-          <span class="token attr-name">badgetCountObj</span><span class="token attr-value"><span class="token punctuation">=</span>&amp;#123;badgetCountObj&amp;#125;</span>
+          <span class="token attr-name">key</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>currentMenuLevelItem<span class="token punctuation">.</span>key<span class="token punctuation">}</span></span>
+          <span class="token attr-name">currentMenuLevelItem</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>currentMenuLevelItem<span class="token punctuation">}</span></span>
+          <span class="token attr-name">defaultOpen</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>defaultOpen<span class="token punctuation">}</span></span>
+          <span class="token attr-name">badgetCountObj</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>badgetCountObj<span class="token punctuation">}</span></span>
         <span class="token punctuation">/></span></span>
-      <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token entity" title="&#125;">&amp;#125;</span>
+      <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>List</span><span class="token punctuation">></span></span>
   <span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token entity" title="&#125;">&amp;#125;</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> SideMenuItem <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token entity" title="&#123;">&amp;#123;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> SideMenuItem <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
   currentMenuLevelItem<span class="token punctuation">,</span>
   defaultOpen <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
   badgetCountObj<span class="token punctuation">,</span>
-<span class="token entity" title="&#125;">&amp;#125;</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token entity" title="&#123;">&amp;#123;</span>
-  <span class="token keyword">const</span> <span class="token entity" title="&#123;">&amp;#123;</span> location <span class="token entity" title="&#125;">&amp;#125;</span> <span class="token operator">=</span> <span class="token function">useContext</span><span class="token punctuation">(</span>appContext<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> location <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">useContext</span><span class="token punctuation">(</span>appContext<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">let</span> pathnameArr <span class="token operator">=</span> location<span class="token punctuation">.</span>pathname<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  document<span class="token punctuation">.</span>title <span class="token operator">=</span> <span class="token template-string"><span class="token string">`Lighthouse - $&amp;#123;
-    pathnameArr[pathnameArr.length - 1].slice(0, 1).toUpperCase() +
-    pathnameArr[pathnameArr.length - 1].slice(1)
-  &amp;#125;`</span></span><span class="token punctuation">;</span>
+  document<span class="token punctuation">.</span>title <span class="token operator">=</span> <span class="token template-string"><span class="token string">`Lighthouse - </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>
+    pathnameArr<span class="token punctuation">[</span>pathnameArr<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span>
+    pathnameArr<span class="token punctuation">[</span>pathnameArr<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+  <span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">;</span>
 
   <span class="token keyword">const</span> classes <span class="token operator">=</span> <span class="token function">useStyles</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">const</span> <span class="token punctuation">[</span>open<span class="token punctuation">,</span> setOpen<span class="token punctuation">]</span> <span class="token operator">=</span> React<span class="token punctuation">.</span><span class="token function">useState</span><span class="token punctuation">(</span>defaultOpen<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -664,59 +664,59 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 
   <span class="token keyword">return</span> <span class="token punctuation">(</span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>React.Fragment</span><span class="token punctuation">></span></span>
-      <span class="token operator">&lt;</span>LinkenListItem
-        button
-        currentMenuLevelItem<span class="token operator">=</span><span class="token entity" title="&#123;">&amp;#123;</span>currentMenuLevelItem<span class="token entity" title="&#125;">&amp;#125;</span>
-        open<span class="token operator">=</span><span class="token entity" title="&#123;">&amp;#123;</span>open<span class="token entity" title="&#125;">&amp;#125;</span>
-        clickFn<span class="token operator">=</span><span class="token entity" title="&#123;">&amp;#123;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">setOpen</span><span class="token punctuation">(</span><span class="token operator">!</span>open<span class="token punctuation">)</span><span class="token entity" title="&#125;">&amp;#125;</span>
-      <span class="token operator">></span>
-        <span class="token entity" title="&#123;">&amp;#123;</span>currentMenuLevelItem<span class="token punctuation">.</span>icon <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>LinkenListItem</span>
+        <span class="token attr-name">button</span>
+        <span class="token attr-name">currentMenuLevelItem</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>currentMenuLevelItem<span class="token punctuation">}</span></span>
+        <span class="token attr-name">open</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>open<span class="token punctuation">}</span></span>
+        <span class="token attr-name">clickFn</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">setOpen</span><span class="token punctuation">(</span><span class="token operator">!</span>open<span class="token punctuation">)</span><span class="token punctuation">}</span></span>
+      <span class="token punctuation">></span></span>
+        <span class="token punctuation">{</span>currentMenuLevelItem<span class="token punctuation">.</span>icon <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>
           <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ListItemIcon</span><span class="token punctuation">></span></span>
-            <span class="token entity" title="&#123;">&amp;#123;</span>React<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span>currentMenuLevelItem<span class="token punctuation">.</span>icon<span class="token punctuation">)</span><span class="token entity" title="&#125;">&amp;#125;</span>
+            <span class="token punctuation">{</span>React<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span>currentMenuLevelItem<span class="token punctuation">.</span>icon<span class="token punctuation">)</span><span class="token punctuation">}</span>
           <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ListItemIcon</span><span class="token punctuation">></span></span>
-        <span class="token punctuation">)</span><span class="token entity" title="&#125;">&amp;#125;</span>
+        <span class="token punctuation">)</span><span class="token punctuation">}</span>
         <span class="token operator">&lt;</span>Badge
-          badgeContent<span class="token operator">=</span><span class="token entity" title="&#123;">&amp;#123;</span>badgetCountObj<span class="token punctuation">[</span>currentMenuLevelItem<span class="token punctuation">.</span>key<span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token number">0</span><span class="token entity" title="&#125;">&amp;#125;</span>
+          badgeContent<span class="token operator">=</span><span class="token punctuation">{</span>badgetCountObj<span class="token punctuation">[</span>currentMenuLevelItem<span class="token punctuation">.</span>key<span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token number">0</span><span class="token punctuation">}</span>
           color<span class="token operator">=</span><span class="token string">"primary"</span>
-          max<span class="token operator">=</span><span class="token entity" title="&#123;">&amp;#123;</span><span class="token number">999</span><span class="token entity" title="&#125;">&amp;#125;</span>
-          <span class="token comment" spellcheck="true">// anchorOrigin=&amp;#123;&amp;#123;</span>
+          max<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">999</span><span class="token punctuation">}</span>
+          <span class="token comment" spellcheck="true">// anchorOrigin={{</span>
           <span class="token comment" spellcheck="true">//   horizontal: 'left',</span>
           <span class="token comment" spellcheck="true">//   vertical: 'top',</span>
-          <span class="token comment" spellcheck="true">// &amp;#125;&amp;#125;</span>
+          <span class="token comment" spellcheck="true">// }}</span>
         <span class="token operator">></span>
-          <span class="token operator">&lt;</span>ListItemText
-            primary<span class="token operator">=</span><span class="token entity" title="&#123;">&amp;#123;</span>currentMenuLevelItem<span class="token punctuation">.</span>title<span class="token entity" title="&#125;">&amp;#125;</span>
-            className<span class="token operator">=</span><span class="token entity" title="&#123;">&amp;#123;</span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ListItemText</span>
+            <span class="token attr-name">primary</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>currentMenuLevelItem<span class="token punctuation">.</span>title<span class="token punctuation">}</span></span>
+            <span class="token attr-name">className</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>
               currentMenuLevelItem<span class="token punctuation">.</span>key <span class="token operator">===</span> location<span class="token punctuation">.</span>pathname
                 <span class="token operator">?</span> classes<span class="token punctuation">.</span>primaryColor
                 <span class="token punctuation">:</span> <span class="token keyword">null</span>
-            <span class="token entity" title="&#125;">&amp;#125;</span>
-          <span class="token operator">/</span><span class="token operator">></span>
+            <span class="token punctuation">}</span></span>
+          <span class="token punctuation">/></span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Badge</span><span class="token punctuation">></span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>LinkenListItem</span><span class="token punctuation">></span></span>
-      <span class="token entity" title="&#123;">&amp;#123;</span>currentMenuLevelItem<span class="token punctuation">.</span>children <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>
+      <span class="token punctuation">{</span>currentMenuLevelItem<span class="token punctuation">.</span>children <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Collapse</span>
-          <span class="token attr-name">in</span><span class="token attr-value"><span class="token punctuation">=</span>&amp;#123;open&amp;#125;</span>
+          <span class="token attr-name">in</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>open<span class="token punctuation">}</span></span>
           <span class="token attr-name">timeout</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>auto<span class="token punctuation">"</span></span>
           <span class="token attr-name">unmountOnExit</span>
-          <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span>&amp;#123;classes.nested&amp;#125;</span>
+          <span class="token attr-name">className</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>classes<span class="token punctuation">.</span>nested<span class="token punctuation">}</span></span>
         <span class="token punctuation">></span></span>
           <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>SideMenu</span>
-            <span class="token attr-name">currentMenuLevelArray</span><span class="token attr-value"><span class="token punctuation">=</span>&amp;#123;currentMenuLevelItem.children&amp;#125;</span>
-            <span class="token attr-name">badgetCountObj</span><span class="token attr-value"><span class="token punctuation">=</span>&amp;#123;badgetCountObj&amp;#125;</span>
+            <span class="token attr-name">currentMenuLevelArray</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>currentMenuLevelItem<span class="token punctuation">.</span>children<span class="token punctuation">}</span></span>
+            <span class="token attr-name">badgetCountObj</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>badgetCountObj<span class="token punctuation">}</span></span>
           <span class="token punctuation">/></span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Collapse</span><span class="token punctuation">></span></span>
-      <span class="token punctuation">)</span><span class="token entity" title="&#125;">&amp;#125;</span>
+      <span class="token punctuation">)</span><span class="token punctuation">}</span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>React.Fragment</span><span class="token punctuation">></span></span>
   <span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token entity" title="&#125;">&amp;#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h3><p>涉及到 ip 范围(掩码)的 validation，如 10.23.0.0/20 代表前 20 位固定，后 14 位不限，所以前面的 ip 格式需满足在二进制中后 14 位为 0；<br>AND 位运算 取整，<code>&gt;&gt;&gt; 0</code>去符号(右移 0)</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> ipInt <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"ip-to-int"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> <span class="token punctuation">[</span>rawIp<span class="token punctuation">,</span> bit <span class="token operator">=</span> <span class="token number">32</span><span class="token punctuation">]</span> <span class="token operator">=</span> rawNetwork<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> RawIntIp <span class="token operator">=</span> <span class="token function">ipInt</span><span class="token punctuation">(</span>rawIp<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> strictIp <span class="token operator">=</span> <span class="token function">ipInt</span><span class="token punctuation">(</span>
-  <span class="token template-string"><span class="token string">`$&amp;#123;(RawIntIp &amp; (2 ** 32 - 2 ** (32 - bit))) >>> 0&amp;#125;`</span></span>
+  <span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token punctuation">(</span>RawIntIp <span class="token operator">&amp;</span> <span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">**</span> <span class="token number">32</span> <span class="token operator">-</span> <span class="token number">2</span> <span class="token operator">**</span> <span class="token punctuation">(</span><span class="token number">32</span> <span class="token operator">-</span> bit<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">></span><span class="token operator">></span><span class="token operator">></span> <span class="token number">0</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span>
 <span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toIP</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span>strictIp<span class="token punctuation">,</span> bit<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 </code></pre>
@@ -1461,7 +1461,7 @@ INT
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">183.2k</span>
+            <span class="white-color">180.2k</span>
             
 
             <br>

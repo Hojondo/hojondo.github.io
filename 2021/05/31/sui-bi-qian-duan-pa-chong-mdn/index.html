@@ -481,7 +481,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        922
+                        834
                     </div>
                     
 
@@ -512,61 +512,61 @@
 <blockquote>
 <p>成品展示 <a target="_blank" rel="noopener" href="http://hojondo.com/MDN_MIND_MAPPING/">http://hojondo.com/MDN_MIND_MAPPING/</a><br><em>待完善 + filter + search + nav</em></p>
 </blockquote>
-<h1 id="目标-JSON-格式"><a href="#目标-JSON-格式" class="headerlink" title="目标 JSON 格式"></a>目标 JSON 格式</h1><pre class=" language-ts"><code class="language-ts"><span class="token keyword">interface</span> <span class="token class-name">PageNode</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<h1 id="目标-JSON-格式"><a href="#目标-JSON-格式" class="headerlink" title="目标 JSON 格式"></a>目标 JSON 格式</h1><pre class=" language-ts"><code class="language-ts"><span class="token keyword">interface</span> <span class="token class-name">PageNode</span> <span class="token punctuation">{</span>
   name<span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">;</span>
   link<span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">;</span>
   childrenPage<span class="token operator">?</span><span class="token punctuation">:</span> <span class="token keyword">Array</span><span class="token operator">&lt;</span>PageNode<span class="token operator">></span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>例</p>
 <pre class=" language-json"><code class="language-json"><span class="token punctuation">[</span>
-  &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token punctuation">{</span>
     <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Standard built-in objects"</span><span class="token punctuation">,</span>
     <span class="token property">"link"</span><span class="token operator">:</span> <span class="token string">"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects"</span><span class="token punctuation">,</span>
     <span class="token property">"childrenPage"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-      &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+      <span class="token punctuation">{</span>
         <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Text processing"</span><span class="token punctuation">,</span>
         <span class="token property">"link"</span><span class="token operator">:</span> <span class="token string">"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects#text_processing"</span><span class="token punctuation">,</span>
         <span class="token property">"childrenPage"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-          &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+          <span class="token punctuation">{</span>
             <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"String"</span><span class="token punctuation">,</span>
             <span class="token property">"link"</span><span class="token operator">:</span> <span class="token string">"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String"</span><span class="token punctuation">,</span>
             <span class="token property">"childrenPage"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-              &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+              <span class="token punctuation">{</span>
                 <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Static properties"</span><span class="token punctuation">,</span>
                 <span class="token property">"link"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
                 <span class="token property">"childrenPage"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-              &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
-              &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
                 <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Static methods"</span><span class="token punctuation">,</span>
                 <span class="token property">"link"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
                 <span class="token property">"childrenPage"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-              &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
-              &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
                 <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Instance properties"</span><span class="token punctuation">,</span>
                 <span class="token property">"link"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
                 <span class="token property">"childrenPage"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-              &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
-              &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
                 <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Instance methods"</span><span class="token punctuation">,</span>
                 <span class="token property">"link"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
                 <span class="token property">"childrenPage"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-                  &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+                  <span class="token punctuation">{</span>
                     <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"match"</span><span class="token punctuation">,</span>
                     <span class="token property">"link"</span><span class="token operator">:</span> <span class="token string">"颗粒度 到 properties // 其实后续可以追加 #parameters #return #examples/特别注意用例，待定。。。"</span>
-                  &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
-                  &amp;#<span class="token number">123</span><span class="token punctuation">;</span>&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+                  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                  <span class="token punctuation">{</span><span class="token punctuation">}</span>
                 <span class="token punctuation">]</span>
-              &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+              <span class="token punctuation">}</span>
             <span class="token punctuation">]</span>
-          &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
-          &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
             <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"RegExp"</span><span class="token punctuation">,</span>
             <span class="token property">"link"</span><span class="token operator">:</span> <span class="token string">"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp"</span>
-          &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span>
         <span class="token punctuation">]</span>
-      &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
-      &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
         <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Keyed collections"</span><span class="token punctuation">,</span>
         <span class="token property">"link"</span><span class="token operator">:</span> <span class="token string">"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects#keyed_collections"</span><span class="token punctuation">,</span>
         <span class="token property">"childrenPage"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
@@ -575,15 +575,15 @@
           // WeakMap<span class="token punctuation">,</span>
           // WeakSet
         <span class="token punctuation">]</span>
-      &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
     <span class="token punctuation">]</span>
-  &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
   // https<span class="token operator">:</span>//developer.mozilla.org/en-US/docs/Web/JavaScript/Reference#statements
 <span class="token punctuation">]</span>
 </code></pre>
 <h1 id="梳理-MDN-每页的-layout-结构"><a href="#梳理-MDN-每页的-layout-结构" class="headerlink" title="梳理 MDN 每页的 layout 结构"></a>梳理 MDN 每页的 layout 结构</h1><p>root 选定 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects</a><br>结构相对统一</p>
 <h2 id="bread-crumb-length-6"><a href="#bread-crumb-length-6" class="headerlink" title="bread-crumb-length === 6"></a>bread-crumb-length === 6</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference</a><br>url 判断依据： <code>(url.match(/(?&lt;=^https\:\/\/).*/)??[&#39;&#39;])[0].split(&#39;/&#39;).length === 6</code></p>
-<pre class=" language-less"><code class="language-less">h<span class="token number">2</span> > a &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<pre class=" language-less"><code class="language-less"><span class="token selector">h2 > a</span> <span class="token punctuation">{</span>
   <span class="token comment" spellcheck="true">// 指向 bread-crumb-length === 7</span>
   <span class="token comment" spellcheck="true">/** 包括 
   Global_Objects; 
@@ -592,18 +592,18 @@
   functions; 
   additional_reference_pages
   */</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>只有 5 个 h2，而且 从该入口进的子页面 结构并不一致。<br>暂略</p>
 <h2 id="bread-crumb-length-7"><a href="#bread-crumb-length-7" class="headerlink" title="bread-crumb-length === 7"></a>bread-crumb-length === 7</h2><p>例 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects</a><br>url 判断依据： <code>(url.match(/(?&lt;=^https\:\/\/).*/)??[&#39;&#39;])[0].split(&#39;/&#39;).length === 7</code></p>
 <p>所有 h3 分类 及其 子页面</p>
-<pre class=" language-less"><code class="language-less">h<span class="token number">3</span> > a &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<pre class=" language-less"><code class="language-less"><span class="token selector">h3 > a</span> <span class="token punctuation">{</span>
   <span class="token comment" spellcheck="true">// 大分类 hash#url 例 #text_processing</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-h<span class="token number">3</span> <span class="token operator">+</span> div li > a &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">h3 + div li > a</span> <span class="token punctuation">{</span>
   <span class="token comment" spellcheck="true">// 大分类 的 子页面</span>
   <span class="token comment" spellcheck="true">// TODO: 排除 a 前面带 svg 的(要么 nonstandard 要么 deprecated)</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>映射到 nodejs _伪代码_，使用 <code>cheerio as $</code></p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> childNodes <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"h3 > a"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -616,13 +616,13 @@ h<span class="token number">3</span> <span class="token operator">+</span> div l
 </code></pre>
 <h2 id="bread-crumb-length-8"><a href="#bread-crumb-length-8" class="headerlink" title="bread-crumb-length === 8"></a>bread-crumb-length === 8</h2><p>例 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String</a></p>
 <p>url 判断依据： <code>(url.match(/(?&lt;=^https\:\/\/).*/)??[&#39;&#39;])[0]?.split(&#39;/&#39;).length === 8</code></p>
-<pre class=" language-less"><code class="language-less">h<span class="token number">2</span> > a &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<pre class=" language-less"><code class="language-less"><span class="token selector">h2 > a</span> <span class="token punctuation">{</span>
   <span class="token comment" spellcheck="true">// 大分类 hash#url, 例 #static_methods</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-h<span class="token number">2</span> <span class="token operator">+</span> div dt > a &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">h2 + div dt > a</span> <span class="token punctuation">{</span>
   <span class="token comment" spellcheck="true">// 大分类 的 子页面</span>
   <span class="token comment" spellcheck="true">// TODO: 排除 a 后面带 svg 的(要么 nonstandard 要么 deprecated)</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>映射到 nodejs _伪代码_，使用 <code>cheerio as $</code></p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> childNodes <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"h2 > a"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -646,23 +646,23 @@ h<span class="token number">2</span> <span class="token operator">+</span> div d
 <span class="token keyword">const</span> rootUrl <span class="token operator">=</span>
   <span class="token string">"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects"</span><span class="token punctuation">;</span>
 https
-  <span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>rootUrl<span class="token punctuation">,</span> <span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>rootUrl<span class="token punctuation">,</span> <span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
     <span class="token keyword">let</span> html <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
 
-    res<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">"data"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    res<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">"data"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
       html <span class="token operator">+</span><span class="token operator">=</span> data<span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    res<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">"end"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-      fs<span class="token punctuation">.</span><span class="token function">writeFile</span><span class="token punctuation">(</span><span class="token string">"creawer.txt"</span><span class="token punctuation">,</span> html<span class="token punctuation">,</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    res<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">"end"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+      fs<span class="token punctuation">.</span><span class="token function">writeFile</span><span class="token punctuation">(</span><span class="token string">"creawer.txt"</span><span class="token punctuation">,</span> html<span class="token punctuation">,</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token comment" spellcheck="true">// console.log(html);</span>
       <span class="token function">filterHtml</span><span class="token punctuation">(</span>html<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">"error"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">"error"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"crash!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment" spellcheck="true">// todo filterHtml into .json</span>
 <span class="token comment" spellcheck="true">// === 7 / 8 ?</span>
@@ -1390,7 +1390,7 @@ const s = Symbol(&#39;key用来描述这个symbol值&#39;) 这里的参数 key �
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">183.2k</span>
+            <span class="white-color">180.2k</span>
             
 
             <br>

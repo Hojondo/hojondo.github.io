@@ -475,14 +475,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        389
+                        293
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        2 分
+                        1 分
                     </div>
                     
                 
@@ -517,8 +517,8 @@
 <h2 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://codesandbox.io/s/react-dependent-form-demo-bkjn4">Demo</a></li>
 </ul>
-<h2 id="Quickstart"><a href="#Quickstart" class="headerlink" title="Quickstart"></a>Quickstart</h2><pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> useState <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">from</span> <span class="token string">"react"</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<h2 id="Quickstart"><a href="#Quickstart" class="headerlink" title="Quickstart"></a>Quickstart</h2><pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> useState <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"react"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>
   Form<span class="token punctuation">,</span>
   FieldText<span class="token punctuation">,</span>
   FieldAutoInput<span class="token punctuation">,</span>
@@ -530,48 +530,48 @@
   FieldCheckbox<span class="token punctuation">,</span>
   FormResetBtn<span class="token punctuation">,</span>
   FormSubmitBtn<span class="token punctuation">,</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">from</span> <span class="token string">"react-dependent-form"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"react-dependent-form"</span><span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> Get_Options_by_Input <span class="token operator">=</span> <span class="token punctuation">(</span>targetField<span class="token punctuation">,</span> InputValue<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span>
-  axios<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">"xxxx"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> params<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> targetField<span class="token punctuation">,</span> InputValue <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  axios<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">"xxxx"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> params<span class="token punctuation">:</span> <span class="token punctuation">{</span> targetField<span class="token punctuation">,</span> InputValue <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> mockOption <span class="token operator">=</span> <span class="token punctuation">[</span>
-  <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> value<span class="token punctuation">:</span> <span class="token string">"1"</span><span class="token punctuation">,</span> label<span class="token punctuation">:</span> <span class="token string">"1"</span> <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
-  <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> value<span class="token punctuation">:</span> <span class="token string">"2"</span><span class="token punctuation">,</span> label<span class="token punctuation">:</span> <span class="token string">"2"</span> <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> value<span class="token punctuation">:</span> <span class="token string">"1"</span><span class="token punctuation">,</span> label<span class="token punctuation">:</span> <span class="token string">"1"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> value<span class="token punctuation">:</span> <span class="token string">"2"</span><span class="token punctuation">,</span> label<span class="token punctuation">:</span> <span class="token string">"2"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
 <span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-  <span class="token keyword">const</span> <span class="token punctuation">[</span>formValues<span class="token punctuation">,</span> setformValues<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>formValues<span class="token punctuation">,</span> setformValues<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">return</span> <span class="token punctuation">(</span>
     <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"App"</span><span class="token operator">></span>
       <span class="token operator">&lt;</span>Form
-        onSubmit<span class="token operator">=</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token punctuation">(</span>vals<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        onSubmit<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>vals<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
           <span class="token function">setformValues</span><span class="token punctuation">(</span>vals<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">}</span>
       <span class="token operator">></span>
         <span class="token operator">&lt;</span>FieldText
           name<span class="token operator">=</span><span class="token string">"input"</span>
           label<span class="token operator">=</span><span class="token string">"Field Text"</span>
           tips<span class="token operator">=</span><span class="token string">"tips"</span>
-          <span class="token comment" spellcheck="true">//   clearFieldsOnChange=&amp;#123;["autoInput"]&amp;#125; optional</span>
+          <span class="token comment" spellcheck="true">//   clearFieldsOnChange={["autoInput"]} optional</span>
         <span class="token operator">/</span><span class="token operator">></span>
         <span class="token operator">&lt;</span>FieldAutoInput
           name<span class="token operator">=</span><span class="token string">"autoInput"</span>
           label<span class="token operator">=</span><span class="token string">"AutoInput"</span>
-          optionsData<span class="token operator">=</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token keyword">async</span> <span class="token punctuation">(</span>record<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+          optionsData<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">async</span> <span class="token punctuation">(</span>record<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
             <span class="token keyword">const</span> res <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">Get_Options_by_Input</span><span class="token punctuation">(</span><span class="token string">"autoInput"</span><span class="token punctuation">,</span> record<span class="token punctuation">.</span>input<span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token keyword">return</span> res<span class="token punctuation">.</span>data<span class="token punctuation">;</span>
-          <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-          dependOnFields<span class="token operator">=</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token punctuation">[</span><span class="token string">"input"</span><span class="token punctuation">]</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span><span class="token punctuation">}</span>
+          dependOnFields<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span><span class="token string">"input"</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
           tips<span class="token operator">=</span><span class="token string">"sss"</span>
         <span class="token operator">/</span><span class="token operator">></span>
         <span class="token operator">&lt;</span>FieldAutoInput
-          multiple<span class="token operator">=</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token boolean">true</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+          multiple<span class="token operator">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span>
           name<span class="token operator">=</span><span class="token string">"mul-autoInput"</span>
           label<span class="token operator">=</span><span class="token string">"Multiple AutoInput"</span>
-          optionsData<span class="token operator">=</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>mockOption<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+          optionsData<span class="token operator">=</span><span class="token punctuation">{</span>mockOption<span class="token punctuation">}</span>
           tips<span class="token operator">=</span><span class="token string">"sss"</span>
         <span class="token operator">/</span><span class="token operator">></span>
-        <span class="token operator">&lt;</span>FieldSelect name<span class="token operator">=</span><span class="token string">"select"</span> label<span class="token operator">=</span><span class="token string">"Select"</span> optionsData<span class="token operator">=</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>mockOption<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">/</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>FieldSelect name<span class="token operator">=</span><span class="token string">"select"</span> label<span class="token operator">=</span><span class="token string">"Select"</span> optionsData<span class="token operator">=</span><span class="token punctuation">{</span>mockOption<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
         <span class="token operator">&lt;</span>FieldDatePicker
           name<span class="token operator">=</span><span class="token string">"date"</span>
           label<span class="token operator">=</span><span class="token string">"Field Date Picker"</span>
@@ -588,24 +588,24 @@
           label<span class="token operator">=</span><span class="token string">"Field Date Range Picker"</span>
           tips<span class="token operator">=</span><span class="token string">"It is a tip"</span>
         <span class="token operator">/</span><span class="token operator">></span>
-        <span class="token operator">&lt;</span>FieldRadio name<span class="token operator">=</span><span class="token string">"radio"</span> label<span class="token operator">=</span><span class="token string">"Radio"</span> optionsData<span class="token operator">=</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>mockOption<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">/</span><span class="token operator">></span>
-        <span class="token operator">&lt;</span>FieldCheckbox name<span class="token operator">=</span><span class="token string">"checkbox"</span> label<span class="token operator">=</span><span class="token string">"Check This"</span> defaultValue<span class="token operator">=</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token boolean">true</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">/</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>FieldRadio name<span class="token operator">=</span><span class="token string">"radio"</span> label<span class="token operator">=</span><span class="token string">"Radio"</span> optionsData<span class="token operator">=</span><span class="token punctuation">{</span>mockOption<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>FieldCheckbox name<span class="token operator">=</span><span class="token string">"checkbox"</span> label<span class="token operator">=</span><span class="token string">"Check This"</span> defaultValue<span class="token operator">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
         <span class="token operator">&lt;</span>div<span class="token operator">></span>
           <span class="token operator">&lt;</span>FormSubmitBtn<span class="token operator">></span>custom<span class="token operator">-</span>submit<span class="token operator">-</span>content<span class="token operator">&lt;</span><span class="token operator">/</span>FormSubmitBtn<span class="token operator">></span>
           <span class="token operator">&lt;</span>FormResetBtn
-            resetCallBack<span class="token operator">=</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            resetCallBack<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
               console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"trigger reset callback"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">}</span>
           <span class="token operator">/</span><span class="token operator">></span>
         <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
       <span class="token operator">&lt;</span><span class="token operator">/</span>Form<span class="token operator">></span>
-      <span class="token operator">&lt;</span>div style<span class="token operator">=</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> marginTop<span class="token punctuation">:</span> <span class="token string">"5rem"</span> <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span>div style<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span> marginTop<span class="token punctuation">:</span> <span class="token string">"5rem"</span> <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">></span>
         <span class="token operator">&lt;</span>h3<span class="token operator">></span>Submitted Results<span class="token punctuation">:</span> <span class="token operator">&lt;</span><span class="token operator">/</span>h3<span class="token operator">></span>
-        <span class="token operator">&lt;</span>pre<span class="token operator">></span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>formValues<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">replaceAll</span><span class="token punctuation">(</span><span class="token string">","</span><span class="token punctuation">,</span> <span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&lt;</span><span class="token operator">/</span>pre<span class="token operator">></span>
+        <span class="token operator">&lt;</span>pre<span class="token operator">></span><span class="token punctuation">{</span>JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>formValues<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">replaceAll</span><span class="token punctuation">(</span><span class="token string">","</span><span class="token punctuation">,</span> <span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>pre<span class="token operator">></span>
       <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
     <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
   <span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
 <span class="token keyword">export</span> <span class="token keyword">default</span> App<span class="token punctuation">;</span>
 </code></pre>
@@ -1341,7 +1341,7 @@ CD 持续部署（C
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">183.2k</span>
+            <span class="white-color">180.2k</span>
             
 
             <br>
