@@ -738,15 +738,15 @@ $ <span class="token function">git</span> <span class="token function">rm</span>
 <span class="token comment" spellcheck="true"># 改名文件，并且将这个改名放入暂存区</span>
 $ <span class="token function">git</span> <span class="token function">mv</span> <span class="token punctuation">[</span>file-original<span class="token punctuation">]</span> <span class="token punctuation">[</span>file-renamed<span class="token punctuation">]</span>
 </code></pre>
-<h4 id="commit"><a href="#commit" class="headerlink" title="commit"></a><code>commit</code></h4><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#提交单个文件</span>
+<h4 id="commit"><a href="#commit" class="headerlink" title="commit"></a><code>commit</code></h4><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 提交单个文件</span>
 $ <span class="token function">git</span> commit  <span class="token punctuation">[</span>file<span class="token punctuation">]</span>
-<span class="token comment" spellcheck="true">#提交暂存区的文件到仓库区</span>
+<span class="token comment" spellcheck="true"># 提交暂存区的文件到仓库区</span>
 $ <span class="token function">git</span> commit –m “description”
 <span class="token comment" spellcheck="true"># 提交工作区自上次commit之后的变化，直接到仓库区，等同执行git add、 git rm及git commit</span>
 $ <span class="token function">git</span> commit -a
 $ <span class="token function">git</span> commit -am <span class="token string">"some comments"</span>
 <span class="token comment" spellcheck="true"># 撤销最后一次提交记录，重新提交；如果代码没有任何新变化，则用来改写上一次commit的提交信息</span>
-$ <span class="token function">git</span> commit --amend
+$ <span class="token function">git</span> commit --amend <span class="token string">'msg'</span>
 </code></pre>
 <h4 id="reset"><a href="#reset" class="headerlink" title="reset"></a><code>reset</code></h4><p>重置 HEAD(当前分支的版本顶端）到另外一个 commit。<br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/0e1fe709dd97">reset 和 revert 的区别详解</a><br>其实就是<code>--soft</code> 、<code>--mixed</code> 以及<code>--hard</code> 是三个恢复等级。</p>
 <ol>
@@ -1580,7 +1580,7 @@ Cron 表达式csdc 链接[简书 链接]https://www.jianshu.com/p/9ddb40797685
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">182.8k</span>
+            <span class="white-color">190.7k</span>
             
 
             <br>
